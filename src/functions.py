@@ -30,3 +30,25 @@ def KBF_function(x, eps=1e-8):
 
     return f
 
+def Rosenbrock_function(x):
+    """
+    Function implements the Rosenbrock function for a given input vector x of shape n x 1.
+    Used for testing optimisation algorithms.
+
+    Args:
+        x (np.ndarray): Input vector of shape n x 1.
+
+    Returns:
+        f (float): Function value at x.
+    """
+
+    # Get the number of dimensions
+    n = x.shape[0]
+
+    # Compute the function value
+    f = 0
+    for i in range(n-1):
+        f += 100*(x[i+1] - x[i]**2)**2 + (1 - x[i])**2
+
+    return f 
+

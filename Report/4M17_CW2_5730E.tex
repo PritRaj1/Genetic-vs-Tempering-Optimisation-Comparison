@@ -11,10 +11,6 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage[style=numeric]{biblatex}
-\usepackage{lipsum}
-\addbibresource{refs.bib}
-
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -96,13 +92,22 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 
 \begin{itemize}
     \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation \ref{eq:KBF_cost}. Otherwise, the function is continuous and differentiable everywhere.
-    \item The function is highly multi-modal. Its global maximum is located at the constaint boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region.
-    \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in \ref{eq:KBF_cost}, which primarily involves the the squares of individual input variables, $x_i^2$. This results some invariance reagrding the order of the input variables.
+    \item The function is highly multi-modal. Its global maximum is located at the constaint boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region, all of which have quite similar amplitudes.
+    \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in \ref{eq:KBF_cost}, which primarily involves the the squares of individual input variables, $x_i^2$. This results some invariance reagrding the order of the input variables. Overall, the peaks consistently manifest in pairs, yet there is a notable pattern wherein one peak always surpasses its counterpart in magnitude.
 \end{itemize}
+
+Given the above properties, the KBF is a challenging function to optimise. The presence of multiple, similar-amplitude local maxima makes it difficult for the optimisation algorithm to converge to the global maximum. On the other hand, all control variables share the same nature, (continuous variables), and exhibit identical scales. Additionally, all constraints are of the inequality type, and the feasible space is non-disjoint.
+
+These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work \cite{ELBELTAGY1999639}.
+
+\subsection{Continuous Genetic Algorithm}
+
 \end{multicols}
 
 \section{Methodology}
 \section{Results}
 \section{Discussion}
 \section{Conclusion}
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{refs} % Entries are in the refs.bib file
 \end{document}
