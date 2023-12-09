@@ -7,4 +7,28 @@ M.A. El-Beltagy and A.J. Keane.
 \newblock {\em Engineering Applications of Artificial Intelligence},
   12(5):639--654, 1999.
 
+\bibitem{PGA}
+Randy~L. Haupt, S.~E. Haupt, and Randy~L. Haupt.
+\newblock {\em The Continuous Genetic Algorithm}, chapter~3, pages 51--66.
+\newblock John Wiley \& Sons, Ltd, 2003.
+
+\bibitem{10.1007/BFb0029787}
+Frank Hoffmeister and Thomas B{\"a}ck.
+\newblock Genetic algorithms and evolution strategies: Similarities and
+  differences.
+\newblock In Hans-Paul Schwefel and Reinhard M{\"a}nner, editors, {\em Parallel
+  Problem Solving from Nature}, pages 455--469, Berlin, Heidelberg, 1991.
+  Springer Berlin Heidelberg.
+
+\bibitem{parks2023geneticalgorithms}
+Geoff Parks.
+\newblock Genetic algorithms: Lecture notes.
+\newblock Cambridge University, 4M17 Practical Optimisation Module, 2023.
+\newblock Unpublished.
+
+\bibitem{salimans2017evolution}
+Tim Salimans, Jonathan Ho, Xi~Chen, Szymon Sidor, and Ilya Sutskever.
+\newblock Evolution strategies as a scalable alternative to reinforcement
+  learning, 2017.
+
 \end{thebibliography}
