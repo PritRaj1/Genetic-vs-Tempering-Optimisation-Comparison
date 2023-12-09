@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[style=numeric]{biblatex}
+\usepackage{lipsum}
 \addbibresource{refs.bib}
 
 \usepackage{multirow}
@@ -58,13 +59,30 @@ This report conducts a comparative analysis of two optimisation algorithms appli
 
 \section{Introduction}
 \subsection{Keane's Bump Function}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF_function_surf.png}
+        \caption{Surface plot.}
+        \label{fig:KBF_surf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF_function_contour.png}
+        \caption{Contour plot.}
+        \label{fig:KBF_contour}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{The two-dimensional visualisation of the Keane's Bump Function, (KBF).}
+    \label{fig:KBF_2D}
+\end{figure}
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
 
 \begin{equation}
     f(\mathbf{x}) = \left| \frac{\sum_{i=1}^{n} (\cos(x_i))^4 - 2\prod_{i=1}^{n} (\cos(x_i))^2}{\sqrt{\sum_{i=1}^{n} i \cdot x_i^2}} \right| \\\vspace{1cm}
     \label{eq:KBF_cost}
 \end{equation}
-
 \begin{equation}
     \begin{aligned}
         \text{subject to} \quad & 0 \leq x_i \leq 10 \quad \forall i \in \{1, \dots, n\} \\
@@ -74,25 +92,13 @@ To compare the performances of the two algorithms, the Keane's Bump Function, (K
     \label{eq:KBF_constraints}
 \end{equation}
 
-The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF_2D}.
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF_function_surf.png}
-        \caption{Surface plot.}
-        \label{fig:KBF_surf}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF_function_contour.png}
-        \caption{Contour plot.}
-        \label{fig:KBF_contour}
-    \end{subfigure}
-    \captionsetup{justification=centering}
-    \caption{The two-dimensional form of the Keane's Bump Function, (KBF).}
-    \label{fig:KBF_2D}
-\end{figure}
+The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF_2D}. Some notable properties are as follows:
+
+\begin{itemize}
+    \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation \ref{eq:KBF_cost}. Otherwise, the function is continuous and differentiable everywhere.
+    \item The function is highly multi-modal. Its global maximum is located at the constaint boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region.
+    \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in \ref{eq:KBF_cost}, which primarily involves the the squares of individual input variables, $x_i^2$. This results some invariance reagrding the order of the input variables.
+\end{itemize}
 \end{multicols}
 
 \section{Methodology}
