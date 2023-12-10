@@ -27,7 +27,7 @@ def plot_2D(X1, X2, f, name, x_range=(0,10)):
     plt.title(f'{name} Contour Plot')
     cbar = plt.colorbar()
     cbar.set_label(r'$f(x_1, x_2)$')
-    plt.savefig(f'figures/{name}_contour.png')
+    plt.savefig(f'figures/{name}/{name}_contour.png')
 
     # Plot 3D surface
     fig = plt.figure()
@@ -39,7 +39,7 @@ def plot_2D(X1, X2, f, name, x_range=(0,10)):
     ax.set_zlabel(r'$f(x_1, x_2)$', rotation=90)
     ax.set_title(f'{name} 3D Plot')
     ax.view_init(elev=20, azim=30)  # Set the view angle
-    plt.savefig(f'figures/{name}_surf.png')
+    plt.savefig(f'figures/{name}/{name}_surf.png')
 
 def plot_population(X1, X2, f, population, plot, best=None, range=(0,10)):
     """
@@ -98,9 +98,15 @@ def plot_fitness(avg_fitness, min_fitness, type):
     plt.xlabel('Iteration')
     plt.ylabel(r'Fitness = $-f(x_1, x_2)$')
 
-    plt.title("Evolution of Fitness to " + type[0] + " Function, \n" + r"[Selection: \textbf{" + type[1] + r"}, Mating: \textbf{" + type[2] +  "}]", fontsize=12)
+    plt.title("Evolution of Fitness to " + type[0] + " Function, \n" 
+              + r"[Selection: \textbf{" + type[1] 
+              + r"}, Mating: \textbf{" + type[2] 
+              +  r"}, Mutation Rate: \textbf{" + str(type[3])
+                + r"}, Crossover Rate: \textbf{" + str(type[4])
+                + r"}]", fontsize=18)
+    
     plt.legend()
-    plt.savefig(f'figures/{type[0]}_{type[1]}_{type[2]}_Fitness.png')
+    plt.savefig(f'figures/{type[0]}/{type[1]}/{type[2]}/{type[3]}_{type[4]}_Fitness.png')
 
 
 

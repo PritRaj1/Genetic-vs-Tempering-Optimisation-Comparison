@@ -113,8 +113,8 @@ class ContinousGeneticAlgorithm():
         """
         Evolve population for one generation.
         """
-        self.evaluate_fitness() 
         offspring = self.mate()
         self.population = offspring
         self.mutate()
-        
+        self.evaluate_fitness() 
+    
