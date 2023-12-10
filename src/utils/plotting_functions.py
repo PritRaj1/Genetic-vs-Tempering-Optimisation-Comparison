@@ -103,7 +103,7 @@ def plot_fitness(avg_fitness, min_fitness, type):
               + r"}, Mating: \textbf{" + type[2] 
               +  r"}, Mutation Rate: \textbf{" + str(type[3])
                 + r"}, Crossover Rate: \textbf{" + str(type[4])
-                + r"}]", fontsize=18)
+                + r"}]", fontsize=12)
     
     plt.legend()
     plt.savefig(f'figures/{type[0]}/{type[1]}/{type[2]}/{type[3]}_{type[4]}_Fitness.png')

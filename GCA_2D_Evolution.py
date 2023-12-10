@@ -1,3 +1,12 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This script is used to visualise the evolution of the population of the CGA algorithm
+    on a 2D Keane's Bump Function. The population is overlayed on a contour plot of the function.
+    The evolution of the average and minimum fitness of the population is also plotted.
+"""
+
 import sys; sys.path.append('..')
 from src.utils.helper_functions import evaluate_2D, create_figure_directories
 from src.utils.plotting_functions import plot_2D, plot_grey_contour, plot_population, plot_fitness
@@ -16,20 +25,20 @@ CHROMOSOME_LENGTH = 2
 MUTATION_RATE = 0.01 # 0.01, 0.05
 CROSSOVER_RATE = 0.7 # 0.7, 0.9
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
-MATING_PROCEDURE = ['Crossover', 'Blending']
+MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
 NUM_ITERS = 10
 
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 
 # Create directories for figures
-create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE)
+create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST)
 
 # 2D Visualisation
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
 plot_2D(X1, X2, f, name=NAME, x_range=X_RANGE)
 
 for SELECTION_METHOD in SELECTION_METHOD_LIST:
-    for MATING_PROCEDURE in MATING_PROCEDURE:
+    for MATING_PROCEDURE in MATING_PROCEDURE_LIST:
         for MUTATION_RATE in [0.01, 0.05]:
             for CROSSOVER_RATE in [0.7, 0.9]:
 
