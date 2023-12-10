@@ -33,21 +33,21 @@ class ContinousGeneticAlgorithm():
         self.func = objective_function # Objective function to optimise
 
         # Dictionaries to map string to function call. Function imported from directory files
-        selection_mapping = {'proportional': proportional_selection, 
-                            'tournament': tournament_selection, 
+        selection_mapping = {'Proportional': proportional_selection, 
+                            'Tournament': tournament_selection, 
                             'SRS': SRS_selection # SRS = Stochastic Remainder Selection without Replacement
                             } 
         
-        mating_mapping = {'crossover': crossover,
-                          'blending': blending 
+        mating_mapping = {'Crossover': crossover,
+                          'Blending': blending 
                           }
 
-        if selection_method not in ['proportional', 'tournament', 'SRS']:
+        if selection_method not in ['Proportional', 'Tournament', 'SRS']:
             raise ValueError("Invalid selection method")
         else:
             self.selection_process = selection_mapping[selection_method]
 
-        if mating_procedure not in ['crossover', 'blending']:
+        if mating_procedure not in ['Crossover', 'Blending']:
             raise ValueError("Invalid mating procedure")
         else:
             self.mating_process = mating_mapping[mating_procedure]

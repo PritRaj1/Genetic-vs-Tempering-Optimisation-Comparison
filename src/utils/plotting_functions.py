@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import rc
+import seaborn as sns
 
 # Set LaTeX font
 rc('font', **{'family': 'serif', 'serif': ['Computer Modern']}, size=14)
@@ -81,7 +82,7 @@ def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
     plot.set_xlim(x_range)
     plot.set_ylim(x_range)
 
-def plot_fitness(avg_fitness, min_fitness, name):
+def plot_fitness(avg_fitness, min_fitness, name, type):
     """
     Function for plotting the evolution of the average and minimum fitness of a population.
 
@@ -91,11 +92,13 @@ def plot_fitness(avg_fitness, min_fitness, name):
     - name (str): Name of function.
     """
     plt.figure()
+    sns.set_style('darkgrid')
     plt.plot(avg_fitness, label='Average Fitness')
-    plt.plot(min_fitness, label='Minimum Fitness')
+    # plt.plot(min_fitness, label='Minimum Fitness')
     plt.xlabel('Iteration')
-    plt.ylabel('Fitness')
-    plt.title(f'Evolution of Fitness, {name}')
+    plt.ylabel(r'Fitness = $-f(x_1, x_2)$')
+
+    plt.title("Evolution of Fitness to " + name + " Function, \n" + r"[Selection: \textbf{" + type[0] + r"}, Mating: \textbf{" + type[1] +  "}]", fontsize=12)
     plt.legend()
     plt.savefig(f'figures/{name}_fitness.png')
 
