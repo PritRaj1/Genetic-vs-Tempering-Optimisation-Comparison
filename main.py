@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 X_RANGE=(0,10)
-FUNCTION = KBF_function
+FUNCTION = Rosenbrock_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
 MUTATION_RATE = 0.05
@@ -76,6 +76,6 @@ plt.tight_layout()
 plt.savefig(f'figures/{NAME}.png')
 
 # Plot fitness evolution
-plot_fitness(avg_fitness, min_fitness, name='NAME', type=(SELECTION_METHOD, MATING_PROCEDURE))
+plot_fitness(avg_fitness, min_fitness, name=NAME, type=(SELECTION_METHOD, MATING_PROCEDURE))
 
 
