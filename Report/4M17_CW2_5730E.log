@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  9 DEC 2023 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  10 DEC 2023 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,45 +568,45 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../figures/KBF_function_surf.png, id=40, 462.528pt x 346.896pt>
-File: ../figures/KBF_function_surf.png Graphic file (type png)
-<use ../figures/KBF_function_surf.png>
-Package pdftex.def Info: ../figures/KBF_function_surf.png  used on input line 60.
+<../figures/KBF_surf.png, id=40, 462.528pt x 346.896pt>
+File: ../figures/KBF_surf.png Graphic file (type png)
+<use ../figures/KBF_surf.png>
+Package pdftex.def Info: ../figures/KBF_surf.png  used on input line 58.
 (pdftex.def)             Requested size: 230.18253pt x 172.63771pt.
-<../figures/KBF_function_contour.png, id=42, 462.528pt x 346.896pt>
-File: ../figures/KBF_function_contour.png Graphic file (type png)
-<use ../figures/KBF_function_contour.png>
-Package pdftex.def Info: ../figures/KBF_function_contour.png  used on input line 66.
+<../figures/KBF_contour.png, id=42, 462.528pt x 346.896pt>
+File: ../figures/KBF_contour.png Graphic file (type png)
+<use ../figures/KBF_contour.png>
+Package pdftex.def Info: ../figures/KBF_contour.png  used on input line 64.
 (pdftex.def)             Requested size: 230.18253pt x 172.63771pt.
-LaTeX Font Info:    Trying to load font information for TS1+bch on input line 92.
+LaTeX Font Info:    Trying to load font information for TS1+bch on input line 94.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF_function_surf.png> <../figures/KBF_function_contour.png>] (./4M17_CW2_5730E.bbl [2])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF_surf.png> <../figures/KBF_contour.png>] (./4M17_CW2_5730E.bbl [2])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 127.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 127.
  (./4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 127.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 127.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
 (rerunfilecheck)             Checksum: 5B463D3BA57FB07C8E63F65D42D0C1D0;488.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 127.
  ) 
 Here is how much of TeX's memory you used:
  11468 strings out of 481239
- 170243 string characters out of 5920377
- 455187 words of memory out of 5000000
+ 170135 string characters out of 5920377
+ 460157 words of memory out of 5000000
  26480 multiletter control sequences out of 15000+600000
  557057 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,9n,46p,1023b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,9n,46p,1023b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 4M17_CW2_5730E.pdf (3 pages, 220417 bytes).
+Output written on 4M17_CW2_5730E.pdf (3 pages, 220209 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+ 131 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  22 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 4M17_CW2_5730E"] 1702147030 "4M17_CW2_5730E.aux" "4M17_CW2_5730E.bbl" "4M17_CW2_5730E" 1702147031
-  "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "4M17_CW2_5730E.aux" 1702147031 2719 3631adba9ec43b46eb1ac51b5c26037c "pdflatex"
-  "refs.bib" 1702147030 3734 fb45033600ddbeacb58f4bcd35e1c0ee ""
+["bibtex 4M17_CW2_5730E"] 1702227876 "4M17_CW2_5730E.aux" "4M17_CW2_5730E.bbl" "4M17_CW2_5730E" 1702227876
+  "4M17_CW2_5730E.aux" 1702227876 2882 97926b98fb651ae9c4041add33f2aac0 "pdflatex"
+  "inbook.bst" 0 -1 0 ""
+  "refs.bib" 1702227875 3768 57c5e2f4ebe76d45005b7515ef53e6cf ""
   (generated)
-  "4M17_CW2_5730E.blg"
   "4M17_CW2_5730E.bbl"
-["pdflatex"] 1702147030 "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf" "4M17_CW2_5730E" 1702147031
+  "4M17_CW2_5730E.blg"
+["pdflatex"] 1702227876 "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf" "4M17_CW2_5730E" 1702227876
   "../figures/KBF_function_contour.png" 1702137703 47126 c819d505e54beca1ef96a787b11a9dea ""
   "../figures/KBF_function_surf.png" 1702137703 97697 b35bf04154b5c10dd07a0474e6d768b3 ""
   "/etc/texmf/web2c/texmf.cnf" 1636119352 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux" 1702147031 2719 3631adba9ec43b46eb1ac51b5c26037c ""
-  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" 1702146566 6618 27143a0ba3d94dca5965d0f6cf5ddd01 ""
+  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux" 1702227876 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" 1702227875 7321 a81f2b9e716771055ca95bba8f6b19d4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm" 1136768653 2732 006d846b4d54f9b40899c7c3eecd771a ""
@@ -138,14 +138,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1636123501 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685515051 8256356 f5ce953a699aeda97594baaceea93109 ""
-  "4M17_CW2_5730E.aux" 1702147031 2719 3631adba9ec43b46eb1ac51b5c26037c "pdflatex"
-  "4M17_CW2_5730E.bbl" 1702147030 856 d7dec09698ac7db833b21dda0c65170c "bibtex 4M17_CW2_5730E"
-  "4M17_CW2_5730E.out" 1702147031 415 4fc218d7203032be1fcace2c30c75e51 "pdflatex"
-  "4M17_CW2_5730E.tex" 1702146566 6618 27143a0ba3d94dca5965d0f6cf5ddd01 ""
+  "4M17_CW2_5730E.aux" 0 -1 0 "pdflatex"
+  "4M17_CW2_5730E.bbl" 1702227876 0 d41d8cd98f00b204e9800998ecf8427e "bibtex 4M17_CW2_5730E"
+  "4M17_CW2_5730E.out" 0 -1 0 "pdflatex"
+  "4M17_CW2_5730E.tex" 1702227875 7321 a81f2b9e716771055ca95bba8f6b19d4 ""
   (generated)
+  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf"
+  "4M17_CW2_5730E.aux"
+  "4M17_CW2_5730E.log"
+  "4M17_CW2_5730E.pdf"
   "4M17_CW2_5730E.out"
   "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.log"
-  "4M17_CW2_5730E.log"
-  "4M17_CW2_5730E.aux"
-  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf"
-  "4M17_CW2_5730E.pdf"
