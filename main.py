@@ -21,7 +21,7 @@ NUM_ITERS = 5
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
-plot_2D(X1, X2, f, name='NAME', x_range=X_RANGE)
+plot_2D(X1, X2, f, name=NAME, x_range=X_RANGE)
 
 CGA = ContinousGeneticAlgorithm(
     population_size=POPULATION_SIZE,
