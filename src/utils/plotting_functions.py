@@ -82,7 +82,7 @@ def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
     plot.set_xlim(x_range)
     plot.set_ylim(x_range)
 
-def plot_fitness(avg_fitness, min_fitness, name, type):
+def plot_fitness(avg_fitness, min_fitness, type):
     """
     Function for plotting the evolution of the average and minimum fitness of a population.
 
@@ -94,13 +94,13 @@ def plot_fitness(avg_fitness, min_fitness, name, type):
     plt.figure()
     sns.set_style('darkgrid')
     plt.plot(avg_fitness, label='Average Fitness')
-    # plt.plot(min_fitness, label='Minimum Fitness')
+    plt.plot(min_fitness, label='Minimum Fitness')
     plt.xlabel('Iteration')
     plt.ylabel(r'Fitness = $-f(x_1, x_2)$')
 
-    plt.title("Evolution of Fitness to " + name + " Function, \n" + r"[Selection: \textbf{" + type[0] + r"}, Mating: \textbf{" + type[1] +  "}]", fontsize=12)
+    plt.title("Evolution of Fitness to " + type[0] + " Function, \n" + r"[Selection: \textbf{" + type[1] + r"}, Mating: \textbf{" + type[2] +  "}]", fontsize=12)
     plt.legend()
-    plt.savefig(f'figures/{name}_fitness.png')
+    plt.savefig(f'figures/{type[0]}_{type[1]}_{type[2]}_Fitness.png')
 
 
 

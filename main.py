@@ -16,7 +16,7 @@ CHROMOSOME_LENGTH = 2
 MUTATION_RATE = 0.05
 CROSSOVER_RATE = 0.8
 SELECTION_METHOD = 'SRS' # 'Proportional', 'Tournament', 'SRS'
-MATING_PROCEDURE = 'Crossover' # 'Crossover', 'Blending'
+MATING_PROCEDURE = 'Blending' # 'Crossover', 'Blending'
 NUM_ITERS = 10
 
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
@@ -79,9 +79,9 @@ for iter in tqdm_iter:
     tqdm_iter.set_description(f"Average Fitness: {avg_fitness[iter]:.2f}, Minimum Fitness: {min_fitness[iter]:.2f}")
 
 plt.tight_layout()
-plt.savefig(f'figures/{NAME} Evolution.png')
+plt.savefig(f'figures/{NAME}_{SELECTION_METHOD}_{MATING_PROCEDURE}_Evolution.png')
 
 # Plot fitness evolution with iteration
-plot_fitness(avg_fitness, min_fitness, name=NAME, type=(SELECTION_METHOD, MATING_PROCEDURE))
+plot_fitness(avg_fitness, min_fitness, type=(NAME, SELECTION_METHOD, MATING_PROCEDURE))
 
 
