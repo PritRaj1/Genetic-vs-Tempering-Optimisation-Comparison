@@ -15,7 +15,6 @@ from src.algorithms.CGA.CGA import ContinousGeneticAlgorithm
 
 import numpy as np
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 from multiprocessing import Pool
 
 # Hyperparameters
@@ -76,10 +75,7 @@ def run_simulation(params):
     avg_fitness = np.zeros(NUM_ITERS)
     min_fitness = np.zeros(NUM_ITERS)
 
-    # tqdm bar
-    tqdm_iter = tqdm(range(NUM_ITERS))
-
-    for iter in tqdm_iter:
+    for iter in range(NUM_ITERS):
         # Overlay population on grey contour every "PLOT_EVERY" iterations
         if iter % PLOT_EVERY == 0:
             plot_num = (iter // PLOT_EVERY)
@@ -93,9 +89,6 @@ def run_simulation(params):
         # Update fitness arrays
         avg_fitness[iter] = np.mean(CGA.fitness)
         min_fitness[iter] = np.min(CGA.fitness)
-
-        # Update tqdm description
-        tqdm_iter.set_description(f"Average Fitness: {avg_fitness[iter]:.2f}, Minimum Fitness: {min_fitness[iter]:.2f}")
 
     plt.tight_layout()
     plt.savefig(f'figures/{NAME}/{str(NUM_ITERS)}_iters/{SELECTION_METHOD}/{MATING_PROCEDURE}/{MUTATION_RATE}_{CROSSOVER_RATE}_Population.png')
@@ -111,6 +104,8 @@ params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RAT
                for CROSSOVER_RATE in CROSSOVER_RATE_LIST
                for NUM_ITERS in ITERS_LIST]
 
+print('Running simulations...')
+
 # Create a pool of worker processes
 pool = Pool()
 
@@ -120,3 +115,5 @@ pool.map(run_simulation, params_list)
 # Close the pool
 pool.close()
 pool.join()
+
+print('Done!')
