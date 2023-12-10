@@ -13,9 +13,9 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
-MUTATION_RATE = 0.05
+MUTATION_RATE = 0.01
 CROSSOVER_RATE = 0.8
-SELECTION_METHOD = 'SRS' # 'Proportional', 'Tournament', 'SRS'
+SELECTION_METHOD = 'Tournament' # 'Proportional', 'Tournament', 'SRS'
 MATING_PROCEDURE = 'Blending' # 'Crossover', 'Blending'
 NUM_ITERS = 10
 
