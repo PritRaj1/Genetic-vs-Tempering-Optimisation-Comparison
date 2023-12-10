@@ -10,9 +10,8 @@ def crossover(CGA):
     # Iterate through population
     for i in range(CGA.population_size):
 
-        # Breed from the fittest 10% of individuals, the rest will go extinct
-        parent1 = CGA.parent_rankings[np.random.randint(CGA.population_size//10)]
-        parent2 = CGA.parent_rankings[np.random.randint(CGA.population_size//10)]
+        # Select parents
+        parent1, parent2 = CGA.select_parents()
 
         # Iterate through all the genes of an individual/chromosome
         for j in range(CGA.chromosome_length):
@@ -36,9 +35,8 @@ def blending(CGA):
     # Iterate through population
     for i in range(CGA.population_size):
 
-        # Breed from the fittest 10% of individuals, the rest will go extinct
-        parent1 = CGA.parent_rankings[np.random.randint(CGA.population_size//10)]
-        parent2 = CGA.parent_rankings[np.random.randint(CGA.population_size//10)]
+        # Select parents
+        parent1, parent2 = CGA.select_parents()
         
         # Iterate through all the genes of an individual/chromosome
         for j in range(CGA.chromosome_length):

@@ -42,22 +42,32 @@ def tournament_selection(GCA):
             return parent2, parent1
         
 def SRS_selection(GCA):
-        """
-        Stochastic Remainder Selection without Replacement (SRS) of parents. 
+    """
+    Stochastic Remainder Selection without Replacement (SRS) of parents. 
 
-        Args:
-        - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
+    Args:
+    - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
-        Returns:
-        - parent1 (int): Index of first parent
-        - parent2 (int): Index of second parent
-        """
+    Returns:
+    - parent1 (int): Index of first parent
+    - parent2 (int): Index of second parent
+    """
 
-        # Avoid duplicate code -- use proportional selection to select parents
-        parent1, parent2 = proportional_selection(GCA)
+    # Calculate probabilities
+    probabilities = GCA.fitness / np.sum(GCA.fitness)
 
-        # Remove selected parents from population
-        GCA.population = np.delete(GCA.population, [parent1, parent2], axis=0)
-        GCA.fitness = np.delete(GCA.fitness, [parent1, parent2], axis=0)
+    # Select the first parent based on probabilities
+    parent1 = np.random.choice(GCA.population_size, p=probabilities)
 
-        return parent1, parent2
+    # Update probabilities after selecting the first parent
+    updated_probabilities = np.delete(probabilities, parent1)
+    updated_probabilities /= np.sum(updated_probabilities)
+
+    # Select the second parent based on updated probabilities
+    parent2 = np.random.choice(GCA.population_size - 1, p=updated_probabilities)
+
+    # Adjust the index of parent2 to account for the removed element
+    parent2 = parent2 + 1 if parent2 >= parent1 else parent2
+
+    return parent1, parent2
+

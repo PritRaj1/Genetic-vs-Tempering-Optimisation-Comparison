@@ -1,7 +1,7 @@
 import numpy as np
 import sys; sys.path.append('..')
 
-# Import functions from other files
+# Import selection and mating functions from directory files
 from src.algorithms.CGA.selection_functions import proportional_selection, tournament_selection, SRS_selection
 from src.algorithms.CGA.mating_functions import crossover, blending
 
@@ -26,11 +26,12 @@ class ContinousGeneticAlgorithm():
         """
         self.population_size = population_size 
         self.chromosome_length = chromosome_length # n in R^n, dimension of the search space
+        self.func = objective_function
         self.lb = range[0] 
         self.ub = range[1] 
         self.mutation_rate = mutation_rate  
         self.crossover_rate = crossover_rate
-        self.func = objective_function # Objective function to optimise
+        
 
         # Dictionaries to map string to function call. Function imported from directory files
         selection_mapping = {'Proportional': proportional_selection, 
@@ -112,7 +113,8 @@ class ContinousGeneticAlgorithm():
         """
         Evolve population for one generation.
         """
+        self.evaluate_fitness() 
         offspring = self.mate()
         self.population = offspring
         self.mutate()
-        self.evaluate_fitness() 
+        
