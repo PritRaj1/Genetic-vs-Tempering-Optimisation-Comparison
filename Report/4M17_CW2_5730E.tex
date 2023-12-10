@@ -115,8 +115,29 @@ This adjustment marks a significant departure from conventional GAs, aligning th
 
 In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}, and a matrix of individuals will be referred to as a \textit{population}. 
 
-
 \end{multicols}
+
+\subsubsection{Visualisation}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Crossover}
+        \label{fig:CGA_flowchart_srs_crossover}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Blending/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Blending}
+        \label{fig:CGA_flowchart_srs_blending}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the population over 10 iterations using Stochastic Remainder Selection without Replacement (SRS). SRS was found to be the most effective selection method, when compared to Proportional Selection and Tournament Selection, as seen in Figures \ref{fig:CGA_flowchart_proportional} and \ref{fig:CGA_flowchart_tournament}, respectively.}
+    \label{fig:CGA_flowchart_srs}
+\end{figure}
+
 
 \section{Methodology}
 \section{Results}
@@ -124,4 +145,45 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
 \section{Conclusion}
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
+
+\section{Appendix}
+\subsection{Supplementary Figures}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Crossover/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Crossover}
+        \label{fig:CGA_flowchart_proportional_crossover}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Blending/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Blending}
+        \label{fig:CGA_flowchart_proportional_blending}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the population over 10 iterations using proportional selection. Proportional selection proved to be an effective selection method. However, it produced a larger final fitness value than SRS, and was therefore not chosen as the primary selection method.}
+    \label{fig:CGA_flowchart_proportional}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Blending}
+        \label{fig:CGA_flowchart_tournament_blending}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.01_0.9_Population.png}
+        \caption{Mutation Procedure: Crossover}
+        \label{fig:CGA_flowchart_tournament_crossover}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the population over 10 iterations using Tournament Selection. Using Tournament Selection, the algorithm was unable to converge to a solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum.}
+    \label{fig:CGA_flowchart_tournament}
+\end{figure}
+
 \end{document}
