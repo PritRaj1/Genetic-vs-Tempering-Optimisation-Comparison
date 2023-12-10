@@ -99,14 +99,14 @@ def plot_fitness(avg_fitness, min_fitness, type):
     plt.ylabel(r'Fitness = $-f(x_1, x_2)$')
 
     plt.title("Evolution of Fitness to " + type[0] + " Function, \n" 
-              + r"[Selection: \textbf{" + type[1] 
-              + r"}, Mating: \textbf{" + type[2] 
-              +  r"}, Mutation Rate: \textbf{" + str(type[3])
-                + r"}, Crossover Rate: \textbf{" + str(type[4])
+              + r"[Selection: \textbf{" + type[2] 
+              + r"}, Mating: \textbf{" + type[3] 
+              +  r"}, Mutation Rate: \textbf{" + str(type[4])
+                + r"}, Crossover Rate: \textbf{" + str(type[5])
                 + r"}]", fontsize=12)
     
     plt.legend()
-    plt.savefig(f'figures/{type[0]}/{type[1]}/{type[2]}/{type[3]}_{type[4]}_Fitness.png')
+    plt.savefig(f'figures/{type[0]}/{str(type[1])}_iters/{type[2]}/{type[3]}/{type[4]}_{type[5]}_Fitness.png')
 
 
 

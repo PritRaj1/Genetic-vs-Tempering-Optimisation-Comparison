@@ -23,23 +23,23 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
-MUTATION_RATE = 0.01 # 0.01, 0.05
-CROSSOVER_RATE = 0.7 # 0.7, 0.9
+MUTATION_RATE_LIST = [0.01, 0.05]
+CROSSOVER_RATE_LIST = [0.7, 0.9]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
-NUM_ITERS = 10
+ITERS_LIST = [10, 100]
 
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 
 # Create directories for figures
-create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST)
+create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST, ITERS_LIST)
 
 # 2D Visualisation
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
 plot_2D(X1, X2, f, name=NAME, x_range=X_RANGE)
 
 def run_simulation(params):
-    SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE = params
+    SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE, NUM_ITERS = params
 
     # Instantiate CGA
     CGA = ContinousGeneticAlgorithm(
@@ -98,17 +98,18 @@ def run_simulation(params):
         tqdm_iter.set_description(f"Average Fitness: {avg_fitness[iter]:.2f}, Minimum Fitness: {min_fitness[iter]:.2f}")
 
     plt.tight_layout()
-    plt.savefig(f'figures/{NAME}/{SELECTION_METHOD}/{MATING_PROCEDURE}/{MUTATION_RATE}_{CROSSOVER_RATE}_Population.png')
+    plt.savefig(f'figures/{NAME}/{str(NUM_ITERS)}_iters/{SELECTION_METHOD}/{MATING_PROCEDURE}/{MUTATION_RATE}_{CROSSOVER_RATE}_Population.png')
 
     # Plot fitness evolution with iteration
-    plot_fitness(avg_fitness, min_fitness, type=(NAME, SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE))
+    plot_fitness(avg_fitness, min_fitness, type=(NAME, NUM_ITERS, SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE))
 
 # Create a list of parameter combinations
-params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE)
+params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE, NUM_ITERS)
                for SELECTION_METHOD in SELECTION_METHOD_LIST
                for MATING_PROCEDURE in MATING_PROCEDURE_LIST
-               for MUTATION_RATE in [0.01, 0.05]
-               for CROSSOVER_RATE in [0.7, 0.9]]
+               for MUTATION_RATE in MUTATION_RATE_LIST
+               for CROSSOVER_RATE in CROSSOVER_RATE_LIST
+               for NUM_ITERS in ITERS_LIST]
 
 # Create a pool of worker processes
 pool = Pool()

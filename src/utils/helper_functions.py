@@ -19,7 +19,7 @@ def evaluate_2D(func, x_range=(0,10)):
         
     return X1, X2, f
 
-def create_figure_directories(name, selection_methods, mating_procedures):
+def create_figure_directories(name, selection_methods, mating_procedures, iters_list):
     """
     Function for creating directories for figures.
     """
@@ -32,12 +32,20 @@ def create_figure_directories(name, selection_methods, mating_procedures):
     if not os.path.exists(function_dir):
         os.makedirs(function_dir)
 
+    # Create directory for each number of iterations
+    for iters in iters_list:
+        iters_dir = os.path.join(function_dir, f'{iters}_iters')
+        if not os.path.exists(iters_dir):
+            os.makedirs(iters_dir)
+
     # Create directories for each selection method and mating procedure
     for selection_method in selection_methods:
-        selection_dir = os.path.join(function_dir, selection_method)
-        if not os.path.exists(selection_dir):
-            os.makedirs(selection_dir)
         for mating_procedure in mating_procedures:
-            mating_dir = os.path.join(selection_dir, mating_procedure)
-            if not os.path.exists(mating_dir):
-                os.makedirs(mating_dir)
+            for iters in iters_list:
+                selection_dir = os.path.join(function_dir, f'{str(iters)}_iters', selection_method)
+                if not os.path.exists(selection_dir):
+                    os.makedirs(selection_dir)
+
+                mating_dir = os.path.join(selection_dir, mating_procedure)
+                if not os.path.exists(mating_dir):
+                    os.makedirs(mating_dir)
