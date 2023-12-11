@@ -13,7 +13,7 @@
 \usepackage{subcaption}
 \usepackage{multirow}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage{colortbl}
 
 % Define colors for code highlighting
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -118,6 +118,40 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
 \end{multicols}
 
 \subsubsection{Choosing the Selection Method and Mutation Procedure}
+
+
+\begin{table}[H]
+    \centering
+
+    \begin{tabular}{|*{5}{c|}}
+        \hline
+        \renewcommand{\arraystretch}{1.5}
+        \multirow{2}{*}{\textbf{Selection Method}} & \multirow{2}{*}{\textbf{Mating Procedure}} & \multirow{2}{*}{\textbf{Iterations}} & \multirow{2}{*}{\textbf{Final Avg. Fitness}} & \multirow{2}{*}{\textbf{Final Min. Fitness}} \\
+        & & & & \\
+        \hline
+        \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.5638 & -0.6609 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5956 &\cellcolor{lightgray} -0.6609 \\
+        \cline{2-5}
+        & \multirow{2}{*}{Blending} & 10 & -0.5458 & -0.6559 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5356 & \cellcolor{lightgray} -0.6243 \\
+        \hline
+        \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.0203 & -0.2896 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0079 &\cellcolor{lightgray} -0.0867 \\
+        \cline{2-5}
+        & \multirow{2}{*}{Blending} & 10 & -0.0326 & -0.1305 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0720 &\cellcolor{lightgray} -0.2075 \\
+        \hline
+        \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.5671 & -0.6609 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5865 &\cellcolor{lightgray} -0.6609 \\
+        \cline{2-5}
+        & \multirow{2}{*}{Blending} & 10 & -0.5557 & -0.6536 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5355 &\cellcolor{lightgray} -0.6293 \\
+        \hline
+    \end{tabular}
+    \caption{Your Table Caption Here}
+    \label{tab:mytable}
+\end{table}
+
 
 \begin{figure}[H]
     \centering
