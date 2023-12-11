@@ -38,8 +38,8 @@ X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
 plot_2D(X1, X2, f, name=NAME)
 
 # Visualise with carved out feasible region
-X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
-plot_2D(X1, X2, f, name=NAME, constraints=True)
+X1, X2, f_feasible = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
+plot_2D(X1, X2, f_feasible, name=NAME, constraints=True)
 
 def run_simulation(params):
     SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE, NUM_ITERS = params
@@ -73,7 +73,7 @@ def run_simulation(params):
     # Plot grey contours of function on each subplot in grid
     # This will be overlayed with populations at different iterations
     for idx in range(num_plots):
-        plot_grey_contour(X1, X2, f, plot=axs[idx], x_range=X_RANGE)
+        plot_grey_contour(X1, X2, f_feasible, plot=axs[idx], x_range=X_RANGE)
 
     # Initialise arrays to store fitness values
     avg_fitness = np.zeros(NUM_ITERS)
@@ -85,7 +85,7 @@ def run_simulation(params):
             plot_num = (iter // PLOT_EVERY)
             idx = plot_num % num_plots
             axs[idx].set_title(f'Iteration: {iter}')
-            plot_population(X1, X2, f, CGA.population, plot=axs[idx], best=CGA.best_individual, range=X_RANGE)
+            plot_population(CGA.population, plot=axs[idx], best=CGA.best_individual)
 
         # Evolve population
         CGA.evolve()

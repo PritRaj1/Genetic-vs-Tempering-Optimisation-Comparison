@@ -32,6 +32,7 @@ def plot_2D(X1, X2, f, name, constraints=False):
 
     # Plot contour
     plt.figure()
+    plt.gca().set_facecolor('xkcd:light grey')
     plt.contourf(X1, X2, f, 100, cmap='jet')
     plt.xlabel(r'$x_1$')
     plt.ylabel(r'$x_2$')
@@ -52,7 +53,7 @@ def plot_2D(X1, X2, f, name, constraints=False):
     ax.view_init(elev=elevation, azim=angle)  # Set the view angle
     plt.savefig(f'figures/{name}/{name_png}_surf.png')
 
-def plot_population(X1, X2, f, population, plot, best=None, range=(0,10)):
+def plot_population(population, plot, best=None):
     """
     Function for overlaying a population from CGA on a function in R^2.
 
@@ -88,6 +89,7 @@ def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
     - name (str): Name of function.
     """
     plot.contourf(X1, X2, f, 100, cmap='gray')
+    plot.set_facecolor('xkcd:light grey')
     plot.set_xlabel(r'$x_1$')
     plot.set_ylabel(r'$x_2$')
     plot.set_xlim(x_range)

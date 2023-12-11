@@ -165,14 +165,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
-OUTPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
 OUTPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
+OUTPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr7t.tfm
@@ -221,6 +215,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr8c.tfm
@@ -237,33 +232,18 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri7t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchr8c.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb8r.tfm
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/KBF Feasible_contour.png
+INPUT ../figures/KBF/KBF Feasible_contour.png
+INPUT ../figures/KBF/KBF Feasible_contour.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchr8c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchri7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri8r.tfm
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Crossover/0.01_0.9_Population.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Blending/0.01_0.9_Population.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Proportional/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Proportional/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Proportional/Crossover/0.01_0.9_Population.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Proportional/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Proportional/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Proportional/Blending/0.01_0.9_Population.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Tournament/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Tournament/Blending/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Tournament/Blending/0.01_0.9_Population.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Tournament/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Tournament/Crossover/0.01_0.9_Population.png
-INPUT ../figures/KBF/10_iters/Tournament/Crossover/0.01_0.9_Population.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
@@ -278,3 +258,4 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

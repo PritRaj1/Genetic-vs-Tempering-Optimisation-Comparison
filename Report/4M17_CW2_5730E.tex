@@ -98,7 +98,17 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 
 Given the above properties, the KBF is a challenging function to optimise. The presence of multiple, similar-amplitude local maxima makes it difficult for an optimisation algorithm to converge to the global maximum. On the other hand, all control variables share the same nature, (continuous variables), and exhibit identical scales. Additionally, all constraints are of the inequality type, and the feasible space is non-disjoint.
 
+The problem becomes additionally complex with the inclusion of the contraints delineated in \ref{eq:KBF_constraints}. The feasible region has been carved out and visualised in Figure \ref{fig:KBF_Feasible}. The constraints are of the inequality type, and the feasible space is non-disjoint.
+
 These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work \cite{ELBELTAGY1999639}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/KBF/KBF Feasible_contour.png}
+    \captionsetup{justification=centering}
+    \caption{The three-dimensional visualisation of the Keane's Bump Function, (KBF).}
+    \label{fig:KBF_Feasible}
+\end{figure}
 
 \subsection{Continuous Genetic Algorithm}
 
@@ -157,13 +167,13 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_srs_crossover}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Blending/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Blending}
         \label{fig:CGA_flowchart_srs_blending}
     \end{subfigure}
@@ -186,13 +196,13 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Crossover/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_proportional_crossover}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Blending/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Blending}
         \label{fig:CGA_flowchart_proportional_blending}
     \end{subfigure}
@@ -205,13 +215,13 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Blending}
         \label{fig:CGA_flowchart_tournament_blending}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.01_0.9_Population.png}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_tournament_crossover}
     \end{subfigure}
