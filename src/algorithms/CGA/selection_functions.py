@@ -35,36 +35,44 @@ def proportional_selection(GCA):
         return parent1, parent2
 
 def tournament_selection(GCA):
-        """
-        Tournament selection of parents. 
+    """
+    Tournament selection of parents. 
 
-        Args:
-        - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
+    Args:
+    - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
-        Returns:
-        - parent1 (int): Index of first parent
-        - parent2 (int): Index of second parent
-        """
-        # Initial selection of parents
-        parent1 = np.random.randint(GCA.population_size)
-        parent2 = np.random.randint(GCA.population_size)
+    Returns:
+    - parent1 (int): Index of first parent
+    - parent2 (int): Index of second parent
+    """
+    # Select two random parents
+    selection1, selection2 = np.random.choice(GCA.population_size, size=2, replace=False)
 
-        # Select two random parents, reject parents that do not satisfy constraints
-        if GCA.constraints == True:
-            while not satisfy_constraints(GCA.population[parent1]):
-                parent1 = np.random.randint(GCA.population_size)
-            while not satisfy_constraints(GCA.population[parent2]):
-                parent2 = np.random.randint(GCA.population_size)
-        
-        else:
-            parent1 = np.random.randint(GCA.population_size)
-            parent2 = np.random.randint(GCA.population_size)
+    # Make sure they satisfy constraints
+    if GCA.constraints == True:
+        while not satisfy_constraints(GCA.population[selection1]):
+            selection1 = np.random.choice(GCA.population_size)
+        while not satisfy_constraints(GCA.population[selection2]):
+            selection2 = np.random.choice(GCA.population_size)
 
-        # Select fittest parent
-        if GCA.fitness[parent1] > GCA.fitness[parent2]:
-            return parent1, parent2
-        else:
-            return parent2, parent1
+    # Select fittest parent as parent1
+    parent1 = selection1 if GCA.fitness[selection1] > GCA.fitness[selection2] else selection2
+
+    # Select two random parents (excluding parent1)
+    selection1, selection2 = np.random.choice(np.delete(np.arange(GCA.population_size), parent1), size=2, replace=False)
+
+    # Make sure they satisfy constraints
+    if GCA.constraints == True:
+        while not satisfy_constraints(GCA.population[selection1]):
+            selection1 = np.random.choice(np.delete(np.arange(GCA.population_size), parent1))
+        while not satisfy_constraints(GCA.population[selection2]):
+            selection2 = np.random.choice(np.delete(np.arange(GCA.population_size), parent1))
+
+    # Select fittest parent as parent2
+    parent2 = selection1 if GCA.fitness[selection1] > GCA.fitness[selection2] else selection2
+
+    return parent1, parent2
+
         
 def SRS_selection(GCA):
     """
