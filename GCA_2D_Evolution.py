@@ -2,9 +2,8 @@
 Candidate No : 5730E, Module: 4M17 
 
 Description :
-    This script is used to visualise the evolution of the population of the CGA algorithm
-    on a 2D Keane's Bump Function. The population is overlayed on a contour plot of the function.
-    The evolution of the average and minimum fitness of the population is also plotted.
+    This parallelised script runs a series of maximisations using the CGA algorithm with different hyperparameters.
+    The results are saved to a csv file and the figures are saved to the figures directory.
 """
 
 import sys; sys.path.append('..')
@@ -23,8 +22,8 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
-MUTATION_RATE_LIST = [0.05]
-CROSSOVER_RATE_LIST = [0.7]
+MUTATION_RATE_LIST = [0.01]
+CROSSOVER_RATE_LIST = [0.9]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
 ITERS_LIST = [10, 100]
