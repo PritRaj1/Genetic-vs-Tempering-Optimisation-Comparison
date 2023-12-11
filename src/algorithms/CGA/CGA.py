@@ -9,7 +9,7 @@ class ContinousGeneticAlgorithm():
     """
     Class for continous genetic algorithm.  
     """
-    def __init__(self, population_size, chromosome_length, objective_function, range=(0,10), mutation_rate=0.1, crossover_rate=0.8, selection_method='SRS', mating_procedure='crossover', constraints=True):
+    def __init__(self, population_size, chromosome_length, objective_function, tournament_size, range=(0,10), mutation_rate=0.1, crossover_rate=0.8, selection_method='SRS', mating_procedure='crossover', constraints=True):
         """
         Constructor for continous genetic algorithm.
 
@@ -17,6 +17,7 @@ class ContinousGeneticAlgorithm():
         - population_size (int): Number of individuals in population    
         - chromosome_length (int): Size of vector individual, (number of genes), i.e. dimension of solution space
         - objective_function (function): Objective function to optimise
+        - tournament_size (int): Size of subset of population for tournament selection
         - range (tuple): Range of values for genes, determined by constraints of problem
         - num_iters (int): Number of iterations
         - mutation_rate (float): Mutation rate
@@ -28,6 +29,7 @@ class ContinousGeneticAlgorithm():
         self.population_size = population_size 
         self.chromosome_length = chromosome_length # n in R^n, dimension of the search space
         self.func = objective_function
+        self.tournament_size = tournament_size
         self.lb = range[0] 
         self.ub = range[1] 
         self.mutation_rate = mutation_rate  

@@ -27,6 +27,7 @@ CROSSOVER_RATE_LIST = [0.7]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
 ITERS_LIST = [10, 100]
+TOUNAMENT_SIZE = POPULATION_SIZE // 10 # 10% of population size
 
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 
@@ -49,6 +50,7 @@ def run_simulation(params):
         population_size=POPULATION_SIZE,
         chromosome_length=CHROMOSOME_LENGTH,
         objective_function=FUNCTION,
+        tournament_size=TOUNAMENT_SIZE,
         range=X_RANGE,
         mutation_rate=MUTATION_RATE,
         crossover_rate=CROSSOVER_RATE,
