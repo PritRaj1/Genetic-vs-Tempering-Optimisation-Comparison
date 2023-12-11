@@ -1,7 +1,28 @@
 import numpy as np
 import os
 
-def evaluate_2D(func, x_range=(0,10)): 
+def satisfy_constraints(x):
+    """
+    Function to check if a given vector x satisfies the constraints of the problem.
+
+    Args:
+    - x (np.ndarray): Vector to check.
+
+    Returns:
+    - bool: True if x satisfies constraints, False otherwise.
+    """
+
+    # List of boolean values for each constraint satisfied
+    constraints = [
+        np.all(x >= 0) and np.all(x <= 10),
+        np.prod(x) > 0.75,
+        np.sum(x) < 15 * x.shape[0] / 2,
+    ]
+
+    # Return True if all constraints are satisfied, False otherwise
+    return all(constraints)
+
+def evaluate_2D(func, x_range=(0,10), constraints=False): 
     """
     Function for generating a meshgrid and evaluating a function in R^2.
     """
@@ -16,6 +37,10 @@ def evaluate_2D(func, x_range=(0,10)):
     for i in range(X1.shape[0]):
         for j in range(X1.shape[1]):
             f[i, j] = func(np.array([X1[i, j], X2[i, j]]))
+
+            if constraints == True:
+                if not satisfy_constraints(np.array([X1[i, j], X2[i, j]])):
+                    f[i, j] = np.nan
         
     return X1, X2, f
 

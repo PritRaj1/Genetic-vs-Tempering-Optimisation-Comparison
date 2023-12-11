@@ -35,7 +35,11 @@ create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST, IT
 
 # 2D Visualisation
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
-plot_2D(X1, X2, f, name=NAME, x_range=X_RANGE)
+plot_2D(X1, X2, f, name=NAME)
+
+# Visualise with carved out feasible region
+X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
+plot_2D(X1, X2, f, name=NAME, constraints=True)
 
 def run_simulation(params):
     SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE, NUM_ITERS = params

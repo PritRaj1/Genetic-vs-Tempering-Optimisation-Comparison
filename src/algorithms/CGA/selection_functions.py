@@ -1,25 +1,7 @@
 import numpy as np
 
-def satisfy_constraints(x):
-    """
-    Function to check if a given vector x satisfies the constraints of the problem.
-
-    Args:
-    - x (np.ndarray): Vector to check.
-
-    Returns:
-    - bool: True if x satisfies constraints, False otherwise.
-    """
-
-    # List of boolean values for each constraint satisfied
-    constraints = [
-        np.all(x >= 0) and np.all(x <= 10),
-        np.prod(x) > 0.75,
-        np.sum(x) < 15 * x.shape[0] / 2,
-    ]
-
-    # Return True if all constraints are satisfied, False otherwise
-    return all(constraints)
+import sys; sys.path.append('..')
+from src.utils.helper_functions import satisfy_constraints
 
 def proportional_selection(GCA):
         """

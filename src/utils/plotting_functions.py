@@ -8,7 +8,7 @@ import seaborn as sns
 rc('font', **{'family': 'serif', 'serif': ['Computer Modern']}, size=14)
 rc('text', usetex=True)
 
-def plot_2D(X1, X2, f, name, x_range=(0,10)):
+def plot_2D(X1, X2, f, name, constraints=False):
     """
     Function for visualising a function in R^2.
 
@@ -17,17 +17,28 @@ def plot_2D(X1, X2, f, name, x_range=(0,10)):
     - X2 (np.ndarray): Meshgrid of x2 values.
     - f (np.ndarray): Function values.
     - name (str): Name of function.
+    - constraints (bool): Whether to plot with carved out feasible region or not.
     """
+
+    if constraints == True:
+        name_png = f'{name} Feasible'
+        angle = -10
+        elevation = 30
+
+    else: 
+        name_png = name
+        angle = 30
+        elevation = 20
 
     # Plot contour
     plt.figure()
     plt.contourf(X1, X2, f, 100, cmap='jet')
     plt.xlabel(r'$x_1$')
     plt.ylabel(r'$x_2$')
-    plt.title(f'{name} Contour Plot')
+    plt.title(f'{name_png} Contour Plot')
     cbar = plt.colorbar()
     cbar.set_label(r'$f(x_1, x_2)$')
-    plt.savefig(f'figures/{name}/{name}_contour.png')
+    plt.savefig(f'figures/{name}/{name_png}_contour.png')
 
     # Plot 3D surface
     fig = plt.figure()
@@ -37,9 +48,9 @@ def plot_2D(X1, X2, f, name, x_range=(0,10)):
     ax.set_ylabel(r'$x_2$')
     ax.zaxis.set_rotate_label(False) 
     ax.set_zlabel(r'$f(x_1, x_2)$', rotation=90)
-    ax.set_title(f'{name} 3D Plot')
-    ax.view_init(elev=20, azim=30)  # Set the view angle
-    plt.savefig(f'figures/{name}/{name}_surf.png')
+    ax.set_title(f'{name_png} 3D Plot')
+    ax.view_init(elev=elevation, azim=angle)  # Set the view angle
+    plt.savefig(f'figures/{name}/{name_png}_surf.png')
 
 def plot_population(X1, X2, f, population, plot, best=None, range=(0,10)):
     """
