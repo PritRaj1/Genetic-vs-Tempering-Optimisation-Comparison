@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  11 DEC 2023 17:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  11 DEC 2023 19:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
+**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E
 (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -456,7 +456,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count301
 \l__pdf_internal_box=\box101
-) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
+) (./4M17_CW2_5730E.aux)
 \openout1 = `4M17_CW2_5730E.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -558,7 +558,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out)
+ (./4M17_CW2_5730E.out) (./4M17_CW2_5730E.out)
 \@outlinefile=\write3
 \openout3 = `4M17_CW2_5730E.out'.
 
@@ -592,72 +592,79 @@ File: ../figures/KBF/KBF_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF_contour.png>
 Package pdftex.def Info: ../figures/KBF/KBF_contour.png  used on input line 64.
 (pdftex.def)             Requested size: 230.18253pt x 172.63771pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF/KBF_surf.png> <../figures/KBF/KBF_contour.png>]
 LaTeX Font Info:    Trying to load font information for TS1+bch on input line 94.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF/KBF_surf.png> <../figures/KBF/KBF_contour.png>]
-<../figures/KBF/KBF Feasible_contour.png, id=80, 462.528pt x 346.896pt>
+)
+<../figures/KBF/KBF Feasible_contour.png, id=71, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF Feasible_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF Feasible_contour.png>
 Package pdftex.def Info: ../figures/KBF/KBF Feasible_contour.png  used on input line 107.
 (pdftex.def)             Requested size: 225.4804pt x 169.11243pt.
  [2 <../figures/KBF/KBF Feasible_contour.png>]
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=102, 1445.4pt x 361.35pt>
+<../figures/Ungenerated Images/Flowchart.png, id=97, 191.71625pt x 296.60812pt>
+File: ../figures/Ungenerated Images/Flowchart.png Graphic file (type png)
+<use ../figures/Ungenerated Images/Flowchart.png>
+Package pdftex.def Info: ../figures/Ungenerated Images/Flowchart.png  used on input line 125.
+(pdftex.def)             Requested size: 225.4804pt x 348.8676pt.
+ [3 <../figures/Ungenerated Images/Flowchart.png>]
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=125, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 179.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 257.
 (pdftex.def)             Requested size: 469.75502pt x 117.43735pt.
-<../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png, id=103, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png, id=126, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png  used on input line 185.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png  used on input line 263.
 (pdftex.def)             Requested size: 469.75502pt x 117.43735pt.
- [3] (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl) [4 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png>]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=128, 1445.4pt x 361.35pt>
+ [4] (./4M17_CW2_5730E.bbl [5 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png>]) [6]
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=157, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 208.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 287.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png, id=129, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png, id=158, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png  used on input line 214.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png  used on input line 293.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png, id=132, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png, id=161, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png  used on input line 227.
+Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png  used on input line 306.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png, id=133, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png, id=162, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png  used on input line 233.
+Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png  used on input line 312.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 242.
- [5 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png> <../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 242.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 242.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 242.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 321.
+ [7 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png> <../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 321.
+ (./4M17_CW2_5730E.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 321.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 321.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
 (rerunfilecheck)             Checksum: 1EBB88FED8B12DD1E51A8C1E751199A4;715.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 242.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 321.
  ) 
 Here is how much of TeX's memory you used:
- 11648 strings out of 481239
- 175591 string characters out of 5920377
- 460353 words of memory out of 5000000
- 26632 multiletter control sequences out of 15000+600000
- 557057 words of font info for 74 fonts, out of 8000000 for 9000
+ 11667 strings out of 481239
+ 175330 string characters out of 5920377
+ 462539 words of memory out of 5000000
+ 26643 multiletter control sequences out of 15000+600000
+ 558293 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,11n,46p,1027b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (5 pages, 1308315 bytes).
+ 48i,11n,46p,1023b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on 4M17_CW2_5730E.pdf (7 pages, 1387180 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 

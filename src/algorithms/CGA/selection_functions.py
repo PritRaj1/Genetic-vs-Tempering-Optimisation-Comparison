@@ -81,32 +81,48 @@ def SRS_selection(GCA):
     # Calculate probabilities
     probabilities = GCA.fitness / np.sum(GCA.fitness)
 
-    # Initial selection of parent
-    parent1 = np.random.choice(GCA.population_size, p=probabilities)
+    # Calculate expected number of copies of each individual
+    expected_num_copies = probabilities * GCA.population_size
 
-    # Select the first parent based on probabilities, reject parent if it does not satisfy constraints
+    # Calculate number of copies of each individual, each individual is selected this number of times
+    num_copies = np.floor(expected_num_copies) 
+
+    # Calculate remainder, which serves as the probability of further selection
+    remainder = expected_num_copies - num_copies
+
+    # Calculate number of individuals to be selected
+    num_selected = int(np.sum(num_copies))
+
+    # Select individuals
+    selected_individuals = []
+
+    # Select individuals with num_copies
+    for i in range(GCA.population_size):
+        selected_individuals += [i] * int(num_copies[i]) # Add i to list num_copies[i] times
+
+    # Remainer must satisfy sum(remainder) = 1
+    remainder = remainder / np.sum(remainder)
+
+    # Select individuals with remainder serving as probability
+    selected_individuals += list(np.random.choice(GCA.population_size, size=num_selected, p=remainder))
+
+    # Select parents
+    parent1 = np.random.choice(selected_individuals)
+    parent2 = np.random.choice(selected_individuals)
+
+    # Select parents based on probabilities, reject parents that do not satisfy constraints
     if GCA.constraints == True:
         while not satisfy_constraints(GCA.population[parent1]):
-            parent1 = np.random.choice(GCA.population_size, p=probabilities)
-    else:
-        parent1 = np.random.choice(GCA.population_size, p=probabilities)
-
-    # Update probabilities after selecting the first parent
-    updated_probabilities = np.delete(probabilities, parent1)
-    updated_probabilities /= np.sum(updated_probabilities)
-
-    # Initial selection of parent
-    parent2 = np.random.choice(GCA.population_size - 1, p=updated_probabilities)
-
-    # Select the second parent based on updated probabilities, reject parent if it does not satisfy constraints
-    if GCA.constraints == True:
+            parent1 = np.random.choice(selected_individuals)
         while not satisfy_constraints(GCA.population[parent2]):
-            parent2 = np.random.choice(GCA.population_size - 1, p=updated_probabilities)
+            parent2 = np.random.choice(selected_individuals)
+
     else:
-        parent2 = np.random.choice(GCA.population_size - 1, p=updated_probabilities)
-
-    # Adjust the index of parent2 to account for the removed element
-    parent2 = parent2 + 1 if parent2 >= parent1 else parent2
-
+        parent1 = np.random.choice(selected_individuals)
+        parent2 = np.random.choice(selected_individuals)
+    
     return parent1, parent2
+
+    
+
 

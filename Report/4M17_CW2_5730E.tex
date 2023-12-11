@@ -69,7 +69,7 @@ This report conducts a comparative analysis of two optimisation algorithms appli
     \caption{The two-dimensional visualisation of the Keane's Bump Function, (KBF).}
     \label{fig:KBF_2D}
 \end{figure}
-
+\newpage
 \section{Introduction}
 \begin{multicols}{2}
 \subsection{Keane's Bump Function}
@@ -120,25 +120,103 @@ The primary difference between the CGA and the GA in \cite{parks2023geneticalgor
 
 This adjustment marks a significant departure from conventional GAs, aligning the algorithm more closely with Evolution Strategies (ES), another member of the evolutionary algorithms family presented in \cite{salimans2017evolution}. However, the algorithm presented in \ref{sec:CGA_implementation} is still classified as a GA in accordance with the differences presented in \cite{10.1007/BFb0029787}, given that mutation does not serve as the primary search mechanism for exploring the state space. Instead, it functions as a non-adaptive, background operator.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/Flowchart.png}
+    \captionsetup{justification=centering}
+    \caption{A flowchart depicting the CGA process, taken from \cite{parks2023geneticalgorithms}.}
+    \label{fig:GAprocess}
+\end{figure}
+
 \subsubsection{Implementation}
 \label{sec:CGA_implementation}
 
 In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}, and a matrix of individuals will be referred to as a \textit{population}. Each individual is represented as a $n \times 1$ vector of real-valued (floating point) numbers, where $n$ denotes the number of variables in the state space. The population is represented as a $m \times n$ matrix, where $m$ denotes the number of individuals in the population, and is dictated as a hyperparameter within the code: %ref code
 
-In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase:
+In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase: %placeholder
 
+The CGA process is outlined in Figure \ref{fig:GAprocess}. 
 
 \begin{enumerate}
-    \item \textbf{Initialisation}
-    \item \textbf{Parent Selection} 
-    \item \textbf{Mating Procedure}
-    \item \textbf{Mutation Procedure}
+    \item \textbf{Initialisation} - The population is initialised with random values uniformly distributed within the bounds of the state space.
+    \item \textbf{Parent Selection} - Three selection methods were implemented: Proportional Selection, Tournament Selection, and Stochastic Remainder Selection without Replacement, (SRS). These are be outlined and compared in Section \ref{sec:CGA_selection_mutation}.
+    \item \textbf{Mating Procedure} - Two mating procedures were implemented: Crossover and Blending. These are also outlined and compared in Section \ref{sec:CGA_selection_mutation}.
+    \item \textbf{Mutation} - The mutation procedure proposed by \cite{PGA} involves perturbing a gene within a chromosome by a normally distributed random number with a mean of zero and a standard deviation of $\sigma$. However, the effectiveness of this procedure is constrained by the selection of $\sigma$ as an additional hyperparameter, necessitating careful tuning. Instead, a more straightforward approach was adopted, wherein genes within the population stand a chance, (equal to the mutation rate), of being reset to a random value sampled from a uniform distribution within the limits of the state space, similar to the initialisation procedure.
+    \item \textbf{Evaluate} - The population is then evaluated, and the individuals are ranked in order of fitness. Here, the fitness is defined as the negative of the KBF cost function, as outlined in \ref{eq:KBF_cost}. This is done to align the algorithm with the maximisation of the KBF.
+    \item \textbf{Termination} - In this section, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
 \end{enumerate}
-\end{multicols}
+
 
 \subsubsection{Choosing the Selection Method and Mutation Procedure}
 \label{sec:CGA_selection_mutation}
 
+Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase. These are then selected as hyperparameters within the script, %placeholder
+to take advantage of the flexibility offered by the CGA. In particular, the following selection methods were implemented:
+%srs code
+% def SRS_selection(GCA):
+%     """
+%     Stochastic Remainder Selection without Replacement (SRS) of parents. 
+
+%     Args:
+%     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
+
+%     Returns:
+%     - parent1 (int): Index of first parent
+%     - parent2 (int): Index of second parent
+%     """
+
+%     # Calculate probabilities
+%     probabilities = GCA.fitness / np.sum(GCA.fitness)
+
+%     # Calculate expected number of copies of each individual
+%     expected_num_copies = probabilities * GCA.population_size
+
+%     # Calculate number of copies of each individual, each individual is selected this number of times
+%     num_copies = np.floor(expected_num_copies) 
+
+%     # Calculate remainder, which serves as the probability of further selection
+%     remainder = expected_num_copies - num_copies
+
+%     # Calculate number of individuals to be selected
+%     num_selected = int(np.sum(num_copies))
+
+%     # Select individuals
+%     selected_individuals = []
+
+%     # Select individuals with num_copies
+%     for i in range(GCA.population_size):
+%         selected_individuals += [i] * int(num_copies[i]) # Add i to list num_copies[i] times
+
+%     # Remainer must satisfy sum(remainder) = 1
+%     remainder = remainder / np.sum(remainder)
+
+%     # Select individuals with remainder serving as probability
+%     selected_individuals += list(np.random.choice(GCA.population_size, size=num_selected, p=remainder))
+
+%     # Select parents
+%     parent1 = np.random.choice(selected_individuals)
+%     parent2 = np.random.choice(selected_individuals)
+
+%     # Select parents based on probabilities, reject parents that do not satisfy constraints
+%     if GCA.constraints == True:
+%         while not satisfy_constraints(GCA.population[parent1]):
+%             parent1 = np.random.choice(selected_individuals)
+%         while not satisfy_constraints(GCA.population[parent2]):
+%             parent2 = np.random.choice(selected_individuals)
+
+%     else:
+%         parent1 = np.random.choice(selected_individuals)
+%         parent2 = np.random.choice(selected_individuals)
+    
+%     return parent1, parent2
+
+
+\begin{itemize}
+    \item \textbf{Proportional Selection} - The probability of an individual being selected for mating is proportional to its fitness, $p_i = \frac{f_i}{\sum_{i=1}^{n} f_i}$, where $f_i$ denotes the fitness of the $i$th individual. This is the simplest selection method, and is implemented in accordance with the theory presented in \cite{parks2023geneticalgorithms}.
+    \item \textbf{Tournament Selection} - A random subset of individuals is sampled from the population, and the selection size is determined by a hyperparameter referred to as \textit{TOURNAMENT$\_$SIZE} in ... Within this subset, the two individuals demonstrating the highest fitness scores are selected for mating.This approach aligns with the principles outlined in \cite{Miller1995GeneticAT}, and has been implemented independently in ...
+    \item \textbf{Stochastic Remainder Selection without Replacement (SRS)} - This strategy draws inspiration from \cite{parks2023geneticalgorithms}. Specifically, a group of chosen individuals is curated by generating an expected number of copies for each individual, denoted as $E_i = N * p_i$, where $N$ represents the population size, and $p_i$ is elucidated above in the context of proportional selection. The anticipated number of duplicates is subsequently divided into an integer part, $I_i = \lfloor E_i \rfloor$, and a remainder, $R_i = E_i - I_i$. The integer part is used for deterministic selection of individuals, while the remainder is employed for stochastic selection. The two parents are then randomly sampled from this augmented collection.
+\end{itemize}
+\end{multicols}
 \begin{table}[H]
     \centering
     \begin{tabular}{|*{5}{c|}}
@@ -178,21 +256,22 @@ In accordance with the terminology presented in \cite{parks2023geneticalgorithms
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
-        \label{fig:CGA_flowchart_srs_crossover}
+        \label{fig:CGA_flowchart_SRS_crossover}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Blending}
-        \label{fig:CGA_flowchart_srs_blending}
+        \label{fig:CGA_flowchart_SRS_blending}
     \end{subfigure}
     \captionsetup{justification=centering}
     \caption{Evolution of the population over 10 iterations using Stochastic Remainder Selection without Replacement (SRS). SRS was found to be the most effective selection method, when compared to Proportional Selection and Tournament Selection, as seen in Figures \ref{fig:CGA_flowchart_proportional} and \ref{fig:CGA_flowchart_tournament}, respectively.}
-    \label{fig:CGA_flowchart_srs}
+    \label{fig:CGA_flowchart_SRS}
 \end{figure}
 
 
 \section{Methodology}
+\label{sec:CGA_QEG_comparison}
 \section{Results}
 \section{Discussion}
 \section{Conclusion}
