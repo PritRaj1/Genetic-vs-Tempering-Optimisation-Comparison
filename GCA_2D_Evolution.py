@@ -16,14 +16,15 @@ from src.algorithms.CGA.CGA import ContinousGeneticAlgorithm
 import numpy as np
 import matplotlib.pyplot as plt
 from multiprocessing import Pool
+import pandas as pd
 
 # Hyperparameters
 X_RANGE=(0,10)
 FUNCTION = KBF_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
-MUTATION_RATE_LIST = [0.01, 0.05]
-CROSSOVER_RATE_LIST = [0.7, 0.9]
+MUTATION_RATE_LIST = [0.05]
+CROSSOVER_RATE_LIST = [0.7]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
 ITERS_LIST = [10, 100]
@@ -96,6 +97,17 @@ def run_simulation(params):
     # Plot fitness evolution with iteration
     plot_fitness(avg_fitness, min_fitness, type=(NAME, NUM_ITERS, SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE))
 
+    # Save results to global dataframe
+    return {
+        'Selection Method': SELECTION_METHOD,
+        'Mating Procedure': MATING_PROCEDURE,
+        'Mutation Rate': MUTATION_RATE,
+        'Crossover Rate': CROSSOVER_RATE,
+        'Iterations': NUM_ITERS,
+        'Final Avg Fitness': avg_fitness[-1],
+        'Final Min Fitness': min_fitness[-1]
+    } 
+
 # Create a list of parameter combinations
 params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_RATE, NUM_ITERS)
                for SELECTION_METHOD in SELECTION_METHOD_LIST
@@ -109,11 +121,25 @@ print('Running simulations...')
 # Create a pool of worker processes
 pool = Pool()
 
+global results
+results = pd.DataFrame(columns=['Selection Method', 
+                                'Mating Procedure', 
+                                'Mutation Rate', 
+                                'Crossover Rate', 
+                                'Iterations', 
+                                'Final Avg Fitness', 
+                                'Final Min Fitness'], index=None)
+
 # Run the simulations in parallel
-pool.map(run_simulation, params_list)
+for result in pool.map(run_simulation, params_list):
+    results.loc[len(results)] = result
 
 # Close the pool
 pool.close()
 pool.join()
+
+# Save results to csv file
+results
+results.to_csv(f'figures/{NAME}/results.csv')
 
 print('Done!')
