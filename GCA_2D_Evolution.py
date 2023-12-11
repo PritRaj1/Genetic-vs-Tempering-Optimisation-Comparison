@@ -22,8 +22,8 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 POPULATION_SIZE = 250
 CHROMOSOME_LENGTH = 2
-MUTATION_RATE_LIST = [0.01]
-CROSSOVER_RATE_LIST = [0.9]
+MUTATION_RATE_LIST = [0.05]
+CROSSOVER_RATE_LIST = [0.7]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Blending']
 ITERS_LIST = [10, 100]
@@ -139,6 +139,6 @@ pool.join()
 
 # Save results to csv file
 results
-results.to_csv(f'figures/{NAME}/results.csv')
+results.to_csv(f'figures/{NAME}/CGAresults.csv')
 
 print('Done!')
