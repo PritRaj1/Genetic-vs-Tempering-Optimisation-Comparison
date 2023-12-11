@@ -98,7 +98,7 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 
 Given the above properties, the KBF is a challenging function to optimise. The presence of multiple, similar-amplitude local maxima makes it difficult for an optimisation algorithm to converge to the global maximum. On the other hand, all control variables share the same nature, (continuous variables), and exhibit identical scales. Additionally, all constraints are of the inequality type, and the feasible space is non-disjoint.
 
-The problem becomes additionally complex with the inclusion of the contraints delineated in \ref{eq:KBF_constraints}. The feasible region has been carved out and visualised in Figure \ref{fig:KBF_Feasible}. The constraints are of the inequality type, and the feasible space is non-disjoint.
+The problem becomes more complicated with the inclusion of the constraints outlined in \ref{eq:KBF_constraints}. Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear, and the feasible region is non-disjoint. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
 
 These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work \cite{ELBELTAGY1999639}.
 
@@ -123,44 +123,53 @@ This adjustment marks a significant departure from conventional GAs, aligning th
 \subsubsection{Implementation}
 \label{sec:CGA_implementation}
 
-In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}, and a matrix of individuals will be referred to as a \textit{population}. 
+In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}, and a matrix of individuals will be referred to as a \textit{population}. Each individual is represented as a $n \times 1$ vector of real-valued (floating point) numbers, where $n$ denotes the number of variables in the state space. The population is represented as a $m \times n$ matrix, where $m$ denotes the number of individuals in the population, and is dictated as a hyperparameter within the code: %ref code
 
+In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase:
+
+
+\begin{enumerate}
+    \item \textbf{Initialisation}
+    \item \textbf{Parent Selection} 
+    \item \textbf{Mating Procedure}
+    \item \textbf{Mutation Procedure}
+\end{enumerate}
 \end{multicols}
 
 \subsubsection{Choosing the Selection Method and Mutation Procedure}
-
+\label{sec:CGA_selection_mutation}
 
 \begin{table}[H]
     \centering
-
     \begin{tabular}{|*{5}{c|}}
         \hline
         \renewcommand{\arraystretch}{1.5}
         \multirow{2}{*}{\textbf{Selection Method}} & \multirow{2}{*}{\textbf{Mating Procedure}} & \multirow{2}{*}{\textbf{Iterations}} & \multirow{2}{*}{\textbf{Final Avg. Fitness}} & \multirow{2}{*}{\textbf{Final Min. Fitness}} \\
         & & & & \\
         \hline
-        \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.5638 & -0.6609 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5956 &\cellcolor{lightgray} -0.6609 \\
+        \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.2218 & -0.2875 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2385 &\cellcolor{lightgray} -0.2835 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.5458 & -0.6559 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5356 & \cellcolor{lightgray} -0.6243 \\
+        & \multirow{2}{*}{Blending} & 10 & -0.2277 & -0.2629 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2341 & \cellcolor{lightgray} -0.2628 \\
         \hline
-        \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.0203 & -0.2896 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0079 &\cellcolor{lightgray} -0.0867 \\
+        \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.0215 & -0.2157 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0100 &\cellcolor{lightgray} -0.2451 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.0326 & -0.1305 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0720 &\cellcolor{lightgray} -0.2075 \\
+        & \multirow{2}{*}{Blending} & 10 & -0.0516 & -0.1818 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0593 &\cellcolor{lightgray} -0.1979 \\
         \hline
-        \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.5671 & -0.6609 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5865 &\cellcolor{lightgray} -0.6609 \\
+        \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.2197 & -0.4333 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2437 &\cellcolor{lightgray} -0.2815 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.5557 & -0.6536 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.5355 &\cellcolor{lightgray} -0.6293 \\
+        & \multirow{2}{*}{Blending} & 10 & -0.2295 & -0.2629 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2360 &\cellcolor{lightgray} -0.2625 \\
         \hline
     \end{tabular}
     \caption{Your Table Caption Here}
     \label{tab:mytable}
 \end{table}
+
 
 
 \begin{figure}[H]
@@ -189,44 +198,44 @@ In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the s
 \section{Conclusion}
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
-
+\newpage
 \section{Appendix}
 \subsection{Supplementary Figures}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.85\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_proportional_crossover}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.85\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Blending}
         \label{fig:CGA_flowchart_proportional_blending}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Evolution of the population over 10 iterations using proportional selection. Proportional selection proved to be an effective selection method. However, it produced a larger final fitness value than SRS, and was therefore not chosen as the primary selection method.}
+    \caption{CGA evolution of the population over 10 iterations using proportional selection. Proportional selection proved to be an effective selection method. However, it was not chosen over SRS as the primary selection method for the reasons outlined in Section \ref{sec:CGA_selection_mutation}.}
     \label{fig:CGA_flowchart_proportional}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Blending}
-        \label{fig:CGA_flowchart_tournament_blending}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.85\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_tournament_crossover}
     \end{subfigure}
+    \begin{subfigure}{0.85\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Blending}
+        \label{fig:CGA_flowchart_tournament_blending}
+    \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Evolution of the population over 10 iterations using Tournament Selection. Using Tournament Selection, the algorithm was unable to converge to a solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum. As such, it was disregarded as a viable selection method.}
+    \caption{CGA evolution of the population over 10 iterations using tournament selection. Using tournament selection, the algorithm was unable to converge to a solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum. As such, it was disregarded as a viable selection method.}
     \label{fig:CGA_flowchart_tournament}
 \end{figure}
 
