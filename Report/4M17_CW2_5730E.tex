@@ -243,6 +243,27 @@ Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insi
 
 Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mutation rate is fixed at 0.1, and the crossover probability is set to 0.65. These values have proven to yield a consistently optimal performance for the algorithm, comfortably lying within the darker regions within the heat maps.
 
+To reiterate and summarise this section of the report, the CGA is now constructed as follows:
+\begin{itemize}
+    \item \textbf{Selection Method:} Tournament Selection
+    \item \textbf{Mutation Procedure:} Heuristic Crossover
+    \item \textbf{Mutation Rate:} 0.1
+    \item \textbf{Crossover Probability:} 0.65
+    \item \textbf{Tournament Size:} 62
+    \item \textbf{Number of Parents:} 62
+    \item \textbf{Population Size:} 250
+\end{itemize}
+
+Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimal hyperparameters delineated above. Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/0.1_0.65_Fitness.png}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.}
+    \label{fig:CGA_fitness_evo_OPT}
+\end{figure}
+
 \end{multicols}
 
 \begin{figure}[H]
@@ -250,8 +271,7 @@ Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mut
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
-    \end{subfigure}
-    \hfill
+    \end{subfigure}\hfill
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
@@ -267,8 +287,7 @@ Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mut
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png}
         \caption{Average final fitness across entire population.}
         \label{fig:CGA_contour_tournament_Heuristic Crossover_AVG}
-    \end{subfigure}
-    \hfill
+    \end{subfigure}\hfill
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png}
         \caption{Final (minimum) fitness of best individual.}
@@ -278,7 +297,24 @@ Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mut
     \caption{Heat maps of the final fitness values after 100 iterations for the CGA using tournament selection and heuristic crossover. Here, the mutation rates and crossover probabilities were varied to assess their impact on performance.}
     \label{fig:CGA_contour_rates}
 \end{figure}
-
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.85\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/0.1_0.65_Population.png}
+        \caption{4 iterations.}
+        \label{fig:optimal_5}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{../figures/Ungenerated Images/0.1_0.65_Population100.png}
+        \caption{80 iterations.}
+        \label{fig:optimat_100}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters delineated at the end of Section \ref{sec:CGA_selection_mutation}.}
+    \label{fig:optimal_convergence}
+\end{figure}
 \section{Methodology}
 \label{sec:CGA_QEG_comparison}
 \section{Results}
