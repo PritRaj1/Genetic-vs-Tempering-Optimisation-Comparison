@@ -4,6 +4,8 @@ Candidate No : 5730E, Module: 4M17
 Description :
     This file serves as a platform to run multiple simulations of the CGA algorithm.
     Used to generate the results for the table and figures in Section 3.2 of the report.
+
+
 """
 
 import sys; sys.path.append('..')
@@ -127,6 +129,90 @@ def selection_mating_tuning(params):
         'Final Min Fitness': min_fitness[-1]
     } 
 
+def plot_fitnesses():
+    """
+    Function to plot fitness evolution for each selection method.
+    """
+    for MATING in MATING_PROCEDURE_LIST:
+
+        # Make a plot for each mating procedure to show fitness evolution for the three selection method
+        plt.figure(figsize=(14, 10))
+        sns.set_style('darkgrid')
+        plt.title(f'Average Fitness Evolution for each Selection Method on {NAME} Function \n' 
+                + r"Mating Procdure held as \textbf{" + MATING + r"}", fontsize=24)
+        plt.xlabel('Iteration', fontsize=20)
+        plt.ylabel('Average Fitness', fontsize=20)
+        
+        for SELECTION_METHOD in SELECTION_METHOD_LIST:
+            # Instantiate CGA
+            CGA = ContinousGeneticAlgorithm(
+                population_size=POPULATION_SIZE,
+                chromosome_length=CHROMOSOME_LENGTH,
+                num_parents=NUM_PARENTS,
+                objective_function=FUNCTION,
+                tournament_size=TOUNAMENT_SIZE,
+                range=X_RANGE,
+                mutation_rate=0.05,
+                crossover_prob=0.7,
+                selection_method=SELECTION_METHOD,
+                mating_procedure=MATING,
+                )
+            
+            # Evaluate initial population
+            CGA.evaluate_fitness()
+
+            # Initialise arrays to store fitness values
+            avg_fitness = np.zeros(100)
+            min_fitness = np.zeros(100)
+
+            for iter in range(100):
+                # Evolve population
+                CGA.evolve()
+
+                # Update fitness arrays
+                avg_fitness[iter] = np.mean(CGA.fitness)
+                min_fitness[iter] = CGA.min_fitness
+
+            # Plot fitness evolution with iteration
+            sns.lineplot(x=range(100), y=avg_fitness, label=SELECTION_METHOD)
+
+        plt.legend(fontsize=16)
+        plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
+
+# Define a function for parallel execution
+def rate_prob_contour(params):
+    """
+    Parallelisable function to create contour plots to assess
+    the impact of mutation rate and crossover probability on the
+    algorithm's performance.
+    """
+
+    i, j, MUTATION_RATE, CROSSOVER_PROB = params
+
+    # Instantiate CGA
+    CGA = ContinousGeneticAlgorithm(
+        population_size=POPULATION_SIZE,
+        chromosome_length=CHROMOSOME_LENGTH,
+        num_parents=NUM_PARENTS,
+        objective_function=FUNCTION,
+        tournament_size=TOUNAMENT_SIZE,
+        range=X_RANGE,
+        mutation_rate=MUTATION_RATE,
+        crossover_prob=CROSSOVER_PROB,
+        selection_method=SELECTION_METHOD,
+        mating_procedure=MATING_PROCEDURE,
+    )
+
+    # Evaluate initial population
+    CGA.evaluate_fitness()
+
+    # Evolve population
+    for iter in range(100):
+        CGA.evolve()
+
+    # Return the result
+    return i, j, np.mean(CGA.fitness), CGA.min_fitness
+
 # Create a list of parameter combinations
 params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_PROB, NUM_ITERS)
                for SELECTION_METHOD in SELECTION_METHOD_LIST
@@ -164,52 +250,65 @@ print('Done!')
 
 print('Starting simulations for fitness plots generation')
 
-for MATING in MATING_PROCEDURE_LIST:
+# Plot fitness evolution for each selection method
+plot_fitnesses()
 
-    # Make a plot for each mating procedure to show fitness evolution for the three selection method
-    plt.figure(figsize=(14, 10))
-    sns.set_style('darkgrid')
-    plt.title(f'Average Fitness Evolution for each Selection Method on {NAME} Function \n' 
-            + r"Mating Procdure held as \textbf{" + MATING + r"}", fontsize=24)
-    plt.xlabel('Iteration', fontsize=20)
-    plt.ylabel('Average Fitness', fontsize=20)
-    
-    for SELECTION_METHOD in SELECTION_METHOD_LIST:
-        # Instantiate CGA
-        CGA = ContinousGeneticAlgorithm(
-            population_size=POPULATION_SIZE,
-            chromosome_length=CHROMOSOME_LENGTH,
-            num_parents=NUM_PARENTS,
-            objective_function=FUNCTION,
-            tournament_size=TOUNAMENT_SIZE,
-            range=X_RANGE,
-            mutation_rate=0.05,
-            crossover_prob=0.7,
-            selection_method=SELECTION_METHOD,
-            mating_procedure=MATING,
-            )
-        
-        # Evaluate initial population
-        CGA.evaluate_fitness()
+print('Done!')
 
-        # Initialise arrays to store fitness values
-        avg_fitness = np.zeros(100)
-        min_fitness = np.zeros(100)
+print('Starting simulations for contour plot generation')
 
-        for iter in range(100):
-            # Evolve population
-            CGA.evolve()
+# Selection and mating chosen as Tournament and Heuristic Crossover respectively, given results from report
+SELECTION_METHOD = 'Tournament'
+MATING_PROCEDURE = 'Heuristic Crossover'
+MUTATION_RATE_LIST = [0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+CROSSOVER_PROB_LIST = [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
 
-            # Update fitness arrays
-            avg_fitness[iter] = np.mean(CGA.fitness)
-            min_fitness[iter] = CGA.min_fitness
+# Create plot with X = mutation rate, Y = crossover prob, Z = final avg fitness
 
-        # Plot fitness evolution with iteration
-        sns.lineplot(x=range(100), y=avg_fitness, label=SELECTION_METHOD)
+# Initialise meshgrids
+X, Y = np.meshgrid(MUTATION_RATE_LIST, CROSSOVER_PROB_LIST)
 
-    plt.legend(fontsize=16)
-    plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
+# Initialise array to store final avg and min fitnesses
+AVG = np.zeros((len(MUTATION_RATE_LIST), len(CROSSOVER_PROB_LIST)))
+MIN = np.zeros((len(MUTATION_RATE_LIST), len(CROSSOVER_PROB_LIST)))
+
+# Create a pool of workers
+pool = Pool()
+
+# Create a list of parameters for parallel execution
+params_list = [(i, j, MUTATION_RATE, CROSSOVER_PROB) for i, MUTATION_RATE in enumerate(MUTATION_RATE_LIST) for j, CROSSOVER_PROB in enumerate(CROSSOVER_PROB_LIST)]
+
+# Run the simulations in parallel
+results = pool.map(rate_prob_contour, params_list)
+
+# Update fitness arrays
+for i, j, fitness, min_fitness in results:
+    AVG[i, j] = fitness
+    MIN[i, j] = min_fitness
+
+# Close the pool
+pool.close()
+pool.join()
+
+# Plot average fitness contour
+plt.figure(figsize=(14, 10))
+plt.title(f'Average Final Fitness with varying Mutation Rate and Crossover Probability on {NAME} Function \n' 
+        + r"[Selection Method: \textbf{" + SELECTION_METHOD + r"}, "
+        + r"Mating Procedure: \textbf{" + MATING_PROCEDURE + r"}]", fontsize=18)
+sns.heatmap(AVG, annot=True, xticklabels=MUTATION_RATE_LIST, yticklabels=CROSSOVER_PROB_LIST)
+plt.xlabel('Mutation Rate', fontsize=14)
+plt.ylabel('Crossover Probability', fontsize=14)
+plt.savefig(f'figures/{NAME}/AVGContour_{SELECTION_METHOD}_{MATING_PROCEDURE}.png')
+
+# Plot minimum fitness contour
+plt.figure(figsize=(14, 10))
+plt.title(f'Minimum Final Fitness with varying Mutation Rate and Crossover Probability on {NAME} Function \n' 
+        + r"[Selection Method: \textbf{" + SELECTION_METHOD + r"}, "
+        + r"Mating Procedure: \textbf{" + MATING_PROCEDURE + r"}]", fontsize=18)
+sns.heatmap(MIN, annot=True, xticklabels=MUTATION_RATE_LIST, yticklabels=CROSSOVER_PROB_LIST)
+plt.xlabel('Mutation Rate', fontsize=14)
+plt.ylabel('Crossover Probability', fontsize=14)
+plt.savefig(f'figures/{NAME}/MINContour_{SELECTION_METHOD}_{MATING_PROCEDURE}.png')
 
 
-
-    
+print('Done!')
