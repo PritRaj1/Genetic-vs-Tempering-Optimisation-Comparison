@@ -1,3 +1,10 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This file contains the class for the continous genetic algorithm.
+"""
+
 import numpy as np
 import sys; sys.path.append('..')
 
@@ -97,15 +104,12 @@ class ContinousGeneticAlgorithm():
             self.min_fitness = self.fitness[self.parent_rankings[i]]
             i += 1
             
-
-    
     def select_parents(self):
         """
         Select parents for mating.
 
         Returns:
-        - parent1 (int): Index of first parent
-        - parent2 (int): Index of second parent
+        - parents (np.array): Indices of parents selected for mating
         """
         return self.selection_process(self)
 

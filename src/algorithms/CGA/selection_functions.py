@@ -16,7 +16,7 @@ def proportional_selection(GCA):
     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
     Returns:
-    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
+    - selected_individuals (list): List of indices of selected individuals for mating, length = GCA.num_parents
     """
     # Calculate probabilities
     probabilities = GCA.fitness / np.sum(GCA.fitness)
@@ -40,7 +40,7 @@ def tournament_selection(GCA):
     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
     Returns:
-    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
+    - selected_individuals (list): List of indices of selected individuals for mating, length = GCA.num_parents
     """
 
     # Initialise list of selected individuals
@@ -79,7 +79,7 @@ def SRS_selection(GCA):
     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
     Returns:
-    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
+    - selected_individuals (list): List of indices of selected individuals for mating, length = GCA.num_parents
     """
 
     # Calculate probabilities

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  12 DEC 2023 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  12 DEC 2023 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -611,70 +611,70 @@ File: ../figures/Ungenerated Images/Flowchart.png Graphic file (type png)
 Package pdftex.def Info: ../figures/Ungenerated Images/Flowchart.png  used on input line 128.
 (pdftex.def)             Requested size: 225.4804pt x 348.8676pt.
  [3 <../figures/Ungenerated Images/Flowchart.png>] [4] [5]
-<../figures/Ungenerated Images/0.1_0.65_Fitness.png, id=182, 462.528pt x 346.896pt>
+<../figures/Ungenerated Images/0.1_0.65_Fitness.png, id=181, 462.528pt x 346.896pt>
 File: ../figures/Ungenerated Images/0.1_0.65_Fitness.png Graphic file (type png)
 <use ../figures/Ungenerated Images/0.1_0.65_Fitness.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/0.1_0.65_Fitness.png  used on input line 263.
 (pdftex.def)             Requested size: 225.4804pt x 169.11243pt.
-<../figures/Ungenerated Images/Fitness_Evolution_Crossover.png, id=186, 1011.78pt x 722.7pt>
+<../figures/Ungenerated Images/Fitness_Evolution_Crossover.png, id=185, 1011.78pt x 722.7pt>
 File: ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png Graphic file (type png)
 <use ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png  used on input line 276.
 (pdftex.def)             Requested size: 206.69334pt x 147.63615pt.
-<../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png, id=187, 1011.78pt x 722.7pt>
+<../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png, id=186, 1011.78pt x 722.7pt>
 File: ../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png  used on input line 280.
 (pdftex.def)             Requested size: 206.69334pt x 147.63615pt.
  [6 <../figures/Ungenerated Images/0.1_0.65_Fitness.png>]
-<../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png, id=196, 1011.78pt x 722.7pt>
+<../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png, id=195, 1011.78pt x 722.7pt>
 File: ../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png  used on input line 291.
 (pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-<../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png, id=197, 1011.78pt x 722.7pt>
+<../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png, id=196, 1011.78pt x 722.7pt>
 File: ../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png  used on input line 296.
 (pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-<../figures/Ungenerated Images/0.1_0.65_Population.png, id=198, 1445.4pt x 361.35pt>
+<../figures/Ungenerated Images/0.1_0.65_Population.png, id=197, 1445.4pt x 361.35pt>
 File: ../figures/Ungenerated Images/0.1_0.65_Population.png Graphic file (type png)
 <use ../figures/Ungenerated Images/0.1_0.65_Population.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/0.1_0.65_Population.png  used on input line 311.
 (pdftex.def)             Requested size: 422.77664pt x 105.69307pt.
-<../figures/Ungenerated Images/0.1_0.65_Population100.png, id=199, 1445.4pt x 361.35pt>
+<../figures/Ungenerated Images/0.1_0.65_Population100.png, id=198, 1445.4pt x 361.35pt>
 File: ../figures/Ungenerated Images/0.1_0.65_Population100.png Graphic file (type png)
 <use ../figures/Ungenerated Images/0.1_0.65_Population100.png>
 Package pdftex.def Info: ../figures/Ungenerated Images/0.1_0.65_Population100.png  used on input line 317.
 (pdftex.def)             Requested size: 422.77664pt x 105.69307pt.
  [7 <../figures/Ungenerated Images/Fitness_Evolution_Crossover.png> <../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png> <../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png> <../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png>] (./4M17_CW2_5730E.bbl) [8 <../figures/Ungenerated Images/0.1_0.65_Population.png> <../figures/Ungenerated Images/0.1_0.65_Population100.png>]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=218, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=217, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 372.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=219, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=218, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 378.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png, id=222, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png, id=221, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png  used on input line 391.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png, id=223, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png, id=222, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png  used on input line 397.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
  [9 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=232, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=231, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 410.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=233, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=232, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 416.
@@ -698,10 +698,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  48i,11n,46p,1023b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 4M17_CW2_5730E.pdf (10 pages, 1827316 bytes).
+Output written on 4M17_CW2_5730E.pdf (10 pages, 1827517 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
+ 292 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
  51 named destinations out of 1000 (max. 500000)
  238 words of extra memory for PDF output out of 10000 (max. 10000000)
 

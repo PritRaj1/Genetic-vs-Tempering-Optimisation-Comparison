@@ -3,9 +3,7 @@ Candidate No : 5730E, Module: 4M17
 
 Description :
     This file serves as a platform to run multiple simulations of the CGA algorithm.
-    Used to generate the results for the table and figures in Section 3.2 of the report.
-
-
+    Used to generate the results for the table and figures in Section 3.2 of the report.                     
 """
 
 import sys; sys.path.append('..')
@@ -42,7 +40,7 @@ if NUM_PARENTS % 2 != 0:
 # Create directories for figures
 create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST, ITERS_LIST)
 
-# 2D Visualisation
+# 2D Visualisation of function
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
 plot_2D(X1, X2, f, name=NAME)
 
@@ -50,6 +48,7 @@ plot_2D(X1, X2, f, name=NAME)
 X1, X2, f_feasible = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
 plot_2D(X1, X2, f_feasible, name=NAME, constraints=True)
 
+### Function used to generate results for table and figures in Section 3.2/Appendix of the report ###
 def selection_mating_tuning(params):
     """
     Parallelisable function to run multiple simulations of the CGA algorithm and 
@@ -77,7 +76,7 @@ def selection_mating_tuning(params):
     # Evaluate initial population
     CGA.evaluate_fitness()
 
-    # Make a grid of plots to show evolution of population
+    # Make a grid of 2D plots to show evolution of population
     PLOT_EVERY = NUM_ITERS // 5
     num_plots = (NUM_ITERS // PLOT_EVERY)
     fig, axs = plt.subplots(1, num_plots, figsize=(20, 5))
@@ -88,7 +87,7 @@ def selection_mating_tuning(params):
                 + r"}, Crossover Prob: \textbf{" + str(CROSSOVER_PROB) 
                 + r"}]", fontsize=18)
 
-    # Plot grey contours of function on each subplot in grid
+    # Plot grey contour plots of function on each subplot in grid
     # This will be overlayed with populations at different iterations
     for idx in range(num_plots):
         plot_grey_contour(X1, X2, f_feasible, plot=axs[idx], x_range=X_RANGE)
@@ -98,7 +97,8 @@ def selection_mating_tuning(params):
     min_fitness = np.zeros(NUM_ITERS)
 
     for iter in range(NUM_ITERS):
-        # Overlay population on grey contour every "PLOT_EVERY" iterations
+
+        # Overlay population on grey contour every "PLOT_EVERY" iterations. (Periodic break to allow for visualisation).
         if iter % PLOT_EVERY == 0:
             plot_num = (iter // PLOT_EVERY)
             idx = plot_num % num_plots
@@ -129,6 +129,7 @@ def selection_mating_tuning(params):
         'Final Min Fitness': min_fitness[-1]
     } 
 
+### Function used to generate fitness evolutions in Section 3.2 of the report ###
 def plot_fitnesses():
     """
     Function to plot fitness evolution for each selection method.
@@ -179,7 +180,7 @@ def plot_fitnesses():
         plt.legend(fontsize=16)
         plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
 
-# Define a function for parallel execution
+### Function used to generate heat maps in Section 3.2 of the report ###
 def rate_prob_contour(params):
     """
     Parallelisable function to create contour plots to assess
@@ -187,6 +188,7 @@ def rate_prob_contour(params):
     algorithm's performance.
     """
 
+    # Parse parameters
     i, j, MUTATION_RATE, CROSSOVER_PROB = params
 
     # Instantiate CGA
@@ -210,8 +212,10 @@ def rate_prob_contour(params):
     for iter in range(100):
         CGA.evolve()
 
-    # Return the result
+    # Return the results
     return i, j, np.mean(CGA.fitness), CGA.min_fitness
+
+### Now run the above three functions ###
 
 # Create a list of parameter combinations
 params_list = [(SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_PROB, NUM_ITERS)
@@ -226,6 +230,7 @@ print('Starting simulations for table and figure generation...')
 # Create a pool of worker processes
 pool = Pool()
 
+# Create a dataframe to store results for CSV table
 results = pd.DataFrame(columns=['Selection Method', 
                                 'Mating Procedure', 
                                 'Mutation Rate', 
@@ -236,14 +241,13 @@ results = pd.DataFrame(columns=['Selection Method',
 
 # Run the simulations in parallel
 for result in pool.map(selection_mating_tuning, params_list):
-    results.loc[len(results)] = result
+    results.loc[len(results)] = result # Append result to dataframe
 
 # Close the pool
 pool.close()
 pool.join()
 
 # Save results to csv file
-results
 results.to_csv(f'figures/{NAME}/CGAresults.csv')
 
 print('Done!')
@@ -257,18 +261,19 @@ print('Done!')
 
 print('Starting simulations for contour plot generation')
 
-# Selection and mating chosen as Tournament and Heuristic Crossover respectively, given results from report
+# Optimal selection and mating chosen as Tournament and Heuristic Crossover respectively 
+# as discussed in Section 3.2 of the report
 SELECTION_METHOD = 'Tournament'
 MATING_PROCEDURE = 'Heuristic Crossover'
+
+# Particular mutation rates and crossover probabilities I want to test
 MUTATION_RATE_LIST = [0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 CROSSOVER_PROB_LIST = [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
 
-# Create plot with X = mutation rate, Y = crossover prob, Z = final avg fitness
-
-# Initialise meshgrids
+# Initialise meshgrids of variables, X = mutation rate, Y = crossover probability
 X, Y = np.meshgrid(MUTATION_RATE_LIST, CROSSOVER_PROB_LIST)
 
-# Initialise array to store final avg and min fitnesses
+# Initialise array to store final avg and min fitnesses, used as Z in heat maps
 AVG = np.zeros((len(MUTATION_RATE_LIST), len(CROSSOVER_PROB_LIST)))
 MIN = np.zeros((len(MUTATION_RATE_LIST), len(CROSSOVER_PROB_LIST)))
 
@@ -290,7 +295,7 @@ for i, j, fitness, min_fitness in results:
 pool.close()
 pool.join()
 
-# Plot average fitness contour
+# Plot average fitness heat map
 plt.figure(figsize=(14, 10))
 plt.title(f'Average Final Fitness with varying Mutation Rate and Crossover Probability on {NAME} Function \n' 
         + r"[Selection Method: \textbf{" + SELECTION_METHOD + r"}, "
@@ -300,7 +305,7 @@ plt.xlabel('Mutation Rate', fontsize=14)
 plt.ylabel('Crossover Probability', fontsize=14)
 plt.savefig(f'figures/{NAME}/AVGContour_{SELECTION_METHOD}_{MATING_PROCEDURE}.png')
 
-# Plot minimum fitness contour
+# Plot minimum fitness heat map
 plt.figure(figsize=(14, 10))
 plt.title(f'Minimum Final Fitness with varying Mutation Rate and Crossover Probability on {NAME} Function \n' 
         + r"[Selection Method: \textbf{" + SELECTION_METHOD + r"}, "
@@ -309,6 +314,5 @@ sns.heatmap(MIN, annot=True, xticklabels=MUTATION_RATE_LIST, yticklabels=CROSSOV
 plt.xlabel('Mutation Rate', fontsize=14)
 plt.ylabel('Crossover Probability', fontsize=14)
 plt.savefig(f'figures/{NAME}/MINContour_{SELECTION_METHOD}_{MATING_PROCEDURE}.png')
-
 
 print('Done!')

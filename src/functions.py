@@ -1,3 +1,11 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This file contains the implementation of the Keane's Bump Function and the Rosenbrock function.
+"""
+
+
 import numpy as np
 
 def KBF_function(x, eps=1e-8):

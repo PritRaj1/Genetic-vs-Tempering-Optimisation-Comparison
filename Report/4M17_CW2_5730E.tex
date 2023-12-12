@@ -146,7 +146,7 @@ The population is initialised with random values uniformly distributed within th
 
 \subsubsection{Parent Selection}
 
-Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). The hyperparameter governing the quantity of parents chosen, denoted as \textit{NUM\_PARENTS}, is established at 25\% of the population size for this section of the report, (rounded down to the nearest even number to facilitate the creation of parent pairs).
+Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). The hyperparameter governing the quantity of parents chosen, denoted as \textit{NUM\_PARENTS}, is established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs).
 
 Another important aspect of the selection process is the handling of constraints. In particular, the selection process is repeated until only feasible individuals are selected. Infeasible individuals are simply not chosen as parents, a strategy advised by \cite{parks2023geneticalgorithms}. 
 
@@ -154,7 +154,7 @@ Another important aspect of the selection process is the handling of constraints
 
 The probability of an individual being selected for mating is proportional to its fitness:
 \[
-    p_i = \frac{f_i}{\sum_{i=1}^{n} f_i}
+    P_i = \frac{f_i}{\sum_{i=1}^{n} f_i}
 \]
 Here, \(f_i\) denotes the fitness of the \(i\)th individual. This is the simplest selection method, and is implemented in accordance with the theory presented in \cite{parks2023geneticalgorithms}.
 
@@ -165,14 +165,14 @@ However, it would be premature to disregard the proportional selection method. T
 
 As outlined in \cite{parks2023geneticalgorithms}, this strategy involves taking a small subset of the population, and selecting the top two individuals with the highest fitness. This is repeated until the required number of parents is achieved. Selection pressure can then be adjusted by varying the size of the subset, controlled by the \textit{TOURNAMENT\_SIZE} hyperparameter.
 
-This is a popular selection method, as it is simple to implement, and is known to perform well in practice. It can be improved by including some of the concepts presented in \cite{Miller1995GeneticAT}, however, these have been avoided considering \cite{parks2023geneticalgorithms} suggests SRS selection as a superior alternative.
+This is a popular selection method, as it is simple to implement, and is known to perform well in practice. It can be improved by including some of the concepts presented in \cite{Miller1995GeneticAT}, however, these have been avoided to reduce the complexity of the algorithm's implementation.
 
 \textbf{\underline{Stochastic Remainder Selection}}\\\vspace{0.5mm}
 \textbf{\underline{\hspace{-0.5mm}without Replacement (SRS)}}
 
 This strategy draws inspiration from \cite{parks2023geneticalgorithms}. Specifically, a group of chosen individuals is curated by generating an expected number of copies for each individual, denoted as: 
-\[E_i = N * p_i\]
-Here, \(N\) represents the population size, and \(p_i\) is elucidated above in the context of proportional selection. The anticipated number of duplicates is subsequently divided into an integer part, \(I_i = \lfloor E_i \rfloor\), and a remainder, \(R_i = E_i - I_i\). 
+\[E_i = N * P_i\]
+Here, \(N\) represents the population size, and \(P_i\) is elucidated above in the context of proportional selection. The anticipated number of duplicates is subsequently divided into an integer part, \(I_i = \lfloor E_i \rfloor\), and a remainder, \(R_i = E_i - I_i\). 
 
 The integer part is used for deterministic selection of individuals. The $i$th indivdual is selected $I_i$ times. Subsequently, the remained, $R_i$, is then used to stochastically augment the collection of individuals until the required number of parents is achieved. This is done by selecting the $i$th individual with a probability of $R_i$.
 
@@ -198,7 +198,7 @@ A crucial factor to bear in mind is that certain offspring may be produced outsi
 
 The decision to incorporate this mutation procedure stems from the continuous nature of the state space. While the conventional crossover methods may be well-suited to binary representations, a more intuitive approach emerges when grappling with real-valued variables - using a blend of characteristics from both parents.
 
-Moreover, the use of the heuristic crossover method aims to address previous limitations associated with standard crossover. Unlike conventional crossover, which confines offspring values to those of the parents, blending permits the generation of offspring beyond the parent values. This feature may prove particularly advantageous in the context of the KBF, enhancing the algorithm's capability to navigate the search space adeptly and thoroughly explore local optima.
+Moreover, the use of the heuristic crossover method aims to address previous limitations associated with standard crossover. Unlike conventional crossover, which confines offspring values to those of the parents, blending permits the generation of offspring beyond the parent values, allowing for potentially new information. This feature may prove particularly advantageous in the context of the KBF, enhancing the algorithm's capability to navigate the search space adeptly and thoroughly explore local optima.
 
 An additional noteworthy observation is that the introduction of $\beta$ serves to bring the CGA into closer alignment with Evolutionary Strategies (ES). This resemblance becomes evident as the formulation above bears some similarity to the intermediate recombination strategy outlined in \cite{salimans2017evolution}. Nevertheless, it is essential to emphasise, as mentioned earlier, that mutation does not serve as the primary search mechanism in the CGA. Consequently, the CGA can still be appropriately categorised as a GA, as per the classification seen in \cite{10.1007/BFb0029787}.
 
@@ -223,7 +223,7 @@ Given the flexibility of the CGA, multiple selection methods and mutation proced
 to take advantage of the flexibility offered by the CGA. 
 
 To choose a selection method and mutation procedure going forwards into the main comparison of this report, code %placeholder
-was used a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
+was used as a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
 
 Additional results from the initial exploration of hyperparameter tuning are detailed in the Appendix. Specifically, the final fitness values are outlined in Table \ref{tab:CGAexploration}. Further insights into the initial evolution of the population during the first 8 iterations are illustrated in supplementary figures found in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament}.
 

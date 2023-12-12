@@ -1,5 +1,11 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This file contains various functions used for plotting figures.
+"""
+
 import matplotlib.pyplot as plt
-import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import rc
 import seaborn as sns
@@ -10,7 +16,8 @@ rc('text', usetex=True)
 
 def plot_2D(X1, X2, f, name, constraints=False):
     """
-    Function for visualising a function in R^2.
+    Function for visualising a function in R^2. 
+    Creates both a contour plot and a 3D surface plot.
 
     Args:
     - X1 (np.ndarray): Meshgrid of x1 values.
@@ -20,6 +27,7 @@ def plot_2D(X1, X2, f, name, constraints=False):
     - constraints (bool): Whether to plot with carved out feasible region or not.
     """
 
+    # Change visualisation depending on whether we're plotting the carved out feasible region or not
     if constraints == True:
         name_png = f'{name} Feasible'
         angle = -10
@@ -55,17 +63,12 @@ def plot_2D(X1, X2, f, name, constraints=False):
 
 def plot_population(population, plot, best=None):
     """
-    Function for overlaying a population from CGA on a function in R^2.
+    Function for overlaying a particular generation from the CGA's optimisation on a contour plot in R^2.
 
     Args:
-    - X1 (np.ndarray): Meshgrid of x1 values.
-    - X2 (np.ndarray): Meshgrid of x2 values.
-    - f (np.ndarray): Function values for plotting contour.
-    - population (np.ndarray): Population to overlay on contour
-    - i (int): Iteration number
-    - best (np.ndarray): Best individual in population
-    - x_range (tuple): Range of x values to display
-    - y_range (tuple): Range of y values to display
+    - population (np.ndarray): Population of individuals.
+    - plot (matplotlib.pyplot): Plot to overlay on.
+    - best (np.ndarray): Best individual.
     """
 
     # Plot population
@@ -80,13 +83,14 @@ def plot_population(population, plot, best=None):
 
 def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
     """
-    Function for visualising a function in R^2.
+    Function for plotting the grey contour plot which will be overlayed with the population during optimisation.
 
     Args:
     - X1 (np.ndarray): Meshgrid of x1 values.
     - X2 (np.ndarray): Meshgrid of x2 values.
     - f (np.ndarray): Function values.
-    - name (str): Name of function.
+    - plot (matplotlib.pyplot): A subplot within the grid of contours to plot the contour on.
+    - x_range (tuple): Range of x values.
     """
     plot.contourf(X1, X2, f, 100, cmap='gray')
     plot.set_facecolor('xkcd:light grey')

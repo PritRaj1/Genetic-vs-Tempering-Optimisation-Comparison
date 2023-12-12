@@ -1,3 +1,10 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This file contains some helper functions for the project.
+"""
+
 import numpy as np
 import os
 
@@ -46,7 +53,7 @@ def evaluate_2D(func, x_range=(0,10), constraints=False):
 
 def create_figure_directories(name, selection_methods, mating_procedures, iters_list):
     """
-    Function for creating directories for figures.
+    Function for creating directories for figures generated in my simulations.
     """
     # Create parent directory
     if not os.path.exists('figures'):

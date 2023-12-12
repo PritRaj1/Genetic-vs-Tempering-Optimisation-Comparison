@@ -40,7 +40,7 @@ def crossover(CGA):
 
 def heuristic_crossover(CGA):
     """
-    Blending mating procedure. Inspired by the relevant section in https://doi.org/10.1002/0471671746.ch3
+    Heuristic crossover mating procedure. Inspired by the relevant section in https://doi.org/10.1002/0471671746.ch3
     """
 
     # Select parents
