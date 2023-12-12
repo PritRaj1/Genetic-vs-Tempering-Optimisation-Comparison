@@ -212,29 +212,35 @@ The population is then evaluated, and the individuals are ranked in order of fit
 
 For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
 
-\subsection{Tuning the Selection Method and Mutation Procedure}
+\subsection{Tuning the CGA Hyperparameters}
 \label{sec:CGA_selection_mutation}
 
 Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase, as discussed previously. These are then selected as hyperparameters within the script, %placeholder
-to take advantage of the flexibility offered by the CGA. To choose a selection method and mutation procedure going forwads into the main comparison of this report, code %placeholder
-was used a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, and the final fitness values are presented in Table \ref{tab:CGAexploration} within the Appendix. Supplementary figures have also been provided in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament} within the Appendix, showcasing the intial evolution of the population in the first 8 iterations.
+to take advantage of the flexibility offered by the CGA. 
 
+To choose a selection method and mutation procedure going forwards into the main comparison of this report, code %placeholder
+was used a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
+
+Additional results from the initial exploration of hyperparameter tuning are detailed in the Appendix. Specifically, the final fitness values are outlined in Table \ref{tab:CGAexploration}. Further insights into the initial evolution of the population during the first 8 iterations are illustrated in supplementary figures found in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament}.
+
+However, the most insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the recommendation in \cite{parks2023geneticalgorithms} to use SRS selection. 
 
 \end{multicols}
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\textwidth]{../figures/KBF/Fitness_Evolution_Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\textwidth]{../figures/KBF/Fitness_Evolution_Heuristic Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover.}
+    \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
+    \label{fig:CGA_fitness_evo}
 \end{figure}
 
 \section{Methodology}
@@ -283,25 +289,6 @@ was used a platform for exploartion. Each selection method and mutation procedur
     \centering
     \begin{subfigure}{0.85\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Crossover}
-        \label{fig:CGA_flowchart_SRS_crossover}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}
-        \centering
-        \includegraphics[width=0.85\textwidth]{../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Heuristic Crossover}
-        \label{fig:CGA_flowchart_SRS_Heuristic Crossover}
-    \end{subfigure}
-    \captionsetup{justification=centering}
-    \caption{Evolution of the population over 8 iterations using Stochastic Remainder Selection without Replacement (SRS). SRS was found to be the most effective selection method, when compared to Proportional Selection and Tournament Selection, as seen in Figures \ref{fig:CGA_flowchart_proportional} and \ref{fig:CGA_flowchart_tournament}, respectively.}
-    \label{fig:CGA_flowchart_SRS}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.85\textwidth}
-        \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_flowchart_proportional_crossover}
@@ -313,7 +300,7 @@ was used a platform for exploartion. Each selection method and mutation procedur
         \label{fig:CGA_flowchart_proportional_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{CGA evolution of the population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over SRS as the primary selection method for the reasons outlined in Section \ref{sec:CGA_selection_mutation}.}
+    \caption{Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref{sec:CGA_selection_mutation}.}
     \label{fig:CGA_flowchart_proportional}
 \end{figure}
 
@@ -332,8 +319,27 @@ was used a platform for exploartion. Each selection method and mutation procedur
         \label{fig:CGA_flowchart_tournament_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{CGA evolution of the population over 8 iterations using tournament selection. Using tournament selection, the algorithm was unable to converge upon an appropriate solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum. As such, it was disregarded as a viable selection method.}
+    \caption{Evolution of the CGA population over 8 iterations using tournament selection. Tournament selection proved to be the most effective selection method, when compared to Proportional Selection and Stochastic Remainder Selection without Replacement (SRS), as discussed in \ref{sec:CGA_selection_mutation}.}
     \label{fig:CGA_flowchart_tournament}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.85\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Crossover}
+        \label{fig:CGA_flowchart_SRS_crossover}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+        \label{fig:CGA_flowchart_SRS_Heuristic Crossover}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref{sec:CGA_selection_mutation}.}
+    \label{fig:CGA_flowchart_SRS}
 \end{figure}
 
 \end{document}

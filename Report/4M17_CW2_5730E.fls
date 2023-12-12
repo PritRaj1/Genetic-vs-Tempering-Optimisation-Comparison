@@ -250,20 +250,14 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchri7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb8r.tfm
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/Fitness_Evolution_Crossover.png
-INPUT ../figures/KBF/Fitness_Evolution_Crossover.png
-INPUT ../figures/KBF/Fitness_Evolution_Crossover.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/Fitness_Evolution_Heuristic Crossover.png
-INPUT ../figures/KBF/Fitness_Evolution_Heuristic Crossover.png
-INPUT ../figures/KBF/Fitness_Evolution_Heuristic Crossover.png
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
+INPUT ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
+INPUT ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png
+INPUT ../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png
+INPUT ../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
-INPUT ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png
 INPUT ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png
 INPUT ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png
@@ -276,6 +270,12 @@ INPUT ../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png
 INPUT ../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png
 INPUT ../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
+INPUT ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
+INPUT ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
+INPUT ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
+INPUT ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out

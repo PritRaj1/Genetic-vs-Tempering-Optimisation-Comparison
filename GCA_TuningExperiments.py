@@ -2,9 +2,8 @@
 Candidate No : 5730E, Module: 4M17 
 
 Description :
-    This parallelised script serves as a platform to run multiple simulations of the CGA algorithm
-    to assess the impact of different hyperparameters on the algorithm's performance. The results
-    are saved to a csv file and figures are generated to visualise the results.
+    This file serves as a platform to run multiple simulations of the CGA algorithm.
+    Used to generate the results for the table and figures in Section 3.2 of the report.
 """
 
 import sys; sys.path.append('..')
@@ -49,7 +48,14 @@ plot_2D(X1, X2, f, name=NAME)
 X1, X2, f_feasible = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
 plot_2D(X1, X2, f_feasible, name=NAME, constraints=True)
 
-def run_simulation(params):
+def selection_mating_tuning(params):
+    """
+    Parallelisable function to run multiple simulations of the CGA algorithm and 
+    assess the impact of different hyperparameters on the algorithm's performance.
+    The results are saved to a csv file and figures are generated to visualise the results.
+    """
+
+    # Parse parameters
     SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_PROB, NUM_ITERS = params
 
     # Instantiate CGA
@@ -134,7 +140,6 @@ print('Starting simulations for table and figure generation...')
 # Create a pool of worker processes
 pool = Pool()
 
-global results
 results = pd.DataFrame(columns=['Selection Method', 
                                 'Mating Procedure', 
                                 'Mutation Rate', 
@@ -144,7 +149,7 @@ results = pd.DataFrame(columns=['Selection Method',
                                 'Final Min Fitness'], index=None)
 
 # Run the simulations in parallel
-for result in pool.map(run_simulation, params_list):
+for result in pool.map(selection_mating_tuning, params_list):
     results.loc[len(results)] = result
 
 # Close the pool
@@ -159,51 +164,51 @@ print('Done!')
 
 print('Starting simulations for fitness plots generation')
 
-MATING = 'Heuristic Crossover' # Mating procedure held constant
+for MATING in MATING_PROCEDURE_LIST:
 
-# Make one plot to show fitness evolution for each selection method
-plt.figure(figsize=(14, 10))
-sns.set_style('darkgrid')
-plt.title(f'Average Fitness Evolution for each Selection Method on {NAME} Function \n' 
-          + r"Mating Procdure held as \textbf{" + MATING + r"}", fontsize=24)
-plt.xlabel('Iteration', fontsize=20)
-plt.ylabel('Average Fitness', fontsize=20)
-
-for SELECTION_METHOD in SELECTION_METHOD_LIST:
-    # Instantiate CGA
-    CGA = ContinousGeneticAlgorithm(
-        population_size=POPULATION_SIZE,
-        chromosome_length=CHROMOSOME_LENGTH,
-        num_parents=NUM_PARENTS,
-        objective_function=FUNCTION,
-        tournament_size=TOUNAMENT_SIZE,
-        range=X_RANGE,
-        mutation_rate=0.05,
-        crossover_prob=0.7,
-        selection_method=SELECTION_METHOD,
-        mating_procedure=MATING,
-        )
+    # Make a plot for each mating procedure to show fitness evolution for the three selection method
+    plt.figure(figsize=(14, 10))
+    sns.set_style('darkgrid')
+    plt.title(f'Average Fitness Evolution for each Selection Method on {NAME} Function \n' 
+            + r"Mating Procdure held as \textbf{" + MATING + r"}", fontsize=24)
+    plt.xlabel('Iteration', fontsize=20)
+    plt.ylabel('Average Fitness', fontsize=20)
     
-    # Evaluate initial population
-    CGA.evaluate_fitness()
+    for SELECTION_METHOD in SELECTION_METHOD_LIST:
+        # Instantiate CGA
+        CGA = ContinousGeneticAlgorithm(
+            population_size=POPULATION_SIZE,
+            chromosome_length=CHROMOSOME_LENGTH,
+            num_parents=NUM_PARENTS,
+            objective_function=FUNCTION,
+            tournament_size=TOUNAMENT_SIZE,
+            range=X_RANGE,
+            mutation_rate=0.05,
+            crossover_prob=0.7,
+            selection_method=SELECTION_METHOD,
+            mating_procedure=MATING,
+            )
+        
+        # Evaluate initial population
+        CGA.evaluate_fitness()
 
-    # Initialise arrays to store fitness values
-    avg_fitness = np.zeros(100)
-    min_fitness = np.zeros(100)
+        # Initialise arrays to store fitness values
+        avg_fitness = np.zeros(100)
+        min_fitness = np.zeros(100)
 
-    for iter in range(100):
-        # Evolve population
-        CGA.evolve()
+        for iter in range(100):
+            # Evolve population
+            CGA.evolve()
 
-        # Update fitness arrays
-        avg_fitness[iter] = np.mean(CGA.fitness)
-        min_fitness[iter] = CGA.min_fitness
+            # Update fitness arrays
+            avg_fitness[iter] = np.mean(CGA.fitness)
+            min_fitness[iter] = CGA.min_fitness
 
-    # Plot fitness evolution with iteration
-    sns.lineplot(x=range(100), y=avg_fitness, label=SELECTION_METHOD)
+        # Plot fitness evolution with iteration
+        sns.lineplot(x=range(100), y=avg_fitness, label=SELECTION_METHOD)
 
-plt.legend(fontsize=16)
-plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
+    plt.legend(fontsize=16)
+    plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
 
 
 
