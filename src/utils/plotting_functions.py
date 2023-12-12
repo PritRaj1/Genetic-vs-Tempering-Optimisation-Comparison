@@ -73,8 +73,8 @@ def plot_population(population, plot, best=None):
     
     # Plot circle around best individual
     if best is not None:
-        plot.plot(best[0], best[1], marker='x', markersize=10, label='Best', color='blue')
-        plot.add_patch(plt.Circle((best[0], best[1]), 0.5, color='blue', fill=False)) 
+        plot.plot(best[0], best[1], marker='o', markersize=8, label='Best', color='green')
+        plot.add_patch(plt.Circle((best[0], best[1]), 0.5, color='green', fill=False)) 
     
     plot.legend()
 

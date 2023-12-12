@@ -225,6 +225,10 @@ Additional results from the initial exploration of hyperparameter tuning are det
 
 However, the most insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the recommendation in \cite{parks2023geneticalgorithms} to use SRS selection. 
 
+The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
+
+The observed differences in performance may be attributed to the distinct characteristics of the KBF. Tournament selection appears to demonstrate greater efficacy in navigating the search space compared to SRS, perhaps due to its less deterministic nature. This becomes particularly significant in light of the multi-modal nature of the KBF, where a certain level of stochasticity may prove essential for thorough exploration of the search space.
+
 \end{multicols}
 
 \begin{figure}[H]
@@ -262,25 +266,26 @@ However, the most insightful conclusions can be drawn from the figures presented
         \multirow{2}{*}{\textbf{Selection Method}} & \multirow{2}{*}{\textbf{Mating Procedure}} & \multirow{2}{*}{\textbf{Iterations}} & \multirow{2}{*}{\textbf{Final Avg. Fitness}} & \multirow{2}{*}{\textbf{Final Min. Fitness}} \\
         & & & & \\
         \hline
-        \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.2524 & -0.3056 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2776 &\cellcolor{lightgray} -0.3251 \\
+        \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.19890798 & -0.247328018 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.212384457 &\cellcolor{lightgray} -0.24867806 \\
         \cline{2-5}
-        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.2070 & -0.2586 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2416 & \cellcolor{lightgray} -0.2612 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.199296791 & -0.258198948 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.22656183 & \cellcolor{lightgray} -0.250977443 \\
         \hline
-        \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.0033 & -0.2104 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0026 &\cellcolor{lightgray} -0.1373 \\
+        \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.309572335 & -0.331996331 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.309235401 &\cellcolor{lightgray} -0.342745604 \\
         \cline{2-5}
-        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.0047 & -0.1369 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0013 &\cellcolor{lightgray} -0.0641 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.241261775 & -0.262876797 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.247574635 &\cellcolor{lightgray} -0.262876811 \\
         \hline
-        \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.2852 & -0.3501 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.3192 &\cellcolor{lightgray} -0.3443 \\
+        \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.189986008 & -0.208434151 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.288766718 &\cellcolor{lightgray} -0.319667279 \\
         \cline{2-5}
-        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.2343 & -0.2629 \\
-        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2306 &\cellcolor{lightgray} -0.2620 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.177779432 & -0.207148488 \\
+        & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.182101833 &\cellcolor{lightgray} -0.338823558 \\
         \hline
     \end{tabular}
+    \captionsetup{justification=centering}
     \caption{An initial exploration of the selection method and mutation procedure hyperparameters within the CGA. The results are presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
     \label{tab:CGAexploration}
 \end{table}
