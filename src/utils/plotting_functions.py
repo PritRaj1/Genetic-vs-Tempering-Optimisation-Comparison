@@ -115,7 +115,7 @@ def plot_fitness(avg_fitness, min_fitness, type):
               + r"[Selection: \textbf{" + type[2] 
               + r"}, Mating: \textbf{" + type[3] 
               +  r"}, Mutation Rate: \textbf{" + str(type[4])
-                + r"}, Crossover Rate: \textbf{" + str(type[5])
+                + r"}, Crossover Prob: \textbf{" + str(type[5])
                 + r"}]", fontsize=12)
     
     plt.legend()

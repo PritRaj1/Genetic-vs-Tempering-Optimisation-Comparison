@@ -1,54 +1,76 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+This file contains the mating functions for the CGA algorithm.
+"""
+
 import numpy as np
 
 def crossover(CGA):
     """
     Crossover mating procedure. 
     """
-    # Initialise new offspring
+    # Select parents
+    selected_parents = CGA.select_parents()
+
+    # Reschape them into a set of potential parent pairs
+    parent_pairs = np.array(selected_parents).reshape(-1, 2)
+
+    # Initialise new offspring to replace population
     offspring = np.zeros((CGA.population_size, CGA.chromosome_length))
 
     # Iterate through population
     for i in range(CGA.population_size):
 
-        # Select parents
-        parent1, parent2 = CGA.select_parents()
+        # Assign random pair of parents from parent_pairs
+        parent1, parent2 = parent_pairs[np.random.randint(len(parent_pairs))]
 
-        # Iterate through all the genes of an individual/chromosome
-        for j in range(CGA.chromosome_length):
-            
-            # Crossover with probability, CGA.crossover_rate
-            if np.random.rand() < CGA.crossover_rate:
-                offspring[i][j] = CGA.population[parent1][j] # Take gene from parent1
-            else:
-                offspring[i][j] = CGA.population[parent2][j] # Take gene from parent2
+        # Assign random crossover point
+        p = np.random.randint(1, CGA.chromosome_length)
 
-    return offspring  
+        # Swap genes from parents to create offspring
+        if np.random.rand() < CGA.crossover_prob:
+            offspring[i][:p] = CGA.population[parent1][:p]
+            offspring[i][p:] = CGA.population[parent2][p:]
+        else:
+            offspring[i][:p] = CGA.population[parent2][:p]
+            offspring[i][p:] = CGA.population[parent1][p:]
 
-def blending(CGA):
+    return offspring
+
+def heuristic_crossover(CGA):
     """
     Blending mating procedure. Inspired by the relevant section in https://doi.org/10.1002/0471671746.ch3
     """
 
-    # Initialise new offspring
+    # Select parents
+    selected_parents = CGA.select_parents()
+
+    # Reschape them into a set of potential parent pairs
+    parent_pairs = np.array(selected_parents).reshape(-1, 2)
+
+    # Initialise new offspring to replace population
     offspring = np.zeros((CGA.population_size, CGA.chromosome_length))
 
     # Iterate through population
     for i in range(CGA.population_size):
 
-        # Select parents
-        parent1, parent2 = CGA.select_parents()
+        # Assign random pair of parents from parent_pairs
+        parent1, parent2 = parent_pairs[np.random.randint(len(parent_pairs))]
         
         # Iterate through all the genes of an individual/chromosome
         for j in range(CGA.chromosome_length):
             
-            # Crossover with probability, CGA.crossover_rate
-            if np.random.rand() < CGA.crossover_rate:
-                b = np.random.rand()
-                offspring[i][j] = b * CGA.population[parent1][j] + (1-b) * CGA.population[parent2][j] # Take gene from parent1
+            # Heuristic crossover with probability, CGA.crossover_prob
+            b = np.random.rand() # b is a random number between 0 and 1
+
+            if np.random.rand() < CGA.crossover_prob:
+                # p_new = b * (p1 - p2) + p2 
+                offspring[i][j] = b * (CGA.population[parent1][j] - CGA.population[parent2][j]) + CGA.population[parent2][j]     
             else:
-                offspring[i][j] = CGA.population[parent2][j] # Take gene from parent2
-
+                # p_new = b * (p2 - p1) + p1
+                offspring[i][j] = b * (CGA.population[parent2][j] - CGA.population[parent1][j]) + CGA.population[parent1][j]
+                
     return offspring
-
 
 

@@ -1,34 +1,36 @@
-import numpy as np
+"""
+Candidate No : 5730E, Module: 4M17 
 
+This file contains the selection functions for the CGA algorithm.
+"""
+
+import numpy as np
 import sys; sys.path.append('..')
 from src.utils.helper_functions import satisfy_constraints
 
 def proportional_selection(GCA):
-        """
-        Proportional selection of parents. 
+    """
+    Proportional selection of parents. 
 
-        Args:
-        - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
+    Args:
+    - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
-        Returns:
-        - parent1 (int): Index of first parent
-        - parent2 (int): Index of second parent
-        """
-        # Calculate probabilities
-        probabilities = GCA.fitness / np.sum(GCA.fitness)
-        
-        # Initial selection of parents
-        parent1 = np.random.choice(GCA.population_size, p=probabilities)
-        parent2 = np.random.choice(GCA.population_size, p=probabilities)
+    Returns:
+    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
+    """
+    # Calculate probabilities
+    probabilities = GCA.fitness / np.sum(GCA.fitness)
 
-        # Select parents based on probabilities, reject parents that do not satisfy constraints
-        if GCA.constraints == True:
-            while not satisfy_constraints(GCA.population[parent1]):
-                parent1 = np.random.choice(GCA.population_size, p=probabilities)
-            while not satisfy_constraints(GCA.population[parent2]):
-                parent2 = np.random.choice(GCA.population_size, p=probabilities)
+    # Select individuals based on probabilities
+    selected_individuals = list(np.random.choice(GCA.population_size, size=GCA.num_parents, p=probabilities))
 
-        return parent1, parent2
+    # Retry - reject parents that do not satisfy constraints
+    if GCA.constraints == True:
+        for i in range(GCA.num_parents):
+            while not satisfy_constraints(GCA.population[selected_individuals[i]]):
+                selected_individuals[i] = np.random.choice(GCA.population_size, p=probabilities)
+    
+    return selected_individuals
 
 def tournament_selection(GCA):
     """
@@ -38,28 +40,37 @@ def tournament_selection(GCA):
     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
     Returns:
-    - parent1 (int): Index of first parent
-    - parent2 (int): Index of second parent
+    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
     """
-    # Take subset of population
-    subset = np.random.choice(GCA.population_size, size=GCA.tournament_size, replace=False)
 
-    # Take top two parents
-    parent1 = subset[np.argmax(GCA.fitness[subset])]
-    subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-    parent2 = subset[np.argmax(GCA.fitness[subset])]
+    # Initialise list of selected individuals
+    selected_individuals = []
 
-    # Select parents based on probabilities, reject parents that do not satisfy constraints
-    if GCA.constraints == True:
-        while not satisfy_constraints(GCA.population[parent1]):
-            subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-            parent1 = subset[np.argmax(GCA.fitness[subset])]
-        while not satisfy_constraints(GCA.population[parent2]):
-            subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-            parent2 = subset[np.argmax(GCA.fitness[subset])]
-    
-    return parent1, parent2
-        
+    # Select top two parents for each tournament, so need GCA.num_parents//2 tournaments
+    for i in range(GCA.num_parents//2):
+
+        # Take subset of population
+        subset = np.random.choice(GCA.population_size, size=GCA.tournament_size, replace=False)
+
+        # Take top two parents
+        parent1 = subset[np.argmax(GCA.fitness[subset])]
+        subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
+        parent2 = subset[np.argmax(GCA.fitness[subset])]
+
+        # Retry, reject parents that do not satisfy constraints
+        if GCA.constraints == True:
+            while not satisfy_constraints(GCA.population[parent1]):
+                subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
+                parent1 = subset[np.argmax(GCA.fitness[subset])]
+            while not satisfy_constraints(GCA.population[parent2]):
+                subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
+                parent2 = subset[np.argmax(GCA.fitness[subset])]
+
+        # Add parents to list of selected individuals
+        selected_individuals += [parent1, parent2]
+
+    return selected_individuals
+
 def SRS_selection(GCA):
     """
     Stochastic Remainder Selection without Replacement (SRS) of parents. 
@@ -68,51 +79,49 @@ def SRS_selection(GCA):
     - GCA (CGA): Continuous Genetic Algorithm object passed into this function using self.select_parents(self)
 
     Returns:
-    - parent1 (int): Index of first parent
-    - parent2 (int): Index of second parent
+    - selected_individuals (list): List of indices of selected individuals, length = GCA.num_parents
     """
 
     # Calculate probabilities
     probabilities = GCA.fitness / np.sum(GCA.fitness)
 
     # Calculate expected number of copies of each individual
-    expected_num_copies = probabilities * GCA.population_size
+    expected_num_copies = probabilities * GCA.num_parents
 
-    # Calculate number of copies of each individual, each individual is selected this number of times
+    # Calculate integer number of copies of each individual
     num_copies = np.floor(expected_num_copies) 
 
-    # Calculate remainder, which serves as the probability of further selection
+    # Calculate remainder, which later serves as the probability of further selection
     remainder = expected_num_copies - num_copies
 
-    # Calculate number of individuals to be selected
-    num_selected = int(np.sum(num_copies))
-
-    # Select individuals
+    # Initialise list of selected individuals
     selected_individuals = []
 
-    # Select individuals with num_copies
+    # Duplicate individuals "num_copies" times
     for i in range(GCA.population_size):
-        selected_individuals += [i] * int(num_copies[i]) # Add i to list num_copies[i] times
 
-    # Remainer must satisfy sum(remainder) = 1
+        # Add only feasible individuals
+        if satisfy_constraints(GCA.population[i]):
+            selected_individuals += [i] * int(num_copies[i]) # Add i to list num_copies[i] times
+
+    # Remainer must satisfy sum(remainder) = 1, since it serves as probability
     remainder = remainder / np.sum(remainder)
 
-    # Select individuals with remainder serving as probability
-    selected_individuals += list(np.random.choice(GCA.population_size, size=num_selected, p=remainder))
+    # Calculate remaining number of individuals that need to be selected
+    remaining_number = GCA.num_parents - len(selected_individuals)
 
-    # Select parents
-    parent1 = np.random.choice(selected_individuals)
-    parent2 = np.random.choice(selected_individuals)
+    remaining_number = remaining_number if remaining_number > 0 else 0
 
-    # Select parents based on probabilities, reject parents that do not satisfy constraints
+    # Select individuals using remainder probabilities
+    selected_individuals += list(np.random.choice(GCA.population_size, size=remaining_number, p=remainder))
+
+    # Reject parents that do not satisfy constraints
     if GCA.constraints == True:
-        while not satisfy_constraints(GCA.population[parent1]):
-            parent1 = np.random.choice(selected_individuals)
-        while not satisfy_constraints(GCA.population[parent2]):
-            parent2 = np.random.choice(selected_individuals)
+        for i in range(len(selected_individuals)):
+            while not satisfy_constraints(GCA.population[selected_individuals[i]]):
+                selected_individuals[i] = np.random.choice(GCA.population_size, p=remainder)
     
-    return parent1, parent2
-
+    return selected_individuals
     
 
 

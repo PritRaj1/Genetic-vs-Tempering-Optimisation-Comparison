@@ -3,37 +3,40 @@ import sys; sys.path.append('..')
 
 # Import selection and mating functions from directory files
 from src.algorithms.CGA.selection_functions import proportional_selection, tournament_selection, SRS_selection
-from src.algorithms.CGA.mating_functions import crossover, blending
+from src.algorithms.CGA.mating_functions import crossover, heuristic_crossover
+from src.utils.helper_functions import satisfy_constraints
 
 class ContinousGeneticAlgorithm():
     """
     Class for continous genetic algorithm.  
     """
-    def __init__(self, population_size, chromosome_length, objective_function, tournament_size, range=(0,10), mutation_rate=0.1, crossover_rate=0.8, selection_method='SRS', mating_procedure='crossover', constraints=True):
+    def __init__(self, population_size, chromosome_length, num_parents, objective_function, tournament_size, range=(0,10), mutation_rate=0.1, crossover_prob=0.8, selection_method='SRS', mating_procedure='crossover', constraints=True):
         """
         Constructor for continous genetic algorithm.
 
         Parameters:
         - population_size (int): Number of individuals in population    
         - chromosome_length (int): Size of vector individual, (number of genes), i.e. dimension of solution space
+        - num_parents (int): Number of parents to select for mating
         - objective_function (function): Objective function to optimise
         - tournament_size (int): Size of subset of population for tournament selection
         - range (tuple): Range of values for genes, determined by constraints of problem
         - num_iters (int): Number of iterations
         - mutation_rate (float): Mutation rate
-        - crossover_rate (float): Crossover rate
+        - crossover_prob (float): Crossover rate
         - selection_method (str): Selection method used for parent selection
         - mating_procedure (str): Mating procedure used for reproduction
         - constraints (bool): Whether to satisfy constraints with parent selection or not
         """
         self.population_size = population_size 
         self.chromosome_length = chromosome_length # n in R^n, dimension of the search space
+        self.num_parents = num_parents
         self.func = objective_function
         self.tournament_size = tournament_size
         self.lb = range[0] 
         self.ub = range[1] 
         self.mutation_rate = mutation_rate  
-        self.crossover_rate = crossover_rate
+        self.crossover_prob = crossover_prob
         self.constraints = constraints
         
         # Dictionaries to map string to function call. Function imported from directory files
@@ -43,7 +46,7 @@ class ContinousGeneticAlgorithm():
                             } 
         
         mating_mapping = {'Crossover': crossover,
-                          'Blending': blending 
+                          'Heuristic Crossover': heuristic_crossover 
                           }
 
         if selection_method not in ['Proportional', 'Tournament', 'SRS']:
@@ -51,7 +54,7 @@ class ContinousGeneticAlgorithm():
         else:
             self.selection_process = selection_mapping[selection_method]
 
-        if mating_procedure not in ['Crossover', 'Blending']:
+        if mating_procedure not in ['Crossover', 'Heuristic Crossover']:
             raise ValueError("Invalid mating procedure")
         else:
             self.mating_process = mating_mapping[mating_procedure]
@@ -80,9 +83,21 @@ class ContinousGeneticAlgorithm():
         for i in range(self.population_size):
             self.fitness[i] = - self.func(self.population[i])
 
-        # Update best individual
+        # Evaluate rankings of individuals in population by fitness
         self.parent_rankings = np.argsort(self.fitness) # Indices of individuals in order of fitness
-        self.best_individual = self.population[self.parent_rankings[0]] # Best individual in population
+
+        # Update best individual and best fitness
+        self.best_individual = self.population[self.parent_rankings[0]]
+        self.min_fitness = self.fitness[self.parent_rankings[0]]
+
+        # Best individual must satisfy constraints, if not, find next best individual that does
+        i = 1
+        while not satisfy_constraints(self.best_individual):
+            self.best_individual = self.population[self.parent_rankings[i]]
+            self.min_fitness = self.fitness[self.parent_rankings[i]]
+            i += 1
+            
+
     
     def select_parents(self):
         """

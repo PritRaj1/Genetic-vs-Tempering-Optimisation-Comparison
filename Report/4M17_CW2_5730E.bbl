@@ -21,6 +21,11 @@ Frank Hoffmeister and Thomas B{\"a}ck.
   Problem Solving from Nature}, pages 455--469, Berlin, Heidelberg, 1991.
   Springer Berlin Heidelberg.
 
+\bibitem{Michalewicz_2011}
+Zbigniew Michalewicz.
+\newblock {\em Genetic algorithms + data structures = evolution programs}.
+\newblock Springer, 2011.
+
 \bibitem{Miller1995GeneticAT}
 Brad~L. Miller and David~E. Goldberg.
 \newblock Genetic algorithms, tournament selection, and the effects of noise.

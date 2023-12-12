@@ -70,9 +70,8 @@ This report conducts a comparative analysis of two optimisation algorithms appli
     \label{fig:KBF_2D}
 \end{figure}
 \newpage
-\section{Introduction}
+\section{Problem Introduction - Keane's Bump Function}
 \begin{multicols}{2}
-\subsection{Keane's Bump Function}
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
 
 \begin{equation}
@@ -110,7 +109,7 @@ These properties make the KBF a suitable candidate for the comparative analysis 
     \label{fig:KBF_Feasible}
 \end{figure}
 
-\subsection{Continuous Genetic Algorithm}
+\section{Continuous Genetic Algorithm}
 
 The discrete nature of the GA presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in \ref{eq:KBF_cost}-\ref{eq:KBF_constraints}.
 
@@ -128,48 +127,24 @@ This adjustment marks a significant departure from conventional GAs, aligning th
     \label{fig:GAprocess}
 \end{figure}
 
-\subsubsection{Implementation}
+\subsection{Implementation}
 \label{sec:CGA_implementation}
-
-In accordance with \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}, and a matrix of individuals will be referred to as a \textit{population}. Each individual is represented as a $n \times 1$ vector of real-valued (floating point) numbers, where $n$ denotes the number of variables in the state space. The population is represented as a $m \times n$ matrix, where $m$ denotes the number of individuals in the population, and is dictated as a hyperparameter within the code: %ref code
 
 In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase: %placeholder
 
-The CGA process is outlined in Figure \ref{fig:GAprocess}. 
+The CGA process is outlined in Figure \ref{fig:GAprocess}. Notably, three selection strategies and two mutation procedures were deliberately implemented to harness the flexibility inherent in the CGA, tailoring it to the optimisation challenges posed by the KBF. The subsequent section, \ref{sec:CGA_selection_mutation}, elucidates the selection method and mutation procedure choices that form the basis of the forthcoming comparison.
 
-\textbf{\underline{Initialisation}} 
+The CGA can be can be finely tuned for a specific objective function by modifying its fitness function, which assesses the quality of an individual. The management of constraints is woven into the selection process, as outlined below.
+
+\subsubsection{Initialisation}
 
 The population is initialised with random values uniformly distributed within the bounds of the state space.
 
-\textbf{\underline{Parent Selection}} 
+\subsubsection{Parent Selection}
 
-Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). These are outlined and compared in Section \ref{sec:CGA_selection_mutation}. 
+Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). The hyperparameter governing the quantity of parents chosen, denoted as \textit{NUM\_PARENTS}, is established at 25\% of the population size for this section of the report, (rounded down to the nearest even number to facilitate the creation of parent pairs).
 
-Three strategies were deliberately implemented to harness the flexibility inherent in the CGA, tailoring it to the optimisation challenges posed by the KBF. The subsequent section, \ref{sec:CGA_selection_mutation}, elucidates the selection method and mutation procedure choices that form the basis of the forthcoming comparison.
-
-\textbf{\underline{Mating Procedure}} 
-
-Similarly, two mating procedures were implemented: crossover and blending. These are also outlined and compared in Section \ref{sec:CGA_selection_mutation}.
-
-\textbf{\underline{Mutation}} 
-
-The mutation procedure proposed by \cite{PGA} involves perturbing a gene within a chromosome by a normally distributed random number with a mean of zero and a standard deviation of $\sigma$. However, the effectiveness of this procedure is constrained by the selection of $\sigma$ as an additional hyperparameter, necessitating careful tuning. 
-
-Instead, a simpler approach was adopted, where genes within the population have an probability, given by the mutation rate, of being reset to a random value drawn from a uniform distribution within the confines of the state space, mirroring the initialisation procedure.
-
-\textbf{\underline{Evaluate}} 
-
-The population is then evaluated, and the individuals are ranked in order of fitness. Here, the fitness is defined as the negative of the KBF cost function, outlined in \ref{eq:KBF_cost}. This is done to align the algorithm with the maximisation of the KBF.
-
-\textbf{\underline{Termination}} 
-
-For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
-
-\subsubsection{Choosing the Selection Method and Mutation Procedure}
-\label{sec:CGA_selection_mutation}
-
-Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase. These are then selected as hyperparameters within the script, %placeholder
-to take advantage of the flexibility offered by the CGA. In particular, the following selection methods were implemented:
+Another important aspect of the selection process is the handling of constraints. In particular, the selection process is repeated until only feasible individuals are selected. Infeasible individuals are simply not chosen as parents, a strategy advised by \cite{parks2023geneticalgorithms}. 
 
 \textbf{\underline{Proportional Selection}}
 
@@ -179,24 +154,100 @@ The probability of an individual being selected for mating is proportional to it
 \]
 Here, \(f_i\) denotes the fitness of the \(i\)th individual. This is the simplest selection method, and is implemented in accordance with the theory presented in \cite{parks2023geneticalgorithms}.
 
+As noted in \cite{parks2023geneticalgorithms}, this approach is susceptible to high variance in individual selection, primarily because there is no assurance of choosing the optimal individual. Alternatively, the following two procedures show greater potential, incorporating a degree of determinism into the selection process.
+
+However, it would be premature to disregard the proportional selection method. There is a chance that the determinism inherent in the other two methods could negatively impact the KBF optimisation process. A notable degree of stochasticity may improve the algorithm's effectiveness in exploring the search space, which may prove vital given the multi-modal nature of the KBF.
 \textbf{\underline{Tournament Selection}}
 
-As outlined in \cite{parks2023geneticalgorithms}, this strategy involves taking a small subset of the population, and selecting the top two individual with the highest fitness. Selection pressure can then be adjusted by varying the size of the subset, controlled by the \textit{TOURNAMENT$\_$SIZE} hyperparameter.
+As outlined in \cite{parks2023geneticalgorithms}, this strategy involves taking a small subset of the population, and selecting the top two individuals with the highest fitness. This is repeated until the required number of parents is achieved. Selection pressure can then be adjusted by varying the size of the subset, controlled by the \textit{TOURNAMENT\_SIZE} hyperparameter.
 
-This is a popular selection method, as it is simple to implement, and is known to perform well in practice. It can be improved by including some of the concepts presented in \cite{Miller1995GeneticAT}, however, these have been avoided considering \cite{parks2023geneticalgorithms} suggest SRS as a superior alternative.
+This is a popular selection method, as it is simple to implement, and is known to perform well in practice. It can be improved by including some of the concepts presented in \cite{Miller1995GeneticAT}, however, these have been avoided considering \cite{parks2023geneticalgorithms} suggests SRS selection as a superior alternative.
 
-\textbf{Stochastic Remainder Selection} \\
-\textbf{\underline{without Replacement (SRS)}}
+\textbf{\underline{Stochastic Remainder Selection}}\\\vspace{0.5mm}
+\textbf{\underline{\hspace{-0.5mm}without Replacement (SRS)}}
 
 This strategy draws inspiration from \cite{parks2023geneticalgorithms}. Specifically, a group of chosen individuals is curated by generating an expected number of copies for each individual, denoted as: 
 \[E_i = N * p_i\]
 Here, \(N\) represents the population size, and \(p_i\) is elucidated above in the context of proportional selection. The anticipated number of duplicates is subsequently divided into an integer part, \(I_i = \lfloor E_i \rfloor\), and a remainder, \(R_i = E_i - I_i\). 
 
-The integer part is used for deterministic selection of individuals, while the remainder is employed for stochastic selection. The two parents are then randomly sampled from this augmented collection.
+The integer part is used for deterministic selection of individuals. The $i$th indivdual is selected $I_i$ times. Subsequently, the remained, $R_i$, is then used to stochastically augment the collection of individuals until the required number of parents is achieved. This is done by selecting the $i$th individual with a probability of $R_i$.
 
 The discussion in \cite{parks2023geneticalgorithms} highlights that this approach appears to yield superior performance, ascribed to the inclusion of a degree of determinism in the selection criteria. Nevertheless, it remains worthwhile to evaluate the performance of the other two methods, as they might present distinct advantages within the framework of the KBF.
 
+\subsubsection{Mating Procedure}
+
+Similarly, two mating procedures have implemented: crossover and heuristic crossover. The entire population is replaced by offspring, bred from two randomly allocated parents from the pool of selected parents.
+
+\textbf{\underline{Crossover}}
+
+The crossover procedure adheres to the principles detailed in \cite{parks2023geneticalgorithms}. Initially, a crossover point is randomly chosen. Genes from the first parent are incorporated into the offspring until this point, beyond which genes from the second parent take their place. Specifically, the sequencing of the parents is governed by the probability specified by the hyperparameter \textit{CROSSOVER\_PROB}.
+
+\textbf{\underline{Heuristic Crossover}}
+
+Heuristic crossover is presented in \cite{Michalewicz_2011}. By this variation, a random number $\beta$ in the interval $[0, 1]$ is generated. The genes of the offspring are then determined as a blend of the original two parents, $p_1$ and $p_2$, as follows:
+\[
+    o_i = \beta (p_{1i} - p_{2i}) + p_{2i}
+\]
+With this inspiration in mind, heuristic crossover was implemented in the CGA. Specifically, the sequence of parents in the above formula is determined by the \textit{CROSSOVER\_PROB} hyperparameter, aligning with the approach used previously in the original crossover procedure.
+
+A crucial factor to bear in mind is that certain offspring may be produced outside the feasible region. This implementation deviates from the recommendation in \cite{Michalewicz_2011} by not outright rejecting these offspring during the mating procedure. Rather, they are simply excluded from consideration as parents in the subsequent selection process.
+
+The decision to incorporate this mutation procedure stems from the continuous nature of the state space. While the conventional crossover methods may be well-suited to binary representations, a more intuitive approach emerges when grappling with real-valued variables - using a blend of characteristics from both parents.
+
+Moreover, the use of the heuristic crossover method aims to address previous limitations associated with standard crossover. Unlike conventional crossover, which confines offspring values to those of the parents, blending permits the generation of offspring beyond the parent values. This feature may prove particularly advantageous in the context of the KBF, enhancing the algorithm's capability to navigate the search space adeptly and thoroughly explore local optima.
+
+An additional noteworthy observation is that the introduction of $\beta$ serves to bring the CGA into closer alignment with Evolutionary Strategies (ES). This resemblance becomes evident as the formulation above bears some similarity to the intermediate recombination strategy outlined in \cite{salimans2017evolution}. Nevertheless, it is essential to emphasise, as mentioned earlier, that mutation does not serve as the primary search mechanism in the CGA. Consequently, the CGA can still be appropriately categorised as a GA, as per the classification seen in \cite{10.1007/BFb0029787}.
+
+\subsubsection{Mutation}
+
+The mutation procedure proposed by \cite{PGA} involves perturbing a gene within a chromosome by a normally distributed random number with a mean of zero and a standard deviation of $\sigma$. However, the effectiveness of this procedure is constrained by the selection of $\sigma$ as an additional hyperparameter, necessitating careful tuning. 
+
+Instead, a simpler approach was adopted, where genes within the population have an probability, given by the mutation rate, of being reset to a random value drawn from a uniform distribution within the confines of the state space, mirroring the initialisation procedure.
+
+\subsubsection{Evaluation}
+
+The population is then evaluated, and the individuals are ranked in order of fitness. Here, the fitness is defined as the negative of the KBF cost function, outlined in \ref{eq:KBF_cost}. This is done to align the algorithm with the maximisation of the KBF.
+
+\subsubsection{Termination}
+
+For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
+
+\subsubsection{Tuning the Selection Method and Mutation Procedure}
+\label{sec:CGA_selection_mutation}
+
+Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase, as discussed previously. These are then selected as hyperparameters within the script, %placeholder
+to take advantage of the flexibility offered by the CGA. To choose a selection method and mutation procedure going forwads into the main comparison of this report, code %placeholder
+was used a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, and the final fitness values are presented in Table \ref{tab:CGAexploration} within the Appendix. Supplementary figures have also been provided in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament} within the Appendix, showcasing the intial evolution of the population in the first 8 iterations.
+
+
 \end{multicols}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{../figures/KBF/Fitness_Evolution_Crossover.png}
+        \caption{Mutation Procedure: Crossover}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{../figures/KBF/Fitness_Evolution_Heuristic Crossover.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover.}
+\end{figure}
+
+\section{Methodology}
+\label{sec:CGA_QEG_comparison}
+\section{Results}
+\section{Discussion}
+\section{Conclusion}
+\bibliographystyle{plain}
+\bibliography{refs} % Entries are in the refs.bib file
+\newpage
+\section{Appendix}
+\subsection{Supplementary Results regarding the Informed Tuning of the CGA}
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|*{5}{c|}}
@@ -208,31 +259,29 @@ The discussion in \cite{parks2023geneticalgorithms} highlights that this approac
         \multirow{4}{*}{Proportional} & \multirow{2}{*}{Crossover} & 10 & -0.2218 & -0.2875 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2385 &\cellcolor{lightgray} -0.2835 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.2277 & -0.2629 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.2277 & -0.2629 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2341 & \cellcolor{lightgray} -0.2628 \\
         \hline
         \multirow{4}{*}{Tournament} & \multirow{2}{*}{Crossover} & 10 & -0.0215 & -0.2157 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0100 &\cellcolor{lightgray} -0.2451 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.0516 & -0.1818 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.0516 & -0.1818 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.0593 &\cellcolor{lightgray} -0.1979 \\
         \hline
         \multirow{4}{*}{SRS} & \multirow{2}{*}{Crossover} & 10 & -0.2197 & -0.4333 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2437 &\cellcolor{lightgray} -0.2815 \\
         \cline{2-5}
-        & \multirow{2}{*}{Blending} & 10 & -0.2295 & -0.2629 \\
+        & \multirow{2}{*}{Heuristic Crossover} & 10 & -0.2295 & -0.2629 \\
         & &\cellcolor{lightgray} 100 &\cellcolor{lightgray} -0.2360 &\cellcolor{lightgray} -0.2625 \\
         \hline
     \end{tabular}
-    \caption{Your Table Caption Here}
-    \label{tab:mytable}
+    \caption{An initial exploration of the selection method and mutation procedure hyperparameters within the CGA. The results are presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population.}
+    \label{tab:CGAexploration}
 \end{table}
-
-
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.85\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png}
         \caption{Mutation Procedure: Crossover}
@@ -240,26 +289,15 @@ The discussion in \cite{parks2023geneticalgorithms} highlights that this approac
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/SRS/Blending/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Blending}
-        \label{fig:CGA_flowchart_SRS_blending}
+        \includegraphics[width=0.85\textwidth]{../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+        \label{fig:CGA_flowchart_SRS_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Evolution of the population over 10 iterations using Stochastic Remainder Selection without Replacement (SRS). SRS was found to be the most effective selection method, when compared to Proportional Selection and Tournament Selection, as seen in Figures \ref{fig:CGA_flowchart_proportional} and \ref{fig:CGA_flowchart_tournament}, respectively.}
+    \caption{Evolution of the population over 8 iterations using Stochastic Remainder Selection without Replacement (SRS). SRS was found to be the most effective selection method, when compared to Proportional Selection and Tournament Selection, as seen in Figures \ref{fig:CGA_flowchart_proportional} and \ref{fig:CGA_flowchart_tournament}, respectively.}
     \label{fig:CGA_flowchart_SRS}
 \end{figure}
 
-
-\section{Methodology}
-\label{sec:CGA_QEG_comparison}
-\section{Results}
-\section{Discussion}
-\section{Conclusion}
-\bibliographystyle{plain}
-\bibliography{refs} % Entries are in the refs.bib file
-\newpage
-\section{Appendix}
-\subsection{Supplementary Figures}
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.85\textwidth}
@@ -270,12 +308,12 @@ The discussion in \cite{parks2023geneticalgorithms} highlights that this approac
     \end{subfigure}
     \begin{subfigure}{0.85\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Blending/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Blending}
-        \label{fig:CGA_flowchart_proportional_blending}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+        \label{fig:CGA_flowchart_proportional_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{CGA evolution of the population over 10 iterations using proportional selection. Proportional selection proved to be an effective selection method. However, it was not chosen over SRS as the primary selection method for the reasons outlined in Section \ref{sec:CGA_selection_mutation}.}
+    \caption{CGA evolution of the population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over SRS as the primary selection method for the reasons outlined in Section \ref{sec:CGA_selection_mutation}.}
     \label{fig:CGA_flowchart_proportional}
 \end{figure}
 
@@ -289,12 +327,12 @@ The discussion in \cite{parks2023geneticalgorithms} highlights that this approac
     \end{subfigure}
     \begin{subfigure}{0.85\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Blending/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Blending}
-        \label{fig:CGA_flowchart_tournament_blending}
+        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+        \label{fig:CGA_flowchart_tournament_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{CGA evolution of the population over 10 iterations using tournament selection. Using tournament selection, the algorithm was unable to converge to a solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum. As such, it was disregarded as a viable selection method.}
+    \caption{CGA evolution of the population over 8 iterations using tournament selection. Using tournament selection, the algorithm was unable to converge upon an appropriate solution. Even 100 iterations produced a suboptimal solution, showcasing convergences to local optima, rather than the global optimum. As such, it was disregarded as a viable selection method.}
     \label{fig:CGA_flowchart_tournament}
 \end{figure}
 
