@@ -229,22 +229,54 @@ The experiment was repeated several times, yielding results that were admittedly
 
 The observed differences in performance may be attributed to the distinct characteristics of the KBF. Tournament selection appears to demonstrate greater efficacy in navigating the search space compared to SRS, perhaps due to its less deterministic nature. This becomes particularly significant in light of the multi-modal nature of the KBF, where a certain level of stochasticity may prove essential for thorough exploration of the search space.
 
+The findings additionally suggest that the heuristic crossover procedure consistently outperformed the standard crossover method, as evidenced by its more frequent attainment of the global maxima. 
+
+This may be attributed to the heuristic crossover's capacity to generate offspring beyond the existing genotypes present within a generation. This attribute is especially beneficial within the framework of the KBF, enhancing the algorithm's ability to navigate the search space adeptly and systematically explore the numerous local optima.
+
+Having cemented the selection method and mutation procedue choices as tournament selection and heuristic crossover respectively, the CGA was further tuned to optimise its performance. 
+
+Specifically, choices for the mutation rate and crossover probability were explored. The results are presented in Figure \ref{fig:CGA_contour_rates}, which showcases two heat maps of the final fitness values after 100 iterations for the CGA using the chosen procedures. The plots are presented for both the average final fitness, as well as the final fitness of the best individual.
+
+Notbaly, as depicted in Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_AVG}, it is evident that an increased stochasticity of the CGA, indicated by higher crossover probabilities, leads to improved average final fitness. This aligns with expectations, as a broader and more randomly distributed population enhances the likelihood of individuals being situated in the proximity of local maxima. Consequently, a greater number of individuals within the population receive lower fitness values, a trend reflected in the observed average final fitness.
+
+Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insights. It is evident that the crossover probability stands out as the most influential hyperparameter, while the fine-tuning of the mutation rate plays less of a role in shaping the performance of the CGA. 
+
+Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mutation rate is fixed at 0.1, and the crossover probability is set to 0.65. These values have proven to yield a consistently optimal performance for the algorithm, comfortably lying within the darker regions within the heat maps.
+
 \end{multicols}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
     \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
     \label{fig:CGA_fitness_evo}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png}
+        \caption{Average final fitness across entire population.}
+        \label{fig:CGA_contour_tournament_Heuristic Crossover_AVG}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png}
+        \caption{Final (minimum) fitness of best individual.}
+        \label{fig:CGA_contour_tournament_Heuristic Crossover_MIN}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Heat maps of the final fitness values after 100 iterations for the CGA using tournament selection and heuristic crossover. Here, the mutation rates and crossover probabilities were varied to assess their impact on performance.}
+    \label{fig:CGA_contour_rates}
 \end{figure}
 
 \section{Methodology}
