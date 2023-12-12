@@ -66,12 +66,12 @@ This report conducts a comparative analysis of two optimisation algorithms appli
     \label{fig:KBF_contour}
 \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{The two-dimensional visualisation of the Keane's Bump Function, (KBF).}
+    \caption{Two-dimensional visualisation of the Keane's Bump Function, (KBF).}
     \label{fig:KBF_2D}
 \end{figure}
 \newpage
-\section{Problem Introduction - Keane's Bump Function}
 \begin{multicols}{2}
+\section{Problem Introduction - Keane's Bump Function}
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
 
 \begin{equation}
@@ -105,7 +105,7 @@ These properties make the KBF a suitable candidate for the comparative analysis 
     \centering
     \includegraphics[width=0.48\textwidth]{../figures/KBF/KBF Feasible_contour.png}
     \captionsetup{justification=centering}
-    \caption{The three-dimensional visualisation of the Keane's Bump Function, (KBF).}
+    \caption{Feasible region carved out from the two-dimensional visualisation of the Keane's Bump Function, (KBF).}
     \label{fig:KBF_Feasible}
 \end{figure}
 
@@ -212,7 +212,7 @@ The population is then evaluated, and the individuals are ranked in order of fit
 
 For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
 
-\subsubsection{Tuning the Selection Method and Mutation Procedure}
+\subsection{Tuning the Selection Method and Mutation Procedure}
 \label{sec:CGA_selection_mutation}
 
 Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase, as discussed previously. These are then selected as hyperparameters within the script, %placeholder
