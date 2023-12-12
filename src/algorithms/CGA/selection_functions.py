@@ -53,18 +53,18 @@ def tournament_selection(GCA):
         subset = np.random.choice(GCA.population_size, size=GCA.tournament_size, replace=False)
 
         # Take top two parents
-        parent1 = subset[np.argmax(GCA.fitness[subset])]
-        subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-        parent2 = subset[np.argmax(GCA.fitness[subset])]
+        parent1 = subset[np.argmin(GCA.fitness[subset])]
+        subset = np.delete(subset, np.argmin(GCA.fitness[subset]))
+        parent2 = subset[np.argmin(GCA.fitness[subset])]
 
         # Retry, reject parents that do not satisfy constraints
         if GCA.constraints == True:
             while not satisfy_constraints(GCA.population[parent1]):
-                subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-                parent1 = subset[np.argmax(GCA.fitness[subset])]
+                subset = np.delete(subset, np.argmin(GCA.fitness[subset]))
+                parent1 = subset[np.argmin(GCA.fitness[subset])]
             while not satisfy_constraints(GCA.population[parent2]):
-                subset = np.delete(subset, np.argmax(GCA.fitness[subset]))
-                parent2 = subset[np.argmax(GCA.fitness[subset])]
+                subset = np.delete(subset, np.argmin(GCA.fitness[subset]))
+                parent2 = subset[np.argmin(GCA.fitness[subset])]
 
         # Add parents to list of selected individuals
         selected_individuals += [parent1, parent2]
