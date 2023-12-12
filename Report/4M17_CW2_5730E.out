@@ -2,7 +2,7 @@
 \BOOKMARK [1][-]{section.2}{Introduction}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Keane's Bump Function}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Choice of Algorithms}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Continuous Genetic Algorithm}{}% 5
+\BOOKMARK [1][-]{section.3}{The Continuous Genetic Algorithm \(CGA\)}{}% 5
 \BOOKMARK [2][-]{subsection.3.1}{Implementation}{section.3}% 6
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Initialisation}{subsection.3.1}% 7
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Parent Selection}{subsection.3.1}% 8
@@ -11,9 +11,10 @@
 \BOOKMARK [3][-]{subsubsection.3.1.5}{Evaluation}{subsection.3.1}% 11
 \BOOKMARK [3][-]{subsubsection.3.1.6}{Termination}{subsection.3.1}% 12
 \BOOKMARK [2][-]{subsection.3.2}{Tuning the CGA Hyperparameters}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Methodology}{}% 14
-\BOOKMARK [1][-]{section.5}{Results}{}% 15
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 16
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 17
-\BOOKMARK [1][-]{section.8}{Appendix}{}% 18
-\BOOKMARK [2][-]{subsection.8.1}{Supplementary Results regarding the Informed Tuning of the CGA}{section.8}% 19
+\BOOKMARK [1][-]{section.4}{Parallel Tempering \(PT\)}{}% 14
+\BOOKMARK [1][-]{section.5}{Comparison}{}% 15
+\BOOKMARK [1][-]{section.6}{Results}{}% 16
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 17
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 18
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 19
+\BOOKMARK [2][-]{subsection.9.1}{Supplementary Results regarding the Informed Tuning of the CGA}{section.9}% 20

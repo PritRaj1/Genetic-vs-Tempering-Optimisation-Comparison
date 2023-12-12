@@ -49,7 +49,7 @@
 \begin{document}
 \maketitle
 \section{Abstract}
-This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Q-learning, (QEG). Specifically, the Q-learning approach is adapted with the epsilon-greedy strategy to introduce a level of stochasticity into the optimisation process, thus aligning it with the requirements of this assignment.
+This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering (PT). 
 
 \begin{figure}[H]
 \centering
@@ -110,10 +110,11 @@ These properties make the KBF a suitable candidate for the comparative analysis 
     \caption{Feasible region carved out from the two-dimensional visualisation of the Keane's Bump Function, (KBF).}
     \label{fig:KBF_Feasible}
 \end{figure}
-
+\newpage
 \subsection{Choice of Algorithms}
 
-\section{Continuous Genetic Algorithm}
+\section{The Continuous Genetic Algorithm (CGA)}
+\label{sec:CGA}
 
 The discrete nature of the GA presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in \ref{eq:KBF_cost}-\ref{eq:KBF_constraints}.
 
@@ -123,6 +124,11 @@ The primary difference between the CGA and the GA in \cite{parks2023geneticalgor
 
 This adjustment marks a significant departure from conventional GAs, aligning the algorithm more closely with Evolution Strategies (ES), another member of the evolutionary algorithms family presented in \cite{salimans2017evolution}. However, the algorithm presented in \ref{sec:CGA_implementation} is still classified as a GA in accordance with the differences presented in \cite{10.1007/BFb0029787}, given that mutation does not serve as the primary search mechanism for exploring the state space. Instead, it functions as a non-adaptive, background operator.
 
+\subsection{Implementation}
+\label{sec:CGA_implementation}
+
+In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase: %placeholder
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/Flowchart.png}
@@ -130,11 +136,6 @@ This adjustment marks a significant departure from conventional GAs, aligning th
     \caption{A flowchart depicting the CGA process, taken from \cite{parks2023geneticalgorithms}.}
     \label{fig:GAprocess}
 \end{figure}
-
-\subsection{Implementation}
-\label{sec:CGA_implementation}
-
-In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase: %placeholder
 
 The CGA process is outlined in Figure \ref{fig:GAprocess}. Notably, three selection strategies and two mutation procedures were deliberately implemented to harness the flexibility inherent in the CGA, tailoring it to the optimisation challenges posed by the KBF. The subsequent section, \ref{sec:CGA_selection_mutation}, elucidates the selection method and mutation procedure choices that form the basis of the forthcoming comparison.
 
@@ -214,7 +215,7 @@ The population is then evaluated, and the individuals are ranked in order of fit
 
 \subsubsection{Termination}
 
-For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}.
+For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}. The individual with the lowest fitness value is then returned as the optimal solution to the optimisation problem.
 
 \subsection{Tuning the CGA Hyperparameters}
 \label{sec:CGA_selection_mutation}
@@ -226,8 +227,22 @@ To choose a selection method and mutation procedure going forwards into the main
 was used as a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
 
 Additional results from the initial exploration of hyperparameter tuning are detailed in the Appendix. Specifically, the final fitness values are outlined in Table \ref{tab:CGAexploration}. Further insights into the initial evolution of the population during the first 8 iterations are illustrated in supplementary figures found in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament}.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.44\textwidth}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
+        \caption{Mutation Procedure: Crossover}
+    \end{subfigure}
+    \begin{subfigure}{0.44\textwidth}
+        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
+        \caption{Mutation Procedure: Heuristic Crossover}
+    \end{subfigure}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
+    \label{fig:CGA_fitness_evo}
+\end{figure}
 
-However, the most insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the recommendation in \cite{parks2023geneticalgorithms} to use SRS selection. 
+However, the most insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
 
 The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
 
@@ -244,46 +259,6 @@ Specifically, choices for the mutation rate and crossover probability were explo
 Notbaly, as depicted in Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_AVG}, it is evident that an increased stochasticity of the CGA, indicated by higher crossover probabilities, leads to improved average final fitness. This aligns with expectations, as a broader and more randomly distributed population enhances the likelihood of individuals being situated in the proximity of local maxima. Consequently, a greater number of individuals within the population receive lower fitness values, a trend reflected in the observed average final fitness.
 
 Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insights. It is evident that the crossover probability stands out as the most influential hyperparameter, while the fine-tuning of the mutation rate plays less of a role in shaping the performance of the CGA. 
-
-Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mutation rate is fixed at 0.1, and the crossover probability is set to 0.65. These values have proven to yield a consistently optimal performance for the algorithm, comfortably lying within the darker regions of the heat maps.
-
-To reiterate and summarise this section of the report, the CGA is now constructed as follows:
-\begin{itemize}
-    \item \textbf{Selection Method:} Tournament Selection
-    \item \textbf{Mutation Procedure:} Heuristic Crossover
-    \item \textbf{Mutation Rate:} 0.1
-    \item \textbf{Crossover Probability:} 0.65
-    \item \textbf{Tournament Size:} 62
-    \item \textbf{Number of Parents:} 62
-    \item \textbf{Population Size:} 250
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/0.1_0.65_Fitness.png}
-    \captionsetup{justification=centering}
-    \caption{Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.}
-    \label{fig:CGA_fitness_evo_OPT}
-\end{figure}
-
-Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimal hyperparameters delineated above. Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations.
-
-Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. The primary challenge lies in the fact that both the first and second largest maxima are situated along the non-linear constraint boundary of the optimisation problem, posing a difficult navigational challenge.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.44\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
-        \caption{Mutation Procedure: Crossover}
-    \end{subfigure}
-    \begin{subfigure}{0.44\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
-        \caption{Mutation Procedure: Heuristic Crossover}
-    \end{subfigure}
-    \captionsetup{justification=centering}
-    \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
-    \label{fig:CGA_fitness_evo}
-\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -302,8 +277,32 @@ Regrettably, global maximum convergence remained elusive even after 100 iteratio
     \label{fig:CGA_contour_rates}
 \end{figure}
 
-\end{multicols}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/0.1_0.65_Fitness.png}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.}
+    \label{fig:CGA_fitness_evo_OPT}
+\end{figure}
 
+Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mutation rate is fixed at 0.1, and the crossover probability is set to 0.65. These values have proven to yield a consistently optimal performance for the algorithm, comfortably lying within the darker regions of the heat maps.
+
+To reiterate and summarise this section of the report, the CGA is now constructed as follows:
+\begin{itemize}
+    \item \textbf{Selection Method:} Tournament Selection
+    \item \textbf{Mutation Procedure:} Heuristic Crossover
+    \item \textbf{Mutation Rate:} 0.1
+    \item \textbf{Crossover Probability:} 0.65
+    \item \textbf{Tournament Size:} 62
+    \item \textbf{Number of Parents:} 62
+    \item \textbf{Population Size:} 250
+\end{itemize}
+
+Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimal hyperparameters delineated above. Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations.
+
+Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. The primary challenge lies in the fact that both the first and second largest maxima are situated along the non-linear constraint boundary of the optimisation problem, posing a difficult navigational challenge.
+
+\end{multicols}
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.9\textwidth}
@@ -322,7 +321,14 @@ Regrettably, global maximum convergence remained elusive even after 100 iteratio
     \caption{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters delineated at the end of Section \ref{sec:CGA_selection_mutation}.}
     \label{fig:optimal_convergence}
 \end{figure}
-\section{Methodology}
+\newpage
+\begin{multicols}{2}
+
+\section{Parallel Tempering (PT)}
+\label{sec:PT}
+
+\end{multicols}
+\section{Comparison}
 \label{sec:CGA_QEG_comparison}
 \section{Results}
 \section{Discussion}

@@ -241,18 +241,15 @@ INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/KBF
 INPUT ../figures/KBF/KBF Feasible_contour.png
 INPUT ../figures/KBF/KBF Feasible_contour.png
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchr8c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri7t.tfm
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/Flowchart.png
 INPUT ../figures/Ungenerated Images/Flowchart.png
 INPUT ../figures/Ungenerated Images/Flowchart.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchri7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchri8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/bitstrea/charter/bchb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb8r.tfm
-INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/0.1_0.65_Fitness.png
-INPUT ../figures/Ungenerated Images/0.1_0.65_Fitness.png
-INPUT ../figures/Ungenerated Images/0.1_0.65_Fitness.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
 INPUT ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
 INPUT ../figures/Ungenerated Images/Fitness_Evolution_Crossover.png
@@ -265,6 +262,9 @@ INPUT ../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.pn
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png
 INPUT ../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png
 INPUT ../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png
+INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/0.1_0.65_Fitness.png
+INPUT ../figures/Ungenerated Images/0.1_0.65_Fitness.png
+INPUT ../figures/Ungenerated Images/0.1_0.65_Fitness.png
 INPUT /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/../figures/Ungenerated Images/0.1_0.65_Population.png
 INPUT ../figures/Ungenerated Images/0.1_0.65_Population.png
 INPUT ../figures/Ungenerated Images/0.1_0.65_Population.png
