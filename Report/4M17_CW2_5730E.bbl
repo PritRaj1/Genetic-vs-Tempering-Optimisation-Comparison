@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{Earl_2005}
+David~J. Earl and Michael~W. Deem.
+\newblock Parallel tempering: Theory, applications, and new perspectives.
+\newblock {\em Physical Chemistry Chemical Physics}, 7(23):3910, 2005.
+
 \bibitem{ELBELTAGY1999639}
 M.A. El-Beltagy and A.J. Keane.
 \newblock A comparison of various optimization algorithms on a multilevel
@@ -34,6 +39,12 @@ Brad~L. Miller and David~E. Goldberg.
 \bibitem{parks2023geneticalgorithms}
 Geoff Parks.
 \newblock Genetic algorithms: Lecture notes.
+\newblock Cambridge University, 4M17 Practical Optimisation Module, 2023.
+\newblock Unpublished.
+
+\bibitem{parks2023geneticalgorithmsSA}
+Geoff Parks.
+\newblock Simulated annealing: Lecture notes.
 \newblock Cambridge University, 4M17 Practical Optimisation Module, 2023.
 \newblock Unpublished.
 

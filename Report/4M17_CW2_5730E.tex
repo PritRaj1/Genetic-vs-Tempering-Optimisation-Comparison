@@ -99,7 +99,7 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 
 Given the above properties, the KBF is a challenging function to optimise. The presence of multiple, similar-amplitude local maxima makes it difficult for an optimisation algorithm to converge to the global maximum. On the other hand, all control variables share the same nature, (continuous variables), and exhibit identical scales. Additionally, all constraints are of the inequality type, and the feasible space is non-disjoint.
 
-The problem becomes more complicated with the inclusion of the constraints outlined in \ref{eq:KBF_constraints}. Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear, and the feasible region is non-disjoint. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
+The problem becomes more complicated with the inclusion of the constraints outlined in \ref{eq:KBF_constraints}. Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
 
 These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work \cite{ELBELTAGY1999639}.
 
@@ -149,7 +149,7 @@ The population is initialised with random values uniformly distributed within th
 
 Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). The hyperparameter governing the quantity of parents chosen, denoted as \textit{NUM\_PARENTS}, is established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs).
 
-Another important aspect of the selection process is the handling of constraints. In particular, the selection process is repeated until only feasible individuals are selected. Infeasible individuals are simply not chosen as parents, a strategy advised by \cite{parks2023geneticalgorithms}. 
+Another important aspect of the selection process is the handling of constraints. In particular, the selection process is repeated until only feasible individuals are selected. Infeasible individuals are simply not chosen as parents, a strategy advised by \cite{parks2023geneticalgorithms}, which was deemed suitable considering that the feasible space is non-disjoint, and the constraints are of the inequality type.
 
 \textbf{\underline{Proportional Selection}}
 
@@ -298,9 +298,11 @@ To reiterate and summarise this section of the report, the CGA is now constructe
     \item \textbf{Population Size:} 250
 \end{itemize}
 
-Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimal hyperparameters delineated above. Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations.
+Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Note that the (minimum) fitness attributed to the best individual remains constant, because an individual within the population is stochastically initialised near the maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, where the search space is significantly larger, and the fitness of the best individual is expected to evolve more noticeably.
 
-Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. The primary challenge lies in the fact that both the first and second largest maxima are situated along the non-linear constraint boundary of the optimisation problem, posing a difficult navigational challenge.
+Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimally-tuned CGA. Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. 
+
+The primary challenge lies in the fact that both the first and second largest maxima are situated along the non-linear constraint boundary of the optimisation problem, posing a difficult navigational challenge.
 
 \end{multicols}
 \begin{figure}[H]
@@ -326,6 +328,31 @@ Regrettably, global maximum convergence remained elusive even after 100 iteratio
 
 \section{Parallel Tempering (PT)}
 \label{sec:PT}
+
+Having obsererved the CGA's performance and its difficulty in identifying global maxima effectively, an informed decision was made to introduce Parallel Tempering (PT) as the second algorithm for comparison.
+
+This is a Markvo Chain Monte Carlo (MCMC) optimisation approach presented in \cite{Earl_2005}. Similar to simulated annealing, (SA), it revolves around the idea of smoothening the search space by introducing a temperature parameter, $t$. 
+
+By elevating the KBF to the power of $\frac{1}{t}$, and employing a high temperature, $t$, the solution space is smoothed. The algorithm is then able to explore the search space more thoroughly. As the temperature diminishes, the KBF begins to resemble its original form, enabling the algorithm to explore the local nature of the function.
+
+However, PT incorporates the novel concept of Replica Exchange Monte Carlo. Unlike SA, which operates along a single tragectory, starting with a high temperature that gradually decreases, PT maintains multiple replicas of the system at different temperatures simultaneously. Each replica explores its own solution space, and periodic exchanges of the solutions occur between replicas at adjacent temperature levels. This exchange mechanism enhances global exploration by facilitating the movement of solutions between replicas operating at high and low temperature. 
+
+This parallel exploration across temperatures improves the algorithm's ability to escape local optima, providing a valuable alternative to traditional single-trajectory methods like SA. Consequently, PT could emerge as a well-suited approach for maximising the highly multi-modal KBF.
+
+Unfortunately, this introduces an elevated computational cost, due to the management of multiple replicas and the periodic exchange of solutions. However, the potential advantages in terms of global exploration of the KBF outweigh the added computational expense. This is especially true, considering the highly parallelisable nature of PT, which may allow for more efficient utilisation of parallel computing resources than the CGA. 
+
+\subsection{Implementation}
+
+PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore this implementation of PT draws inspiration from literature focused on sampling complex probability distributions. 
+
+The primary avenue for flexibility in PT lies in setting and aadapting the temperatures of the replicas. Additionally, other sources of flexibility include the manipulation of the number of replicas running simultaneously within the system and the frequency at which solutions are exchanged.
+
+The discourse presented in \cite{Earl_2005} emphasises a delicate trade-off between optimising MCMC sampling outcomes and minimising computational efforts. Hence, the PT implementation presented here is deliberately crafted for flexibility, offering the ability to fine-tune the aforementioned factors. 
+
+As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are handled by simply rejecting any proposed changes that violate the constraints. This is accomplished within the Metropolis criterion regarding the acceptance or rejection of a proposed change. This was determined as a suitable approach, given that the feasible space is non-disjoint, and the constraints are of the inequality type.
+
+\subsection{Tuning the PT}
+
 
 \end{multicols}
 \section{Comparison}
