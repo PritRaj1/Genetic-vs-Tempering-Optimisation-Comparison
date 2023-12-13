@@ -15,7 +15,7 @@ class ParallelTempering():
     """
     Class for parallel tempering algorithm.  
     """
-    def __init__(self, objective_function, x_dim, range=(0,10), alpha=0.1, omega=2.1, num_replicas=10, num_x_per_replica=25, exchange_procedure='Periodic', exchange_param=0.2, schedule_type='Geometric', power_term=1, total_iterations=100, constraints=True):
+    def __init__(self, objective_function, x_dim, range=(0,10), alpha=0.1, omega=2.1, num_replicas=10, num_chains=25, exchange_procedure='Periodic', exchange_param=0.2, schedule_type='Geometric', power_term=1, total_iterations=100, constraints=True):
         """
         Constructor for parallel tempering algorithm.
 
@@ -26,7 +26,7 @@ class ParallelTempering():
         - alpha (float): Dampening constant for max. allowable step size update
         - omega (float): Weighting for max. allowable step size update
         - num_replicas (int): Number of replicas
-        - num_x_per_replica (int): Number of solutions per replica
+        - num_chains (int): Number of solutions per replica
         - exchange_param (float between 0 and 1): 
             if exchange_procedure = 'Periodic', this is the percentage of iterations after which to exchange solutions
             if exchange_procedure = 'Stochastic', this is the probability of exchanging solutions between replicas during each iteration
@@ -42,13 +42,17 @@ class ParallelTempering():
         self.alpha = alpha
         self.omega = omega 
         self.num_replicas = num_replicas
-        self.num_x_per_replica = num_x_per_replica
+        self.num_chains = num_chains
         self.exchange_param = exchange_param
         self.constraints = constraints
         self.total_iterations = total_iterations
 
         # The update step suggested by Parks et al. (1990) requires control variables to be scaled to [0, 1]
         self.scale_up = lambda x: x * (self.ub - self.lb) + self.lb
+
+        # Energy difference = (f(x_new) - f(x)) / (k * deltaT)
+        k = 1.38064852e-23 # Boltzmann constant
+        self.deltaE = lambda x, x_new, T: (self.func(self.scale_up(x_new)) - self.func(self.scale_up(x))) / (k * T)
         
         # Check if temperature schedule type is valid
         if schedule_type not in ['Geometric', 'Power', 'Log']:
@@ -93,14 +97,14 @@ class ParallelTempering():
         # # Diagonal matrix of max. allowable step sizes for each dimension of x
         # self.max_change = np.diag(np.random.uniform(0, 1, self.x_dim)) # Initialise stochastically
 
-        # Initialise num_x_per_replica solutions per replica
-        #self.current_solutions = np.random.uniform(self.lb, self.ub, (self.num_replicas, self.num_x_per_replica, self.x_dim))
-        #self.current_solutions = np.random.uniform(4.5, 5.5, (self.num_replicas, self.num_x_per_replica, self.x_dim))
-        self.current_solutions = np.random.uniform(0, 1, (self.num_replicas, self.num_x_per_replica, self.x_dim))
+        # Initialise num_chains solutions per replica
+        #self.current_solutions = np.random.uniform(self.lb, self.ub, (self.num_replicas, self.num_chains, self.x_dim))
+        #self.current_solutions = np.random.uniform(4.5, 5.5, (self.num_replicas, self.num_chains, self.x_dim))
+        self.current_solutions = np.random.uniform(0, 1, (self.num_replicas, self.num_chains, self.x_dim))
         
         #Initialise in feasible region
         for i in range(self.num_replicas):
-            for j in range(self.num_x_per_replica):
+            for j in range(self.num_chains):
                 while not satisfy_constraints(self.scale_up(self.current_solutions[i, j])):
                     self.current_solutions[i, j] = np.random.uniform(self.lb, self.ub, self.x_dim)
 
@@ -109,7 +113,7 @@ class ParallelTempering():
         D = np.eye(self.x_dim) * 0.75
 
         # Need a matrix of these for each solution in each replica
-        self.max_change = np.tile(D, (self.num_replicas, self.num_x_per_replica, 1, 1))
+        self.max_change = np.tile(D, (self.num_replicas, self.num_chains, 1, 1))
 
     def get_best_solution(self):
         """
@@ -127,7 +131,7 @@ class ParallelTempering():
         # Return best solution
         return all_solutions[best_idx]
 
-    def metropolis_criterion(self, X, X_new, T):
+    def metropolis_criterion(self, x, x_new, T, T_new=None):
         """
         Metropolis criterion for parallel tempering algorithm.
         Acceptance probability as advised by Simulated Annealing lecture notes (Parks et al.)
@@ -141,27 +145,22 @@ class ParallelTempering():
         - bool: Whether to accept new solution or not
         """
         # Scale up solutions to original range
-        x = self.scale_up(X)
-        x_new = self.scale_up(X_new)
 
         # If constraints are to be satisfied, check if new solution satisfies constraints
         if self.constraints:
-            if not satisfy_constraints(x_new):
+            if not satisfy_constraints(self.scale_up(x_new)):
                 return False
 
-        # l2 norm of step size, see Simulated Annealing lecture notes (Parks et al.)
+        # Calculate the L2 norm of the step size
         d = np.linalg.norm(x_new - x)
 
-        # Function evaluations, raised to power of temperature, aim to maximise function
-        f_old = self.func(x)
-        f_new = self.func(x_new)
-
-        den = T*d if T*d != 0 else 1e-8
-
-        # Calculate acceptance probability, see Simulated Annealing lecture notes (Parks et al.)
-        p_accept = min(1, np.exp(-(f_new - f_old) / den))
-
-        return np.random.uniform() < p_accept
+        if T * d < 1e-6:
+            return True
+        elif T_new is not None:
+            delta_T = ((1 / T) - (1 / T_new))**(-1)
+            return np.random.uniform() < min(1, np.exp(self.deltaE(x, x_new, delta_T)))
+        else:
+            return np.random.uniform() < min(1, np.exp(self.deltaE(x, x_new, T)))
     
     def update_max_change(self, x, x_new, i, j):
         """
@@ -181,7 +180,7 @@ class ParallelTempering():
         for i in range(self.num_replicas):
 
             # Loop through each solution in replica
-            for j in range(self.num_x_per_replica):
+            for j in range(self.num_chains):
 
                 # Generate new solution
                 x_new = self.current_solutions[i, j] + self.max_change[i][j] @ np.random.uniform(-1, 1, self.x_dim)

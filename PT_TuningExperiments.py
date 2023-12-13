@@ -13,12 +13,12 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 X_DIM = 2
 NUM_REPLICAS = 10
-NUM_SOL_PER_REPLICA = 10 # 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
+NUM_SOL_PER_REPLICA = 100 # 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
 EXCHANGE_PROCEDURE = 'Periodic' # 'Stochastic
-EXCHANGE_PARAM = 0.2
+EXCHANGE_PARAM = 0.4
 TEMP_TYPE = 'Power'
 PROGRESSION_POWER = 1
-NUM_ITERS = 200
+NUM_ITERS = 500
 
 FUNC_NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 SCHEDULE_NAME = TEMP_TYPE + " " + str(PROGRESSION_POWER) if TEMP_TYPE == 'Power' else TEMP_TYPE
@@ -34,7 +34,7 @@ PT = ParallelTempering(
     x_dim=X_DIM,
     range=X_RANGE,
     num_replicas=NUM_REPLICAS,
-    num_x_per_replica=NUM_SOL_PER_REPLICA,
+    num_chains=NUM_SOL_PER_REPLICA,
     exchange_procedure=EXCHANGE_PROCEDURE,
     exchange_param=EXCHANGE_PARAM,
     schedule_type=TEMP_TYPE,

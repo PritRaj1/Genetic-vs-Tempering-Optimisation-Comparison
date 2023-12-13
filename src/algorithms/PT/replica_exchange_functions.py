@@ -12,7 +12,7 @@ def swap(PT):
         T_2 = PT.temperature_schedule[i + 1]
 
         # Loop through each solution in replica
-        for j in range(PT.num_x_per_replica):
+        for j in range(PT.num_chains):
 
             # If solutions are the same, no need to swap
             if np.array_equal(PT.current_solutions[i, j], PT.current_solutions[i + 1, j]):
@@ -20,10 +20,10 @@ def swap(PT):
 
             # Check Metropolis criterion for both directions
             check_criterion = [
-                PT.metropolis_criterion(PT.current_solutions[i, j], PT.current_solutions[i + 1, j], T_1),
-                PT.metropolis_criterion(PT.current_solutions[i+1, j], PT.current_solutions[i , j], T_2),
+                PT.metropolis_criterion(PT.current_solutions[i, j], PT.current_solutions[i + 1, j], T_1, T_2),
+                PT.metropolis_criterion(PT.current_solutions[i+1, j], PT.current_solutions[i , j], T_2, T_1)
             ]
-            
+
             # Only swap solutions if both directions satisfy Metropolis criterion
             if all(check_criterion):
 
