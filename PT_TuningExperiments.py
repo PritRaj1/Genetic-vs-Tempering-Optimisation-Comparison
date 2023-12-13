@@ -13,7 +13,7 @@ X_RANGE=(0,10)
 FUNCTION = KBF_function
 X_DIM = 2
 NUM_REPLICAS = 10
-NUM_SOL_PER_REPLICA = 100 # 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
+NUM_SOL_PER_REPLICA = 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
 EXCHANGE_PROCEDURE = 'Periodic' # 'Stochastic
 EXCHANGE_PARAM = 0.4
 TEMP_TYPE = 'Power'
@@ -76,7 +76,7 @@ for iter in tqdm(range(NUM_ITERS)):
         plot_num = (iter // PLOT_EVERY)
         idx = plot_num % num_plots
         axs[idx].set_title(f'Iteration: {iter}')
-        final_replica = PT.scale_up(PT.current_solutions[-1])
+        final_replica = PT.get_all_solutions()
         plot_population(final_replica, axs[idx], best=PT.get_best_solution(), last=final_replica[-1])
     
     PT.update_chains()
