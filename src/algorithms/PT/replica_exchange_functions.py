@@ -23,7 +23,7 @@ def swap(PT):
                 PT.metropolis_criterion(PT.current_solutions[i, j], PT.current_solutions[i + 1, j], T_1),
                 PT.metropolis_criterion(PT.current_solutions[i+1, j], PT.current_solutions[i , j], T_2),
             ]
-
+            
             # Only swap solutions if both directions satisfy Metropolis criterion
             if all(check_criterion):
 

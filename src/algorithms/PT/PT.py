@@ -101,12 +101,12 @@ class ParallelTempering():
         #Initialise in feasible region
         for i in range(self.num_replicas):
             for j in range(self.num_x_per_replica):
-                while not satisfy_constraints(self.current_solutions[i, j]):
+                while not satisfy_constraints(self.scale_up(self.current_solutions[i, j])):
                     self.current_solutions[i, j] = np.random.uniform(self.lb, self.ub, self.x_dim)
 
         # Diagonal matrix of max. allowable step sizes for individual
         # Step for each solution
-        D = np.eye(self.x_dim)
+        D = np.eye(self.x_dim) * 0.75
 
         # Need a matrix of these for each solution in each replica
         self.max_change = np.tile(D, (self.num_replicas, self.num_x_per_replica, 1, 1))
@@ -127,7 +127,7 @@ class ParallelTempering():
         # Return best solution
         return all_solutions[best_idx]
 
-    def metropolis_criterion(self, x, x_new, T):
+    def metropolis_criterion(self, X, X_new, T):
         """
         Metropolis criterion for parallel tempering algorithm.
         Acceptance probability as advised by Simulated Annealing lecture notes (Parks et al.)
@@ -140,6 +140,10 @@ class ParallelTempering():
         Returns:
         - bool: Whether to accept new solution or not
         """
+        # Scale up solutions to original range
+        x = self.scale_up(X)
+        x_new = self.scale_up(X_new)
+
         # If constraints are to be satisfied, check if new solution satisfies constraints
         if self.constraints:
             if not satisfy_constraints(x_new):
@@ -149,8 +153,8 @@ class ParallelTempering():
         d = np.linalg.norm(x_new - x)
 
         # Function evaluations, raised to power of temperature, aim to maximise function
-        f_old = - self.func(self.scale_up(x))
-        f_new = - self.func(self.scale_up(x_new))
+        f_old = self.func(x)
+        f_new = self.func(x_new)
 
         den = T*d if T*d != 0 else 1e-8
 
@@ -169,7 +173,7 @@ class ParallelTempering():
         # Update max. allowable step size
         self.max_change[i][j] = (1-self.alpha) * self.max_change[i][j] + self.alpha * self.omega * R
 
-    def update_solutions(self):
+    def update_chains(self):
         """
         One step of the algorithm. Update solutions for each replica.
         """
@@ -207,7 +211,7 @@ class ParallelTempering():
 
         avg = np.mean([self.func(x) for x in all_solutions])
         best_solution = self.get_best_solution()
-        min = -self.func(best_solution)
+        min = - self.func(best_solution)
 
         return avg, min
 

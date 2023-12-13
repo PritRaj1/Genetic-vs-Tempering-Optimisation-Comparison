@@ -14,8 +14,8 @@ FUNCTION = KBF_function
 X_DIM = 2
 NUM_REPLICAS = 10
 NUM_SOL_PER_REPLICA = 10 # 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
-EXCHANGE_PROCEDURE = 'Periodic'
-EXCHANGE_PARAM = 0.2
+EXCHANGE_PROCEDURE = 'Stochastic'
+EXCHANGE_PARAM = 0.05
 TEMP_TYPE = 'Power'
 PROGRESSION_POWER = 1
 NUM_ITERS = 200
@@ -76,10 +76,10 @@ for iter in tqdm(range(NUM_ITERS)):
         plot_num = (iter // PLOT_EVERY)
         idx = plot_num % num_plots
         axs[idx].set_title(f'Iteration: {iter}')
-        final_replica = PT.current_solutions[-1]
+        final_replica = PT.scale_up(PT.current_solutions[-1])
         plot_population(final_replica, axs[idx], best=PT.get_best_solution(), last=final_replica[-1])
     
-    PT.update_solutions()
+    PT.update_chains()
     PT.replica_exchange(iter)
 
     # Update fitness arrays
