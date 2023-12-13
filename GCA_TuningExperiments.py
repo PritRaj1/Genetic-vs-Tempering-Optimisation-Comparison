@@ -7,8 +7,8 @@ Description :
 """
 
 import sys; sys.path.append('..')
-from src.utils.helper_functions import evaluate_2D, create_figure_directories
-from src.utils.plotting_functions import plot_2D, plot_grey_contour, plot_population, plot_fitness
+from src.utils.helper_functions import evaluate_2D, create_figure_directories_CGA
+from src.utils.plotting_functions import plot_2D, plot_sub_contour, plot_population, plot_fitness
 from src.functions import KBF_function, Rosenbrock_function
 from src.algorithms.CGA.CGA import ContinousGeneticAlgorithm
 
@@ -38,7 +38,7 @@ if NUM_PARENTS % 2 != 0:
     NUM_PARENTS += 1
 
 # Create directories for figures
-create_figure_directories(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST, ITERS_LIST)
+create_figure_directories_CGA(NAME, SELECTION_METHOD_LIST, MATING_PROCEDURE_LIST, ITERS_LIST)
 
 # 2D Visualisation of function
 X1, X2, f = evaluate_2D(FUNCTION, x_range=X_RANGE)
@@ -90,7 +90,7 @@ def selection_mating_tuning(params):
     # Plot grey contour plots of function on each subplot in grid
     # This will be overlayed with populations at different iterations
     for idx in range(num_plots):
-        plot_grey_contour(X1, X2, f_feasible, plot=axs[idx], x_range=X_RANGE)
+        plot_sub_contour(X1, X2, f_feasible, plot=axs[idx], x_range=X_RANGE)
 
     # Initialise arrays to store fitness values
     avg_fitness = np.zeros(NUM_ITERS)

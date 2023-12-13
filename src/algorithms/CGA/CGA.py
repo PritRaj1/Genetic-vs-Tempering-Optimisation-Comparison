@@ -17,7 +17,7 @@ class ContinousGeneticAlgorithm():
     """
     Class for continous genetic algorithm.  
     """
-    def __init__(self, population_size, chromosome_length, num_parents, objective_function, tournament_size, range=(0,10), mutation_rate=0.1, crossover_prob=0.8, selection_method='SRS', mating_procedure='crossover', constraints=True):
+    def __init__(self, population_size, chromosome_length, num_parents, objective_function, tournament_size, range=(0,10), mutation_rate=0.1, crossover_prob=0.8, selection_method='Tournament', mating_procedure='Heuristic Crossover', constraints=True):
         """
         Constructor for continous genetic algorithm.
 

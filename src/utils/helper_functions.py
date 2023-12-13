@@ -51,7 +51,7 @@ def evaluate_2D(func, x_range=(0,10), constraints=False):
         
     return X1, X2, f
 
-def create_figure_directories(name, selection_methods, mating_procedures, iters_list):
+def create_figure_directories_CGA(name, selection_methods, mating_procedures, iters_list):
     """
     Function for creating directories for figures generated in my simulations.
     """
@@ -81,3 +81,34 @@ def create_figure_directories(name, selection_methods, mating_procedures, iters_
                 mating_dir = os.path.join(selection_dir, mating_procedure)
                 if not os.path.exists(mating_dir):
                     os.makedirs(mating_dir)
+
+def create_figure_directories_PT(name, exchange_procedures, schedule_types, iters_list):
+    """
+    Function for creating directories for figures generated in my simulations.
+    """
+    # Create parent directory
+    if not os.path.exists('figures'):
+        os.makedirs('figures')
+
+    # Create directory for specific function
+    function_dir = os.path.join('figures', name)
+    if not os.path.exists(function_dir):
+        os.makedirs(function_dir)
+
+    # Create directory for each number of iterations
+    for iters in iters_list:
+        iters_dir = os.path.join(function_dir, f'{iters}_iters')
+        if not os.path.exists(iters_dir):
+            os.makedirs(iters_dir)
+
+    # Create directories for each exchange procedure and schedule type
+    for exchange_procedure in exchange_procedures:
+        for schedule_type in schedule_types:
+            for iters in iters_list:
+                exchange_dir = os.path.join(function_dir, f'{str(iters)}_iters', exchange_procedure)
+                if not os.path.exists(exchange_dir):
+                    os.makedirs(exchange_dir)
+
+                schedule_dir = os.path.join(exchange_dir, schedule_type)
+                if not os.path.exists(schedule_dir):
+                    os.makedirs(schedule_dir)

@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import rc
 import seaborn as sns
+from src.utils.helper_functions import evaluate_2D
 
 # Set LaTeX font
 rc('font', **{'family': 'serif', 'serif': ['Computer Modern']}, size=14)
@@ -61,7 +62,7 @@ def plot_2D(X1, X2, f, name, constraints=False):
     ax.view_init(elev=elevation, azim=angle)  # Set the view angle
     plt.savefig(f'figures/{name}/{name_png}_surf.png')
 
-def plot_population(population, plot, best=None):
+def plot_population(population, plot, best=None, last=None):
     """
     Function for overlaying a particular generation from the CGA's optimisation on a contour plot in R^2.
 
@@ -69,6 +70,7 @@ def plot_population(population, plot, best=None):
     - population (np.ndarray): Population of individuals.
     - plot (matplotlib.pyplot): Plot to overlay on.
     - best (np.ndarray): Best individual.
+    - last (np.ndarray): Last individual, (for visualising MCMC moves).
     """
 
     # Plot population
@@ -78,10 +80,15 @@ def plot_population(population, plot, best=None):
     if best is not None:
         plot.plot(best[0], best[1], marker='o', markersize=8, label='Best', color='green')
         plot.add_patch(plt.Circle((best[0], best[1]), 0.5, color='green', fill=False)) 
+
+    # Plot circle around last individual
+    if last is not None:
+        plot.plot(last[0], last[1], marker='o', markersize=8, label='Tracked', color='yellow')
+        plot.add_patch(plt.Circle((last[0], last[1]), 0.5, color='yellow', fill=False))
     
     plot.legend()
 
-def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
+def plot_sub_contour(X1, X2, f, plot, x_range=(0,10), colour='gray'):
     """
     Function for plotting the grey contour plot which will be overlayed with the population during optimisation.
 
@@ -92,7 +99,7 @@ def plot_grey_contour(X1, X2, f, plot, x_range=(0,10)):
     - plot (matplotlib.pyplot): A subplot within the grid of contours to plot the contour on.
     - x_range (tuple): Range of x values.
     """
-    plot.contourf(X1, X2, f, 100, cmap='gray')
+    plot.contourf(X1, X2, f, 100, cmap=colour)
     plot.set_facecolor('xkcd:light grey')
     plot.set_xlabel(r'$x_1$')
     plot.set_ylabel(r'$x_2$')
@@ -125,7 +132,32 @@ def plot_fitness(avg_fitness, min_fitness, type):
     plt.legend()
     plt.savefig(f'figures/{type[0]}/{str(type[1])}_iters/{type[2]}/{type[3]}/{type[4]}_{type[5]}_Fitness.png')
 
+def visualise_schedule(temps, func, x_range, schedule_name, func_name):
+    """
+    Function for visualising the effect of a temperature schedule on a function's contour plot.
 
+    Args:
+    - temps (np.ndarray): Array of temperatures.
+    - func (function): Function to visualise.
+    - x_range (tuple): Range of x values.
+    - name (str): Name of function.
+    """
+    X1, X2, f = evaluate_2D(func, x_range=x_range)
 
+    num_plots = 5
+    t_index = len(temps) // num_plots
+    fig, axs = plt.subplots(1, num_plots, figsize=(20, 5))
+    fig.suptitle(f"Effect of {schedule_name} on {func_name} Function", fontsize=16)
+
+    for i in range(num_plots):
+
+        # Raise function to power of temperature
+        f_t = f ** temps[i * t_index]
+    
+        plot_sub_contour(X1, X2, f_t, axs[i], x_range=x_range, colour='jet')
+        axs[i].set_title(f'T = {temps[i * t_index]:.2f}')
+        plt.colorbar(axs[i].contourf(X1, X2, f_t, 100, cmap='jet'), ax=axs[i])
+
+    plt.savefig(f'figures/{func_name}/{schedule_name}_tempschedule.png')        
 
 
