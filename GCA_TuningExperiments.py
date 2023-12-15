@@ -181,9 +181,9 @@ def plot_fitnesses():
         plt.savefig(f'figures/{NAME}/Fitness_Evolution_{MATING}.png')
 
 ### Function used to generate heat maps in Section 3.2 of the report ###
-def rate_prob_contour(params):
+def rate_prob_mesh(params):
     """
-    Parallelisable function to create contour plots to assess
+    Parallelisable function to create mesh grids for heat map plots to assess
     the impact of mutation rate and crossover probability on the
     algorithm's performance.
     """
@@ -281,10 +281,12 @@ MIN = np.zeros((len(MUTATION_RATE_LIST), len(CROSSOVER_PROB_LIST)))
 pool = Pool()
 
 # Create a list of parameters for parallel execution
-params_list = [(i, j, MUTATION_RATE, CROSSOVER_PROB) for i, MUTATION_RATE in enumerate(MUTATION_RATE_LIST) for j, CROSSOVER_PROB in enumerate(CROSSOVER_PROB_LIST)]
+params_list = [(i, j, MUTATION_RATE, CROSSOVER_PROB) 
+               for i, MUTATION_RATE in enumerate(MUTATION_RATE_LIST) 
+               for j, CROSSOVER_PROB in enumerate(CROSSOVER_PROB_LIST)]
 
 # Run the simulations in parallel
-results = pool.map(rate_prob_contour, params_list)
+results = pool.map(rate_prob_mesh, params_list)
 
 # Update fitness arrays
 for i, j, fitness, min_fitness in results:

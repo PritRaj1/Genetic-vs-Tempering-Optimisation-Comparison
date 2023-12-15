@@ -108,6 +108,30 @@ def PT_initial_tuning(params):
         'Avg. Fitness Progression': avg_fitness
     }
 
+def power_exchange_mesh(params):
+    # Parse parameters
+    i, j, EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER = params
+
+    PT = ParallelTempering(
+        objective_function=FUNCTION,
+        x_dim=X_DIM,
+        range=X_RANGE,
+        num_replicas=NUM_REPLICAS,
+        num_chains=NUM_SOL_PER_REPLICA,
+        exchange_procedure=EXCHANGE_PROCEDURE,
+        exchange_param=EXCHANGE_PARAM,
+        schedule_type='Power',
+        power_term=PROGRESSION_POWER
+    )
+
+    for iter in range(100):
+        PT.update_chains()
+        PT.replica_exchange(i)
+
+    final_avg_fitness, final_min_fitness = PT.get_fitness()
+
+    return i, j, final_avg_fitness, final_min_fitness
+
 # Create a list of all combinations of parameters
 params_list = [(EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER, NUM_ITERS) 
                 for EXCHANGE_PROCEDURE in EXCHANGE_PROCEDURE_LIST
@@ -173,4 +197,56 @@ for EXCHANGE_PROCEDURE in EXCHANGE_PROCEDURE_LIST:
     plt.savefig(f'figures/{FUNC_NAME}/100_iters/{EXCHANGE_PROCEDURE}/PT_Avg_Fitness_Evolution.png')
 
 print('Done!')  
+
+print('Starting heatmap generation...')
+
+EXCHANGE_PROCEDURE = 'Stochastic'
+EXCHANGE_PARAM_LIST = [0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3]
+PROGRESSION_POWER_LIST = range(1, 8)
+
+X, Y = np.meshgrid(EXCHANGE_PARAM_LIST, PROGRESSION_POWER_LIST)
+
+AVG = np.zeros((len(EXCHANGE_PARAM_LIST), len(PROGRESSION_POWER_LIST)))
+MIN = np.zeros((len(EXCHANGE_PARAM_LIST), len(PROGRESSION_POWER_LIST)))
+
+params_list = [(i, j, EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER)
+                for i, EXCHANGE_PARAM in enumerate(EXCHANGE_PARAM_LIST)
+                for j, PROGRESSION_POWER in enumerate(PROGRESSION_POWER_LIST)]
+
+# Create a pool of worker processes
+pool = Pool()
+
+results = pool.map(power_exchange_mesh, params_list)
+
+for i, j, final_avg_fitness, final_min_fitness in results:
+    AVG[i, j] = final_avg_fitness
+    MIN[i, j] = final_min_fitness
+
+# Close the pool
+pool.close()
+pool.join()
+
+# Plot average fitness heat map
+plt.figure(figsize=(14, 10))
+plt.title(f'Average Final Fitness with varying Power Param and Exchange Param on {FUNC_NAME} Function \n' 
+        + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE + r"}]", fontsize=18)
+sns.heatmap(AVG, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Greens')
+plt.xlabel('Exchange Parameter', fontsize=16)
+plt.ylabel('Power Parameter, p', fontsize=16)
+plt.tight_layout()
+plt.savefig(f'figures/{FUNC_NAME}/PT_Avg_Fitness_Heatmap_{EXCHANGE_PROCEDURE}.png')
+
+# Plot minimum fitness heat map
+plt.figure(figsize=(14, 10))
+plt.title(f'Minimum Final Fitness with varying Power Param and Exchange Param on {FUNC_NAME} Function \n' 
+        + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE + r"}]", fontsize=18)
+sns.heatmap(MIN, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Greens')
+plt.xlabel('Exchange Parameter', fontsize=16)
+plt.ylabel('Power Parameter, p', fontsize=16)
+plt.tight_layout()
+plt.savefig(f'figures/{FUNC_NAME}/PT_Min_Fitness_Heatmap_{EXCHANGE_PROCEDURE}.png')
+
+print('Done!')
+
+
 
