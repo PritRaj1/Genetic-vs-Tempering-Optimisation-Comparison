@@ -1,4 +1,11 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{CALDERHEAD20094028}
+Ben Calderhead and Mark Girolami.
+\newblock Estimating bayes factors via thermodynamic integration and population
+  mcmc.
+\newblock {\em Computational Statistics \& Data Analysis}, 53(12):4028--4045,
+  2009.
 
 \bibitem{Earl_2005}
 David~J. Earl and Michael~W. Deem.
@@ -47,6 +54,12 @@ Geoff Parks.
 \newblock Simulated annealing: Lecture notes.
 \newblock Cambridge University, 4M17 Practical Optimisation Module, 2023.
 \newblock Unpublished.
+
+\bibitem{NT90-A34350}
+Geoffrey~Thomas Parks.
+\newblock An intelligent stochastic optimization routine for nuclear fuel cycle
+  design.
+\newblock {\em Nuclear Technology}, 89(2):233--246, 1990.
 
 \bibitem{salimans2017evolution}
 Tim Salimans, Jonathan Ho, Xi~Chen, Szymon Sidor, and Ilya Sutskever.

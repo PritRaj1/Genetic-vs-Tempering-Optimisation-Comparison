@@ -99,10 +99,10 @@ class ParallelTempering():
         self.current_solutions = np.random.uniform(0, 1, (self.num_replicas, self.num_chains, self.x_dim))
         
         #Initialise in feasible region!
-        for i in range(self.num_replicas):
-            for j in range(self.num_chains):
-                while not satisfy_constraints(self.scale_up(self.current_solutions[i, j])):
-                    self.current_solutions[i, j] = np.random.uniform(self.lb, self.ub, self.x_dim)
+        # for i in range(self.num_replicas):
+        #     for j in range(self.num_chains):
+        #         while not satisfy_constraints(self.scale_up(self.current_solutions[i, j])):
+        #             self.current_solutions[i, j] = np.random.uniform(self.lb, self.ub, self.x_dim)
 
         # Diagonal matrix of max. allowable step sizes for each solution
         # Each item in the matrix pertains to the max step size for each dimension of the solution
@@ -128,6 +128,12 @@ class ParallelTempering():
 
         # Find index of best solution
         best_idx = np.argmax(all_solutions_eval)
+
+        # Only consider candidates from feasible region
+        if self.constraints:
+            while not satisfy_constraints(all_solutions[best_idx]):
+                all_solutions_eval[best_idx] = -np.inf
+                best_idx = np.argmax(all_solutions_eval)
 
         # Return best solution
         return all_solutions[best_idx]

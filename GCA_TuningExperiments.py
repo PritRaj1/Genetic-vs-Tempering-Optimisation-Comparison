@@ -28,7 +28,7 @@ MUTATION_RATE_LIST = [0.05, 0.1]
 CROSSOVER_PROB_LIST = [0.7, 0.65]
 SELECTION_METHOD_LIST = ['Proportional', 'Tournament', 'SRS']
 MATING_PROCEDURE_LIST = ['Crossover', 'Heuristic Crossover']
-ITERS_LIST = [5, 100]
+ITERS_LIST = [5, 10, 100]
 TOUNAMENT_SIZE = POPULATION_SIZE // 4 # 25% of population size
 
 NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'

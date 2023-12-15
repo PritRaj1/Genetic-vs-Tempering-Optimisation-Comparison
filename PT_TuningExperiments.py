@@ -86,7 +86,7 @@ def PT_initial_tuning(params):
         avg_fitness[iter], min_fitness[iter] = PT.get_fitness()
 
     plt.tight_layout()
-    plt.savefig(f'figures/{FUNC_NAME}/{str(NUM_ITERS)}_iters/{EXCHANGE_PROCEDURE}/{TEMP_TYPE}/{EXCHANGE_PARAM}_{PROGRESSION_POWER}_{PROGRESSION_POWER}_Solutions.png')
+    plt.savefig(f'figures/{FUNC_NAME}/{str(NUM_ITERS)}_iters/{EXCHANGE_PROCEDURE}/{TEMP_TYPE}/{EXCHANGE_PARAM}_{PROGRESSION_POWER}_Solutions.png')
 
     plot_fitness(avg_fitness, min_fitness, [FUNC_NAME, 
                                             NUM_ITERS,

@@ -48,31 +48,29 @@
 
 \begin{document}
 \maketitle
-\section{Abstract}
-This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering (PT). 
-
-\begin{figure}[H]
-\centering
-\begin{subfigure}{0.49\textwidth}
+\begin{multicols}{2}\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{../figures/KBF/KBF_surf.png}
-    \caption{Surface plot.}
-    \label{fig:KBF_surf}
-\end{subfigure}
-\begin{subfigure}{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{../figures/KBF/KBF_contour.png}
-    \caption{Contour plot.}
-    \label{fig:KBF_contour}
-\end{subfigure}
-    \captionsetup{justification=centering}
-    \caption{Two-dimensional visualisation of the Keane's Bump Function, (KBF).}
-    \label{fig:KBF_2D}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/KBF_surf.png}
+        \caption{Surface plot.}
+        \label{fig:KBF_surf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/KBF_contour.png}
+        \caption{Contour plot.}
+        \label{fig:KBF_contour}
+    \end{subfigure}
+        \captionsetup{justification=centering}
+        \caption{Two-dimensional visualisation of the Keane's Bump Function, (KBF).}
+        \label{fig:KBF_2D}
 \end{figure}
-\newpage
-\begin{multicols}{2}
-\section{Introduction}
-\subsection{Keane's Bump Function}
+
+\section{Abstract}
+This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). 
+
+\section{Problem Setup: Keane's Bump Function}
 
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
 
@@ -110,8 +108,6 @@ These properties make the KBF a suitable candidate for the comparative analysis 
     \caption{Feasible region carved out from the two-dimensional visualisation of the Keane's Bump Function, (KBF).}
     \label{fig:KBF_Feasible}
 \end{figure}
-\newpage
-\subsection{Choice of Algorithms}
 
 \section{The Continuous Genetic Algorithm (CGA)}
 \label{sec:CGA}
@@ -131,7 +127,7 @@ In accordance with the terminology presented in \cite{parks2023geneticalgorithms
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/Flowchart.png}
+    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/Flowchart.png}
     \captionsetup{justification=centering}
     \caption{A flowchart depicting the CGA process, taken from \cite{parks2023geneticalgorithms}.}
     \label{fig:GAprocess}
@@ -143,7 +139,7 @@ The CGA can be can be finely tuned for a specific objective function by modifyin
 
 \subsubsection{Initialisation}
 
-The population is initialised with random values uniformly distributed within the bounds of the state space.
+The population is initialised with random values uniformly distributed within the range of 0 to 10, which represents the bounds of the state space, encompassing both feasible and infeasible values. This population comprises 250 individuals, as defined by the \textit{POPULATION\_SIZE} hyperparameter. 
 
 \subsubsection{Parent Selection}
 
@@ -162,6 +158,7 @@ Here, \(f_i\) denotes the fitness of the \(i\)th individual. This is the simples
 As noted in \cite{parks2023geneticalgorithms}, this approach is susceptible to high variance in individual selection, primarily because there is no assurance of choosing the optimal individual. Alternatively, the following two procedures show greater potential, incorporating a degree of determinism into the selection process.
 
 However, it would be premature to disregard the proportional selection method. There is a chance that the determinism inherent in the other two methods could negatively impact the KBF optimisation process. A notable degree of stochasticity may improve the algorithm's effectiveness in exploring the search space, which may prove vital given the multi-modal nature of the KBF.
+
 \textbf{\underline{Tournament Selection}}
 
 As outlined in \cite{parks2023geneticalgorithms}, this strategy involves taking a small subset of the population, and selecting the top two individuals with the highest fitness. This is repeated until the required number of parents is achieved. Selection pressure can then be adjusted by varying the size of the subset, controlled by the \textit{TOURNAMENT\_SIZE} hyperparameter.
@@ -230,11 +227,11 @@ Additional results from the initial exploration of hyperparameter tuning are det
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.44\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
     \end{subfigure}
     \begin{subfigure}{0.44\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/Fitness_Evolution_Heuristic Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
@@ -263,12 +260,12 @@ Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insi
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.46\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/AVGContour_Tournament_Heuristic Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png}
         \caption{Average final fitness across entire population.}
         \label{fig:CGA_contour_tournament_Heuristic Crossover_AVG}
     \end{subfigure}
     \begin{subfigure}{0.46\textwidth}
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/MINContour_Tournament_Heuristic Crossover.png}
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png}
         \caption{Final (minimum) fitness of best individual.}
         \label{fig:CGA_contour_tournament_Heuristic Crossover_MIN}
     \end{subfigure}
@@ -279,7 +276,7 @@ Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Ungenerated Images/0.1_0.65_Fitness.png}
+    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/0.1_0.65_Fitness.png}
     \captionsetup{justification=centering}
     \caption{Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.}
     \label{fig:CGA_fitness_evo_OPT}
@@ -309,13 +306,13 @@ The primary challenge lies in the fact that both the first and second largest ma
     \centering
     \begin{subfigure}{0.9\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/Ungenerated Images/0.1_0.65_Population.png}
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/0.1_0.65_Population.png}
         \caption{4 iterations.}
         \label{fig:optimal_5}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{../figures/Ungenerated Images/0.1_0.65_Population100.png}
+        \includegraphics[width=0.9\textwidth]{../figures/Permanent Images/0.1_0.65_Population100.png}
         \caption{80 iterations.}
         \label{fig:optimat_100}
     \end{subfigure}
@@ -323,7 +320,7 @@ The primary challenge lies in the fact that both the first and second largest ma
     \caption{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters delineated at the end of Section \ref{sec:CGA_selection_mutation}.}
     \label{fig:optimal_convergence}
 \end{figure}
-\newpage
+
 \begin{multicols}{2}
 
 \section{Parallel Tempering (PT)}
@@ -333,9 +330,9 @@ Having obsererved the CGA's performance and its difficulty in identifying global
 
 This is a Markvo Chain Monte Carlo (MCMC) optimisation approach presented in \cite{Earl_2005}. Similar to simulated annealing, (SA), it revolves around the idea of smoothening the search space by introducing a temperature parameter, $t$. 
 
-By elevating the KBF to the power of $\frac{1}{t}$, and employing a high temperature, $t$, the solution space is smoothed. The algorithm is then able to explore the search space more thoroughly. As the temperature diminishes, the KBF begins to resemble its original form, enabling the algorithm to explore the local nature of the function.
+By incorporating a Metropolis-Hasting acceptance probability that is proportional to $\exp\frac{1}{t}$, exploration of the solution space is encouraged at high temperatures, while exploitation of the local nature of the function is facilitated at low temperatures. At high temperatures, the acceptance distribution is is smoothened out by this proportionalilty, and the algorithm is then able to explore the search space more thoroughly. As the temperature diminishes, the acceptance distribution becomes more dependent on the fitness of the proposed solution to the KBF, enabling the algorithm to explore the local nature of the function.
 
-However, PT incorporates the novel concept of Replica Exchange Monte Carlo. Unlike SA, which operates along a single tragectory, starting with a high temperature that gradually decreases, PT maintains multiple replicas of the system at different temperatures simultaneously. Each replica explores its own solution space, and periodic exchanges of the solutions occur between replicas at adjacent temperature levels. This exchange mechanism enhances global exploration by facilitating the movement of solutions between replicas operating at high and low temperature. 
+However, PT incorporates the novel concept of Replica Exchange Monte Carlo. Unlike SA, which operates along a single tragectory, starting with a high temperature that gradually decreases, PT maintains multiple replicas of the system at different temperatures simultaneously. Each replica explores its own solution space, and exchanges of the solutions can occur between replicas at adjacent temperature levels. This exchange mechanism enhances global exploration by facilitating the movement of solutions between replicas operating at high and low temperature. 
 
 This parallel exploration across temperatures improves the algorithm's ability to escape local optima, providing a valuable alternative to traditional single-trajectory methods like SA. Consequently, PT could emerge as a well-suited approach for maximising the highly multi-modal KBF.
 
@@ -343,18 +340,38 @@ Unfortunately, this introduces an elevated computational cost, due to the manage
 
 \subsection{Implementation}
 
-PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore this implementation of PT draws inspiration from literature focused on sampling complex probability distributions. 
+PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore the following implementation draws inspiration from literature focused on sampling complex probability distributions. 
 
-The primary avenue for flexibility in PT lies in setting and aadapting the temperatures of the replicas. Additionally, other sources of flexibility include the manipulation of the number of replicas running simultaneously within the system and the frequency at which solutions are exchanged.
+The discourse presented in \cite{Earl_2005} emphasises a delicate trade-off between optimising MCMC sampling outcomes and minimising computational efforts. Hence, the PT implementation presented here is deliberately crafted for flexibility, offering the ability to fine-tune the algorithm, as shown in Section \ref{sec:PTtuning}.
 
-The discourse presented in \cite{Earl_2005} emphasises a delicate trade-off between optimising MCMC sampling outcomes and minimising computational efforts. Hence, the PT implementation presented here is deliberately crafted for flexibility, offering the ability to fine-tune the aforementioned factors. 
+As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are handled by simply rejecting any proposed changes that violate the constraints. This is accomplished within the Metropolis-Hastings criterion regarding the acceptance or rejection of a proposed change. This was determined as a suitable approach, given that the feasible space is non-disjoint, and the constraints are of the inequality type.
 
-As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are handled by simply rejecting any proposed changes that violate the constraints. This is accomplished within the Metropolis criterion regarding the acceptance or rejection of a proposed change. This was determined as a suitable approach, given that the feasible space is non-disjoint, and the constraints are of the inequality type.
+The approach can additionally be characterised as population-based, incorporating 10 replicas in accordance with the \textit{NUM\_REPLICAS} hyperparameter. Within each replica, there are 25 chains of solutions determined by the \textit{NUM\_CHAINS} hyperparameter. Consequently, the total number of solutions being evaluated at any given time is 250, which is equivalent to the population size of the CGA.
+
+\subsubsection{Initialisation}
+The chains are initialised within the range of 0 to 1, as advised by the guidance provided in \cite{NT90-A34350}, specifically under the SA-derived solution generation framework employed in this implementation.
+
+This range persists throughout the algorithm, until function evaluations are necessitated, at which point the \textit{scale\_up} lambda function is called to return the solution in the original state space.
+
+Mirroring the CGA implementation, solutions were initialised without consideration for their feasibility. Whilst initialising within the feasible solution space was observed to enhance performance, this approach was deliberately omitted to ensure fair comparisons between the PT and CGA. However, the performance was notably compromised, given that solutions initialised deep within the infeasible zones of the search space faced challenges in escaping under the Metropolis-Hastings acceptance criterion.
+
+\subsubsection{Temperature Scheduling}
+
+The primary avenue for flexibility in PT lies in setting and adapting the temperatures of the replicas, as discussed in \cite{Earl_2005}. Drawing insights from the previous work of \cite{CALDERHEAD20094028} on an unrelated, yet similar problem, this was taken advantage of by parameterising the temperature schedule as follows:
+
+\begin{equation}
+    T_i = \left(\frac{i}{{N_{\text{replicas}}}}\right)^p
+    \label{eq:PTtemp}
+\end{equation}
+
+Here, $T_i$ denotes the temperature of the $i$th replica, and $N_{\text{replicas}}$ is the total number of replicas. The exponent $p$ is a hyperparameter referred to as \textit{POWER\_TERM} that can be tuned to optimise the performance of the algorithm.
 
 \subsection{Tuning the PT}
+\label{sec:PTtuning}
 
-
+Additionally, other sources of flexibility include the manipulation of the number of replicas running simultaneously within the system and the frequency at which solutions are exchanged.
 \end{multicols}
+
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
 \section{Results}
@@ -364,7 +381,7 @@ As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are hand
 \bibliography{refs} % Entries are in the refs.bib file
 \newpage
 \section{Appendix}
-\subsection{Supplementary Results regarding the Informed Tuning of the CGA}
+\subsection{Supplementary Results regarding CGA Tuning}
 
 \begin{table}[H]
     \centering
@@ -394,7 +411,7 @@ As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are hand
         \hline
     \end{tabular}
     \captionsetup{justification=centering}
-    \caption{An initial exploration of the selection method and mutation procedure hyperparameters within the CGA. The results are presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
+    \caption{Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
     \label{tab:CGAexploration}
 \end{table}
 
@@ -417,24 +434,24 @@ As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are hand
     \label{fig:CGA_flowchart_proportional}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.85\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Crossover}
-        \label{fig:CGA_flowchart_tournament_crossover}
-    \end{subfigure}
-    \begin{subfigure}{0.85\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png}
-        \caption{Mutation Procedure: Heuristic Crossover}
-        \label{fig:CGA_flowchart_tournament_Heuristic Crossover}
-    \end{subfigure}
-    \captionsetup{justification=centering}
-    \caption{Evolution of the CGA population over 8 iterations using tournament selection. Tournament selection proved to be the most effective selection method, when compared to Proportional Selection and Stochastic Remainder Selection without Replacement (SRS), as discussed in \ref{sec:CGA_selection_mutation}.}
-    \label{fig:CGA_flowchart_tournament}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}{0.85\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Crossover/0.05_0.7_Population.png}
+%         \caption{Mutation Procedure: Crossover}
+%         \label{fig:CGA_flowchart_tournament_crossover}
+%     \end{subfigure}
+%     \begin{subfigure}{0.85\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../figures/KBF/10_iters/Tournament/Heuristic Crossover/0.05_0.7_Population.png}
+%         \caption{Mutation Procedure: Heuristic Crossover}
+%         \label{fig:CGA_flowchart_tournament_Heuristic Crossover}
+%     \end{subfigure}
+%     \captionsetup{justification=centering}
+%     \caption{Evolution of the CGA population over 8 iterations using tournament selection. Tournament selection proved to be the most effective selection method, when compared to Proportional Selection and Stochastic Remainder Selection without Replacement (SRS), as discussed in \ref{sec:CGA_selection_mutation}.}
+%     \label{fig:CGA_flowchart_tournament}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
@@ -455,4 +472,61 @@ As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are hand
     \label{fig:CGA_flowchart_SRS}
 \end{figure}
 
+\subsection{Supplementary Results regarding PT Tuning}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|*{5}{c|}}
+        \hline
+        \multirow{3}{*}{Exchange Procedure} & \multirow{3}{*}{\shortstack{Exchange\\Parameter}} & \multirow{3}{*}{Power Term} & \multirow{3}{*}{Final Avg. Fitness} & \multirow{3}{*}{Final Min. Fitness} \\
+        & & & & \\
+        & & & & \\
+        \hline
+        Periodic & \multirow{3}{*}{0.1} & 1 & -0.195696325 & -0.271773819 \\
+        & & 3\cellcolor{lightgray} & -0.195696325\cellcolor{lightgray} & -0.271773819\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.190261962\cellcolor{gray} & -0.325543757\cellcolor{gray} \\
+        \cline{2-5}
+        & \multirow{3}{*}{0.3} & 1 & -0.182369994 & -0.346578069 \\
+        & & 3\cellcolor{lightgray} & -0.182369994\cellcolor{lightgray} & -0.346578069\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.183774281\cellcolor{gray} & -0.341275246\cellcolor{gray} \\
+        \cline{2-5}
+        & \multirow{3}{*}{0.5} & 1 & -0.158484931 & -0.267351197 \\
+        & & 3\cellcolor{lightgray} & -0.158484931\cellcolor{lightgray} & -0.267351197\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.171493053\cellcolor{gray} & -0.341275246\cellcolor{gray} \\
+        \hline
+        Stochastic & \multirow{3}{*}{0.1} & 1 & -0.181921769 & -0.33399822 \\
+        & & 3\cellcolor{lightgray} & -0.181921769\cellcolor{lightgray} & -0.33399822\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.192349346\cellcolor{gray} & -0.33399822\cellcolor{gray} \\
+        \cline{2-5}
+        & \multirow{3}{*}{0.3} & 1 & -0.209998474 & -0.347740414 \\
+        & & 3\cellcolor{lightgray} & -0.209998474 \cellcolor{lightgray}& -0.347740414\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.202770259\cellcolor{gray} & -0.345528224\cellcolor{gray} \\
+        \cline{2-5}
+        & \multirow{3}{*}{0.5} & 1 & -0.206847914 & -0.357649754 \\
+        & & 3\cellcolor{lightgray} & -0.206847914\cellcolor{lightgray} & -0.357649754\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.202650445\cellcolor{gray} & -0.354243287\cellcolor{gray} \\
+        \hline
+    \end{tabular}
+    \caption{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT population after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.}
+    \label{tab:exchange_results}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the solutions across all chains over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1).}
+    \label{fig:PeriodicApp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the solutions across all chains over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%.}
+    \label{fig:StochasticApp}
+\end{figure}
+
 \end{document}
+
+
