@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  15 DEC 2023 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  15 DEC 2023 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -657,62 +657,72 @@ Overfull \hbox (26.18445pt too wide) detected at line 420
 \OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = [] []
  []
 
-[10] (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl) [11]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=295, 1445.4pt x 361.35pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution.png, id=282, 722.7pt x 578.16pt>
+File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png Graphic file (type png)
+<use ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png>
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png  used on input line 438.
+(pdftex.def)             Requested size: 225.4804pt x 180.38342pt.
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png, id=283, 722.7pt x 578.16pt>
+File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png Graphic file (type png)
+<use ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png>
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png  used on input line 444.
+(pdftex.def)             Requested size: 225.4804pt x 180.38342pt.
+[10] (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl [11 <../figures/Permanent Images/PT_Avg_Fitness_Evolution.png> <../figures/Permanent Images/PT_Avg_Fitness_Evolution_Stoch.png>]) [12]
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=304, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 483.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 501.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=296, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=305, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 489.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 507.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=299, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=308, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 521.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 539.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=300, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=309, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 527.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 545.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
- [12 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=310, 1445.4pt x 361.35pt>
+ [13 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=320, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 579.
+Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 597.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
- [13 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=319, 1445.4pt x 361.35pt>
+ [14 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=328, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 587.
+Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 605.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 593.
- [14 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 593.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 611.
+ [15 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 611.
  (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 593.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 593.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 611.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 611.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
 (rerunfilecheck)             Checksum: A28B3C7EF4FF29068B58BE7658929074;1822.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 593.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 611.
  ) 
 Here is how much of TeX's memory you used:
- 11788 strings out of 481239
- 180210 string characters out of 5920377
- 473790 words of memory out of 5000000
- 26723 multiletter control sequences out of 15000+600000
+ 11807 strings out of 481239
+ 181040 string characters out of 5920377
+ 465187 words of memory out of 5000000
+ 26738 multiletter control sequences out of 15000+600000
  558194 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,15n,46p,1027b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (14 pages, 2001605 bytes).
+Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (15 pages, 2115624 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 311 compressed objects within 4 object streams
- 73 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

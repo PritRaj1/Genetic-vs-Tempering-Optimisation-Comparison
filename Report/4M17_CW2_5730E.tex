@@ -431,6 +431,24 @@ As with Section \ref{sec:CGA_selection_mutation}, the flexibility offered by PT 
 
 Unlike the CGA table (Table \ref{tab:CGAexploration}), the preliminary exploratory findings presented for PT (Table \ref{tab:exchange_results}) imply a subtle correlation between the power term of the temperature schedule and the algorithm's performance. Final fitness values exhibit relative constancy, hinting at no potential connection. However, the variability in algorithm performance appears more pronounced when considering the approach to replica exchange.
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Evolution.png}
+        \caption{Periodic Exchange}
+        \label{fig:periodic_fitness}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png}
+        \caption{Stochastic Exchange}
+        \label{fig:stochastic_fitness}
+    \end{subfigure}
+    \caption{Evolution of average fitness values of the PT solutions over 100 iterations for the two approaches to replica exchange. Temperature scheduling was kept uniform.}
+    \label{fig:fitness_PT}
+\end{figure}
+
 \end{multicols}
 
 \section{Comparison}
