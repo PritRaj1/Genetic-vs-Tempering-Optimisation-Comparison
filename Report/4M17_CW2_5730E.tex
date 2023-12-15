@@ -330,17 +330,17 @@ Having obsererved the CGA's performance and its difficulty in identifying global
 
 This is a Markvo Chain Monte Carlo (MCMC) optimisation approach presented in \cite{Earl_2005}. Similar to simulated annealing, (SA), it revolves around the idea of smoothening the search space by introducing a temperature parameter, $t$. 
 
-By incorporating a Metropolis-Hasting acceptance probability that is proportional to $\exp\frac{1}{t}$, exploration of the solution space is encouraged at high temperatures, while exploitation of the local nature of the function is facilitated at low temperatures. At high temperatures, the acceptance distribution is is smoothened out by this proportionalilty, and the algorithm is then able to explore the search space more thoroughly. As the temperature diminishes, the acceptance distribution becomes more dependent on the fitness of the proposed solution to the KBF, enabling the algorithm to explore the local nature of the function.
+By incorporating a Metropolis-Hasting acceptance probability that is proportional to $\exp(1/t)$, exploration of the solution space is encouraged at high temperatures, while exploitation of the local nature of the function is facilitated at low temperatures. At high temperatures, the acceptance distribution is is smoothened out by this proportionalilty, and the algorithm is then able to explore the search space more thoroughly. As the temperature diminishes, the acceptance distribution becomes more dependent on the fitness of the proposed solution to the KBF, enabling the algorithm to explore the local nature of the function.
 
 However, PT incorporates the novel concept of Replica Exchange Monte Carlo. Unlike SA, which operates along a single tragectory, starting with a high temperature that gradually decreases, PT maintains multiple replicas of the system at different temperatures simultaneously. Each replica explores its own solution space, and exchanges of the solutions can occur between replicas at adjacent temperature levels. This exchange mechanism enhances global exploration by facilitating the movement of solutions between replicas operating at high and low temperature. 
 
 This parallel exploration across temperatures improves the algorithm's ability to escape local optima, providing a valuable alternative to traditional single-trajectory methods like SA. Consequently, PT could emerge as a well-suited approach for maximising the highly multi-modal KBF.
 
-Unfortunately, this introduces an elevated computational cost, due to the management of multiple replicas and the periodic exchange of solutions. However, the potential advantages in terms of global exploration of the KBF outweigh the added computational expense. This is especially true, considering the highly parallelisable nature of PT, which may allow for more efficient utilisation of parallel computing resources than the CGA. 
+Unfortunately, this introduces an elevated computational cost, due to the management of multiple replicas and the periodic exchange of solutions. However, the potential advantages in terms of global exploration of the KBF outweigh the added computational expense. This is especially true, considering the highly parallelisable nature of PT, which may allow for even more efficient utilisation of parallel computing resources than the CGA. 
 
 \subsection{Implementation}
 
-PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore the following implementation draws inspiration from literature focused on sampling complex probability distributions. 
+PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore the following implementation draws inspiration from literature focused on sampling from complex probability distributions. 
 
 The discourse presented in \cite{Earl_2005} emphasises a delicate trade-off between optimising MCMC sampling outcomes and minimising computational efforts. Hence, the PT implementation presented here is deliberately crafted for flexibility, offering the ability to fine-tune the algorithm, as shown in Section \ref{sec:PTtuning}.
 
@@ -357,14 +357,59 @@ Mirroring the CGA implementation, solutions were initialised without considerati
 
 \subsubsection{Temperature Scheduling}
 
-The primary avenue for flexibility in PT lies in setting and adapting the temperatures of the replicas, as discussed in \cite{Earl_2005}. Drawing insights from the previous work of \cite{CALDERHEAD20094028} on an unrelated, yet similar problem, this was taken advantage of by parameterising the temperature schedule as follows:
+A significant source of flexibility in PT lies in setting and adapting the temperatures of the replicas, as discussed in \cite{Earl_2005}. Drawing insights from the previous work of \cite{CALDERHEAD20094028} on an unrelated, yet similar problem, this was taken advantage of by parameterising the temperature schedule between 0 and 1, as follows:
 
 \begin{equation}
-    T_i = \left(\frac{i}{{N_{\text{replicas}}}}\right)^p
+    T_i = \left(\frac{i}{{N_{\text{replicas}}}}\right)^p \quad \forall i \in \{1, \dots, N_{\text{replicas}}\}
     \label{eq:PTtemp}
 \end{equation}
 
-Here, $T_i$ denotes the temperature of the $i$th replica, and $N_{\text{replicas}}$ is the total number of replicas. The exponent $p$ is a hyperparameter referred to as \textit{POWER\_TERM} that can be tuned to optimise the performance of the algorithm.
+Here, $T_i$ denotes the temperature of the $i$th replica, and $N_{\text{replicas}}$ is the total number of replicas. The exponent $p$ is a hyperparameter referred to as \textit{POWER\_TERM} that can be tuned to optimise the performance of the algorithm. 
+
+Fig. \ref{fig:PTtemp} illustrates the influence of parameter $p$ on the temperature schedule. It intuitively demonstrates how $p$ affects the balance between exploration and exploitation. A higher value of $p$ corresponds to a slower and more gradual increase in temperature, promoting a conducive environment for exploration. A smaller value of $p$ results in a more rapid increase in temperature, encouraging exploitation of the local nature of the function.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/Power_Progression.png}
+    \captionsetup{justification=centering}
+    \caption{Temperature schedule \ref{eq:PTtemp} for the PT algorithm for different values of the \textit{POWER\_TERM} hyperparameter.}
+    \label{fig:PTtemp}
+\end{figure}
+
+Tuning this balance is crucial for the algorithm's performance against the KBF, and is conducted in Section \ref{sec:PTtuning}. While alternative approaches, such as geometric progression \cite{Earl_2005} are recommended in most literature, the above formulation was made to enhance control over the replica temperatures.
+
+\subsubsection{Metropolis Update}
+
+The inspiration for proposing a new solution stems from \cite{NT90-A34350}, which introduces a routine that leverages accumulated experience from prior iterations to generate SA update steps. Given the similarity between SA and PT, this approach was deemed suitable for the PT implementation.
+
+In particular, a new solution is generated by:
+
+\begin{equation}
+x_{\text{new}} = x_{\text{old}} + \mathbf{D}\mathbf{u}
+\label{eq:PTupdate}
+\end{equation}
+
+In this context, $\mathbf{u}$ represents a vector of uniformly distributed random numbers within the range of $[-1, 1]$, while $\mathbf{D}$ is a diagonal matrix specifying the maximum permissible step size in each dimension of the state space. In this PT implementation, $\mathbf{D}$ is uniquely defined for each solution across all replicas. Following the acceptance of a new solution, the matrix $\mathbf{D}$ is updated using the formula:
+
+\[
+\mathbf{D}_{\text{new}} = (1-\alpha)\mathbf{D}_{\text{old}} + \alpha \omega \mathbf{R}
+\]
+
+Here, the constants $\alpha$ and $\omega$ are set at 0.1 and 2.1 respectively, in accordance with the guidlines presented in \cite{NT90-A34350}. The matrix $\mathbf{R}$ is a diagonal matrix whose elements represent the magnitudes of the successful changes made to each dimension within a specific solution.
+
+\subsubsection{Metropolis-Hastings Acceptance Criterion}
+
+The probability of accepting a proposed solution is determined by the Metropolis-Hastings acceptance criterion. This has been specifically formulated to work alongside the "adapting" update step, \ref{eq:PTupdate}, with additional insights drawn from the works of \cite{NT90-A34350} and \cite{Neal_1996}. The probability of accepting a new solution generated by Eq. \ref{eq:PTupdate} is given by:
+\[
+    P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \cdot T_i \cdot \tilde{d}}\right)\right]
+\]
+In the above formulation, the negation of the objective function: $-f(\mathbf{x})$, represents the fitness of a solution $\mathbf{x}$, $k$ is the Boltzmann constant, $T_i$ is the temperature of the $i$tj replica, and $\tilde{d}$ is euclidean normed distance between the old and new solutions.
+
+However, when judging the swap of two solutions through a replica exchange, the acceptance probability is instead adapted to:
+\[
+    P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \tilde{d}} \left(\frac{1}{T_{\text{old}}} - \frac{1}{T_{\text{new}}}\right)\right)\right]
+\]
+in accordance with \cite{Neal_1996}. This imposes a harsher standard for the acceptance of a swap between replicas operating at vastly different temperatures, which is a desirable feature, especially when the power term, $p$, is set to a high value.
 
 \subsection{Tuning the PT}
 \label{sec:PTtuning}

@@ -97,12 +97,6 @@ class ParallelTempering():
         """
         # Array of solutions for each replica, between 0 and 1 recommended by Parks et al. (1990) 
         self.current_solutions = np.random.uniform(0, 1, (self.num_replicas, self.num_chains, self.x_dim))
-        
-        #Initialise in feasible region!
-        # for i in range(self.num_replicas):
-        #     for j in range(self.num_chains):
-        #         while not satisfy_constraints(self.scale_up(self.current_solutions[i, j])):
-        #             self.current_solutions[i, j] = np.random.uniform(self.lb, self.ub, self.x_dim)
 
         # Diagonal matrix of max. allowable step sizes for each solution
         # Each item in the matrix pertains to the max step size for each dimension of the solution
@@ -142,6 +136,10 @@ class ParallelTempering():
         """
         Metropolis Hastings criterion for accepting new solution.
         Acceptance probability as advised by Simulated Annealing lecture notes (Parks et al.)
+
+        Despite efforts to avoid overflow, the small Boltzmann constant still causes problems.
+        However, the algorithm needs to be sensitive, and only seems to work with the inclusion of k.
+        It works completely fine, but it is not ideal from a performance perspective. 
 
         Parameters:
         - x (np.array): Current solution
