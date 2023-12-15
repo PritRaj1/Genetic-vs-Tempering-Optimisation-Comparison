@@ -47,26 +47,9 @@
 \author{\textbf{Candidate No: 5730E}}
 
 \begin{document}
+\vspace{-3cm}
 \maketitle
-\begin{multicols}{2}\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/KBF_surf.png}
-        \caption{Surface plot.}
-        \label{fig:KBF_surf}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../figures/KBF/KBF_contour.png}
-        \caption{Contour plot.}
-        \label{fig:KBF_contour}
-    \end{subfigure}
-        \captionsetup{justification=centering}
-        \caption{Two-dimensional visualisation of the Keane's Bump Function, (KBF).}
-        \label{fig:KBF_2D}
-\end{figure}
-
+\begin{multicols}{2}
 \section{Abstract}
 This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). 
 
@@ -88,6 +71,25 @@ To compare the performances of the two algorithms, the Keane's Bump Function, (K
 \end{equation}
 
 The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF_2D}. Some notable properties are as follows:
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/KBF_surf.png}
+        \caption{Surface plot.}
+        \label{fig:KBF_surf}
+    \end{subfigure}
+    \begin{subfigure}{0.46\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/KBF/KBF_contour.png}
+        \caption{Contour plot.}
+        \label{fig:KBF_contour}
+    \end{subfigure}
+        \captionsetup{justification=centering}
+        \caption{Two-dimensional visualisation of the Keane's Bump Function, (KBF).}
+        \label{fig:KBF_2D}
+\end{figure}
 
 \begin{itemize}
     \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation \ref{eq:KBF_cost}. Otherwise, the function is continuous and differentiable everywhere.
@@ -214,16 +216,17 @@ The population is then evaluated, and the individuals are ranked in order of fit
 
 For this section of the report, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter). A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}. The individual with the lowest fitness value is then returned as the optimal solution to the optimisation problem.
 
-\subsection{Tuning the CGA Hyperparameters}
+\subsection{Tuning the CGA}
 \label{sec:CGA_selection_mutation}
 
 Given the flexibility of the CGA, multiple selection methods and mutation procedures were implemented within the codebase, as discussed previously. These are then selected as hyperparameters within the script, %placeholder
 to take advantage of the flexibility offered by the CGA. 
 
 To choose a selection method and mutation procedure going forwards into the main comparison of this report, code %placeholder
-was used as a platform for exploartion. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
+was used as a platform for experimented. Each selection method and mutation procedure was evaluated over 10 and 100 iterations, with a constant mutation rate of 0.05, and a crossover probability of 0.7. The number of parents was established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs). The population size itself was set at 250, and the tournament size was similarly defined as 25\% of this.
 
-Additional results from the initial exploration of hyperparameter tuning are detailed in the Appendix. Specifically, the final fitness values are outlined in Table \ref{tab:CGAexploration}. Further insights into the initial evolution of the population during the first 8 iterations are illustrated in supplementary figures found in Figures \ref{fig:CGA_flowchart_SRS}, \ref{fig:CGA_flowchart_proportional}, and \ref{fig:CGA_flowchart_tournament}.
+Supplementary results regarding this initial exploration of hyperparameter tuning are detailed in Section \ref{sec:CGA_tuning_results}. Specifically, the final fitness values are outlined in Table \ref{tab:CGAexploration}. At a first glance, it would appear that all selection methods and mutation procedures perform similarly, offering convergences to similar fitness values. Minor variations could be attributed to the stochastic nature of the CGA, and the small number of iterations.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.44\textwidth}
@@ -239,7 +242,7 @@ Additional results from the initial exploration of hyperparameter tuning are det
     \label{fig:CGA_fitness_evo}
 \end{figure}
 
-However, the most insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
+However, more insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
 
 The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
 
@@ -340,8 +343,6 @@ Unfortunately, this introduces an elevated computational cost, due to the manage
 
 \subsection{Implementation}
 
-PT originates from statistical physics, as extensively discussed in \cite{Earl_2005}. Therefore the following implementation draws inspiration from literature focused on sampling from complex probability distributions. 
-
 The discourse presented in \cite{Earl_2005} emphasises a delicate trade-off between optimising MCMC sampling outcomes and minimising computational efforts. Hence, the PT implementation presented here is deliberately crafted for flexibility, offering the ability to fine-tune the algorithm, as shown in Section \ref{sec:PTtuning}.
 
 As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are handled by simply rejecting any proposed changes that violate the constraints. This is accomplished within the Metropolis-Hastings criterion regarding the acceptance or rejection of a proposed change. This was determined as a suitable approach, given that the feasible space is non-disjoint, and the constraints are of the inequality type.
@@ -349,7 +350,7 @@ As per the guidance in \cite{parks2023geneticalgorithmsSA}, constraints are hand
 The approach can additionally be characterised as population-based, incorporating 10 replicas in accordance with the \textit{NUM\_REPLICAS} hyperparameter. Within each replica, there are 25 chains of solutions determined by the \textit{NUM\_CHAINS} hyperparameter. Consequently, the total number of solutions being evaluated at any given time is 250, which is equivalent to the population size of the CGA.
 
 \subsubsection{Initialisation}
-The chains are initialised within the range of 0 to 1, as advised by the guidance provided in \cite{NT90-A34350}, specifically under the SA-derived solution generation framework employed in this implementation.
+The chains are initialised within the range of 0 to 1, as advised by the guidance provided in \cite{NT90-A34350}, specifically under the SA-derived solution generation framework presented in Section \ref{sec:PT_update}.
 
 This range persists throughout the algorithm, until function evaluations are necessitated, at which point the \textit{scale\_up} lambda function is called to return the solution in the original state space.
 
@@ -378,26 +379,34 @@ Fig. \ref{fig:PTtemp} illustrates the influence of parameter $p$ on the temperat
 
 Tuning this balance is crucial for the algorithm's performance against the KBF, and is conducted in Section \ref{sec:PTtuning}. While alternative approaches, such as geometric progression \cite{Earl_2005} are recommended in most literature, the above formulation was made to enhance control over the replica temperatures.
 
+\subsubsection{Replica Exchange}
+
+The most popular approach to replica exchange, as outlined in \cite{Earl_2005}, involves periodic execution. The interchange of solutions between replicas at adjacent temperature levels occurs at regular intervals. In this implementation, periodic exchange is guided by the hyperparameter \textit{EXCHANGE\_PARAM}. This hyperparameter assumes values in the range of 0 to 1, representing the proportion of total iterations during which a swap takes place.
+
+However, a second approach has also been implemented, which will be referred to as stochastic exchange. In this configuration, the possibility of replica exchange exists in every iteration, and the hyperparameter \textit{EXCHANGE\_PARAM} now functions as the probability governing the occurrence of this swap. 
+
+Both have been introduced to enhance the flexibilty of the algorithm, allowing for either a more deterministic or stochastic approach to replica exchange. The optimal choice is determined in Section \ref{sec:PTtuning}.
+
+Upon meeting the conditions for a swap, the replicas are sequentially traversed in ascending order of temperature. Each replica undergoes an attempt to exchange all of its solutions with the subsequent replica in the sequence. The likelihood of accepting such a swap is dictated by the adapted Metropolis-Hastings acceptance criterion, as detailed in Section \ref{sec:PT_MA}.
+
 \subsubsection{Metropolis Update}
+\label{sec:PT_update}
 
 The inspiration for proposing a new solution stems from \cite{NT90-A34350}, which introduces a routine that leverages accumulated experience from prior iterations to generate SA update steps. Given the similarity between SA and PT, this approach was deemed suitable for the PT implementation.
 
 In particular, a new solution is generated by:
-
 \begin{equation}
-x_{\text{new}} = x_{\text{old}} + \mathbf{D}\mathbf{u}
+\mathbf{x}_{\text{new}} = \mathbf{x}_{\text{old}} + \mathbf{D}\mathbf{u}
 \label{eq:PTupdate}
 \end{equation}
-
 In this context, $\mathbf{u}$ represents a vector of uniformly distributed random numbers within the range of $[-1, 1]$, while $\mathbf{D}$ is a diagonal matrix specifying the maximum permissible step size in each dimension of the state space. In this PT implementation, $\mathbf{D}$ is uniquely defined for each solution across all replicas. Following the acceptance of a new solution, the matrix $\mathbf{D}$ is updated using the formula:
-
 \[
 \mathbf{D}_{\text{new}} = (1-\alpha)\mathbf{D}_{\text{old}} + \alpha \omega \mathbf{R}
 \]
-
 Here, the constants $\alpha$ and $\omega$ are set at 0.1 and 2.1 respectively, in accordance with the guidlines presented in \cite{NT90-A34350}. The matrix $\mathbf{R}$ is a diagonal matrix whose elements represent the magnitudes of the successful changes made to each dimension within a specific solution.
 
 \subsubsection{Metropolis-Hastings Acceptance Criterion}
+\label{sec:PT_MA}
 
 The probability of accepting a proposed solution is determined by the Metropolis-Hastings acceptance criterion. This has been specifically formulated to work alongside the "adapting" update step, \ref{eq:PTupdate}, with additional insights drawn from the works of \cite{NT90-A34350} and \cite{Neal_1996}. The probability of accepting a new solution generated by Eq. \ref{eq:PTupdate} is given by:
 \[
@@ -411,10 +420,17 @@ However, when judging the swap of two solutions through a replica exchange, the 
 \]
 in accordance with \cite{Neal_1996}. This imposes a harsher standard for the acceptance of a swap between replicas operating at vastly different temperatures, which is a desirable feature, especially when the power term, $p$, is set to a high value.
 
+\subsubsection{Termination}
+
+Again, the algorithm terminates after a maximum number of iterations, (defined as a hyperparameter), in this section of the study. A more stringent convergence criterion is adopted for the comparison between the two algorithms in Section \ref{sec:CGA_QEG_comparison}. The solution with the lowest fitness value across all replicas is then returned as the optimal solution to the optimisation problem.
+
 \subsection{Tuning the PT}
 \label{sec:PTtuning}
 
-Additionally, other sources of flexibility include the manipulation of the number of replicas running simultaneously within the system and the frequency at which solutions are exchanged.
+As with Section \ref{sec:CGA_selection_mutation}, the flexibility offered by PT was first explored using the parallelised experiments presented in code %placeholder
+
+Unlike the CGA table (Table \ref{tab:CGAexploration}), the preliminary exploratory findings presented for PT (Table \ref{tab:exchange_results}) imply a subtle correlation between the power term of the temperature schedule and the algorithm's performance. Final fitness values exhibit relative constancy, hinting at no potential connection. However, the variability in algorithm performance appears more pronounced when considering the approach to replica exchange.
+
 \end{multicols}
 
 \section{Comparison}
@@ -427,7 +443,7 @@ Additionally, other sources of flexibility include the manipulation of the numbe
 \newpage
 \section{Appendix}
 \subsection{Supplementary Results regarding CGA Tuning}
-
+\label{sec:CGA_tuning_results}
 \begin{table}[H]
     \centering
     \begin{tabular}{|*{5}{c|}}
@@ -518,6 +534,7 @@ Additionally, other sources of flexibility include the manipulation of the numbe
 \end{figure}
 
 \subsection{Supplementary Results regarding PT Tuning}
+\label{sec:PT_tuning_results}
 
 \begin{table}[H]
     \centering
@@ -527,32 +544,33 @@ Additionally, other sources of flexibility include the manipulation of the numbe
         & & & & \\
         & & & & \\
         \hline
-        Periodic & \multirow{3}{*}{0.1} & 1 & -0.195696325 & -0.271773819 \\
-        & & 3\cellcolor{lightgray} & -0.195696325\cellcolor{lightgray} & -0.271773819\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.190261962\cellcolor{gray} & -0.325543757\cellcolor{gray} \\
+        \multirow{9}{*}{Periodic} & \multirow{3}{*}{0.1} & 1 & -0.186415811 & -0.34081297 \\
+        & & 3\cellcolor{lightgray} & -0.186415811\cellcolor{lightgray} & -0.34081297\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.192142049\cellcolor{gray} & -0.34081297\cellcolor{gray} \\
         \cline{2-5}
-        & \multirow{3}{*}{0.3} & 1 & -0.182369994 & -0.346578069 \\
-        & & 3\cellcolor{lightgray} & -0.182369994\cellcolor{lightgray} & -0.346578069\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.183774281\cellcolor{gray} & -0.341275246\cellcolor{gray} \\
+        & \multirow{3}{*}{0.3} & 1 & -0.183591253 & -0.335207939 \\
+        & & 3\cellcolor{lightgray} & -0.183591253\cellcolor{lightgray} & -0.335207939\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.178574074\cellcolor{gray} & -0.310814711\cellcolor{gray} \\
         \cline{2-5}
-        & \multirow{3}{*}{0.5} & 1 & -0.158484931 & -0.267351197 \\
-        & & 3\cellcolor{lightgray} & -0.158484931\cellcolor{lightgray} & -0.267351197\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.171493053\cellcolor{gray} & -0.341275246\cellcolor{gray} \\
+        & \multirow{3}{*}{0.5} & 1 & -0.166370319 & -0.355617525 \\
+        & & 3\cellcolor{lightgray} & -0.166370319\cellcolor{lightgray} & -0.355617525\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.162769374\cellcolor{gray} & -0.31189813\cellcolor{gray} \\
         \hline
-        Stochastic & \multirow{3}{*}{0.1} & 1 & -0.181921769 & -0.33399822 \\
-        & & 3\cellcolor{lightgray} & -0.181921769\cellcolor{lightgray} & -0.33399822\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.192349346\cellcolor{gray} & -0.33399822\cellcolor{gray} \\
+        \multirow{9}{*}{Stochastic} & \multirow{3}{*}{0.1} & 1 & -0.182496471 & -0.327434397 \\
+        & & 3\cellcolor{lightgray} & -0.182496471\cellcolor{lightgray} & -0.327434397\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.197887075\cellcolor{gray} & -0.328011329\cellcolor{gray} \\
         \cline{2-5}
-        & \multirow{3}{*}{0.3} & 1 & -0.209998474 & -0.347740414 \\
-        & & 3\cellcolor{lightgray} & -0.209998474 \cellcolor{lightgray}& -0.347740414\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.202770259\cellcolor{gray} & -0.345528224\cellcolor{gray} \\
+        & \multirow{3}{*}{0.3} & 1 & -0.191162383 & -0.310872726 \\
+        & & 3\cellcolor{lightgray} & -0.191162383\cellcolor{lightgray} & -0.310872726\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.196042151\cellcolor{gray} & -0.314329893\cellcolor{gray} \\
         \cline{2-5}
-        & \multirow{3}{*}{0.5} & 1 & -0.206847914 & -0.357649754 \\
-        & & 3\cellcolor{lightgray} & -0.206847914\cellcolor{lightgray} & -0.357649754\cellcolor{lightgray} \\
-        & & 5\cellcolor{gray} & -0.202650445\cellcolor{gray} & -0.354243287\cellcolor{gray} \\
+        & \multirow{3}{*}{0.5} & 1 & -0.206621007 & -0.347483314 \\
+        & & 3\cellcolor{lightgray} & -0.206621007\cellcolor{lightgray} & -0.347483314\cellcolor{lightgray} \\
+        & & 5\cellcolor{gray} & -0.211224821\cellcolor{gray} & -0.349273739\cellcolor{gray} \\
         \hline
-    \end{tabular}
-    \caption{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT population after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.}
+    \end{tabular}\
+    \captionsetup{justification=centering}
+    \caption{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.}
     \label{tab:exchange_results}
 \end{table}
 
@@ -560,7 +578,7 @@ Additionally, other sources of flexibility include the manipulation of the numbe
     \centering
     \includegraphics[width=0.85\textwidth]{../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png}
     \captionsetup{justification=centering}
-    \caption{Evolution of the solutions across all chains over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1).}
+    \caption{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.}
     \label{fig:PeriodicApp}
 \end{figure}
 
@@ -568,7 +586,7 @@ Additionally, other sources of flexibility include the manipulation of the numbe
     \centering
     \includegraphics[width=0.85\textwidth]{../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png}
     \captionsetup{justification=centering}
-    \caption{Evolution of the solutions across all chains over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%.}
+    \caption{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%.  The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.}
     \label{fig:StochasticApp}
 \end{figure}
 

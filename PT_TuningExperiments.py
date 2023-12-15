@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from multiprocessing import Pool
 import pandas as pd
+import seaborn as sns
 
 from src.algorithms.PT.PT import ParallelTempering
 from src.functions import KBF_function, Rosenbrock_function
@@ -103,7 +104,8 @@ def PT_initial_tuning(params):
         'Power Term': PROGRESSION_POWER,
         'Iterations': NUM_ITERS,
         'Final Avg. Fitness': avg_fitness[-1],
-        'Final Min. Fitness': min_fitness[-1]
+        'Final Min. Fitness': min_fitness[-1],
+        'Avg. Fitness Progression': avg_fitness
     }
 
 # Create a list of all combinations of parameters
@@ -124,7 +126,8 @@ results = pd.DataFrame(columns=['Exchange Procedure',
                                 'Power Term',
                                 'Iterations', 
                                 'Final Avg. Fitness', 
-                                'Final Min. Fitness'])
+                                'Final Min. Fitness',
+                                'Avg. Fitness Progression'])
 
 # Run the simulations in parallel
 for result in pool.map(PT_initial_tuning, params_list):
@@ -138,4 +141,36 @@ pool.close()
 pool.join()
 print('Done!')
 
+print('Generating fitness figures...')
+
+for EXCHANGE_PROCEDURE in EXCHANGE_PROCEDURE_LIST:
+    plt.figure(figsize=(10, 8))
+    sns.set_style('darkgrid')
+
+    # Get results pertaining to that exchange procedure
+    periodic_results = results[results['Exchange Procedure'] == EXCHANGE_PROCEDURE]
+
+    # Get results corresponding to uniform schedule
+    periodic_results_1 = periodic_results[periodic_results['Power Term'] == 1]
+
+    # Get results correctponding to 'Exchange Parameter' = 0.1, 0.3, 0.5
+    periodic_results_1_01 = periodic_results_1[periodic_results_1['Exchange Parameter'] == 0.1]
+    periodic_results_1_03 = periodic_results_1[periodic_results_1['Exchange Parameter'] == 0.3]
+    periodic_results_1_05 = periodic_results_1[periodic_results_1['Exchange Parameter'] == 0.5]
+
+    # Plot fitness progression for each 'Exchange Parameter'
+    plt.plot(periodic_results_1_01['Avg. Fitness Progression'].values[0], label='Exchange Parameter = 0.1')
+    plt.plot(periodic_results_1_03['Avg. Fitness Progression'].values[0], label='Exchange Parameter = 0.3')
+    plt.plot(periodic_results_1_05['Avg. Fitness Progression'].values[0], label='Exchange Parameter = 0.5')
+
+    plt.title(f'Average Fitness Progression for {EXCHANGE_PROCEDURE} Exchange, \n'
+                + r"[Temp Schedule: \textbf{Uniform}]")
+    plt.xlabel('Iteration')
+    plt.ylabel('Average Fitness')
+    plt.legend()
+    plt.tight_layout()
+
+    plt.savefig(f'figures/{FUNC_NAME}/100_iters/{EXCHANGE_PROCEDURE}/PT_Avg_Fitness_Evolution.png')
+
+print('Done!')  
 
