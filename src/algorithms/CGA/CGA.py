@@ -57,12 +57,12 @@ class ContinousGeneticAlgorithm():
                           }
 
         if selection_method not in ['Proportional', 'Tournament', 'SRS']:
-            raise ValueError("Invalid selection method")
+            raise ValueError(f"Invalid selection method: {selection_method}")
         else:
             self.selection_process = selection_mapping[selection_method]
 
         if mating_procedure not in ['Crossover', 'Heuristic Crossover']:
-            raise ValueError("Invalid mating procedure")
+            raise ValueError(f"Invalid mating procedure: {mating_procedure}")
         else:
             self.mating_process = mating_mapping[mating_procedure]
 

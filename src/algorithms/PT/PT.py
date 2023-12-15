@@ -56,7 +56,7 @@ class ParallelTempering():
         self.deltaE = lambda x, x_new, d, T: (self.func(self.scale_up(x_new)) - self.func(self.scale_up(x))) / (k * d * T)
         
         # Check if temperature schedule type is valid
-        if schedule_type not in ['Geometric', 'Power', 'Log']:
+        if schedule_type not in ['Geometric', 'Power']:
             raise ValueError("Invalid progression type")
         
         # Dictionaries to map string to function call. Function imported from directory files
@@ -67,18 +67,18 @@ class ParallelTempering():
         # Check if power term is valid, if it's needed
         if schedule_type == 'Power':
             if power_term is None or power_term < 1:
-                raise ValueError("Power term not specified correctly. Must be greater than 1.")
+                raise ValueError(f"Power term not specified correctly: {power_term}. Must be greater than 1.")
 
         # Generate temperature schedule
         self.temperature_schedule = schedule_mapping[schedule_type](num_replicas, power_term)
 
         # Check if exchange procedure is valid
         if exchange_procedure not in ['Periodic', 'Stochastic']:
-            raise ValueError("Invalid exchange procedure")
-        
+            raise ValueError(f"Invalid exchange procedure: {exchange_procedure}.")
+         
         # Check if exchange parameter is valid, should be either a probability or a percentage
         if exchange_param < 0 or exchange_param > 1:
-            raise ValueError("Exchange parameter must be between 0 and 1")
+            raise ValueError(f"Exchange parameter must be between 0 and 1: {exchange_param}.")
         
         # Dictionaries to map string to function call. Function imported from directory files
         exchange_mapping = {'Periodic': period_exchange,
@@ -160,12 +160,22 @@ class ParallelTempering():
         
         # If a replica exchange has occurred
         elif T_new is not None:
-            # Change in temp is sent into denominator of acceptance probability
-            # We want to accept replica exchanges that see a smaller change in temperature
-            # Small change in temp = larger acceptance probability
-            delta_T = ((1 / T) - (1 / T_new))**(-1)
+            
+            # Avoid division by zero
+            if T < 1e-6:
+                return True
+            elif T_new < 1e-6:
+                return False
+            else:
+                # More likely to accept replica exchanges that see a small change in temperature
+                # Small change in temp = larger acceptance probability, p = exp(-deltaE / delta_T)
+                delta_T = ((1 / T) - (1 / T_new))**(-1)
 
-            # Acceptance probability
+            # Avoid division by 0
+            if delta_T * d < 1e-6:
+                return True
+            
+            # Acceptance probability, change in temp is sent into denominator of acceptance probability
             return np.random.uniform() < min(1, np.exp(self.deltaE(x, x_new, d, delta_T)))
         
         else:

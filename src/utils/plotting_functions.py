@@ -10,6 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import rc
 import seaborn as sns
 from src.utils.helper_functions import evaluate_2D
+from src.algorithms.PT.temp_prog_functions import power_progression
 
 # Set LaTeX font
 rc('font', **{'family': 'serif', 'serif': ['Computer Modern']}, size=14)
@@ -153,21 +154,39 @@ def visualise_schedule(temps, func, x_range, schedule_name, func_name):
     - func_name (str): Name of function.
     """
     X1, X2, f = evaluate_2D(func, x_range=x_range)
+    
 
     num_plots = 5
     t_index = len(temps) // num_plots
-    fig, axs = plt.subplots(1, num_plots, figsize=(20, 5))
+    fig, axs = plt.subplots(1, num_plots, figsize=(25, 5))
     fig.suptitle(f"Effect of {schedule_name} on {func_name} Function", fontsize=16)
 
-    for i in range(num_plots):
+    # Make a new array of every t_index'th temperature, (excluding idx 0)
+    temps = temps[1::t_index]
 
+    for i in range(num_plots):
         # Raise function to power of temperature
-        f_t = f ** temps[i * t_index]
+        f_t = f ** temps[i]
     
         plot_sub_contour(X1, X2, f_t, axs[i], x_range=x_range, colour='jet')
-        axs[i].set_title(f'T = {temps[i * t_index]:.2f}')
+        axs[i].set_title(f'T = {temps[i]:.2f}')
         plt.colorbar(axs[i].contourf(X1, X2, f_t, 100, cmap='jet'), ax=axs[i])
 
+    plt.tight_layout()
     plt.savefig(f'figures/{func_name}/{schedule_name}_tempschedule.png')        
+
+def plot_temp_progressions():
+    num = 25
+    plt.figure(figsize=(7,5))
+    sns.set_style('darkgrid')
+
+    for i in range(1, 7):
+        plt.plot(power_progression(num, p=i), label=f'Power: {i}')
+    
+    plt.xlabel('Time in Temperature Schedule')
+    plt.ylabel('Temperature')
+    plt.title('Temperature Schedules for Different Powers')
+    plt.legend()
+    plt.savefig('figures/Permanent Images/Power_Progression.png')
 
 

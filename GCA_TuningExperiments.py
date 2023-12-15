@@ -118,7 +118,7 @@ def selection_mating_tuning(params):
     # Plot fitness evolution with iteration
     plot_fitness(avg_fitness, min_fitness, type=(NAME, NUM_ITERS, SELECTION_METHOD, MATING_PROCEDURE, MUTATION_RATE, CROSSOVER_PROB))
 
-    # Save results to global dataframe
+    # Return results to dataframe
     return {
         'Selection Method': SELECTION_METHOD,
         'Mating Procedure': MATING_PROCEDURE,
@@ -237,7 +237,7 @@ results = pd.DataFrame(columns=['Selection Method',
                                 'Crossover Rate', 
                                 'Iterations', 
                                 'Final Avg Fitness', 
-                                'Final Min Fitness'], index=None)
+                                'Final Min Fitness'])
 
 # Run the simulations in parallel
 for result in pool.map(selection_mating_tuning, params_list):
