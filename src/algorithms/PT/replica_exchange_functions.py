@@ -1,3 +1,10 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description : 
+    This file contains the functions for exchanging solutions between replicas.
+"""
+
 import numpy as np
 
 def swap(PT):
@@ -18,7 +25,8 @@ def swap(PT):
             if np.array_equal(PT.current_solutions[i, j], PT.current_solutions[i + 1, j]):
                 continue
 
-            # Check Metropolis criterion for both directions
+            # Check Metropolis criterion for both directions. 
+            # Acceptance is now dependent on temp difference, so now both temps are sent in as args
             check_criterion = [
                 PT.metropolis_criterion(PT.current_solutions[i, j], PT.current_solutions[i + 1, j], T_1, T_2),
                 PT.metropolis_criterion(PT.current_solutions[i+1, j], PT.current_solutions[i , j], T_2, T_1)
@@ -40,7 +48,6 @@ def period_exchange(PT, iter):
     """
     # Check if it is time to swap solutions between replicas
     if iter % (PT.exchange_param * PT.total_iterations) == 0:
-        print(f"Swapping solutions at iteration {iter}")
         swap(PT)
 
 def stochastic_exchange(PT, iter):

@@ -18,7 +18,7 @@ EXCHANGE_PROCEDURE = 'Periodic' # 'Stochastic
 EXCHANGE_PARAM = 0.4
 TEMP_TYPE = 'Power'
 PROGRESSION_POWER = 1
-NUM_ITERS = 500
+NUM_ITERS = 100
 
 FUNC_NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 SCHEDULE_NAME = TEMP_TYPE + " " + str(PROGRESSION_POWER) if TEMP_TYPE == 'Power' else TEMP_TYPE
@@ -51,7 +51,7 @@ fig, axs = plt.subplots(1, num_plots, figsize=(20, 5))
 plt.suptitle(f"Evolution of Solutions, \n"
              + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE
                 + r"}, Exchange Parameter: \textbf{" + str(EXCHANGE_PARAM)
-                + r"}, Schedule: \textbf{" + SCHEDULE_NAME
+                + r"}, Schedule: \textbf{" + TEMP_TYPE
                 + r"}, Power Term: \textbf{" + str(PROGRESSION_POWER)
                 + r"}]", fontsize=16)
 
@@ -96,6 +96,6 @@ plot_fitness(avg_fitness, min_fitness, [FUNC_NAME,
                                         EXCHANGE_PROCEDURE, 
                                         TEMP_TYPE, 
                                         EXCHANGE_PARAM, 
-                                        PROGRESSION_POWER])
+                                        PROGRESSION_POWER], PT=True)
 
 

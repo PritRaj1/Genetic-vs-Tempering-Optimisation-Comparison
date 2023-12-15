@@ -53,7 +53,7 @@ def plot_2D(X1, X2, f, name, constraints=False):
     # Plot 3D surface
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-    surf = ax.plot_surface(X1, X2, f, cmap='rainbow', edgecolor='k')
+    ax.plot_surface(X1, X2, f, cmap='rainbow', edgecolor='k')
     ax.set_xlabel(r'$x_1$')
     ax.set_ylabel(r'$x_2$')
     ax.zaxis.set_rotate_label(False) 
@@ -106,7 +106,7 @@ def plot_sub_contour(X1, X2, f, plot, x_range=(0,10), colour='gray'):
     plot.set_xlim(x_range)
     plot.set_ylim(x_range)
 
-def plot_fitness(avg_fitness, min_fitness, type):
+def plot_fitness(avg_fitness, min_fitness, type, PT=False):
     """
     Function for plotting the evolution of the average and minimum fitness of a population.
 
@@ -114,6 +114,8 @@ def plot_fitness(avg_fitness, min_fitness, type):
     - avg_fitness (np.ndarray): Array of average fitness values.
     - min_fitness (np.ndarray): Array of minimum fitness values.
     - name (str): Name of function.
+    - type (list): List of parameters used for the optimisation.
+    - PT (bool): Whether the optimisation was performed using parallel tempering or not.
     """
     plt.figure()
     sns.set_style('darkgrid')
@@ -122,11 +124,18 @@ def plot_fitness(avg_fitness, min_fitness, type):
     plt.xlabel('Iteration')
     plt.ylabel(r'Fitness = $-f(x_1, x_2)$')
 
+    # Set naming based on algorithm used
+    if PT:
+        hyperparams = ['Exchange Procedure', 'Schedule', 'Exchange Param', 'Power Term']
+
+    else:
+        hyperparams = ['Selection', 'Mating', 'Mutation Rate', 'Crossover Prob']
+
     plt.title("Evolution of Fitness to " + type[0] + " Function, \n" 
-              + r"[Selection: \textbf{" + type[2] 
-              + r"}, Mating: \textbf{" + type[3] 
-              +  r"}, Mutation Rate: \textbf{" + str(type[4])
-                + r"}, Crossover Prob: \textbf{" + str(type[5])
+              + f"[{hyperparams[0]}: " + r"\textbf{" + type[2] 
+              + r"}, " + hyperparams[1] + r": \textbf{" + type[3] 
+              + r"}, " + hyperparams[2] + r": \textbf{" + str(type[4])
+              + r"}, " + hyperparams[3] + r": \textbf{" + str(type[5])
                 + r"}]", fontsize=12)
     
     plt.legend()
@@ -140,7 +149,8 @@ def visualise_schedule(temps, func, x_range, schedule_name, func_name):
     - temps (np.ndarray): Array of temperatures.
     - func (function): Function to visualise.
     - x_range (tuple): Range of x values.
-    - name (str): Name of function.
+    - schedule_name (str): Name of temperature schedule.
+    - func_name (str): Name of function.
     """
     X1, X2, f = evaluate_2D(func, x_range=x_range)
 
