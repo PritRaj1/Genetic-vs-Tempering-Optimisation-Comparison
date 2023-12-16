@@ -51,7 +51,7 @@
 \maketitle
 \begin{multicols}{2}
 \section{Abstract}
-This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). 
+This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). The initial sections involve fine-tuning the algorithms on the two-dimensional KBF to enhance their performance and investigate their respective capabilities. Following this, the algorithms are deployed on the eight-dimensional KBF, and a comprehensive performance evaluation is conducted to discern differences and similarities between them. 
 
 \section{Problem Setup: Keane's Bump Function}
 
@@ -280,6 +280,7 @@ Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insi
 Overall, a clear optimal set of hyperparameters emerges. Moving forward, the mutation rate is fixed at 0.1, and the crossover probability is set to 0.65. These values have proven to yield a consistently optimal performance for the algorithm, comfortably lying within the darker regions of the heat maps.
 
 To reiterate and summarise this section of the report, the CGA is now constructed as follows:
+
 \begin{itemize}
     \item \textbf{Selection Method:} Tournament Selection
     \item \textbf{Mutation Procedure:} Heuristic Crossover
@@ -471,8 +472,29 @@ Overall, the findings suggest that a well-suited power term and exchange paramet
     \label{fig:PToptimal_fitness}
 \end{figure}
 
-\newpage
+In summary and to reiterate, the PT algorithm is now constructed as follows:
 
+\begin{itemize}
+    \item \textbf{Number of Replicas:} 10
+    \item \textbf{Number of Chains:} 25
+    \item \textbf{Power Term:} 5
+    \item \textbf{Exchange Procedure:} Periodic
+    \item \textbf{Exchange Parameter:} 0.005
+\end{itemize}
+
+Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Mirroring the CGA, the fitness of the best solution remains fairly constant, as a solution is stochastically initialised near the maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, as discussed previously.
+
+The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. The optimal solution is denoted by a green circle. For a more insightful comprehension of the Markov Chain Monte Carlo (MCMC) updating process, a particular solution within the final replica is emphasised in yellow. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
+
+
+The bottom row in Fig. \ref{fig:PToptimal_evo} showcases the final solutions of each replica, organized by temperature and superimposed on the smoothed Keane's Bump Function (KBF) outcomes. The arrangement follows an ascending temperature order, with the replica at the lowest temperature positioned on the left. These results shed light on the fundamental dynamics of the algorithm.
+
+At lower temperatures, all solutions exhibit a clear inclination toward the higher, global maxima of the KBF. This preference arises from ample exploration of the search space. In contrast, solutions at higher temperatures display a more dispersed distribution, converging around local optima. 
+
+Additionally, although these higher temperatures encourage localised exploration, the replica exchange mechanism facilitates the movement of solutions within the final temperature towards the larger maximas. Subsequent iterations are anticipated to drive convergence of solutions at higher temperatures towards the global maxima as well.
+\end{multicols}
+
+\begin{multicols}{2}
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -507,16 +529,16 @@ Overall, the findings suggest that a well-suited power term and exchange paramet
         \label{fig:min_stochastic_heatmap}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Heat maps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values varied greatly upon repitition.}
+    \caption{Heat maps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values for the best (minimum) final fitness varied greatly upon repitition. Generally, performance improved when the exchange paramter was set so low that the algorithm was effectively operating without replica exchange.}
     \label{fig:heatmap_stochastic}
 \end{figure}
 \end{multicols}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../figures/Permanent Images/0.005_5_Periodic_Solutions.png}
+    \includegraphics[width=1.1\textwidth]{../figures/KBF/PT_Optimal_Tuning.png}
     \captionsetup{justification=centering}
-    \caption{Evolution of the convergence of the optimally-tuned PT solutions over 100 iterations. The best solution is circled in green. A particular solution within the final replica is also highlighted in yellow to aid visualisation of the MCMC sampling process.}
+    \caption{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica and temperature, superimposed on the resulting smoothed KBF. The temperature progression, employing a power term of 5, is evidently influential, indicating a greater number of replicas linked to lower temperatures.}
     \label{fig:PToptimal_evo}
 \end{figure}
 

@@ -44,8 +44,6 @@ def PT_initial_tuning(params):
         schedule_type=TEMP_TYPE,
         power_term=PROGRESSION_POWER
     )
-    
-    visualise_schedule(PT.temperature_schedule, FUNCTION, X_RANGE, SCHEDULE_NAME, FUNC_NAME)
 
     # Make a grid of 5 2D plots to show evolution of population
     PLOT_EVERY = NUM_ITERS // 5
@@ -247,6 +245,71 @@ plt.tight_layout()
 plt.savefig(f'figures/{FUNC_NAME}/PT_Min_Fitness_Heatmap_{EXCHANGE_PROCEDURE}.png')
 
 print('Done!')
+
+# Optimally-tuned PT
+
+PT = ParallelTempering(
+        objective_function=FUNCTION,
+        x_dim=X_DIM,
+        range=X_RANGE,
+        num_replicas=NUM_REPLICAS,
+        num_chains=NUM_SOL_PER_REPLICA,
+        exchange_procedure='Periodic',
+        exchange_param=0.005,
+        schedule_type='Power',
+        power_term=5
+    )
+
+# Make a grid of 10 2D plots to show evolution of population
+PLOT_EVERY = 100 // 5
+num_plots = 100 // PLOT_EVERY
+# Two rows, one for evolution with iterations, one for solutions for each replica
+fig, axs = plt.subplots(2, num_plots, figsize=(22, 10))
+plt.suptitle(f"Optimall-Tuned PT; Evolution with Iteration and Final Solutions per Replica  \n"
+            + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE
+            + r"}, Exchange Parameter: \textbf{" + str(0.005)
+            + r"}, Schedule: \textbf{" + TEMP_TYPE
+            + r"}, Power Term: \textbf{" + str(5)
+            + r"}]", fontsize=16)
+
+# On first row, plot grey contour plots of function on each subplot in grid
+X1, X2, f_feasible = evaluate_2D(FUNCTION, x_range=X_RANGE, constraints=True)
+for idx in range(num_plots):
+    plot_sub_contour(X1, X2, f_feasible, plot=axs[0][idx], x_range=X_RANGE)
+
+# Make a new array of every t_index'th temperature, (excluding idx 0)
+t_index = len(PT.temperature_schedule) // num_plots
+temps = PT.temperature_schedule[1::t_index]
+
+for idx in range(num_plots):
+    f_temp = f_feasible ** temps[idx]
+
+    plot_sub_contour(X1, X2, f_temp, axs[1][idx], x_range=X_RANGE, colour='Greys')
+    axs[1][idx].set_title(f'Temperature = {temps[idx]:.2f}')
+    plt.colorbar(axs[1][idx].contourf(X1, X2, f_temp, 100, cmap='inferno'), ax=axs[1][idx])
+
+for iter in range(100):
+    if iter % PLOT_EVERY == 0:
+        plot_num = (iter // PLOT_EVERY)
+        idx = plot_num % num_plots
+        axs[0][idx].set_title(f'Iteration: {iter}')
+        final_replica = PT.get_all_solutions()
+        plot_population(final_replica, axs[0][idx], best=PT.get_best_solution(), last=final_replica[-1])
+
+    PT.update_chains()
+    PT.replica_exchange(iter)
+
+replica_solutions = PT.current_solutions[1::t_index]
+
+# Overlay replica solutions on second row
+for idx in range(num_plots):
+    solutions = PT.scale_up(replica_solutions[idx])
+    axs[1][idx].scatter(solutions[:, 0], solutions[:, 1], c='lime', s=15, label='Replica Solutions')
+
+plt.tight_layout()
+plt.savefig(f'figures/{FUNC_NAME}/PT_Optimal_Tuning.png')
+
+
 
 
 
