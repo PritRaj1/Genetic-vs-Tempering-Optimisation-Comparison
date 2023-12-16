@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  16 DEC 2023 08:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  16 DEC 2023 08:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
+**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E
 (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -456,7 +456,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count301
 \l__pdf_internal_box=\box101
-) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
+) (./4M17_CW2_5730E.aux)
 \openout1 = `4M17_CW2_5730E.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -558,7 +558,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out)
+ (./4M17_CW2_5730E.out) (./4M17_CW2_5730E.out)
 \@outlinefile=\write3
 \openout3 = `4M17_CW2_5730E.out'.
 
@@ -677,86 +677,86 @@ Package pdftex.def Info: ../figures/Permanent Images/0.005_5_Periodic_Fitness.pn
 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png, id=316, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png  used on input line 502.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png  used on input line 503.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
 <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png, id=317, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png  used on input line 508.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png  used on input line 509.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png, id=318, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png  used on input line 521.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png  used on input line 522.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
 <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png, id=319, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png  used on input line 527.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png  used on input line 528.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<../figures/KBF/PT_Optimal_Tuning.png, id=320, 1589.94pt x 722.7pt>
-File: ../figures/KBF/PT_Optimal_Tuning.png Graphic file (type png)
-<use ../figures/KBF/PT_Optimal_Tuning.png>
-Package pdftex.def Info: ../figures/KBF/PT_Optimal_Tuning.png  used on input line 539.
+<../figures/Permanent Images/PT_Optimal_Tuning.png, id=320, 1589.94pt x 722.7pt>
+File: ../figures/Permanent Images/PT_Optimal_Tuning.png Graphic file (type png)
+<use ../figures/Permanent Images/PT_Optimal_Tuning.png>
+Package pdftex.def Info: ../figures/Permanent Images/PT_Optimal_Tuning.png  used on input line 540.
 (pdftex.def)             Requested size: 516.73338pt x 234.88574pt.
 
-Overfull \hbox (46.97836pt too wide) in paragraph at lines 539--541
+Overfull \hbox (46.97836pt too wide) in paragraph at lines 540--542
  [][] 
  []
 
-[12 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>] (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl [13 <../figures/KBF/PT_Optimal_Tuning.png>]) [14]
+[12 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>] (./4M17_CW2_5730E.bbl [13 <../figures/Permanent Images/PT_Optimal_Tuning.png>]) [14]
 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=340, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 592.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 593.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
 <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=341, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 598.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 599.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=344, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 630.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 631.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
 <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=345, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 636.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 637.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
  [15 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=355, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 688.
+Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 689.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
  [16 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
 <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=363, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 696.
+Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 697.
 (pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 702.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 703.
  [17 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 702.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 702.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 702.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 703.
+ (./4M17_CW2_5730E.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 703.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 703.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
 (rerunfilecheck)             Checksum: A28B3C7EF4FF29068B58BE7658929074;1822.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 702.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 703.
  ) 
 Here is how much of TeX's memory you used:
  11861 strings out of 481239
- 183489 string characters out of 5920377
+ 182844 string characters out of 5920377
  467272 words of memory out of 5000000
  26780 multiletter control sequences out of 15000+600000
  558194 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,15n,46p,1027b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,15n,46p,1023b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (17 pages, 2666761 bytes).
+Output written on 4M17_CW2_5730E.pdf (17 pages, 2666971 bytes).
 PDF statistics:
  427 PDF objects out of 1000 (max. 8388607)
  337 compressed objects within 4 object streams

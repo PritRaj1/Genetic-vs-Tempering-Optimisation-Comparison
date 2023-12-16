@@ -484,8 +484,9 @@ In summary and to reiterate, the PT algorithm is now constructed as follows:
 
 Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Mirroring the CGA, the fitness of the best solution remains fairly constant, as a solution is stochastically initialised near the maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, as discussed previously.
 
-The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. The optimal solution is denoted by a green circle. For a more insightful comprehension of the Markov Chain Monte Carlo (MCMC) updating process, a particular solution within the final replica is emphasised in yellow. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
+The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
 
+The optimal solution is denoted by a green circle. For a more insightful comprehension of the Markov Chain Monte Carlo (MCMC) updating process, a particular solution within the final replica is emphasised in yellow. This solution is monitored throughout all iterations and seems to become ensnared in a local optimum during the initial phases. However, it then successfully breaks free through the exchange mechanism and converges towards a larger maximum in subsequent iterations.
 
 The bottom row in Fig. \ref{fig:PToptimal_evo} showcases the final solutions of each replica, organized by temperature and superimposed on the smoothed Keane's Bump Function (KBF) outcomes. The arrangement follows an ascending temperature order, with the replica at the lowest temperature positioned on the left. These results shed light on the fundamental dynamics of the algorithm.
 
@@ -536,7 +537,7 @@ Additionally, although these higher temperatures encourage localised exploration
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{../figures/KBF/PT_Optimal_Tuning.png}
+    \includegraphics[width=1.1\textwidth]{../figures/Permanent Images/PT_Optimal_Tuning.png}
     \captionsetup{justification=centering}
     \caption{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica and temperature, superimposed on the resulting smoothed KBF. The temperature progression, employing a power term of 5, is evidently influential, indicating a greater number of replicas linked to lower temperatures.}
     \label{fig:PToptimal_evo}
