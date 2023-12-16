@@ -8,7 +8,7 @@ import numpy as np
 
 import sys; sys.path.append('..')
 from src.algorithms.PT.temp_prog_functions import power_progression, geometric_progression
-from src.algorithms.PT.replica_exchange_functions import period_exchange, stochastic_exchange
+from src.algorithms.PT.replica_exchange_functions import period_exchange, stochastic_exchange, always_exchange
 from src.utils.helper_functions import satisfy_constraints
 
 class ParallelTempering():
@@ -73,7 +73,7 @@ class ParallelTempering():
         self.temperature_schedule = schedule_mapping[schedule_type](num_replicas, power_term)
 
         # Check if exchange procedure is valid
-        if exchange_procedure not in ['Periodic', 'Stochastic']:
+        if exchange_procedure not in ['Periodic', 'Stochastic', 'Always']:
             raise ValueError(f"Invalid exchange procedure: {exchange_procedure}.")
          
         # Check if exchange parameter is valid, should be either a probability or a percentage
@@ -82,7 +82,8 @@ class ParallelTempering():
         
         # Dictionaries to map string to function call. Function imported from directory files
         exchange_mapping = {'Periodic': period_exchange,
-                            'Stochastic': stochastic_exchange
+                            'Stochastic': stochastic_exchange,
+                            'Always': always_exchange
                             }
         
         # Set exchange procedure

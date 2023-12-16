@@ -142,39 +142,6 @@ def plot_fitness(avg_fitness, min_fitness, type, PT=False):
     plt.legend()
     plt.savefig(f'figures/{type[0]}/{str(type[1])}_iters/{type[2]}/{type[3]}/{type[4]}_{type[5]}_Fitness.png')
 
-def visualise_schedule(temps, func, x_range, schedule_name, func_name):
-    """
-    Function for visualising the effect of a temperature schedule on a function's contour plot.
-
-    Args:
-    - temps (np.ndarray): Array of temperatures.
-    - func (function): Function to visualise.
-    - x_range (tuple): Range of x values.
-    - schedule_name (str): Name of temperature schedule.
-    - func_name (str): Name of function.
-    """
-    X1, X2, f = evaluate_2D(func, x_range=x_range)
-    
-
-    num_plots = 5
-    t_index = len(temps) // num_plots
-    fig, axs = plt.subplots(1, num_plots, figsize=(25, 5))
-    fig.suptitle(f"Effect of {schedule_name} on {func_name} Function", fontsize=16)
-
-    # Make a new array of every t_index'th temperature, (excluding idx 0)
-    temps = temps[1::t_index]
-
-    for i in range(num_plots):
-        # Raise function to power of temperature
-        f_t = f ** temps[i]
-    
-        plot_sub_contour(X1, X2, f_t, axs[i], x_range=x_range, colour='jet')
-        axs[i].set_title(f'T = {temps[i]:.2f}')
-        plt.colorbar(axs[i].contourf(X1, X2, f_t, 100, cmap='jet'), ax=axs[i])
-
-    plt.tight_layout()
-    plt.savefig(f'figures/{func_name}/{schedule_name}_tempschedule.png')        
-
 def plot_temp_progressions():
     num = 25
     plt.figure(figsize=(7,5))

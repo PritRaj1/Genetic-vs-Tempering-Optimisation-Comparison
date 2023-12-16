@@ -458,15 +458,15 @@ The periodic exchange approach seems to exhibit a higher dependency on the value
 
 Additionally, the descent depicted in Fig. \ref{fig:periodic_fitness} seems steeper when the exchange parameter assumes smaller values. This aligns with expectations, as a smaller exchange parameter corresponds to a higher frequency of swaps in the periodic case. Here, the exchange parameter is interpreted as the proportion of total iterations that transpire before another swap takes place. When applied to the KBF, PT demonstrates greater efficacy when the algorithm is permitted to exchange solutions more frequently. This implies that increased exploration of the search space is well-suited to optimising the KBF.
 
-Figures \ref{fig:heatmap_periodic} and \ref{fig:heatmap_stochastic} present a final analysis of these hyperparameters. However, Fig. \ref{fig:min_stochastic_heatmap} did not exhibit consistency, leading to the no further consideration of stochastic exchange due to its unpredictable behavior.
+Figures \ref{fig:heatmap_periodic} and \ref{fig:heatmap_stochastic} present a final analysis of these hyperparameters. However, the stochastic heatmap, \ref{fig:min_stochastic_heatmap}, did not exhibit any consistency or superiority over the periodic heatmap, \ref{fig:min_periodic_heatmap}, leading to no further consideration of stochastic exchange, given its suboptimal and unpredictable behavior.
 
-On the contrary, Fig. \ref{fig:min_periodic_heatmap} revealed a consistent pattern that persisted across repetitions: the PT algorithm applied to the KBF exhibits a preference for a lower exchange parameter along with a moderate power term. This aligns with expectations, as a lower exchange parameter corresponds to a higher frequency of swaps, encouraging dialogue between the replicas and promoting exploration. A moderate power term similarly fosters substantial exploration, as evidenced in Fig. \ref{fig:PTtemp}. Given the highly multi-modal nature of the KBF, this preference is likely attributed to an enhanced ability to escape local optima.
+In contrast, a consistent pattern unveiled itself in Fig. \ref{fig:min_periodic_heatmap}, which persisted across repetitions. The PT algorithm, when applied to the KBF, consistently demonstrated a inclination towards a lower exchange parameter paired with a low power term. This may be rationalised by the fact that a lower exchange parameter corresponds to a heightened frequency of swaps, facilitating dialogue between the replicas and encouraging more exploration. Conversely, a low power term fosters a delicate equilibrium between exploration and exploitation, as evident in Fig. \ref{fig:PTtemp}. The preference for uniform temperature scheduling likely stems from its enhanced capability to focus on local changes, after arriving at a particular optimum. Any exploratory capabilities stem from replica exchange, after which the algorithm can then focus on exploiting the local nature of the function.
 
-Overall, the findings suggest that a well-suited power term and exchange parameter for the PT algorithm applied to the KBF are 5 and 0.005 respectively. These values position the PT algorithm favorably within the lighter regions of Fig. \ref{fig:min_periodic_heatmap}.
+Overall, these results imply that optimal settings for the PT algorithm on the KBF involve a power term of 1 and an exchange parameter of 0.01. These values are associated with a uniform temperature schedule and replica exchange taking place at every iteration. They position the PT algorithm favorably within the lighter regions of Fig. \ref{fig:min_periodic_heatmap}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/0.005_5_Periodic_Fitness.png}
+    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/0.01_1_Periodic_Fitness.png}
     \captionsetup{justification=centering}
     \caption{Evolution of the fitness values of the optimally-tuned PT solutions over 100 iterations.}
     \label{fig:PToptimal_fitness}
@@ -477,18 +477,18 @@ In summary and to reiterate, the PT algorithm is now constructed as follows:
 \begin{itemize}
     \item \textbf{Number of Replicas:} 10
     \item \textbf{Number of Chains:} 25
-    \item \textbf{Power Term:} 5
-    \item \textbf{Exchange Procedure:} Periodic
-    \item \textbf{Exchange Parameter:} 0.005
+    \item \textbf{Power Term:} 1
+    \item \textbf{Exchange Procedure:} Always
+    \item \textbf{Exchange Parameter:} N/A
 \end{itemize}
 
-Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Mirroring the CGA, the fitness of the best solution remains fairly constant, as a solution is stochastically initialised near the maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, as discussed previously.
+Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once the optimal solution is identified and arrived at through the MCMC updating process.
 
 The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
 
-The optimal solution is denoted by a green circle. For a more insightful comprehension of the Markov Chain Monte Carlo (MCMC) updating process, a particular solution within the final replica is emphasised in yellow. This solution is monitored throughout all iterations and seems to become ensnared in a local optimum during the initial phases. However, it then successfully breaks free through the exchange mechanism and converges towards a larger maximum in subsequent iterations.
+The optimal solution is denoted by a green circle. For a more insightful comprehension of the Markov Chain Monte Carlo (MCMC) updating process, a particular solution within the final replica is emphasised in yellow. This solution is monitored throughout all iterations and it seems to become ensnared in a local optimum during the earlier iterations. However, it then successfully breaks free through the exchange mechanism and begines to converge towards a larger maximum in subsequent iterations.
 
-The bottom row in Fig. \ref{fig:PToptimal_evo} showcases the final solutions of each replica, organized by temperature and superimposed on the smoothed Keane's Bump Function (KBF) outcomes. The arrangement follows an ascending temperature order, with the replica at the lowest temperature positioned on the left. These results shed light on the fundamental dynamics of the algorithm.
+The bottom row in Fig. \ref{fig:PToptimal_evo} showcases the final solutions of each replica, organised by temperature and superimposed over the temperature-smoothed KBF contours. The arrangement follows an ascending temperature order, with the replica at the lowest temperature positioned on the left. These results shed light on the fundamental dynamics of the algorithm.
 
 At lower temperatures, all solutions exhibit a clear inclination toward the higher, global maxima of the KBF. This preference arises from ample exploration of the search space. In contrast, solutions at higher temperatures display a more dispersed distribution, converging around local optima. 
 
@@ -498,39 +498,39 @@ Additionally, although these higher temperatures encourage localised exploration
 \begin{multicols}{2}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png}
         \caption{Average Fitness Values}
         \label{fig:avg_periodic_heatmap}
     \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png}
         \caption{Minimum Fitness Values}
         \label{fig:min_periodic_heatmap}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Heat maps of the final fitness values after 100 iterations for the PT algorithm using periodic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. Despite the somewhat varied outcomes between repitition, a consistent trend emerges - the PT algorithm demonstrates a preference for a lower exchange parameter coupled with a moderate power term.}
+    \caption{Heatmaps of the final fitness values after 100 iterations for the PT algorithm using periodic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. Despite the somewhat varied outcomes between repitition, a consistent trend emerges - the PT algorithm demonstrates a preference for a lower exchange parameter coupled with a moderate power term.}
     \label{fig:heatmap_periodic}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png}
         \caption{Average Fitness Values}
         \label{fig:avg_stochastic_heatmap}
     \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png}
         \caption{Minimum Fitness Values}
         \label{fig:min_stochastic_heatmap}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Heat maps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values for the best (minimum) final fitness varied greatly upon repitition. Generally, performance improved when the exchange paramter was set so low that the algorithm was effectively operating without replica exchange.}
+    \caption{Heatmaps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values for the best (minimum) final fitness varied greatly upon repitition. Generally, performance was outmatched by periodic exchange, which was also more consistent and controllable.}
     \label{fig:heatmap_stochastic}
 \end{figure}
 \end{multicols}
@@ -539,15 +539,15 @@ Additionally, although these higher temperatures encourage localised exploration
     \centering
     \includegraphics[width=1.1\textwidth]{../figures/Permanent Images/PT_Optimal_Tuning.png}
     \captionsetup{justification=centering}
-    \caption{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica and temperature, superimposed on the resulting smoothed KBF. The temperature progression, employing a power term of 5, is evidently influential, indicating a greater number of replicas linked to lower temperatures.}
+    \caption{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf{x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.}
     \label{fig:PToptimal_evo}
 \end{figure}
 
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
-\section{Results}
-\section{Discussion}
-\section{Conclusion}
+
+After tuning both algorithms to the 2-dimensional KBF, the CGA and PT were compared in terms of their performance in optimising the 8-dimensional KBF.
+
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
 \newpage

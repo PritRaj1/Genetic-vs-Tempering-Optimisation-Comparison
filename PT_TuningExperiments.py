@@ -7,7 +7,7 @@ import seaborn as sns
 from src.algorithms.PT.PT import ParallelTempering
 from src.functions import KBF_function, Rosenbrock_function
 from src.utils.helper_functions import evaluate_2D, create_figure_directories_PT
-from src.utils.plotting_functions import visualise_schedule, plot_sub_contour, plot_population, plot_fitness, plot_temp_progressions
+from src.utils.plotting_functions import plot_sub_contour, plot_population, plot_fitness, plot_temp_progressions
 
 # Hyperparameters
 X_RANGE=(0,10)
@@ -16,16 +16,24 @@ X_DIM = 2
 NUM_REPLICAS = 10
 NUM_SOL_PER_REPLICA = 250 // NUM_REPLICAS # 250 solutions overall, same as CGA population
 EXCHANGE_PROCEDURE_LIST = ['Periodic', 'Stochastic']
-EXCHANGE_PARAM_LIST = [0.1, 0.3, 0.5]
+EXCHANGE_PARAM_LIST = [0.1, 0.3, 0.5, 0.01]
 TEMP_TYPE = 'Power'
 PROGRESSION_POWER_LIST = [1, 3, 5] # 1 is uniform
 NUM_ITERS_LIST = [100]
 
 FUNC_NAME = 'Rosenbrock' if FUNCTION == Rosenbrock_function else 'KBF'
 
+# Create figure directories
 create_figure_directories_PT(FUNC_NAME, EXCHANGE_PROCEDURE_LIST, [TEMP_TYPE], NUM_ITERS_LIST)
 
+### Function used to generate results for table and figures in Section 4.2/Appendix of the report ###
 def PT_initial_tuning(params):
+    """
+    Parallelisable function to run multiple simulations of the PT algorithm and 
+    assess the impact of different hyperparameters on the algorithm's performance.
+    The results are saved to a csv file and figures are generated to visualise the results.
+    """
+
 
     # Parse parameters
     EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER, NUM_ITERS = params 
@@ -78,6 +86,7 @@ def PT_initial_tuning(params):
             final_replica = PT.get_all_solutions()
             plot_population(final_replica, axs[idx], best=PT.get_best_solution(), last=final_replica[-1])
 
+        # Algorithm update
         PT.update_chains()
         PT.replica_exchange(iter)
 
@@ -106,7 +115,14 @@ def PT_initial_tuning(params):
         'Avg. Fitness Progression': avg_fitness
     }
 
+### Used to generate heatmaps in 4.2 ###
 def power_exchange_mesh(params):
+    """
+    Parallelisable function to create mesh grids for heat map plots to assess
+    the impact of exchange rate and temperature scheduling on the
+    algorithm's performance.
+    """
+
     # Parse parameters
     i, j, EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER = params
 
@@ -165,6 +181,8 @@ print('Done!')
 
 print('Generating fitness figures...')
 
+### Used to gerenate fitness figures in Section 4.2 of the report ###
+# Plot fitness progression for each exchange procedure with varying power term
 for EXCHANGE_PROCEDURE in EXCHANGE_PROCEDURE_LIST:
     plt.figure(figsize=(10, 8))
     sns.set_style('darkgrid')
@@ -199,11 +217,12 @@ print('Done!')
 print('Starting heatmap generation...')
 
 EXCHANGE_PROCEDURE = 'Stochastic'
-EXCHANGE_PARAM_LIST = [0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3]
-PROGRESSION_POWER_LIST = range(1, 8)
+EXCHANGE_PARAM_LIST = [0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5]
+PROGRESSION_POWER_LIST = range(1, 10)
 
 X, Y = np.meshgrid(EXCHANGE_PARAM_LIST, PROGRESSION_POWER_LIST)
 
+# Initialise arrays to store fitness values
 AVG = np.zeros((len(EXCHANGE_PARAM_LIST), len(PROGRESSION_POWER_LIST)))
 MIN = np.zeros((len(EXCHANGE_PARAM_LIST), len(PROGRESSION_POWER_LIST)))
 
@@ -228,7 +247,7 @@ pool.join()
 plt.figure(figsize=(14, 10))
 plt.title(f'Average Final Fitness with varying Power Param and Exchange Param on {FUNC_NAME} Function \n' 
         + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE + r"}]", fontsize=18)
-sns.heatmap(AVG, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Greens')
+sns.heatmap(AVG, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Blues')
 plt.xlabel('Exchange Parameter', fontsize=16)
 plt.ylabel('Power Parameter, p', fontsize=16)
 plt.tight_layout()
@@ -238,7 +257,7 @@ plt.savefig(f'figures/{FUNC_NAME}/PT_Avg_Fitness_Heatmap_{EXCHANGE_PROCEDURE}.pn
 plt.figure(figsize=(14, 10))
 plt.title(f'Minimum Final Fitness with varying Power Param and Exchange Param on {FUNC_NAME} Function \n' 
         + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE + r"}]", fontsize=18)
-sns.heatmap(MIN, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Greens')
+sns.heatmap(MIN, annot=True, fmt='.2f', xticklabels=EXCHANGE_PARAM_LIST, yticklabels=PROGRESSION_POWER_LIST, cmap='Blues')
 plt.xlabel('Exchange Parameter', fontsize=16)
 plt.ylabel('Power Parameter, p', fontsize=16)
 plt.tight_layout()
@@ -246,30 +265,31 @@ plt.savefig(f'figures/{FUNC_NAME}/PT_Min_Fitness_Heatmap_{EXCHANGE_PROCEDURE}.pn
 
 print('Done!')
 
-# Optimally-tuned PT
+print('Generating optimal PT evolution and temperature schedule plot...')
 
+### The rest of the code is used to plot the final plot in 4.2, showing the evolution of the solutions for the optimal PT ###
+# Optimally-tuned PT
 PT = ParallelTempering(
         objective_function=FUNCTION,
         x_dim=X_DIM,
         range=X_RANGE,
         num_replicas=NUM_REPLICAS,
         num_chains=NUM_SOL_PER_REPLICA,
-        exchange_procedure='Periodic',
-        exchange_param=0.005,
+        exchange_procedure='Always',
+        exchange_param=0.5,
         schedule_type='Power',
-        power_term=5
+        power_term=1
     )
 
 # Make a grid of 10 2D plots to show evolution of population
 PLOT_EVERY = 100 // 5
 num_plots = 100 // PLOT_EVERY
-# Two rows, one for evolution with iterations, one for solutions for each replica
+
+# Two rows, one for evolution with iterations, one for solutions for each replica/temperature
 fig, axs = plt.subplots(2, num_plots, figsize=(22, 10))
 plt.suptitle(f"Optimall-Tuned PT; Evolution with Iteration and Final Solutions per Replica  \n"
-            + r"[Exchange Procedure: \textbf{" + EXCHANGE_PROCEDURE
-            + r"}, Exchange Parameter: \textbf{" + str(0.005)
-            + r"}, Schedule: \textbf{" + TEMP_TYPE
-            + r"}, Power Term: \textbf{" + str(5)
+            + r"[Exchange Procedure: \textbf{Always}, Schedule: \textbf{Uniform}"
+            + r", Power Term: \textbf{" + str(1)
             + r"}]", fontsize=16)
 
 # On first row, plot grey contour plots of function on each subplot in grid
@@ -282,6 +302,7 @@ t_index = len(PT.temperature_schedule) // num_plots
 temps = PT.temperature_schedule[1::t_index]
 
 for idx in range(num_plots):
+    # Raise function to power of temperature!!! Good for visualising how the temperature affects the function
     f_temp = f_feasible ** temps[idx]
 
     plot_sub_contour(X1, X2, f_temp, axs[1][idx], x_range=X_RANGE, colour='Greys')

@@ -58,6 +58,12 @@ def stochastic_exchange(PT, iter):
     if np.random.uniform() < PT.exchange_param:
         swap(PT)
 
+def always_exchange(PT, iter):
+    """
+    Always exchange solutions between replicas.
+    """
+    swap(PT)
+
 
 
 
