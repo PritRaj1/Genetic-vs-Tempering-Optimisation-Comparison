@@ -50,10 +50,10 @@
 \vspace{-3cm}
 \maketitle
 \begin{multicols}{2}
-\section{Abstract}
+\section{Introduction}
 This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). The initial sections involve fine-tuning the algorithms on the two-dimensional KBF to enhance their performance and investigate their respective capabilities. Following this, the algorithms are deployed on the eight-dimensional KBF, and a comprehensive performance evaluation is conducted to discern differences and similarities between them. 
 
-\section{Problem Setup: Keane's Bump Function}
+\section{Keane's Bump Function}
 
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
 
@@ -101,7 +101,7 @@ Given the above properties, the KBF is a challenging function to optimise. The p
 
 The problem becomes more complicated with the inclusion of the constraints outlined in \ref{eq:KBF_constraints}. Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
 
-These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work \cite{ELBELTAGY1999639}.
+These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work of \cite{ELBELTAGY1999639}.
 
 \begin{figure}[H]
     \centering
@@ -125,7 +125,7 @@ This adjustment marks a significant departure from conventional GAs, aligning th
 \subsection{Implementation}
 \label{sec:CGA_implementation}
 
-In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the codebase: %placeholder
+In accordance with the terminology presented in \cite{parks2023geneticalgorithms}, a vector solution of the state space will be referred to as an \textit{individual} or \textit{chromosome}. Correspondingly, a collection of such individuals arranged in a matrix format will be denoted as a \textit{population}. Each individual is delineated as an $n \times 1$ vector of real-valued (floating-point) numbers, where $n$ signifies the number of variables in the state space. The population itself is represented as a $m \times n$ matrix, where $m$ designates the count of individuals in the population. This count is explicitly defined as a hyperparameter within the code, and is referred to as \textit{POPULATION\_SIZE}.
 
 \begin{figure}[H]
     \centering
@@ -137,13 +137,14 @@ In accordance with the terminology presented in \cite{parks2023geneticalgorithms
 
 The CGA process is outlined in Figure \ref{fig:GAprocess}. Notably, three selection strategies and two mutation procedures were deliberately implemented to harness the flexibility inherent in the CGA, tailoring it to the optimisation challenges posed by the KBF. The subsequent section, \ref{sec:CGA_selection_mutation}, elucidates the selection method and mutation procedure choices that form the basis of the forthcoming comparison.
 
-The CGA can be can be finely tuned for a specific objective function by modifying its fitness function, which assesses the quality of an individual. The management of constraints is woven into the selection process, as outlined below.
+The CGA can be can be finely tuned for a specific objective function by modifying its fitness function, which assesses the quality of an individual. The management of constraints is woven into the selection process, as outlined later in Section \ref{sec:CGA_parent_selection}.
 
 \subsubsection{Initialisation}
 
 The population is initialised with random values uniformly distributed within the range of 0 to 10, which represents the bounds of the state space, encompassing both feasible and infeasible values. This population comprises 250 individuals, as defined by the \textit{POPULATION\_SIZE} hyperparameter. 
 
 \subsubsection{Parent Selection}
+\label{sec:CGA_parent_selection}
 
 Three selection methods were implemented: proportional selection, tournament selection, and stochastic remainder selection without replacement (SRS). The hyperparameter governing the quantity of parents chosen, denoted as \textit{NUM\_PARENTS}, is established at 25\% of the population size, (rounded down to the nearest even number to facilitate the creation of parent pairs).
 
@@ -291,7 +292,7 @@ To reiterate and summarise this section of the report, the CGA is now constructe
     \item \textbf{Population Size:} 250
 \end{itemize}
 
-Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Note that the (minimum) fitness attributed to the best individual remains constant, because an individual within the population is stochastically initialised near the maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, where the search space is significantly larger, and the fitness of the best individual is expected to evolve more noticeably.
+Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Note that the (minimum) fitness attributed to the best individual remains constant, because an individual within the population is stochastically initialised near the local maxima that the algorithm converges to. This is less likely to occur in 8-dimensional space, where the search space is significantly larger, and the fitness of the best individual is expected to evolve more noticeably.
 
 Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimally-tuned CGA. Note that the horizontally and vertically distributed outliers are attributed to crossover. Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. 
 
@@ -482,7 +483,7 @@ In summary and to reiterate, the PT algorithm is now constructed as follows:
     \item \textbf{Exchange Parameter:} N/A
 \end{itemize}
 
-Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once the optimal solution is identified and arrived at through the MCMC updating process.
+Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once better solutions are identified and arrived at through the MCMC updating process.
 
 The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
 
@@ -546,7 +547,7 @@ Additionally, although these higher temperatures encourage localised exploration
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
 
-After tuning both algorithms to the 2-dimensional KBF, the CGA and PT were compared in terms of their performance in optimising the 8-dimensional KBF.
+After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF.
 
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
