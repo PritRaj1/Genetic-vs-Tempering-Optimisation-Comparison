@@ -7,6 +7,7 @@ Description :
 
 import numpy as np
 import os
+from src.functions import KBF_function
 
 def satisfy_constraints(x):
     """
@@ -112,3 +113,45 @@ def create_figure_directories_PT(name, exchange_procedures, schedule_types, iter
                 schedule_dir = os.path.join(exchange_dir, schedule_type)
                 if not os.path.exists(schedule_dir):
                     os.makedirs(schedule_dir)
+
+def generate_initial(x_dim=8, pop_size=250):
+    """
+    Function for generating a collection of populations for comparison section.
+    Each population is generated using a different random seed.
+    Only initialisations which do not contain a solution close to the optimum are kept.
+
+    Args:
+    - x_dim (int): Dimension of the vectors.
+    - pop_size (int): Size of each collection of initial solutions.
+
+    Returns:
+    - initialisations (list): List of initial populations.
+    - seeds (list): List of seeds used for each initialisation.
+    """
+    
+    # Initialise variables
+    seeds = []
+    initialisations = []
+
+    # Generate 50 initialisations
+    i = 0
+    while i < 50:
+        # Generate a random number seed
+        seed = np.random.randint(0, 1000000)
+
+        # Set the seed
+        np.random.seed(seed)
+
+        # Generate a random initialisation
+        initialisation = np.random.uniform(0, 10, (pop_size, x_dim))
+
+        # Make sure no solution is close to the optimum
+        f_x = np.array([KBF_function(x) for x in initialisation])
+        
+        if np.max(f_x) < 0.3:
+            initialisations.append(initialisation)
+            seeds.append(seed)
+            i += 1
+
+    return initialisations, seeds
+    

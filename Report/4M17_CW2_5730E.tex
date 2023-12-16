@@ -321,7 +321,7 @@ The primary challenge lies in the fact that both the first and second largest ma
         \label{fig:optimat_100}
     \end{subfigure}
     \captionsetup{justification=centering}
-    \caption{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters delineated at the end of Section \ref{sec:CGA_selection_mutation}.}
+    \caption{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters delineated at the end of Section \ref{sec:CGA_selection_mutation}. The second plot depicts the algorithm converging to a local maxima as a result of an individual being initialised near it.}
     \label{fig:optimal_convergence}
 \end{figure}
 
@@ -547,7 +547,9 @@ Additionally, although these higher temperatures encourage localised exploration
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
 
-After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF.
+After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF. 50 optimisation loops were conducted for each algorithm
+
+To ensure fairness and reproducibility, both algorithms were initialised with the same collection of random solutions, generated using consistent random number seeds within the \textit{generate\_initial} function of the \textit{helper\_functions.py} file. This function was implemented to facilitate reproducible outcomes and to guarantee that solutions were initialised away from the global maxima.
 
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
