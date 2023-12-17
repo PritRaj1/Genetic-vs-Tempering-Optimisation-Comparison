@@ -14,7 +14,7 @@ import pandas as pd
 # No solution has a function value > 0.3, (away from global optimum)
 initial_pop_list, seeds = generate_initial(x_dim=8, pop_size=250)
 
-MAX_NUM_ITERS = 25000
+MAX_NUM_ITERS = 10000
 
 ### CGA Gather Results ###
 CGA_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
@@ -116,16 +116,17 @@ CGA_MinFit_mean = np.mean(CGA_MinFit_ALL, axis=0)
 PT_MinFit_mean = np.mean(PT_MinFit_ALL, axis=0)
 
 # Find the iteration at which CGA and PT converge (when the final min fitness is first reached by the min fitness)
-CGA_Avg_i = np.where(CGA_AvgFit_mean == np.min(CGA_AvgFit_mean))[0][0]
-PT_Avg_i = np.where(PT_AvgFit_mean == np.min(PT_AvgFit_mean))[0][0]
+eps = 0.0003
+CGA_Avg_i = np.where(CGA_AvgFit_mean < np.min(CGA_AvgFit_mean) + eps)[0][0]
+PT_Avg_i = np.where(PT_AvgFit_mean < np.min(PT_AvgFit_mean) + eps)[0][0]
 
 # Plot expected average fitness values for CGA and PT
 plt.figure()
 sns.set_style('darkgrid')
 plt.plot(CGA_AvgFit_mean, label='CGA', color='green')
 plt.plot(PT_AvgFit_mean, label='PT', color='red')
-plt.axvline(CGA_Avg_i, color='green', linestyle='--', label=f'CGA Converges at {int(CGA_Avg_i)} Iterations')
-plt.axvline(PT_Avg_i, color='red', linestyle='--', label=f'PT Convergence at {int(PT_Avg_i)} Iterations')
+plt.axvline(CGA_Avg_i, color='green', linestyle='--', label=f'CGA Best Converges at {int(CGA_Avg_i)} Iterations')
+plt.axvline(PT_Avg_i, color='red', linestyle='--', label=f'PT Best Convergence at {int(PT_Avg_i)} Iterations')
 plt.xlabel('Iterations')
 plt.ylabel('Average Fitness')
 plt.title('Expected Average Fitness across 50 Different Initialisations')
@@ -160,7 +161,7 @@ PT_final_time_std = np.std(PT_times_ALL)
 
 data = {'CGA': [CGA_final_avg, CGA_final_std, CGA_final_min, CGA_final_min_std, CGA_final_time, CGA_final_time_std, CGA_Avg_i],
         'PT': [PT_final_avg, PT_final_std, PT_final_min, PT_final_min_std, PT_final_time, PT_final_time_std, PT_Avg_i]}
-df = pd.DataFrame(data, index=['Average Fitness', 'Average Fitness Std', 'Minimum Fitness', 'Minimum Fitness Std', 'Total Time Taken', 'Time Taken Std', 'Iterations to Convergence'])
+df = pd.DataFrame(data, index=['Final Avg. Fitness', 'Final Avg. Fitness Std', 'Final Min. Fitness', 'Final Min. Fitness Std', 'Total Time Taken', 'Time Taken Std', 'Mean Iters to Convergence'])
 df.to_csv('figures/Final Comparison/CGA vs PT Final Results.csv')
 
 print(seeds) # These are the random seeds used to generate the initial populations
