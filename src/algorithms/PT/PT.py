@@ -15,7 +15,7 @@ class ParallelTempering():
     """
     Class for parallel tempering algorithm.  
     """
-    def __init__(self, objective_function, x_dim, range=(0,10), alpha=0.1, omega=2.1, num_replicas=10, num_chains=25, exchange_procedure='Periodic', exchange_param=0.2, schedule_type='Geometric', power_term=1, total_iterations=100, constraints=True):
+    def __init__(self, objective_function, x_dim, range=(0,10), alpha=0.1, omega=2.1, num_replicas=10, num_chains=25, exchange_procedure='Periodic', exchange_param=0.2, schedule_type='Power', power_term=1, total_iterations=100, constraints=True):
         """
         Constructor for parallel tempering algorithm.
 

@@ -233,10 +233,12 @@ Supplementary results regarding this initial exploration of hyperparameter tunin
     \begin{subfigure}{0.44\textwidth}
         \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
+        \label{fig:CGA_fitness_evo_Crossover}
     \end{subfigure}
     \begin{subfigure}{0.44\textwidth}
         \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
+        \label{fig:CGA_fitness_evo_Heuristic Crossover}
     \end{subfigure}
     \captionsetup{justification=centering}
     \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
@@ -249,7 +251,7 @@ The experiment was repeated several times, yielding results that were admittedly
 
 The observed differences in performance may be attributed to the distinct characteristics of the KBF. Tournament selection appears to demonstrate greater efficacy in navigating the search space compared to SRS, perhaps due to its less deterministic nature. This becomes particularly significant in light of the multi-modal nature of the KBF, where a certain level of stochasticity may prove essential for thorough exploration of the search space.
 
-The findings additionally suggest that the heuristic crossover procedure consistently outperformed the standard crossover method, as evidenced by its more frequent attainment of the global maxima. 
+The results additionally indicate that when combined with tournament selection, the heuristic crossover procedure generally outperformed the standard crossover method. This is evident in the typically steeper decline in average fitness values, as illustrated in Fig. \ref{fig:CGA_fitness_evo_Heuristic Crossover}. Furthermore, the heuristic crossover exhibited greater result consistency across repeated experiments and generally converged to higher maximas compared to the standard crossover. Although the observed differences were note always significant, the overall trend supports the choice of heuristic crossover as the preferred mating procedure for the forthcoming comparison.
 
 This may be attributed to the heuristic crossover's capacity to generate offspring beyond the existing genotypes present within a generation. This attribute is especially beneficial within the framework of the KBF, enhancing the algorithm's ability to navigate the search space adeptly and systematically explore the numerous local optima.
 

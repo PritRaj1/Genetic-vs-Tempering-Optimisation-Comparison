@@ -34,7 +34,6 @@ def PT_initial_tuning(params):
     The results are saved to a csv file and figures are generated to visualise the results.
     """
 
-
     # Parse parameters
     EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER, NUM_ITERS = params 
 
