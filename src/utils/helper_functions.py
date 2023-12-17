@@ -135,7 +135,7 @@ def generate_initial(x_dim=8, pop_size=250):
 
     # Generate 50 initialisations
     i = 0
-    while i < 3:
+    while i < 1:
         # Generate a random number seed
         seed = np.random.randint(0, 1000000)
 

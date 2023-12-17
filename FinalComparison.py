@@ -8,20 +8,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from time import time
+import pandas as pd
 
 # Generate initial solutions for both functions. 
 # No solution has a function value > 0.3, (away from global optimum)
 initial_pop_list, seeds = generate_initial(x_dim=8, pop_size=250)
-print(seeds) # These are the random seeds used to generate the initial populations
 
-# Convergence criteria
-epsilon = 0.05
+MAX_NUM_ITERS = 25000
 
 ### CGA Gather Results ###
-CGA_AvgFit_ALL = np.zeros((50, 1000))
-CGA_MinFit_ALL = np.zeros((50, 1000))
+CGA_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
+CGA_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 CGA_times_ALL = np.zeros(50)
-CGA_i_ALL = np.zeros(50)
 
 for run_iter, initialisation in enumerate(initial_pop_list):
     
@@ -42,12 +40,12 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     CGA.population = initialisation
 
     # Initialise arrays for storing fitness
-    avg_fitness = np.zeros(1000)
-    min_fitness = np.zeros(1000)
+    avg_fitness = np.zeros(MAX_NUM_ITERS)
+    min_fitness = np.zeros(MAX_NUM_ITERS)
 
-    # Max number of iterations = 1000
+    # Max number of iterations = MAX_NUM_ITERS
     CGA_tic = time()
-    for i in range(1000):
+    for i in range(MAX_NUM_ITERS):
         
         # Evolve population
         CGA.evolve()
@@ -56,21 +54,18 @@ for run_iter, initialisation in enumerate(initial_pop_list):
         avg_fitness[i] = np.mean(CGA.fitness)
         min_fitness[i] = CGA.min_fitness
 
-        # Check for convergence based on difference in avg fitness
-        if abs(avg_fitness[i] - avg_fitness[i-1]) < epsilon:
-            CGA_toc = time()
-            CGA_times_ALL[run_iter] = CGA_toc - CGA_tic
-            CGA_i_ALL[run_iter] = i
+    # Time taken to run algorithm
+    CGA_toc = time()
+    CGA_times_ALL[run_iter] = CGA_toc - CGA_tic
     
     # Update arrays
     CGA_AvgFit_ALL[run_iter, :] = avg_fitness
     CGA_MinFit_ALL[run_iter, :] = min_fitness
 
 ### PT Gather Results ###
-PT_AvgFit_ALL = np.zeros((50, 1000))
-PT_MinFit_ALL = np.zeros((50, 1000))
+PT_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
+PT_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 PT_times_ALL = np.zeros(50)
-PT_i_ALL = np.zeros(50)
 
 for run_iter, initialisation in enumerate(initial_pop_list):
 
@@ -92,12 +87,12 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     PT.current_solutions = initialisation
 
     # Initialise arrays for storing fitness
-    avg_fitness = np.zeros(1000)
-    min_fitness = np.zeros(1000)
+    avg_fitness = np.zeros(MAX_NUM_ITERS)
+    min_fitness = np.zeros(MAX_NUM_ITERS)
 
-    # Max number of iterations = 1000
+    # Max number of iterations = MAX_NUM_ITERS
     PT_tic = time()
-    for i in range(1000):
+    for i in range(MAX_NUM_ITERS):
         
         # Algorithm update
         PT.update_chains()
@@ -106,49 +101,66 @@ for run_iter, initialisation in enumerate(initial_pop_list):
         # Update fitness arrays
         avg_fitness[i], min_fitness[i] = PT.get_fitness()
 
-        # Check for convergence based on difference in avg fitness
-        if abs(avg_fitness[i] - avg_fitness[i-1]) < epsilon:
-            PT_toc = time()
-            PT_times_ALL[run_iter] = PT_toc - PT_tic
-            PT_i_ALL[run_iter] = i
+    # Time taken to run algorithm
+    PT_toc = time()
+    PT_times_ALL[run_iter] = PT_toc - PT_tic
 
     # Update arrays
     PT_AvgFit_ALL[run_iter, :] = avg_fitness
     PT_MinFit_ALL[run_iter, :] = min_fitness
 
-# Plot expected average fitness values for CGA and PT with error bars
-CGA_AvgFit = np.mean(CGA_AvgFit_ALL, axis=0)
-CGA_convergerce_i = np.mean(CGA_i_ALL)
-PT_AvgFit = np.mean(PT_AvgFit_ALL, axis=0)
-PT_convergerce_i = np.mean(PT_i_ALL)
+# Find the expectation of the average and min fitness across all 50 initialisations
+CGA_AvgFit_mean = np.mean(CGA_AvgFit_ALL, axis=0)
+PT_AvgFit_mean = np.mean(PT_AvgFit_ALL, axis=0)
+CGA_MinFit_mean = np.mean(CGA_MinFit_ALL, axis=0)
+PT_MinFit_mean = np.mean(PT_MinFit_ALL, axis=0)
 
+# Find the iteration at which CGA and PT converge (when the final min fitness is first reached by the min fitness)
+CGA_Avg_i = np.where(CGA_AvgFit_mean == np.min(CGA_AvgFit_mean))[0][0]
+PT_Avg_i = np.where(PT_AvgFit_mean == np.min(PT_AvgFit_mean))[0][0]
+
+# Plot expected average fitness values for CGA and PT
 plt.figure()
 sns.set_style('darkgrid')
-plt.plot(CGA_AvgFit, label=f'CGA, Final = {CGA_AvgFit[-1]:.3f}')
-plt.axvline(CGA_convergerce_i, color='black', linestyle='--', label=f'CGA Convergence at {CGA_convergerce_i} iterations')
-plt.plot(PT_AvgFit, label='PT, Final = {PT_AvgFit[-1]:.3f}')
-plt.fill_between(np.arange(1000), PT_AvgFit-PT_AvgFit_CI, PT_AvgFit+PT_AvgFit_CI, alpha=0.3)
-plt.axvline(PT_convergerce_i, color='red', linestyle='--', label=f'PT Convergence at {PT_convergerce_i} iterations')
+plt.plot(CGA_AvgFit_mean, label='CGA', color='green')
+plt.plot(PT_AvgFit_mean, label='PT', color='red')
+plt.axvline(CGA_Avg_i, color='green', linestyle='--', label=f'CGA Converges at {int(CGA_Avg_i)} Iterations')
+plt.axvline(PT_Avg_i, color='red', linestyle='--', label=f'PT Convergence at {int(PT_Avg_i)} Iterations')
 plt.xlabel('Iterations')
-plt.ylabel('Fitness')
+plt.ylabel('Average Fitness')
 plt.title('Expected Average Fitness across 50 Different Initialisations')
+plt.legend()
 plt.savefig('figures/Final Comparison/CGA vs PT Average Fitness.png', dpi=300)
 
-# Plot expected minimum fitness values for CGA and PT with 95% confidence intervals
-CGA_MinFit = np.mean(CGA_MinFit_ALL, axis=0)
-CGA_MinFit_CI = 1.96 * np.std(CGA_MinFit_ALL, axis=0) / np.sqrt(50)
-PT_MinFit = np.mean(PT_MinFit_ALL, axis=0)
-PT_MinFit_CI = 1.96 * np.std(PT_MinFit_ALL, axis=0) / np.sqrt(50)
-
+# Plot expercted min fitness values for CGA and PT 
 plt.figure()
 sns.set_style('darkgrid')
-plt.plot(CGA_MinFit, label=f'CGA, Final = {CGA_MinFit[-1]:.3f}')
-plt.fill_between(np.arange(1000), CGA_MinFit-CGA_MinFit_CI, CGA_MinFit+CGA_MinFit_CI, alpha=0.3)
-plt.plot(PT_MinFit, label='PT, Final = {PT_MinFit[-1]:.3f}')
-plt.fill_between(np.arange(1000), PT_MinFit-PT_MinFit_CI, PT_MinFit+PT_MinFit_CI, alpha=0.3)
+plt.plot(CGA_MinFit_mean, label='CGA', color='green')
+plt.plot(PT_MinFit_mean, label='PT', color='red')
 plt.xlabel('Iterations')
-plt.ylabel('Fitness')
+plt.ylabel('Minimum Fitness')
 plt.title('Expected Minimum Fitness across 50 Different Initialisations')
+plt.legend()
 plt.savefig('figures/Final Comparison/CGA vs PT Minimum Fitness.png', dpi=300)
 
+# Save final results to csv
+CGA_final_avg = CGA_AvgFit_mean[-1]
+CGA_final_std = np.std(CGA_AvgFit_ALL[:, -1])
+CGA_final_min = CGA_MinFit_mean[-1]
+CGA_final_min_std = np.std(CGA_MinFit_ALL[:, -1])
+CGA_final_time = np.mean(CGA_times_ALL)
+CGA_final_time_std = np.std(CGA_times_ALL)
 
+PT_final_avg = PT_AvgFit_mean[-1]
+PT_final_std = np.std(PT_AvgFit_ALL[:, -1])
+PT_final_min = PT_MinFit_mean[-1]
+PT_final_min_std = np.std(PT_MinFit_ALL[:, -1])
+PT_final_time = np.mean(PT_times_ALL)
+PT_final_time_std = np.std(PT_times_ALL)
+
+data = {'CGA': [CGA_final_avg, CGA_final_std, CGA_final_min, CGA_final_min_std, CGA_final_time, CGA_final_time_std, CGA_Avg_i],
+        'PT': [PT_final_avg, PT_final_std, PT_final_min, PT_final_min_std, PT_final_time, PT_final_time_std, PT_Avg_i]}
+df = pd.DataFrame(data, index=['Average Fitness', 'Average Fitness Std', 'Minimum Fitness', 'Minimum Fitness Std', 'Total Time Taken', 'Time Taken Std', 'Iterations to Convergence'])
+df.to_csv('figures/Final Comparison/CGA vs PT Final Results.csv')
+
+print(seeds) # These are the random seeds used to generate the initial populations
