@@ -20,6 +20,7 @@ MAX_NUM_ITERS = 10000
 CGA_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 CGA_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 CGA_times_ALL = np.zeros(50)
+CGA_best_Xs = np.zeros((50, 8))
 
 for run_iter, initialisation in enumerate(initial_pop_list):
     
@@ -61,11 +62,13 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     # Update arrays
     CGA_AvgFit_ALL[run_iter, :] = avg_fitness
     CGA_MinFit_ALL[run_iter, :] = min_fitness
+    CGA_best_Xs[run_iter, :] = CGA.best_individual
 
 ### PT Gather Results ###
 PT_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 PT_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 PT_times_ALL = np.zeros(50)
+PT_best_Xs = np.zeros((50, 8))
 
 for run_iter, initialisation in enumerate(initial_pop_list):
 
@@ -108,6 +111,7 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     # Update arrays
     PT_AvgFit_ALL[run_iter, :] = avg_fitness
     PT_MinFit_ALL[run_iter, :] = min_fitness
+    PT_best_Xs[run_iter, :] = PT.get_best_solution()
 
 # Find the expectation of the average and min fitness across all 50 initialisations
 CGA_AvgFit_mean = np.mean(CGA_AvgFit_ALL, axis=0)
@@ -151,6 +155,7 @@ CGA_final_min = CGA_MinFit_mean[-1]
 CGA_final_min_std = np.std(CGA_MinFit_ALL[:, -1])
 CGA_final_time = np.mean(CGA_times_ALL)
 CGA_final_time_std = np.std(CGA_times_ALL)
+CGA_AVG_best_X = np.mean(CGA_best_Xs, axis=0)
 
 PT_final_avg = PT_AvgFit_mean[-1]
 PT_final_std = np.std(PT_AvgFit_ALL[:, -1])
@@ -158,10 +163,11 @@ PT_final_min = PT_MinFit_mean[-1]
 PT_final_min_std = np.std(PT_MinFit_ALL[:, -1])
 PT_final_time = np.mean(PT_times_ALL)
 PT_final_time_std = np.std(PT_times_ALL)
+PT_AVG_best_X = np.mean(PT_best_Xs, axis=0)
 
-data = {'CGA': [CGA_final_avg, CGA_final_std, CGA_final_min, CGA_final_min_std, CGA_final_time, CGA_final_time_std, CGA_Avg_i],
-        'PT': [PT_final_avg, PT_final_std, PT_final_min, PT_final_min_std, PT_final_time, PT_final_time_std, PT_Avg_i]}
-df = pd.DataFrame(data, index=['Final Avg. Fitness', 'Final Avg. Fitness Std', 'Final Min. Fitness', 'Final Min. Fitness Std', 'Total Time Taken', 'Time Taken Std', 'Mean Iters to Convergence'])
+data = {'CGA': [CGA_final_avg, CGA_final_std, CGA_final_min, CGA_final_min_std, CGA_final_time, CGA_final_time_std, CGA_Avg_i, CGA_AVG_best_X],
+        'PT': [PT_final_avg, PT_final_std, PT_final_min, PT_final_min_std, PT_final_time, PT_final_time_std, PT_Avg_i, PT_AVG_best_X]}
+df = pd.DataFrame(data, index=['Final Avg. Fitness', 'Final Avg. Fitness Std', 'Final Min. Fitness', 'Final Min. Fitness Std', 'Total Time Taken', 'Time Taken Std', 'Mean Iters to Convergence', 'Mean Best Solution'])
 df.to_csv('figures/Final Comparison/CGA vs PT Final Results.csv')
 
 print(seeds) # These are the random seeds used to generate the initial populations
