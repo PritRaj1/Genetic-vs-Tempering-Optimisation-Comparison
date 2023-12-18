@@ -549,9 +549,13 @@ Additionally, although these higher temperatures encourage localised exploration
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
 
-After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF. 50 optimisation loops were conducted for each algorithm
+After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF. 50 optimisation loops were conducted for each algorithm, each with a different initialisation.
 
-To ensure fairness and reproducibility, both algorithms were initialised with the same collection of random solutions, generated using consistent random number seeds within the \textit{generate\_initial} function of the \textit{helper\_functions.py} file. This function was implemented to facilitate reproducible outcomes and to guarantee that solutions were initialised away from the global maxima.
+To uphold fairness and reproducibility, these initialisations were shared between both algorithms. They were generated using random number seeds within the \textit{generate\_initial} function, which is part of the \textit{helper\_functions.py} file. The implementation of this function was crucial for ensuring reproducible outcomes and guaranteeing that solutions were initialised away from the global maxima. This was achieved by imposing a constraint that the maximum function value of these initial collections never exceeded 0.3.
+
+Each loop was conducted for a maximum of 10,000 function evlauations and convergence was determined as the point at which the $l_2$-normed difference between the minimum fitness at iteration, i, and the final minimum fitness  remained within an absolute tolerance of $10
+\subsection{Trial}
+\label{sec:trial}
 
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file

@@ -14,7 +14,7 @@ import pandas as pd
 # No solution has a function value > 0.3, (away from global optimum)
 initial_pop_list, seeds = generate_initial(x_dim=8, pop_size=250)
 
-MAX_NUM_ITERS = 10000
+MAX_NUM_ITERS = 15000
 
 ### CGA Gather Results ###
 CGA_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
@@ -120,9 +120,11 @@ CGA_MinFit_mean = np.mean(CGA_MinFit_ALL, axis=0)
 PT_MinFit_mean = np.mean(PT_MinFit_ALL, axis=0)
 
 # Find the iteration at which CGA and PT converge (when the final min fitness is first reached by the min fitness)
-eps = 0.0003
-CGA_Avg_i = np.where(CGA_AvgFit_mean < np.min(CGA_AvgFit_mean) + eps)[0][0]
-PT_Avg_i = np.where(PT_AvgFit_mean < np.min(PT_AvgFit_mean) + eps)[0][0]
+eps = 0.0005
+CGA_Avg_i = np.where(np.linalg.norm(CGA_AvgFit_mean - CGA_AvgFit_mean[-1]) < eps)[0][0]
+PT_Avg_i = np.where(np.linalg.norm(PT_AvgFit_mean - PT_AvgFit_mean[-1]) < eps)[0][0]
+# CGA_Avg_i = np.where(CGA_AvgFit_mean < np.min(CGA_AvgFit_mean) + eps)[0][0]
+# PT_Avg_i = np.where(PT_AvgFit_mean < np.min(PT_AvgFit_mean) + eps)[0][0]
 
 # Plot expected average fitness values for CGA and PT
 plt.figure()
