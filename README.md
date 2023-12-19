@@ -6,8 +6,10 @@ This project was completed as part of an undergraduate coursework submission at 
 ## Introduction
 This project delves into the comparison between the performance of Parallel Tempering (PT) and Continuous Genetic Algorithms (CGA) when applied to Keane's Bump Function (KBF). The KBF, a multimodal function rich in local minima, is visually presented in two dimensions below:
 
-![3D Visualisation of Keane's Bump Function](figures/KBF/KBF_surf.png)
-![Contour Plot of Keane's Bump Function](figures/KBF/KBF_contour.png)
+<div style="display: flex;">
+    <img src="figures/KBF/KBF_surf.png" alt="3D Visualisation of Keane's Bump Function" width="400" height="300">
+    <img src="figures/KBF/KBF_contour.png" alt="Contour Plot of Keane's Bump Function" width="400" height="300">
+</div>
 
 Navigating the optimisation challenges posed by the KBF, produced some interesting outcomes. The results of the investigation are presented in the accompanying report.
 
