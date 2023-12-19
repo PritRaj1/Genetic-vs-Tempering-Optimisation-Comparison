@@ -544,7 +544,7 @@ Additionally, although these higher temperatures encourage localised exploration
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{../figures/Permanent Images/PT_Optimal_Tuning.png}
+    \includegraphics[width=1\textwidth]{../figures/Permanent Images/PT_Optimal_Tuning.png}
     \captionsetup{justification=centering}
     \caption{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf{x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.}
     \label{fig:PToptimal_evo}
@@ -571,9 +571,6 @@ The two algorithms yielded fairly divergent solutions, as described in the last 
 
 However, this advantage comes with a trade-off in terms of increased computational demands. Specifically, the PT algorithm required approximately double the time to finish the 15,000 iterations compared to the CGA. Additionally, the PT algorithm required an extra 2551 iterations to converge to its optimal solution, resulting in a greater time investment of approximately 335.9 seconds, with respect to the CGA.
 
-Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
-
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -591,9 +588,13 @@ Upon repeated trials, the PT algorithm was unable to consistently overtake the C
     \textbf{Optimal Solutions} & $\begin{bmatrix} 3.104 \\ 3.027 \\ 1.624 \\ 0.5872 \\ 0.5363 \\ 0.6130 \\ 0.5294 \\ 0.4808 \end{bmatrix}$ & $\begin{bmatrix} 3.111 \\ 2.948 \\ 3.071 \\ 1.643 \\ 0.3356 \\ 0.4636 \\ 0.4284 \\ 0.2457 \end{bmatrix}$ \\
     \hline
     \end{tabular}
+    \captionsetup{justification=centering}
     \caption{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).}
     \label{tab:trial_comparison}
 \end{table}
+
+Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
+
 
 \begin{figure}[H]
     \centering
