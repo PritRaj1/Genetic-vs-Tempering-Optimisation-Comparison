@@ -79,7 +79,6 @@
 \newlabel{sub@fig:CGA_contour_tournament_Heuristic Crossover_MIN}{{b}{6}{Final (minimum) fitness of best individual.\relax }{figure.caption.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Heat maps of the final fitness values after 100 iterations for the CGA using tournament selection and heuristic crossover. Here, the mutation rates and crossover probabilities were varied to assess their impact on performance.\relax }}{6}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:CGA_contour_rates}{{5}{6}{Heat maps of the final fitness values after 100 iterations for the CGA using tournament selection and heuristic crossover. Here, the mutation rates and crossover probabilities were varied to assess their impact on performance.\relax }{figure.caption.5}{}}
-\citation{Earl_2005}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.\relax }}{7}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:CGA_fitness_evo_OPT}{{6}{7}{Evolution of the fitness values of the CGA population over 100 iterations for optimally-tuned CGA.\relax }{figure.caption.6}{}}
 \newlabel{fig:optimal_5}{{7a}{7}{4 iterations.\relax }{figure.caption.7}{}}
@@ -88,32 +87,33 @@
 \newlabel{sub@fig:optimat_100}{{b}{7}{80 iterations.\relax }{figure.caption.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters outlined at the end of Section \ref  {sec:CGA_selection_mutation}. The second plot depicts the algorithm converging to a local maxima as a result of an individual being initialised near it.\relax }}{7}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:optimal_convergence}{{7}{7}{Evolution of the CGA population over 4 and 80 iterations using the optimal hyperparameters outlined at the end of Section \ref {sec:CGA_selection_mutation}. The second plot depicts the algorithm converging to a local maxima as a result of an individual being initialised near it.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Parallel Tempering (PT)}{7}{section.4}\protected@file@percent }
-\newlabel{sec:PT}{{4}{7}{Parallel Tempering (PT)}{section.4}{}}
+\citation{Earl_2005}
 \citation{Earl_2005}
 \citation{parks2023geneticalgorithmsSA}
 \citation{NT90-A34350}
 \citation{Earl_2005}
 \citation{CALDERHEAD20094028}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Parallel Tempering (PT)}{8}{section.4}\protected@file@percent }
+\newlabel{sec:PT}{{4}{8}{Parallel Tempering (PT)}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Implementation}{8}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Initialisation}{8}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Temperature Scheduling}{8}{subsubsection.4.1.2}\protected@file@percent }
-\newlabel{eq:PTtemp}{{3}{8}{Temperature Scheduling}{equation.4.3}{}}
 \citation{Earl_2005}
 \citation{Earl_2005}
 \citation{NT90-A34350}
 \citation{NT90-A34350}
 \citation{NT90-A34350}
 \citation{Neal_1996}
+\newlabel{eq:PTtemp}{{3}{9}{Temperature Scheduling}{equation.4.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Temperature schedule \ref  {eq:PTtemp} for the PT algorithm for different values of the \textit  {POWER\_TERM} hyperparameter.\relax }}{9}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:PTtemp}{{8}{9}{Temperature schedule \ref {eq:PTtemp} for the PT algorithm for different values of the \textit {POWER\_TERM} hyperparameter.\relax }{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Replica Exchange}{9}{subsubsection.4.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Metropolis Update}{9}{subsubsection.4.1.4}\protected@file@percent }
 \newlabel{sec:PT_update}{{4.1.4}{9}{Metropolis Update}{subsubsection.4.1.4}{}}
 \newlabel{eq:PTupdate}{{4}{9}{Metropolis Update}{equation.4.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Metropolis-Hastings Acceptance Criterion}{9}{subsubsection.4.1.5}\protected@file@percent }
-\newlabel{sec:PT_MA}{{4.1.5}{9}{Metropolis-Hastings Acceptance Criterion}{subsubsection.4.1.5}{}}
 \citation{Neal_1996}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Metropolis-Hastings Acceptance Criterion}{10}{subsubsection.4.1.5}\protected@file@percent }
+\newlabel{sec:PT_MA}{{4.1.5}{10}{Metropolis-Hastings Acceptance Criterion}{subsubsection.4.1.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.6}Termination}{10}{subsubsection.4.1.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Tuning the PT}{10}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:PTtuning}{{4.2}{10}{Tuning the PT}{subsection.4.2}{}}
@@ -141,15 +141,22 @@
 \newlabel{fig:PToptimal_evo}{{13}{13}{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf {x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.\relax }{figure.caption.13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Comparison}{13}{section.5}\protected@file@percent }
 \newlabel{sec:CGA_QEG_comparison}{{5}{13}{Comparison}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Trial}{13}{subsection.5.1}\protected@file@percent }
-\newlabel{sec:trial}{{5.1}{13}{Trial}{subsection.5.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Trial comparison between CGA and PT, after 10,000 iterations with one shared initialisation.\relax }}{13}{table.caption.14}\protected@file@percent }
-\newlabel{tab:trial_comparison}{{1}{13}{Trial comparison between CGA and PT, after 10,000 iterations with one shared initialisation.\relax }{table.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Trial Run}{13}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:trial}{{5.1}{13}{Trial Run}{subsection.5.1}{}}
 \bibstyle{plain}
 \bibdata{refs}
 \bibcite{CALDERHEAD20094028}{1}
 \bibcite{Earl_2005}{2}
 \bibcite{ELBELTAGY1999639}{3}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }}{14}{table.caption.14}\protected@file@percent }
+\newlabel{tab:trial_comparison}{{1}{14}{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }{table.caption.14}{}}
+\newlabel{fig:AVG_trial_fitness}{{14a}{14}{Average fitnesses.\relax }{figure.caption.15}{}}
+\newlabel{sub@fig:AVG_trial_fitness}{{a}{14}{Average fitnesses.\relax }{figure.caption.15}{}}
+\newlabel{fig:MIN_trial_fitness}{{14b}{14}{Minimum fitnesses.\relax }{figure.caption.15}{}}
+\newlabel{sub@fig:MIN_trial_fitness}{{b}{14}{Minimum fitnesses.\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405).  Best CGA individual: $[3.104, 3.027, 1.624, 0.5872, 0.5363, 0.6130, 0.5294, 0.4808]^T$  Best PT solution: $[3.111, 2.948, 3.071, 1.643, 0.3356, 0.4636, 0.4284, 0.2457]^T$\relax }}{14}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:trial_fitness}{{14}{14}{Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405). \\Best CGA individual: $[3.104, 3.027, 1.624, 0.5872, 0.5363, 0.6130, 0.5294, 0.4808]^T$\\ Best PT solution: $[3.111, 2.948, 3.071, 1.643, 0.3356, 0.4636, 0.4284, 0.2457]^T$\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Final Comparison}{14}{subsection.5.2}\protected@file@percent }
 \bibcite{PGA}{4}
 \bibcite{10.1007/BFb0029787}{5}
 \bibcite{Michalewicz_2011}{6}
@@ -159,34 +166,28 @@
 \bibcite{parks2023geneticalgorithmsSA}{10}
 \bibcite{NT90-A34350}{11}
 \bibcite{salimans2017evolution}{12}
-\newlabel{fig:AVG_trial_fitness}{{14a}{14}{Average fitnesses.\relax }{figure.caption.15}{}}
-\newlabel{sub@fig:AVG_trial_fitness}{{a}{14}{Average fitnesses.\relax }{figure.caption.15}{}}
-\newlabel{fig:MIN_trial_fitness}{{14b}{14}{Minimum fitnesses.\relax }{figure.caption.15}{}}
-\newlabel{sub@fig:MIN_trial_fitness}{{b}{14}{Minimum fitnesses.\relax }{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run.\relax }}{14}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:trial_fitness}{{14}{14}{Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run.\relax }{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{15}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Supplementary Results regarding CGA Tuning}{15}{subsection.6.1}\protected@file@percent }
-\newlabel{sec:CGA_tuning_results}{{6.1}{15}{Supplementary Results regarding CGA Tuning}{subsection.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }}{15}{table.caption.17}\protected@file@percent }
-\newlabel{tab:CGAexploration}{{2}{15}{Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }{table.caption.17}{}}
-\newlabel{fig:CGA_flowchart_proportional_crossover}{{15a}{15}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:CGA_flowchart_proportional_crossover}{{a}{15}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
-\newlabel{fig:CGA_flowchart_proportional_Heuristic Crossover}{{15b}{15}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:CGA_flowchart_proportional_Heuristic Crossover}{{b}{15}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref  {sec:CGA_selection_mutation}.\relax }}{15}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:CGA_flowchart_proportional}{{15}{15}{Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.18}{}}
-\newlabel{fig:CGA_flowchart_SRS_crossover}{{16a}{16}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
-\newlabel{sub@fig:CGA_flowchart_SRS_crossover}{{a}{16}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
-\newlabel{fig:CGA_flowchart_SRS_Heuristic Crossover}{{16b}{16}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
-\newlabel{sub@fig:CGA_flowchart_SRS_Heuristic Crossover}{{b}{16}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref  {sec:CGA_selection_mutation}.\relax }}{16}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:CGA_flowchart_SRS}{{16}{16}{Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Supplementary Results regarding PT Tuning}{16}{subsection.6.2}\protected@file@percent }
-\newlabel{sec:PT_tuning_results}{{6.2}{16}{Supplementary Results regarding PT Tuning}{subsection.6.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }}{16}{table.caption.20}\protected@file@percent }
-\newlabel{tab:exchange_results}{{3}{16}{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }{table.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{17}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:PeriodicApp}{{17}{17}{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{17}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:StochasticApp}{{18}{17}{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{16}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Supplementary Results regarding CGA Tuning}{16}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:CGA_tuning_results}{{6.1}{16}{Supplementary Results regarding CGA Tuning}{subsection.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }}{16}{table.caption.17}\protected@file@percent }
+\newlabel{tab:CGAexploration}{{2}{16}{Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }{table.caption.17}{}}
+\newlabel{fig:CGA_flowchart_proportional_crossover}{{15a}{16}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:CGA_flowchart_proportional_crossover}{{a}{16}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
+\newlabel{fig:CGA_flowchart_proportional_Heuristic Crossover}{{15b}{16}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:CGA_flowchart_proportional_Heuristic Crossover}{{b}{16}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref  {sec:CGA_selection_mutation}.\relax }}{16}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:CGA_flowchart_proportional}{{15}{16}{Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.18}{}}
+\newlabel{fig:CGA_flowchart_SRS_crossover}{{16a}{17}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
+\newlabel{sub@fig:CGA_flowchart_SRS_crossover}{{a}{17}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
+\newlabel{fig:CGA_flowchart_SRS_Heuristic Crossover}{{16b}{17}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
+\newlabel{sub@fig:CGA_flowchart_SRS_Heuristic Crossover}{{b}{17}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref  {sec:CGA_selection_mutation}.\relax }}{17}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:CGA_flowchart_SRS}{{16}{17}{Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Supplementary Results regarding PT Tuning}{17}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:PT_tuning_results}{{6.2}{17}{Supplementary Results regarding PT Tuning}{subsection.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }}{17}{table.caption.20}\protected@file@percent }
+\newlabel{tab:exchange_results}{{3}{17}{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }{table.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{18}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:PeriodicApp}{{17}{18}{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{18}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:StochasticApp}{{18}{18}{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.22}{}}

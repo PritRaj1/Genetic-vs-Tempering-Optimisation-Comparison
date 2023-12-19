@@ -129,7 +129,7 @@ In accordance with the terminology presented in \cite{parks2023geneticalgorithms
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/Flowchart.png}
+    \includegraphics[width=0.46\textwidth]{../figures/Permanent Images/Flowchart.png}
     \captionsetup{justification=centering}
     \caption{A flowchart depicting the CGA process, taken from \cite{parks2023geneticalgorithms}.}
     \label{fig:GAprocess}
@@ -230,12 +230,12 @@ Supplementary results regarding this initial exploration of hyperparameter tunin
 \vspace{-1mm}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.44\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Crossover.png}
         \caption{Mutation Procedure: Crossover}
         \label{fig:CGA_fitness_evo_Crossover}
     \end{subfigure}
-    \begin{subfigure}{0.44\textwidth}
+    \begin{subfigure}{0.46\textwidth}
         \includegraphics[width=\textwidth]{../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png}
         \caption{Mutation Procedure: Heuristic Crossover}
         \label{fig:CGA_fitness_evo_Heuristic Crossover}
@@ -260,6 +260,8 @@ Having cemented the selection method and mutation procedue choices as tournament
 Specifically, choices for the mutation rate and crossover probability were explored. The results are presented in Figure \ref{fig:CGA_contour_rates}, which showcases two heat maps of the final fitness values after 100 iterations for the CGA using the chosen procedures. The plots are presented for both the average final fitness, as well as the final fitness of the best individual.
 
 Notbaly, as depicted in Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_AVG}, it is evident that an increased stochasticity of the CGA, indicated by higher crossover probabilities, leads to improved average final fitness. This aligns with expectations, as a broader and more randomly distributed population enhances the likelihood of individuals being situated in the proximity of local maxima. Consequently, a greater number of individuals within the population receive lower fitness values, a trend reflected in the observed average final fitness.
+
+\columnbreak
 
 Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_MIN} offers deeper insights. It is evident that the crossover probability stands out as the most influential hyperparameter, while the fine-tuning of the mutation rate plays less of a role in shaping the performance of the CGA. 
 
@@ -327,8 +329,9 @@ The primary challenge lies in the fact that both the first and second largest ma
     \label{fig:optimal_convergence}
 \end{figure}
 
-\begin{multicols}{2}
+\newpage
 
+\begin{multicols}{2}
 \section{Parallel Tempering (PT)}
 \label{sec:PT}
 
@@ -467,13 +470,7 @@ In contrast, a consistent pattern unveiled itself in Fig. \ref{fig:min_periodic_
 
 Overall, these results imply that optimal settings for the PT algorithm on the KBF involve a power term of 1 and an exchange parameter of 0.01. These values are associated with a uniform temperature schedule and replica exchange taking place at every iteration. They position the PT algorithm favorably within the lighter regions of Fig. \ref{fig:min_periodic_heatmap}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/0.01_1_Periodic_Fitness.png}
-    \captionsetup{justification=centering}
-    \caption{Evolution of the fitness values of the optimally-tuned PT solutions over 100 iterations.}
-    \label{fig:PToptimal_fitness}
-\end{figure}
+\columnbreak
 
 In summary and to reiterate, the PT algorithm is now constructed as follows:
 
@@ -486,6 +483,14 @@ In summary and to reiterate, the PT algorithm is now constructed as follows:
 \end{itemize}
 
 Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once better solutions are identified and arrived at through the MCMC updating process.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/0.01_1_Periodic_Fitness.png}
+    \captionsetup{justification=centering}
+    \caption{Evolution of the fitness values of the optimally-tuned PT solutions over 100 iterations.}
+    \label{fig:PToptimal_fitness}
+\end{figure}
 
 The top row in Fig. \ref{fig:PToptimal_evo} depicts the iterative evolution of the solutions. Notably, all solutions consistently converge towards the prominent maxima, and the global maximum is successfully identified in every repetition. The PT algorithm has demonstrated superior capabilities in exploration compared to the CGA.
 
@@ -501,13 +506,13 @@ Additionally, although these higher temperatures encourage localised exploration
 \begin{multicols}{2}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.46\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png}
         \caption{Average Fitness Values}
         \label{fig:avg_periodic_heatmap}
     \end{subfigure}
-    \begin{subfigure}{0.46\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png}
         \caption{Minimum Fitness Values}
@@ -520,13 +525,13 @@ Additionally, although these higher temperatures encourage localised exploration
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.46\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png}
         \caption{Average Fitness Values}
         \label{fig:avg_stochastic_heatmap}
     \end{subfigure}
-    \begin{subfigure}{0.46\textwidth}
+    \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png}
         \caption{Minimum Fitness Values}
@@ -550,28 +555,37 @@ Additionally, although these higher temperatures encourage localised exploration
 \section{Comparison}
 \label{sec:CGA_QEG_comparison}
 
-After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF. 50 optimisation loops were conducted for each algorithm, each with a different initialisation.  Collected data included expected values and standard deviations of fitness values, as well as the mean time taken to complete all 10,000 iterations and the average iteration count at which convergence occurred.
+After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analysis was conducted to assess their performances in optimising the 8-dimensional KBF. 50 optimisation loops were conducted for each algorithm, each with a different initialisation.  Collected data included expected values and standard deviations of fitness values, as well as the mean CPU time taken to complete all 10,000 iterations and the average iteration count at which convergence occurred.
 
 To uphold fairness and reproducibility, these initialisations were shared between both algorithms. They were generated using random number seeds within the \textit{generate\_initial} function, which is part of the \textit{helper\_functions.py} file. The implementation of this function was crucial for ensuring reproducible outcomes and guaranteeing that solutions were initialised away from the global maxima. This was achieved by imposing a constraint that the maximum function value of these initial collections never exceeded 0.3.
 
-Each run was limited to a maximum of 10,000 function evaluations, and convergence was identified as the point where the $l_2$-normed difference between the minimum fitness values of consecutive iterations stayed within a tolerance of 0.00025 for 1300 consecutive iterations. This was deemed appropriate after the trial run depicted in Fig. \ref{fig:trial_fitness}.
+Each run was limited to a maximum of 10,000 function evaluations, and convergence was identified as the point where the $l_2$-normed difference between the minimum fitness values of consecutive iterations stayed within a tolerance of 0.00025 for 1300 consecutive iterations. This was deemed appropriate after the trial run outlined in Section \ref{sec:trial}.
 
-\subsection{Trial}
+\subsection{Trial Run}
 \label{sec:trial}
 
-Prior to the experiment, a trial run was conducted using one initialisation to assess the suitability of the convergence criterion, and to set expectations. 
+Prior to the experiment, a trial run of 15,000 funcation evaluations was conducted using one initialisation to assess the suitability of the convergence criterion, and to set expectations.
+
+The outcomes are detailed in Table \ref{tab:trial_comparison} and illustrated in Fig. \ref{fig:trial_fitness}. These findings underscore a particularly noteworthy result.
+
+The two algorithms yielded fairly divergent solutions, as described in the caption of Figure \ref{fig:trial_fitness}. The CGA underwent significant change within the initial 1\% of iterations, after which it stabilised near its ultimate solution. In contrast, the PT algorithm consistently evolved over the entire span of 15,000 iterations. Consequently, the CGA demonstrated superior performance in the early iterations, but the PT algorithm ultimately surpassed it by converging to a lower minimum fitness value. This observation is a promising indication of the PT's capacity to escape local optima and explore the search space more efficiently.
+
+However, this advantage comes with a trade-off in terms of increased computational demands. Specifically, the PT algorithm required approximately double the time to finish the 15,000 iterations compared to the CGA. Additionally, the PT algorithm required an extra 2551 iterations to converge to its optimal solution, resulting in a greater time investment of approximately 335.9 seconds, with respect to the CGA.
+
+Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
+
 \end{multicols}
 \begin{table}[H]
     \centering
-    \begin{tabular}{l|cccccc}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \cline{2-6}\\
+    \multicolumn{1}{c}{} & \textbf{Final Avg. Fitness} & \textbf{Final Min. Fitness} & \textbf{Total Time Taken} & \textbf{Iters to Convergence} \\
     \hline
-    & Final Avg. Fitness & Final Min. Fitness & Total Time Taken & Iters to Convergence & Best Solution \\
-    \hline
-    CGA & -0.497066534 & -0.69007894 & 299.1920519 & 9349 & $[3.10370992, 3.02718856, 1.62447231, 0.5871856, 0.53627267, 0.61304027, 0.52941284, 0.48082145]$ \\
-    PT & -0.464570219 & -0.708146655 & 592.6563666 & 11991 & $[3.11107738, 2.9479856, 3.07088851, 1.64256981, 0.3356233, 0.46361719, 0.42837701, 0.24570423]$ \\
+    \textbf{CGA} & -0.4971 & -0.6901 & 299.2 & 9349 \\
+    \textbf{PT} & -0.4646 & -0.7081 & 592.7 & 11990 \\
     \hline
     \end{tabular}
-    \caption{Trial comparison between CGA and PT, after 10,000 iterations with one shared initialisation.}
+    \caption{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).}
     \label{tab:trial_comparison}
 \end{table}
 
@@ -588,10 +602,16 @@ Prior to the experiment, a trial run was conducted using one initialisation to a
         \label{fig:MIN_trial_fitness}
     \end{subfigure}
 \captionsetup{justification=centering}
-\caption{Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run.}
+\caption{Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405). \\Best CGA individual: $[3.104, 3.027, 1.624, 0.5872, 0.5363, 0.6130, 0.5294, 0.4808]^T$\\ Best PT solution: $[3.111, 2.948, 3.071, 1.643, 0.3356, 0.4636, 0.4284, 0.2457]^T$}
 \label{fig:trial_fitness}
 \end{figure}
 
+\begin{multicols}{2}
+\subsection{Final Comparison}
+Having validated the experiment with a trial run, the final comparison was conducted using 50 different intialisations, generated with the following random seeds:
+
+
+\end{multicols}
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
 \newpage
