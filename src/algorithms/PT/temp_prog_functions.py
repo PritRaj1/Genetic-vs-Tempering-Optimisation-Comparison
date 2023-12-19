@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 Description : This file contains temperature scheduling functions for parallel tempering.
                 Each temerature scheduling function returns a list of temperatures ranging from 0 to 1.

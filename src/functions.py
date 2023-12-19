@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 Description :
     This file contains the implementation of the Keane's Bump Function and the Rosenbrock function.

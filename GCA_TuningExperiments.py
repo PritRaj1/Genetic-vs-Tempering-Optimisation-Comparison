@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 Description :
     This file serves as a platform to run multiple simulations of the CGA algorithm.

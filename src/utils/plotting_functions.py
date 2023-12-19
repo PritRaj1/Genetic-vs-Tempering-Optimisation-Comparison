@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 Description :
     This file contains various functions used for plotting figures.

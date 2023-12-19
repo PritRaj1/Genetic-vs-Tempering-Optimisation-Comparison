@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 This file contains the selection functions for the CGA algorithm.
 """

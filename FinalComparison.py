@@ -1,5 +1,5 @@
 """
-Candidate No : 5730E, Module: 4M17 
+Author: Prithvi Raj
 
 Description :
     This file serves to compare the optimally-tuned CGA and PT algorithms in section 5 of the report.                 
