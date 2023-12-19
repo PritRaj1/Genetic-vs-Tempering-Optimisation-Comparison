@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  19 DEC 2023 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  19 DEC 2023 12:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
+**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E
 (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -456,7 +456,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count301
 \l__pdf_internal_box=\box101
-) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux
+) (./4M17_CW2_5730E.aux
 
 LaTeX Warning: Label `sec:CGA' multiply defined.
 
@@ -565,7 +565,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out)
+ (./4M17_CW2_5730E.out) (./4M17_CW2_5730E.out)
 \@outlinefile=\write3
 \openout3 = `4M17_CW2_5730E.out'.
 
@@ -581,7 +581,7 @@ Package gensymb Info: Using \Omega for \ohm on input line 49.
 Package gensymb Warning: Not defining \micro.
 
 \c@lstlisting=\count309
-<Coursework Coversheet.pdf, id=152, 597.19112pt x 844.11362pt>
+<Coursework Coversheet.pdf, id=156, 597.19112pt x 844.11362pt>
 File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf>
 Package pdftex.def Info: Coursework Coversheet.pdf  used on input line 50.
@@ -590,7 +590,7 @@ File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf>
 Package pdftex.def Info: Coursework Coversheet.pdf  used on input line 50.
 (pdftex.def)             Requested size: 597.18967pt x 844.11156pt.
-<Coursework Coversheet.pdf, id=155, page=1, 597.19112pt x 844.11362pt>
+<Coursework Coversheet.pdf, id=159, page=1, 597.19112pt x 844.11362pt>
 File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf, page 1>
 Package pdftex.def Info: Coursework Coversheet.pdf , page1 used on input line 50.
@@ -613,7 +613,7 @@ Package pdftex.def Info: Coursework Coversheet.pdf , page1 used on input line 50
 (pdftex.def)             Requested size: 562.48967pt x 795.06406pt.
 [1
 
- </home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf>]
+ <./Coursework Coversheet.pdf>]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -622,221 +622,221 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../figures/KBF/KBF_surf.png, id=238, 462.528pt x 346.896pt>
+<../figures/KBF/KBF_surf.png, id=243, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF_surf.png Graphic file (type png)
 <use ../figures/KBF/KBF_surf.png>
-Package pdftex.def Info: ../figures/KBF/KBF_surf.png  used on input line 80.
+Package pdftex.def Info: ../figures/KBF/KBF_surf.png  used on input line 82.
 (pdftex.def)             Requested size: 237.2655pt x 177.95207pt.
-<../figures/KBF/KBF_contour.png, id=240, 462.528pt x 346.896pt>
+<../figures/KBF/KBF_contour.png, id=245, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF_contour.png>
-Package pdftex.def Info: ../figures/KBF/KBF_contour.png  used on input line 86.
+Package pdftex.def Info: ../figures/KBF/KBF_contour.png  used on input line 88.
 (pdftex.def)             Requested size: 222.73979pt x 167.05867pt.
-LaTeX Font Info:    Trying to load font information for TS1+bch on input line 96.
+LaTeX Font Info:    Trying to load font information for TS1+bch on input line 98.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 ) [2{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF/KBF_surf.png> <../figures/KBF/KBF_contour.png>]
-<../figures/KBF/KBF Feasible_contour.png, id=264, 462.528pt x 346.896pt>
+<../figures/KBF/KBF Feasible_contour.png, id=269, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF Feasible_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF Feasible_contour.png>
-Package pdftex.def Info: ../figures/KBF/KBF Feasible_contour.png  used on input line 109.
+Package pdftex.def Info: ../figures/KBF/KBF Feasible_contour.png  used on input line 111.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
-<../figures/Permanent Images/Flowchart.png, id=274, 191.71625pt x 296.60812pt>
+<../figures/Permanent Images/Flowchart.png, id=279, 191.71625pt x 296.60812pt>
 File: ../figures/Permanent Images/Flowchart.png Graphic file (type png)
 <use ../figures/Permanent Images/Flowchart.png>
-Package pdftex.def Info: ../figures/Permanent Images/Flowchart.png  used on input line 133.
+Package pdftex.def Info: ../figures/Permanent Images/Flowchart.png  used on input line 135.
 (pdftex.def)             Requested size: 222.73979pt x 344.62686pt.
  [3 <../figures/KBF/KBF Feasible_contour.png>] [4 <../figures/Permanent Images/Flowchart.png>] [5]
-<../figures/Permanent Images/Fitness_Evolution_Crossover.png, id=323, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/Fitness_Evolution_Crossover.png, id=328, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/Fitness_Evolution_Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/Fitness_Evolution_Crossover.png>
-Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Crossover.png  used on input line 233.
+Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Crossover.png  used on input line 235.
 (pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
-<../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png, id=324, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png, id=329, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png>
-Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png  used on input line 238.
+Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png  used on input line 240.
 (pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
  [6 <../figures/Permanent Images/Fitness_Evolution_Crossover.png> <../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png>]
-Underfull \hbox (badness 5064) in paragraph at lines 259--260
+Underfull \hbox (badness 5064) in paragraph at lines 261--262
 []\OT1/bch/m/n/10 Specifically, choices for the mu-ta-tion rate and
  []
 
-<../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png, id=340, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png, id=345, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png>
-Package pdftex.def Info: ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png  used on input line 270.
+Package pdftex.def Info: ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png  used on input line 272.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
-<../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png, id=341, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png, id=346, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png>
-Package pdftex.def Info: ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png  used on input line 275.
+Package pdftex.def Info: ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png  used on input line 277.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
 [7 <../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png> <../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png>]
-<../figures/Permanent Images/0.1_0.65_Fitness.png, id=353, 462.528pt x 346.896pt>
+<../figures/Permanent Images/0.1_0.65_Fitness.png, id=359, 462.528pt x 346.896pt>
 File: ../figures/Permanent Images/0.1_0.65_Fitness.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Fitness.png>
-Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Fitness.png  used on input line 306.
+Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Fitness.png  used on input line 308.
 (pdftex.def)             Requested size: 217.89296pt x 163.42224pt.
-<../figures/Permanent Images/0.1_0.65_Population.png, id=354, 1445.4pt x 361.35pt>
+<../figures/Permanent Images/0.1_0.65_Population.png, id=360, 1445.4pt x 361.35pt>
 File: ../figures/Permanent Images/0.1_0.65_Population.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Population.png>
-Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population.png  used on input line 316.
+Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population.png  used on input line 318.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/Permanent Images/0.1_0.65_Population100.png, id=355, 1445.4pt x 361.35pt>
+<../figures/Permanent Images/0.1_0.65_Population100.png, id=361, 1445.4pt x 361.35pt>
 File: ../figures/Permanent Images/0.1_0.65_Population100.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Population100.png>
-Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population100.png  used on input line 322.
+Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population100.png  used on input line 324.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
  [8 <../figures/Permanent Images/0.1_0.65_Fitness.png> <../figures/Permanent Images/0.1_0.65_Population.png> <../figures/Permanent Images/0.1_0.65_Population100.png>] [9]
-<../figures/Permanent Images/Power_Progression.png, id=385, 505.89pt x 361.35pt>
+<../figures/Permanent Images/Power_Progression.png, id=390, 505.89pt x 361.35pt>
 File: ../figures/Permanent Images/Power_Progression.png Graphic file (type png)
 <use ../figures/Permanent Images/Power_Progression.png>
-Package pdftex.def Info: ../figures/Permanent Images/Power_Progression.png  used on input line 379.
+Package pdftex.def Info: ../figures/Permanent Images/Power_Progression.png  used on input line 381.
 (pdftex.def)             Requested size: 232.41867pt x 166.01349pt.
  [10 <../figures/Permanent Images/Power_Progression.png>]
-Overfull \hbox (18.95702pt too wide) detected at line 425
+Overfull \hbox (18.95702pt too wide) detected at line 427
 \OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = [] []
  []
 
-<../figures/Permanent Images/PT_Avg_Fitness_Evolution.png, id=413, 722.7pt x 578.16pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution.png, id=418, 722.7pt x 578.16pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png  used on input line 445.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png  used on input line 447.
 (pdftex.def)             Requested size: 232.41867pt x 185.93246pt.
-<../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png, id=414, 722.7pt x 578.16pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png, id=419, 722.7pt x 578.16pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png  used on input line 451.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png  used on input line 453.
 (pdftex.def)             Requested size: 232.41867pt x 185.93246pt.
 [11 <../figures/Permanent Images/PT_Avg_Fitness_Evolution.png> <../figures/Permanent Images/PT_Avg_Fitness_Evolution_Stoch.png>]
-<../figures/Permanent Images/0.01_1_Periodic_Fitness.png, id=435, 462.528pt x 346.896pt>
+<../figures/Permanent Images/0.01_1_Periodic_Fitness.png, id=440, 462.528pt x 346.896pt>
 File: ../figures/Permanent Images/0.01_1_Periodic_Fitness.png Graphic file (type png)
 <use ../figures/Permanent Images/0.01_1_Periodic_Fitness.png>
-Package pdftex.def Info: ../figures/Permanent Images/0.01_1_Periodic_Fitness.png  used on input line 488.
+Package pdftex.def Info: ../figures/Permanent Images/0.01_1_Periodic_Fitness.png  used on input line 490.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
  [12 <../figures/Permanent Images/0.01_1_Periodic_Fitness.png>]
-<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png, id=447, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png, id=452, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png  used on input line 510.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png  used on input line 512.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
-<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png, id=448, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png, id=453, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png  used on input line 516.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png  used on input line 518.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
-<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png, id=449, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png, id=454, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png  used on input line 529.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png  used on input line 531.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
-<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png, id=450, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png, id=455, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png  used on input line 535.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png  used on input line 537.
 (pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
-<../figures/Permanent Images/PT_Optimal_Tuning.png, id=451, 1589.94pt x 722.7pt>
+<../figures/Permanent Images/PT_Optimal_Tuning.png, id=456, 1589.94pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Optimal_Tuning.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Optimal_Tuning.png>
-Package pdftex.def Info: ../figures/Permanent Images/PT_Optimal_Tuning.png  used on input line 547.
+Package pdftex.def Info: ../figures/Permanent Images/PT_Optimal_Tuning.png  used on input line 549.
 (pdftex.def)             Requested size: 484.20988pt x 220.09785pt.
  [13 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>] [14 <../figures/Permanent Images/PT_Optimal_Tuning.png>]
-<../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png, id=476, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png, id=481, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png  used on input line 605.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png  used on input line 607.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
-<../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png, id=477, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png, id=482, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png  used on input line 610.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png  used on input line 612.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
 
-Overfull \hbox (5.6448pt too wide) in paragraph at lines 627--646
+Overfull \hbox (5.6448pt too wide) in paragraph at lines 629--648
  [] 
  []
 
 [15 <../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>]
-<../figures/Final Comparison/CGA vs PT Average Fitness.png, id=488, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Average Fitness.png, id=493, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Average Fitness.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Average Fitness.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness.png  used on input line 653.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness.png  used on input line 655.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
-<../figures/Final Comparison/CGA vs PT Minimum Fitness.png, id=489, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Minimum Fitness.png, id=494, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Minimum Fitness.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png  used on input line 658.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png  used on input line 660.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
  [16 <../figures/Final Comparison/CGA vs PT Average Fitness.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 []\OT1/bch/b/n/10 Limited Ex-plo-ration of Hy-per-pa-ram-e-ter
  []
 
-(/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl) [17]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=503, 1445.4pt x 361.35pt>
+[17] (./4M17_CW2_5730E.bbl) [18]
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=512, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 730.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 744.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=504, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=513, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 736.
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 750.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=507, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=516, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 768.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 782.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=508, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=517, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 774.
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 788.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
- [18 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=518, 1445.4pt x 361.35pt>
+ [19 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=528, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 826.
+Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 840.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
- [19 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=527, 1445.4pt x 361.35pt>
+ [20 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=536, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 834.
+Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 848.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
-) [20 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 880.
- [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1790.
+) [21 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 894.
+ [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1804.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2844.
- [51]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2844.
- (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2844.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2844.
+) [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2858.
+ [52]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2858.
+ (./4M17_CW2_5730E.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2858.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2858.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
-(rerunfilecheck)             Checksum: 170B9B402E359F356F0A35D22F407BFE;2518.
+(rerunfilecheck)             Checksum: 854911024A595F264E610D86AC71D24B;2565.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2844.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2858.
  ) 
 Here is how much of TeX's memory you used:
- 14792 strings out of 481239
- 226117 string characters out of 5920377
- 1020562 words of memory out of 5000000
- 27691 multiletter control sequences out of 15000+600000
+ 14795 strings out of 481239
+ 225434 string characters out of 5920377
+ 1020565 words of memory out of 5000000
+ 27692 multiletter control sequences out of 15000+600000
  562396 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,18n,46p,1027b,2047s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,18n,46p,1023b,2047s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{PT_TuningExperiments.py} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{CGA_TuningExperiments.py} has been referenced but does not exist, replaced by a fixed one
@@ -870,10 +870,10 @@ pdfTeX warning (dest): name{sec:CGA} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{sec:algorithms} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (51 pages, 3768623 bytes).
+Output written on 4M17_CW2_5730E.pdf (52 pages, 3772407 bytes).
 PDF statistics:
- 3122 PDF objects out of 3580 (max. 8388607)
- 2921 compressed objects within 30 object streams
- 2082 named destinations out of 2487 (max. 500000)
- 467 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3132 PDF objects out of 3580 (max. 8388607)
+ 2930 compressed objects within 30 object streams
+ 2084 named destinations out of 2487 (max. 500000)
+ 475 words of extra memory for PDF output out of 10000 (max. 10000000)
 
