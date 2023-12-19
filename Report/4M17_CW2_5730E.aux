@@ -137,15 +137,12 @@
 \newlabel{sub@fig:min_stochastic_heatmap}{{b}{13}{Minimum Fitness Values\relax }{figure.caption.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Heatmaps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values for the best (minimum) final fitness varied greatly upon repitition. Generally, performance was outmatched by periodic exchange, which was also more consistent and controllable.\relax }}{13}{figure.caption.12}\protected@file@percent }
 \newlabel{fig:heatmap_stochastic}{{12}{13}{Heatmaps of the final fitness values after 100 iterations for the PT algorithm using stochastic exchange. Here, the power term and exchange parameter were varied to assess their impact on performance. The values for the best (minimum) final fitness varied greatly upon repitition. Generally, performance was outmatched by periodic exchange, which was also more consistent and controllable.\relax }{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf  {x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.\relax }}{14}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:PToptimal_evo}{{13}{14}{Visualisation of the optimally-tuned PT algorithm. The first row illustrates the evolution of the solution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf {x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.\relax }{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Visualisation of the optimally-tuned PT algorithm. The first row illustrates its evolution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf  {x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.\relax }}{14}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:PToptimal_evo}{{13}{14}{Visualisation of the optimally-tuned PT algorithm. The first row illustrates its evolution with each iteration. The optimal solution is marked with a green circle. To enhance the understanding of the MCMC updating process, a specific solution within the final replica is highlighted in yellow. The second row displays the final solutions arranged for each replica, overlaid across the smoothened KBF, $f(\mathbf {x})^T$, to help visualise the theory of PT. Lower temperatures facilitate exploration, while higher temperatures encourage exploitation. However, exchange ensures that solutions at higher temperatures are also driven towards the global maxima.\relax }{figure.caption.13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Comparison}{14}{section.5}\protected@file@percent }
 \newlabel{sec:CGA_QEG_comparison}{{5}{14}{Comparison}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Trial Run}{14}{subsection.5.1}\protected@file@percent }
 \newlabel{sec:trial}{{5.1}{14}{Trial Run}{subsection.5.1}{}}
-\bibstyle{plain}
-\bibdata{refs}
-\bibcite{CALDERHEAD20094028}{1}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }}{15}{table.caption.14}\protected@file@percent }
 \newlabel{tab:trial_comparison}{{1}{15}{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }{table.caption.14}{}}
 \newlabel{fig:AVG_trial_fitness}{{14a}{15}{Average fitnesses.\relax }{figure.caption.15}{}}
@@ -155,6 +152,17 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405).\relax }}{15}{figure.caption.15}\protected@file@percent }
 \newlabel{fig:trial_fitness}{{14}{15}{Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405).\relax }{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Final Comparison}{15}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Final comparison between CGA and PT, after 10,000 iterations with 50 shared initialisations.\relax }}{16}{table.caption.16}\protected@file@percent }
+\newlabel{tab:final_comparison}{{2}{16}{Final comparison between CGA and PT, after 10,000 iterations with 50 shared initialisations.\relax }{table.caption.16}{}}
+\newlabel{fig:AVG_final_fitness}{{15a}{16}{Average fitnesses.\relax }{figure.caption.17}{}}
+\newlabel{sub@fig:AVG_final_fitness}{{a}{16}{Average fitnesses.\relax }{figure.caption.17}{}}
+\newlabel{fig:MIN_final_fitness}{{15b}{16}{Minimum fitnesses.\relax }{figure.caption.17}{}}
+\newlabel{sub@fig:MIN_final_fitness}{{b}{16}{Minimum fitnesses.\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using 50 shared initialisations.\relax }}{16}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:final_fitness}{{15}{16}{Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using 50 shared initialisations.\relax }{figure.caption.17}{}}
+\bibstyle{plain}
+\bibdata{refs}
+\bibcite{CALDERHEAD20094028}{1}
 \bibcite{Earl_2005}{2}
 \bibcite{ELBELTAGY1999639}{3}
 \bibcite{PGA}{4}
@@ -166,72 +174,73 @@
 \bibcite{parks2023geneticalgorithmsSA}{10}
 \bibcite{NT90-A34350}{11}
 \bibcite{salimans2017evolution}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{17}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Supplementary Results regarding CGA Tuning}{17}{subsection.6.1}\protected@file@percent }
-\newlabel{sec:CGA_tuning_results}{{6.1}{17}{Supplementary Results regarding CGA Tuning}{subsection.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }}{17}{table.caption.17}\protected@file@percent }
-\newlabel{tab:CGAexploration}{{2}{17}{Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }{table.caption.17}{}}
-\newlabel{fig:CGA_flowchart_proportional_crossover}{{15a}{17}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:CGA_flowchart_proportional_crossover}{{a}{17}{Mutation Procedure: Crossover\relax }{figure.caption.18}{}}
-\newlabel{fig:CGA_flowchart_proportional_Heuristic Crossover}{{15b}{17}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:CGA_flowchart_proportional_Heuristic Crossover}{{b}{17}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref  {sec:CGA_selection_mutation}.\relax }}{17}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:CGA_flowchart_proportional}{{15}{17}{Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.18}{}}
-\newlabel{fig:CGA_flowchart_SRS_crossover}{{16a}{18}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
-\newlabel{sub@fig:CGA_flowchart_SRS_crossover}{{a}{18}{Mutation Procedure: Crossover\relax }{figure.caption.19}{}}
-\newlabel{fig:CGA_flowchart_SRS_Heuristic Crossover}{{16b}{18}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
-\newlabel{sub@fig:CGA_flowchart_SRS_Heuristic Crossover}{{b}{18}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref  {sec:CGA_selection_mutation}.\relax }}{18}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:CGA_flowchart_SRS}{{16}{18}{Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Supplementary Results regarding PT Tuning}{18}{subsection.6.2}\protected@file@percent }
-\newlabel{sec:PT_tuning_results}{{6.2}{18}{Supplementary Results regarding PT Tuning}{subsection.6.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }}{18}{table.caption.20}\protected@file@percent }
-\newlabel{tab:exchange_results}{{3}{18}{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }{table.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{19}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:PeriodicApp}{{17}{19}{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{19}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:StochasticApp}{{18}{19}{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Code}{19}{section.7}\protected@file@percent }
-\newlabel{sec:code}{{7}{19}{Code}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}algorithms}{20}{subsection.7.1}\protected@file@percent }
-\newlabel{sec:algorithms}{{7.1}{20}{algorithms}{subsection.7.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}CGA}{20}{subsubsection.7.1.1}\protected@file@percent }
-\newlabel{sec:CGA}{{7.1.1}{20}{CGA}{subsubsection.7.1.1}{}}
-\newlabel{CGApy}{{1}{20}{CGA.py}{lstlisting.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}CGA.py}{20}{lstlisting.1}\protected@file@percent }
-\newlabel{mating_functionspy}{{2}{22}{mating\_functions.py}{lstlisting.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}mating\_functions.py}{22}{lstlisting.2}\protected@file@percent }
-\newlabel{selection_functionspy}{{3}{23}{selection\_functions.py}{lstlisting.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}selection\_functions.py}{23}{lstlisting.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}PT}{25}{subsubsection.7.1.2}\protected@file@percent }
-\newlabel{sec:PT}{{7.1.2}{25}{PT}{subsubsection.7.1.2}{}}
-\newlabel{PTpy}{{4}{25}{PT.py}{lstlisting.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}PT.py}{25}{lstlisting.4}\protected@file@percent }
-\newlabel{replica_exchange_functionspy}{{5}{29}{replica\_exchange\_functions.py}{lstlisting.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}replica\_exchange\_functions.py}{29}{lstlisting.5}\protected@file@percent }
-\newlabel{temp_prog_functionspy}{{6}{30}{temp\_prog\_functions.py}{lstlisting.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}temp\_prog\_functions.py}{30}{lstlisting.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}utils}{31}{subsection.7.2}\protected@file@percent }
-\newlabel{sec:utils}{{7.2}{31}{utils}{subsection.7.2}{}}
-\newlabel{helper_functionspy}{{7}{31}{helper\_functions.py}{lstlisting.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}helper\_functions.py}{31}{lstlisting.7}\protected@file@percent }
-\newlabel{plotting_functionspy}{{8}{33}{plotting\_functions.py}{lstlisting.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}plotting\_functions.py}{33}{lstlisting.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}functions}{35}{subsection.7.3}\protected@file@percent }
-\newlabel{sec:functions}{{7.3}{35}{functions}{subsection.7.3}{}}
-\newlabel{functionspy}{{9}{35}{functions.py}{lstlisting.9}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}functions.py}{35}{lstlisting.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Experiments}{36}{subsection.7.4}\protected@file@percent }
-\newlabel{sec:experiments}{{7.4}{36}{Experiments}{subsection.7.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}CGA\_TuningExperiments}{36}{subsubsection.7.4.1}\protected@file@percent }
-\newlabel{sec:CGA_TuningExperiments}{{7.4.1}{36}{CGA\_TuningExperiments}{subsubsection.7.4.1}{}}
-\newlabel{CGA_TuningExperimentspy}{{10}{36}{CGA\_TuningExperiments.py}{lstlisting.10}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}CGA\_TuningExperiments.py}{36}{lstlisting.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}PT\_TuningExperiments}{41}{subsubsection.7.4.2}\protected@file@percent }
-\newlabel{sec:PT_TuningExperiments}{{7.4.2}{41}{PT\_TuningExperiments}{subsubsection.7.4.2}{}}
-\newlabel{PT_TuningExperimentspy}{{11}{41}{PT\_TuningExperiments.py}{lstlisting.11}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}PT\_TuningExperiments.py}{41}{lstlisting.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.3}FinalComparison}{47}{subsubsection.7.4.3}\protected@file@percent }
-\newlabel{sec:FinalComparison}{{7.4.3}{47}{FinalComparison}{subsubsection.7.4.3}{}}
-\newlabel{FinalComparisonpy}{{12}{47}{FinalComparison.py}{lstlisting.12}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}FinalComparison.py}{47}{lstlisting.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations of this Study}{17}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{18}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Supplementary Results regarding CGA Tuning}{18}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:CGA_tuning_results}{{6.1}{18}{Supplementary Results regarding CGA Tuning}{subsection.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }}{18}{table.caption.19}\protected@file@percent }
+\newlabel{tab:CGAexploration}{{3}{18}{Raw results from an initial exploration of the selection method and mutation procedure hyperparameters within the CGA. Presented as the final fitness values of the CGA population after 10 and 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) individual within the population. Additionally, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.\relax }{table.caption.19}{}}
+\newlabel{fig:CGA_flowchart_proportional_crossover}{{16a}{18}{Mutation Procedure: Crossover\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:CGA_flowchart_proportional_crossover}{{a}{18}{Mutation Procedure: Crossover\relax }{figure.caption.20}{}}
+\newlabel{fig:CGA_flowchart_proportional_Heuristic Crossover}{{16b}{18}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:CGA_flowchart_proportional_Heuristic Crossover}{{b}{18}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref  {sec:CGA_selection_mutation}.\relax }}{18}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:CGA_flowchart_proportional}{{16}{18}{Evolution of the CGA population over 8 iterations using proportional selection. Proportional selection proved to be a somewhat effective selection method. However, it was not chosen over tournament selection as the primary selection method for the reasons outlined in Section \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.20}{}}
+\newlabel{fig:CGA_flowchart_SRS_crossover}{{17a}{19}{Mutation Procedure: Crossover\relax }{figure.caption.21}{}}
+\newlabel{sub@fig:CGA_flowchart_SRS_crossover}{{a}{19}{Mutation Procedure: Crossover\relax }{figure.caption.21}{}}
+\newlabel{fig:CGA_flowchart_SRS_Heuristic Crossover}{{17b}{19}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.21}{}}
+\newlabel{sub@fig:CGA_flowchart_SRS_Heuristic Crossover}{{b}{19}{Mutation Procedure: Heuristic Crossover\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref  {sec:CGA_selection_mutation}.\relax }}{19}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:CGA_flowchart_SRS}{{17}{19}{Evolution of the CGA population over 8 iterations using stochastic remainder selection without replacement (SRS). SRS proved to be the second most effective selection method, when compared to Proportional Selection and Tournament Selection, as discussed in \ref {sec:CGA_selection_mutation}.\relax }{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Supplementary Results regarding PT Tuning}{19}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:PT_tuning_results}{{6.2}{19}{Supplementary Results regarding PT Tuning}{subsection.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }}{19}{table.caption.22}\protected@file@percent }
+\newlabel{tab:exchange_results}{{4}{19}{Raw results from an initial exploration of the exchange procedure, exchange parameter, and power term hyperparameters within PT. Presented as the final fitness values of the PT solutions after 100 iterations. Here, minimum fitness refers to the fitness of the best (feasible) solution across all chains.\relax }{table.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{20}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:PeriodicApp}{{18}{20}{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{20}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:StochasticApp}{{19}{20}{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Code}{20}{section.7}\protected@file@percent }
+\newlabel{sec:code}{{7}{20}{Code}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}algorithms}{21}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:algorithms}{{7.1}{21}{algorithms}{subsection.7.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}CGA}{21}{subsubsection.7.1.1}\protected@file@percent }
+\newlabel{sec:CGA}{{7.1.1}{21}{CGA}{subsubsection.7.1.1}{}}
+\newlabel{CGApy}{{1}{21}{CGA.py}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}CGA.py}{21}{lstlisting.1}\protected@file@percent }
+\newlabel{mating_functionspy}{{2}{23}{mating\_functions.py}{lstlisting.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}mating\_functions.py}{23}{lstlisting.2}\protected@file@percent }
+\newlabel{selection_functionspy}{{3}{24}{selection\_functions.py}{lstlisting.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}selection\_functions.py}{24}{lstlisting.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}PT}{26}{subsubsection.7.1.2}\protected@file@percent }
+\newlabel{sec:PT}{{7.1.2}{26}{PT}{subsubsection.7.1.2}{}}
+\newlabel{PTpy}{{4}{26}{PT.py}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}PT.py}{26}{lstlisting.4}\protected@file@percent }
+\newlabel{replica_exchange_functionspy}{{5}{30}{replica\_exchange\_functions.py}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}replica\_exchange\_functions.py}{30}{lstlisting.5}\protected@file@percent }
+\newlabel{temp_prog_functionspy}{{6}{31}{temp\_prog\_functions.py}{lstlisting.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}temp\_prog\_functions.py}{31}{lstlisting.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}utils}{32}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:utils}{{7.2}{32}{utils}{subsection.7.2}{}}
+\newlabel{helper_functionspy}{{7}{32}{helper\_functions.py}{lstlisting.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}helper\_functions.py}{32}{lstlisting.7}\protected@file@percent }
+\newlabel{plotting_functionspy}{{8}{34}{plotting\_functions.py}{lstlisting.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}plotting\_functions.py}{34}{lstlisting.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}functions}{36}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:functions}{{7.3}{36}{functions}{subsection.7.3}{}}
+\newlabel{functionspy}{{9}{36}{functions.py}{lstlisting.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}functions.py}{36}{lstlisting.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Experiments}{37}{subsection.7.4}\protected@file@percent }
+\newlabel{sec:experiments}{{7.4}{37}{Experiments}{subsection.7.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}CGA\_TuningExperiments}{37}{subsubsection.7.4.1}\protected@file@percent }
+\newlabel{sec:CGA_TuningExperiments}{{7.4.1}{37}{CGA\_TuningExperiments}{subsubsection.7.4.1}{}}
+\newlabel{CGA_TuningExperimentspy}{{10}{37}{CGA\_TuningExperiments.py}{lstlisting.10}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}CGA\_TuningExperiments.py}{37}{lstlisting.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}PT\_TuningExperiments}{42}{subsubsection.7.4.2}\protected@file@percent }
+\newlabel{sec:PT_TuningExperiments}{{7.4.2}{42}{PT\_TuningExperiments}{subsubsection.7.4.2}{}}
+\newlabel{PT_TuningExperimentspy}{{11}{42}{PT\_TuningExperiments.py}{lstlisting.11}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}PT\_TuningExperiments.py}{42}{lstlisting.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.3}FinalComparison}{48}{subsubsection.7.4.3}\protected@file@percent }
+\newlabel{sec:FinalComparison}{{7.4.3}{48}{FinalComparison}{subsubsection.7.4.3}{}}
+\newlabel{FinalComparisonpy}{{12}{48}{FinalComparison.py}{lstlisting.12}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}FinalComparison.py}{48}{lstlisting.12}\protected@file@percent }

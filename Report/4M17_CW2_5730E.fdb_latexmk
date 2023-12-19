@@ -1,14 +1,16 @@
 # Fdb version 3
-["bibtex 4M17_CW2_5730E"] 1702980259 "4M17_CW2_5730E.aux" "4M17_CW2_5730E.bbl" "4M17_CW2_5730E" 1702981922
+["bibtex 4M17_CW2_5730E"] 1702988522 "4M17_CW2_5730E.aux" "4M17_CW2_5730E.bbl" "4M17_CW2_5730E" 1702988526
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "4M17_CW2_5730E.aux" 1702981922 30131 9d4c1155aa8d37ea7f0a217690fb8fc1 "pdflatex"
+  "4M17_CW2_5730E.aux" 1702988526 31410 5a231690925793305d1497338b9cc410 "pdflatex"
   "refs.bib" 1702646664 5964 e362aeb681fe2a09d3433e49e6313a58 ""
   (generated)
-  "4M17_CW2_5730E.blg"
   "4M17_CW2_5730E.bbl"
-["pdflatex"] 1702981918 "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf" "4M17_CW2_5730E" 1702981922
+  "4M17_CW2_5730E.blg"
+["pdflatex"] 1702988522 "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf" "4M17_CW2_5730E" 1702988526
   "../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png" 1702957291 181245 65729aec185de5002c857c30c1d53e68 ""
+  "../figures/Final Comparison/CGA vs PT Average Fitness.png" 1702981444 170006 c38aeb894d6b9247a3d8354d3a283947 ""
   "../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png" 1702957295 130063 701f06f2d8a296f1c940d8210ed7df87 ""
+  "../figures/Final Comparison/CGA vs PT Minimum Fitness.png" 1702981444 159088 9caa2a26e83f45e82a52bb2efb53bc93 ""
   "../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png" 1702730545 280755 7394f46f06d85ba855741dde1bdf38a9 ""
   "../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png" 1702730545 288537 e06cb9f2d07a9c92e1fbd0f069bdf32e ""
   "../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png" 1702826558 225137 4fb66a36adbfd58b9c27183e9a1f87fd ""
@@ -36,8 +38,8 @@
   "../figures/Permanent Images/PT_Optimal_Tuning.png" 1702727069 659443 0a797f3e3e9649f1c23a70e0711c8731 ""
   "../figures/Permanent Images/Power_Progression.png" 1702613205 65483 4e7edfa4e417f76038a04ba7e71a1346 ""
   "/etc/texmf/web2c/texmf.cnf" 1636119352 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux" 1702981922 30131 9d4c1155aa8d37ea7f0a217690fb8fc1 ""
-  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" 1702981907 151891 bb4082dbfcfb4c533ad7b8d1d699149f ""
+  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux" 1702988526 31410 5a231690925793305d1497338b9cc410 ""
+  "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex" 1702988510 158709 1346aef927c1f1ecc0ecd4f3cda012ab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/bitstrea/charter/bchb7t.tfm" 1136768653 2732 006d846b4d54f9b40899c7c3eecd771a ""
@@ -174,15 +176,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1636123501 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685515051 8256356 f5ce953a699aeda97594baaceea93109 ""
-  "4M17_CW2_5730E.aux" 1702981922 30131 9d4c1155aa8d37ea7f0a217690fb8fc1 "pdflatex"
-  "4M17_CW2_5730E.bbl" 1702981911 2575 2678966951e225e2239d0383a89d6bf3 "bibtex 4M17_CW2_5730E"
-  "4M17_CW2_5730E.out" 1702981922 2443 da753f041ce48b18fb7c86c56551f663 "pdflatex"
-  "4M17_CW2_5730E.tex" 1702981907 151891 bb4082dbfcfb4c533ad7b8d1d699149f ""
+  "4M17_CW2_5730E.aux" 1702988526 31410 5a231690925793305d1497338b9cc410 "pdflatex"
+  "4M17_CW2_5730E.bbl" 1702988522 2575 2678966951e225e2239d0383a89d6bf3 "bibtex 4M17_CW2_5730E"
+  "4M17_CW2_5730E.out" 1702988526 2518 170b9b402e359f356f0a35d22f407bfe "pdflatex"
+  "4M17_CW2_5730E.tex" 1702988510 158709 1346aef927c1f1ecc0ecd4f3cda012ab ""
   "Coursework Coversheet.pdf" 1702124398 242735 a81f300bf82e6447ec8554cba254e122 ""
   (generated)
-  "4M17_CW2_5730E.aux"
   "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.log"
-  "4M17_CW2_5730E.out"
   "/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf"
   "4M17_CW2_5730E.pdf"
+  "4M17_CW2_5730E.out"
+  "4M17_CW2_5730E.aux"
   "4M17_CW2_5730E.log"
