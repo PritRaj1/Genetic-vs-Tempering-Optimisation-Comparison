@@ -55,7 +55,7 @@
 This report conducts a comparative analysis of two optimisation algorithms applied to minimise Keane's Bump Function, (KBF). In particular, the study focuses on a Continuous Genetic Algorithm, (CGA), as well as an alternative algorithm not covered in the lectures: Parallel Tempering, (PT). The initial sections involve fine-tuning the algorithms on the two-dimensional KBF to enhance their performance and investigate their respective capabilities. Following this, the algorithms are deployed on the eight-dimensional KBF, and a comprehensive performance evaluation is conducted to discern differences and similarities between them. 
 
 
-The conclusive results indicate that the Continuous Genetic Algorithm excelled in terms of computational efficiency and implementation simplicity, while the Parallel Tempering algorithm showcased superior effectiveness in exploring the solution space and consistently attaining satisfactory solutions. The complete codebase has been provided in Section \ref{sec:code}, as requested, located at the end of the document.
+The conclusive results indicate that the Continuous Genetic Algorithm excelled in terms of computational efficiency and implementation simplicity, while the Parallel Tempering algorithm showcased superior effectiveness in exploring the solution space and consistently attaining satisfactory solutions. The complete codebase was implemented independently for this study has been provided in Section \ref{sec:code}, as requested, located at the end of the document.
 \section{Keane's Bump Function}
 
 To compare the performances of the two algorithms, the Keane's Bump Function, (KBF), is used as the objective function. In particular, the n-dimensional constrained optimisation problem is defined as the maximisation of:
@@ -96,7 +96,7 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 
 \begin{itemize}
     \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation (\ref{eq:KBF_cost}). Otherwise, the function is continuous and differentiable everywhere.
-    \item The function is highly multi-modal. Its global maximum is located on the constaint boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region, all of which have quite similar amplitudes.
+    \item The function is highly multi-modal. Its global maximum is located on the boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region, all of which have quite similar amplitudes.
     \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in (\ref{eq:KBF_cost}), using the sums of squared, symmetric terms, $x_i^2$, $(\cos(x_i))^2$, and $(\cos(x_i))^4$. This results in some invariance regarding the order of the input variables. Overall, the peaks consistently manifest in pairs, yet there is a notable pattern wherein one peak always surpasses its counterpart in magnitude.
 \end{itemize}
 
@@ -117,7 +117,7 @@ These properties make the KBF a suitable candidate for the comparative analysis 
 \section{The Continuous Genetic Algorithm (CGA)}
 \label{sec:CGA}
 
-The discrete nature of the GA presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in (\ref{eq:KBF_cost})-(\ref{eq:KBF_constraints}).
+The discrete nature of the Genetic Agorithm, (GA), presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in (\ref{eq:KBF_cost})-(\ref{eq:KBF_constraints}).
 
 The CGA, a technique inspired by natural selection and genetics, presents itself as particularly well-suited to tackling challenges associated with multiple local optima. Furthermore, the algorithm lends itself well to parallelisation with low implementation effort, and offers ample opportunities for modifications and adaptations, supported by a rich body of literature on the subject.
 
@@ -210,7 +210,7 @@ An additional noteworthy observation is that the introduction of $\beta$ serves 
 
 The mutation procedure proposed by \cite{PGA} involves perturbing a gene within a chromosome by a normally distributed random number with a mean of zero and a standard deviation of $\sigma$. However, the effectiveness of this procedure is constrained by the selection of $\sigma$ as an additional hyperparameter, necessitating careful tuning. 
 
-Instead, a simpler approach was adopted, where genes within the population have an probability, given by the mutation rate, of being reset to a random value drawn from a uniform distribution within the confines of the state space, mirroring the initialisation procedure.
+Instead, a simpler approach was adopted, where genes within the population have a probability, given by the mutation rate, of being reset to a random value drawn from a uniform distribution within the confines of the state space, mirroring the initialisation procedure.
 
 \subsubsection{Evaluation}
 
@@ -245,7 +245,7 @@ Supplementary results regarding this initial exploration of hyperparameter tunin
     \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
     \label{fig:CGA_fitness_evo}
 \end{figure}
-\vspace{-1mm}
+\vspace{-2mm}
 However, more insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the rapid evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
 
 The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
@@ -258,7 +258,7 @@ This may be attributed to the heuristic crossover's capacity to generate offspri
 
 Having cemented the selection method and mutation procedue choices as tournament selection and heuristic crossover respectively, the CGA was further tuned to optimise its performance. 
 
-Specifically, choices for the mutation rate and crossover probability were explored. The results are presented in Figure \ref{fig:CGA_contour_rates}, which showcases two heat maps of the final fitness values after 100 iterations for the CGA using the chosen procedures. The plots are presented for both the average final fitness, as well as the final fitness of the best individual.
+Specifically, choices for the mutation rate and crossover probability were explored. The results are presented in Figure \ref{fig:CGA_contour_rates}, which showcases two heat maps of the final fitness values after 100 iterations for the CGA using the chosen procedures. The plots are presented for both the final average fitness, as well as the final fitness of the best individual.
 
 Notbaly, as depicted in Fig. \ref{fig:CGA_contour_tournament_Heuristic Crossover_AVG}, it is evident that an increased stochasticity of the CGA, indicated by higher crossover probabilities, leads to improved average final fitness. This aligns with expectations, as a broader and more randomly distributed population enhances the likelihood of individuals being situated in the proximity of local maxima. Consequently, a greater number of individuals within the population receive lower fitness values, a trend reflected in the observed average final fitness.
 
@@ -297,7 +297,7 @@ To reiterate and summarise this section of the report, the CGA is now constructe
     \item \textbf{Population Size:} 250
 \end{itemize}
 
-Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Note that the (minimum) fitness attributed to the best individual remains constant, because an individual within the population is stochastically initialised near the local maxima that the algorithm converges to. This is less likely to occur in the 8-dimensional comparison, where the minimum fitness is expected to evolve more noticeably,  given that the search space is significantly larger, and initialisation will be handled with more care.
+Fig. \ref{fig:CGA_fitness_evo_OPT} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. Note that the (minimum) fitness attributed to the best individual remains constant, because an individual within the population is stochastically initialised near the local maxima that the algorithm converges to. This is less likely to occur in the 8-dimensional comparison, where the minimum fitness is expected to evolve more noticeably,  given that the search space is significantly larger, and initialisation is handled with more care.
 
 Fig. \ref{fig:optimal_convergence} depicts the convergence of the population to the second largest maxima over 4 and 80 iterations using the optimally-tuned CGA. Note that the horizontally and vertically distributed outliers are attributed to crossover. Regrettably, global maximum convergence remained elusive even after 100 iterations. However, there does seem to be a discernible trend of the algorithm converging towards the second-largest maxima in Fig. \ref{fig:optimal_convergence}, offering a promising indication of progress. 
 
@@ -359,7 +359,7 @@ The approach can additionally be characterised as population-based, incorporatin
 \subsubsection{Initialisation}
 The chains are initialised within the range of 0 to 1, as advised by the guidance provided in \cite{NT90-A34350}, specifically under the SA-derived solution generation framework presented in Section \ref{sec:PT_update}.
 
-This range persists throughout the algorithm, until function evaluations are necessitated, at which point the \textit{scale\_up} lambda function is called to return the solution in the original state space.
+This range persists throughout the algorithm, until function evaluations are necessitated, at which point the \textit{scale\_up} lambda function of listing \ref{PTpy} is called to return the solution in the original state space.
 
 Mirroring the CGA implementation, solutions were initialised without consideration for their feasibility. Whilst initialising within the feasible solution space was observed to enhance performance, this approach was deliberately omitted to ensure fair comparisons between the PT and CGA. However, the performance was notably compromised, given that solutions initialised deep within the infeasible zones of the search space faced challenges in escaping under the Metropolis-Hastings acceptance criterion.
 
@@ -419,11 +419,11 @@ The probability of accepting a proposed solution is determined by the Metropolis
 \[
     \hspace{-2mm}P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \cdot T_i \cdot \tilde{d}}\right)\right]
 \]
-In the above formulation, the negation of the objective function: $-f(\mathbf{x})$, represents the fitness of a solution $\mathbf{x}$, $k$ is the Boltzmann constant, $T_i$ is the temperature of the $i$tj replica, and $\tilde{d}$ is euclidean normed distance between the old and new solutions.
+In the above formulation, the negation of the objective function: $-f(\mathbf{x})$, represents the fitness of a solution $\mathbf{x}$, $k$ is the Boltzmann constant, $T_i$ is the temperature of the $i$th replica, and $\tilde{d}$ is euclidean normed distance between the old and new solutions.
 
 However, when judging the swap of two solutions through a replica exchange, the acceptance probability is instead adapted to:
 \[
-    P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \tilde{d}} \left(\frac{1}{T_{\text{old}}} - \frac{1}{T_{\text{new}}}\right)\right)\right]
+    \hspace{-2mm}P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \tilde{d}} \left(\frac{1}{T_{\text{old}}} - \frac{1}{T_{\text{new}}}\right)\right)\right]
 \]
 in accordance with \cite{Neal_1996}. This imposes a harsher standard for the acceptance of a swap between replicas operating at vastly different temperatures, which is a desirable feature, especially when the power term, $p$, is set to a high value.
 
@@ -438,7 +438,7 @@ The total number of iterations is fixed at 100, which generally proved insuffici
 
 As with Section \ref{sec:CGA_selection_mutation}, the flexibility offered by PT was first explored using the parallelised experiments presented in listing \ref{PT_TuningExperimentspy}.
 
-Unlike the CGA table (Table \ref{tab:CGAexploration}), the preliminary exploratory findings presented for PT (Table \ref{tab:exchange_results}) imply a subtle correlation between the power term of the temperature schedule and the algorithm's performance. Final fitness values exhibit relative constancy, hinting at no potential connection. However, the variability in algorithm performance appears more pronounced when considering the approach to replica exchange.
+Unlike the CGA table, (Table \ref{tab:CGAexploration}), the preliminary exploratory findings presented for PT, (Table \ref{tab:exchange_results}), imply a subtle correlation between the power term of the temperature schedule and the algorithm's performance. Final fitness values exhibit relative constancy, hinting at no potential connection. However, the variability in algorithm performance appears more pronounced when considering the approach to replica exchange.
 
 \begin{figure}[H]
     \centering
@@ -560,7 +560,7 @@ After fine-tuning both algorithms for the 2-dimensional KBF, a comparative analy
 
 To uphold fairness and reproducibility, these initialisations were shared between both algorithms. They were generated using random number seeds within the \textit{generate\_initial} function, which is part of the \textit{helper\_functions.py} file \ref{helper_functionspy}. The implementation of this function was crucial for ensuring reproducible outcomes and guaranteeing that solutions were initialised away from the global maxima. This was achieved by imposing a constraint that the maximum function value of these initial collections never exceeded 0.3.
 
-Each run was limited to a maximum of 10,000 function evaluations, and convergence was identified as the point where the $l_2$-normed difference between the minimum fitness values of consecutive iterations stayed within a tolerance of 0.00025 for 1300 consecutive iterations. This was deemed appropriate after the trial run outlined in Section \ref{sec:trial}.
+Each run was limited to a maximum of 10,000 function evaluations, and convergence was identified as the point where the $l_2$-normed difference between the minimum fitness values of consecutive iterations stayed within a tolerance of 0.00025 for 1300 consecutive iterations. This was deemed appropriate after the trial run outlined in Section \ref{sec:trial}, in which the convergence points of both algorithms were correclty identified under this criterion.
 
 \subsection{Trial Run}
 \label{sec:trial}
@@ -578,6 +578,8 @@ While the CGA required less implementation effort, it consistently exhibited swi
 Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
 
 Although the PT algorithm's final solutions were only marginally superior to those of the CGA, it demanded significantly more CPU time to attain this outcome. Depending on the application and the consistency of this result, the CGA might be a more preferable algorithm. This observation is a valuable insight from the trial run, and emphasises the importance of considering expectations and identifying standard deviations in the final comparison.
+
+An additional notable observation is the pronounced and turbulent trajectory in the average fitness values of the CGA after convergence, as depicted in Figure \ref{fig:trial_fitness}. This phenomenon can be ascribed to the inherent stochasticity of crossover, leading to a consistent dispersion of the population across regions of the function characterised by low values. In contrast, the average fitness of the PT algorithms exhibits a gradual descent, attributed to the greater determinism of its update procedure under the Metropolis-Hastings acceptance criterion.
 
 \begin{table}[H]
     \centering
@@ -666,11 +668,11 @@ The results are presented in Table \ref{tab:final_comparison} and Fig. \ref{fig:
 \label{fig:final_fitness}
 \end{figure}
 
-The contrast in the mean final fitness values of the optimal solutions amounted to a mere 0.0186, corresponding to a marginal 2.65\% disparity. This slight difference implies that the CGA demonstrated only a modest advantage over the PT algorithm in terms of solution quality after 10,000 iterations. This outcome suggests that the 10,000 iterations was not sufficient for the PT algorithm to thoroughly explore the search space and converge to the global maxima. Although it is challenging to definitively assert that more iterations would have led to global convergence, the observed trend in Fig. \ref{fig:AVG_final_fitness} strongly suggests that such convergence was likely, and that the PT algorihtm would have eventually overtaken the CGA.
+The contrast in the mean final fitness values of the optimal solutions amounted to a mere 0.0186, corresponding to a marginal 2.65\% disparity. This slight difference implies that the CGA demonstrated only a modest advantage over the PT algorithm in terms of solution quality after 10,000 iterations. This outcome suggests that the 10,000 iterations was not sufficient for the PT algorithm to thoroughly explore the search space and converge to the global maxima. Although it is challenging to definitively assert that more iterations would have led to global convergence, the observed trend in Fig. \ref{fig:final_fitness} strongly suggests that such convergence was likely, and that the PT algorihtm would have eventually overtaken the CGA.
 
-However, the contrast in the standard deviations of their final minimum fitness values paints a different picture, showcasing a discrepancy of 0.00961, equivalent to 37.5\%. The PT algorithm demonstrated considerably greater stability in reaching its final optimal solution. Although its average fitness across the entire set of solutions displayed more variability, than the CGA this characteristic regarding its optimal solution could confer an advantage to the PT algorithm in specific applications where a slightly inferior objective function evaluation is acceptable in exchange for consistently reliable performance.
+However, the contrast in the standard deviations of their final minimum fitness values paints a different picture, showcasing a discrepancy of 0.00961, equivalent to 37.5\%. The PT algorithm demonstrated considerably greater stability in reaching its final optimal solution. Although its average fitness across the entire set of solutions displayed more variability than the CGA, this characteristic regarding its optimal solution could confer an advantage to the PT algorithm in specific applications where a slightly inferior optimal objective function evaluation is acceptable in exchange for consistently reliable performance.
 
-Furthermore, an additional noteworthy observation is that the PT algorithm demanded an additional 79.72 seconds to execute the entire 10,000 iterations, representing a substantial 61.2\% increase above the CGA. On average, it also necessitated 332 more iterations for convergence, translating to roughly 44.83 seconds more than the CGA, marking a noteworthy 67.0\% difference. This notable disparity can be ascribed to the inherently more exploratory approach of the PT algorithm, underscoring that the CGA is better suited for applications prioritising computational efficiency.
+Furthermore, an additional noteworthy observation is that the PT algorithm demanded an additional 79.72 seconds to execute the entire 10,000 iterations, representing a substantial 61.2\% increase above the CGA. On average, it also necessitated 332 more iterations for convergence, translating to roughly 44.83 seconds more than the CGA, marking a noteworthy 67.0\% difference. This notable disparity can be ascribed to the inherently more parallel and exploratory approach of the PT algorithm, underscoring that the CGA is better suited for applications prioritising computational efficiency.
 
 Another salient aspect to consider is that the CGA was comparatively simpler to implement than the PT algorithm. However, it is important to acknowledge the potential influence of personal bias, as Genetic Algorithms were covered in the lecture materials, while the PT algorithm was not. Simlarly, accessing literature for inspiration and guidance was markedly easier for the CGA implementation and its adaptions than it was for the PT algorithm. This discrepancy in accessibility presents an additional practical advantage in favor of the CGA.
 
@@ -681,7 +683,7 @@ Overall, the PT algorithm holds promise in consistently attaining the global opt
 While the preceding study was purposefully comprehensive and rigorous, there exist significant opportunities for enhancing the reliability and granularity of the results. The following points outline some notable limitations:
 
 \begin{itemize}
-    \item \textbf{Limited Exploration of Hyperparameter Space:} The hyperparameter space was explored to a limited extent. The selection of specific parameters for fine-tuning was partly driven by educational objectives and the desire to solidify understanding of the algorithms. The approach, while educational, was not exhaustive, leaving room for further refinement of key parameters like population size, replica count, and chain count. There is potential to achieve improved and expedited results through more comprehensive hyperparameter tuning.
+    \item \textbf{Limited Exploration of Hyperparameter Space:} The hyperparameter space was explored to a limited extent. The selection of specific parameters for fine-tuning was partly driven by educational objectives and the desire to solidify understanding of the algorithms. The approach, while educational, was not exhaustive, leaving room for further refinement of key parameters like population size, number of parents, tournament size, replica count, and chain count. There is potential to achieve improved and expedited results through more comprehensive hyperparameter tuning.
     \item \textbf{Dimensional Discrepancy:} Hyperparameter tuning was specifically carried out for the two-dimensional KBF. It is crucial to note that the optimal hyperparameters identified for the 2-dimensional KBF may not necessarily be optimal for its 8-dimensional counterpart. This discrepancy represents a limitation in the study, and there is a possibility that results could differ if hyperparameter tuning were conducted for the 8-dimensional KBF. However, the choice to focus on the 2-dimensional KBF for hyperparameter tuning was driven by considerations of computational efficiency and the facilitation of visualisation.
     \item \textbf{Parallelisation:} Despite temptation, parallelisation of the algorithms was deliberately avoided to maintain the reproducibility and comparability of the results. While parallelising the algorithms could have enhanced efficiency, particularly for the PT algorithm, known for its suitability for straightforward parallelisation, its implementation might introduce an unfair advantage and complicate the overall comparison.
     \item \textbf{Algorithmic Choices:} It is worth noting that additional efforts could be directed towards achieving diverse objectives through fine-tuning, beyond merely targeting lower minimum fitness values. Objectives such as faster convergence or reduced standard deviations could be explored. Moreover, there is room for further adaptation of the algorithms to enhance their performance. For instance, the CGA could be modified to include elitism, while the PT algorithm might benefit from modifications involving a more sophisticated temperature schedule.
@@ -691,10 +693,13 @@ While the preceding study was purposefully comprehensive and rigorous, there exi
     \item \textbf{Reproducibility:} The algorithms were implemented by an individual student and executed on a single machine. Despite efforts to design the code for reproducibility, there is a potential for variation in results if the algorithms were implemented by a different individual or executed on a different machine. To mitigate this limitation, future studies could involve running different algorithms on multiple machines and conducting a comparative analysis of the results.
 \end{itemize}
 \end{multicols}
+
+\newpage
+
 \section{Conclusions}
 \begin{itemize}
-    \item Two algorithms, namely the Continuous Genetic Algorithm (CGA) and Parallel Tempering (PT), were introduced and fine-tuned using the two-dimensional Keane's Bump Function. Subsequently, their performance was assessed in optimising the eight-dimensional Keane's Bump Function.
-    \item The optimal configuration for the CGA comprised a population size of 250, 62 parents at each mating step, tournament selection with a size of 62, a crossover probability of 0.65, and a mutation rate of 0.01. On the other hand, the optimal configuration for PT included 10 replicas exchanging solutions at each iteration, 25 chains, a power term of 1, and a uniform temperature schedule.
+    \item Two algorithms, namely the Continuous Genetic Algorithm (CGA) and Parallel Tempering (PT), were introduced and fine-tuned using the 2-dimensional Keane's Bump Function. Subsequently, their performances were comparatively assessed in optimising the 8-dimensional Keane's Bump Function.
+    \item The optimal configuration for the CGA comprised a population size of 250, 62 parents at each mating step, tournament selection with a size of 62, a crossover probability of 0.65, and a mutation rate of 0.1. On the other hand, the optimal configuration for PT included 10 replicas exchanging solutions at each iteration, 25 chains, and a uniform temperature schedule.
     \item The CGA greater computational efficiency, completing 10,000 iterations 79.72 seconds faster than the PT algorithm. Additionally, it required 332 fewer iterations to converge, equivalent to approximately 44.83 seconds less than the PT algorithm. However, the PT algorithm demonstrated enhanced stability in reaching its final optimal solution, boasting a standard deviation of 0.03044 compared to the CGA's 0.02083. Notably, the PT algorithm showcased a stronger inclination towards exploration, while the CGA displayed a more exploitative nature. Given more iterations, the PT algorithm was likely to surpass the CGA in discovering the global optima.
     \item The selection between the two algorithms depends on the particular application and the relative importance assigned to factors such as computational efficiency, stability, and solution quality.
     \item Limitations pertaining to the study's scope and implementation were recognised, and potential directions for future work were suggested.
