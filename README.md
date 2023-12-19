@@ -11,7 +11,7 @@ This project delves into the comparison between the performance of Parallel Temp
     <img src="figures/KBF/KBF_contour.png" alt="Contour Plot of Keane's Bump Function" width="400" height="300">
 </div>
 
-Navigating the optimisation challenges posed by the KBF, produced some interesting outcomes. The results of the investigation are presented in the accompanying report.
+Navigating the optimisation challenges posed by the KBF produced some interesting outcomes. The results of the investigation are presented in the accompanying report.
 
 ## Running the Code
 In a nutshell, the `CGA_TuningExperiments.py` file generates the figures presented in Section 3 of the report, while `PT_TuningExperiments.py` handles those for Section 4. The `FinalComparison.py` file is responsible for the results showcased in Section 5. Running any of these scripts will not only create the corresponding results but also store them in the figures folder.
