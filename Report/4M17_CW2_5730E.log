@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  18 DEC 2023 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  19 DEC 2023 05:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -456,8 +456,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count301
 \l__pdf_internal_box=\box101
-)
-No file 4M17_CW2_5730E.aux.
+) (./4M17_CW2_5730E.aux)
 \openout1 = `4M17_CW2_5730E.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -477,7 +476,7 @@ LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Trying to load font information for OT1+bch on input line 49.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1bch.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 )
 \AtBeginShipoutBox=\box102
@@ -508,15 +507,15 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
+* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=484.20988pt
+* \textheight=664.88487pt
+* \oddsidemargin=-7.22743pt
+* \evensidemargin=-7.22743pt
+* \topmargin=-44.22743pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -559,6 +558,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
+ (./4M17_CW2_5730E.out) (./4M17_CW2_5730E.out)
 \@outlinefile=\write3
 \openout3 = `4M17_CW2_5730E.out'.
 
@@ -582,498 +582,203 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Reference `fig:KBF_2D' on page 1 undefined on input line 73.
-
-<../figures/KBF/KBF_surf.png, id=4, 462.528pt x 346.896pt>
+<../figures/KBF/KBF_surf.png, id=105, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF_surf.png Graphic file (type png)
 <use ../figures/KBF/KBF_surf.png>
 Package pdftex.def Info: ../figures/KBF/KBF_surf.png  used on input line 79.
-(pdftex.def)             Requested size: 230.18253pt x 172.63771pt.
-<../figures/KBF/KBF_contour.png, id=6, 462.528pt x 346.896pt>
+(pdftex.def)             Requested size: 237.2655pt x 177.95207pt.
+<../figures/KBF/KBF_contour.png, id=107, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF_contour.png>
 Package pdftex.def Info: ../figures/KBF/KBF_contour.png  used on input line 85.
-(pdftex.def)             Requested size: 216.09045pt x 162.06718pt.
+(pdftex.def)             Requested size: 222.73979pt x 167.05867pt.
 LaTeX Font Info:    Trying to load font information for TS1+bch on input line 95.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
-)
-
-LaTeX Warning: Reference `eq:KBF_cost' on page 1 undefined on input line 95.
-
-
-LaTeX Warning: Reference `eq:KBF_cost' on page 1 undefined on input line 97.
-
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/KBF/KBF_surf.png> <../figures/KBF/KBF_contour.png>]
-
-LaTeX Warning: Reference `eq:KBF_constraints' on page 2 undefined on input line 102.
-
-
-LaTeX Warning: Reference `fig:KBF_Feasible' on page 2 undefined on input line 102.
-
-
-LaTeX Warning: Citation `ELBELTAGY1999639' on page 2 undefined on input line 104.
-
-<../figures/KBF/KBF Feasible_contour.png, id=28, 462.528pt x 346.896pt>
+<../figures/KBF/KBF Feasible_contour.png, id=132, 462.528pt x 346.896pt>
 File: ../figures/KBF/KBF Feasible_contour.png Graphic file (type png)
 <use ../figures/KBF/KBF Feasible_contour.png>
 Package pdftex.def Info: ../figures/KBF/KBF Feasible_contour.png  used on input line 108.
-(pdftex.def)             Requested size: 225.4804pt x 169.11243pt.
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 2 undefined on input line 117.
-
-
-LaTeX Warning: Reference `eq:KBF_cost' on page 2 undefined on input line 117.
-
-
-LaTeX Warning: Reference `eq:KBF_constraints' on page 2 undefined on input line 117.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 2 undefined on input line 121.
-
-
-LaTeX Warning: Citation `PGA' on page 2 undefined on input line 121.
-
-
-LaTeX Warning: Citation `salimans2017evolution' on page 2 undefined on input line 123.
-
-
-LaTeX Warning: Reference `sec:CGA_implementation' on page 2 undefined on input line 123.
-
-
-LaTeX Warning: Citation `10.1007/BFb0029787' on page 2 undefined on input line 123.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 2 undefined on input line 128.
-
-<../figures/Permanent Images/Flowchart.png, id=29, 191.71625pt x 296.60812pt>
+(pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
+<../figures/Permanent Images/Flowchart.png, id=142, 191.71625pt x 296.60812pt>
 File: ../figures/Permanent Images/Flowchart.png Graphic file (type png)
 <use ../figures/Permanent Images/Flowchart.png>
 Package pdftex.def Info: ../figures/Permanent Images/Flowchart.png  used on input line 132.
-(pdftex.def)             Requested size: 225.4804pt x 348.8676pt.
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 2 undefined on input line 134.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 2 undefined on input line 134.
-
-[2 <../figures/KBF/KBF Feasible_contour.png>]
-
-LaTeX Warning: Reference `fig:GAprocess' on page 3 undefined on input line 138.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 3 undefined on input line 138.
-
-
-LaTeX Warning: Reference `sec:CGA_parent_selection' on page 3 undefined on input line 140.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 3 undefined on input line 151.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 3 undefined on input line 159.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 3 undefined on input line 161.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 3 undefined on input line 167.
-
-
-LaTeX Warning: Citation `Miller1995GeneticAT' on page 3 undefined on input line 169.
-
-[3 <../figures/Permanent Images/Flowchart.png>]
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 4 undefined on input line 174.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 4 undefined on input line 180.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 4 undefined on input line 188.
-
-
-LaTeX Warning: Citation `Michalewicz_2011' on page 4 undefined on input line 192.
-
-
-LaTeX Warning: Citation `Michalewicz_2011' on page 4 undefined on input line 198.
-
-
-LaTeX Warning: Citation `salimans2017evolution' on page 4 undefined on input line 204.
-
-
-LaTeX Warning: Citation `10.1007/BFb0029787' on page 4 undefined on input line 204.
-
-
-LaTeX Warning: Citation `PGA' on page 4 undefined on input line 208.
-
-[4]
-
-LaTeX Warning: Reference `eq:KBF_cost' on page 5 undefined on input line 214.
-
-
-LaTeX Warning: Reference `sec:CGA_QEG_comparison' on page 5 undefined on input line 218.
-
-
-LaTeX Warning: Reference `sec:CGA_tuning_results' on page 5 undefined on input line 229.
-
-
-LaTeX Warning: Reference `tab:CGAexploration' on page 5 undefined on input line 229.
-
-<../figures/Permanent Images/Fitness_Evolution_Crossover.png, id=52, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 232.41867pt x 359.60297pt.
+ [2 <../figures/KBF/KBF Feasible_contour.png>] [3 <../figures/Permanent Images/Flowchart.png>] [4]
+<../figures/Permanent Images/Fitness_Evolution_Crossover.png, id=190, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/Fitness_Evolution_Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/Fitness_Evolution_Crossover.png>
 Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Crossover.png  used on input line 234.
-(pdftex.def)             Requested size: 206.69334pt x 147.63615pt.
-<../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png, id=53, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 213.05353pt x 152.17949pt.
+<../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png, id=191, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png  used on input line 239.
-(pdftex.def)             Requested size: 206.69334pt x 147.63615pt.
+(pdftex.def)             Requested size: 213.05353pt x 152.17949pt.
+ [5 <../figures/Permanent Images/Fitness_Evolution_Crossover.png> <../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png>]
+Underfull \hbox (badness 5064) in paragraph at lines 260--261
+[]\OT1/bch/m/n/10 Specifically, choices for the mu-ta-tion rate and
+ []
 
-LaTeX Warning: Reference `fig:CGA_fitness_evo' on page 5 undefined on input line 248.
-
-
-LaTeX Warning: Citation `parks2023geneticalgorithms' on page 5 undefined on input line 248.
-
-[5 <../figures/Permanent Images/Fitness_Evolution_Crossover.png> <../figures/Permanent Images/Fitness_Evolution_Heuristic Crossover.png>]
-
-LaTeX Warning: Reference `fig:CGA_fitness_evo_Heuristic Crossover' on page 6 undefined on input line 254.
-
-
-LaTeX Warning: Reference `fig:CGA_contour_rates' on page 6 undefined on input line 260.
-
-
-LaTeX Warning: Reference `fig:CGA_contour_tournament_Heuristic Crossover_AVG' on page 6 undefined on input line 262.
-
-
-LaTeX Warning: Reference `fig:CGA_contour_tournament_Heuristic Crossover_MIN' on page 6 undefined on input line 264.
-
-<../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png, id=65, 1011.78pt x 722.7pt>
+<../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png, id=206, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png  used on input line 269.
-(pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png, id=66, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
+<../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png, id=207, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png Graphic file (type png)
 <use ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png>
 Package pdftex.def Info: ../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png  used on input line 274.
-(pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
+(pdftex.def)             Requested size: 232.41867pt x 166.00798pt.
 [6 <../figures/Permanent Images/AVGContour_Tournament_Heuristic Crossover.png> <../figures/Permanent Images/MINContour_Tournament_Heuristic Crossover.png>]
-
-LaTeX Warning: Reference `fig:CGA_fitness_evo_OPT' on page 7 undefined on input line 297.
-
-
-LaTeX Warning: Reference `fig:optimal_convergence' on page 7 undefined on input line 299.
-
-
-LaTeX Warning: Reference `fig:optimal_convergence' on page 7 undefined on input line 299.
-
-<../figures/Permanent Images/0.1_0.65_Fitness.png, id=74, 462.528pt x 346.896pt>
+<../figures/Permanent Images/0.1_0.65_Fitness.png, id=218, 462.528pt x 346.896pt>
 File: ../figures/Permanent Images/0.1_0.65_Fitness.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Fitness.png>
 Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Fitness.png  used on input line 305.
-(pdftex.def)             Requested size: 225.4804pt x 169.11243pt.
-<../figures/Permanent Images/0.1_0.65_Population.png, id=75, 1445.4pt x 361.35pt>
+(pdftex.def)             Requested size: 217.89296pt x 163.42224pt.
+<../figures/Permanent Images/0.1_0.65_Population.png, id=219, 1445.4pt x 361.35pt>
 File: ../figures/Permanent Images/0.1_0.65_Population.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Population.png>
 Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population.png  used on input line 315.
-(pdftex.def)             Requested size: 422.77664pt x 105.69307pt.
-<../figures/Permanent Images/0.1_0.65_Population100.png, id=76, 1445.4pt x 361.35pt>
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+<../figures/Permanent Images/0.1_0.65_Population100.png, id=220, 1445.4pt x 361.35pt>
 File: ../figures/Permanent Images/0.1_0.65_Population100.png Graphic file (type png)
 <use ../figures/Permanent Images/0.1_0.65_Population100.png>
 Package pdftex.def Info: ../figures/Permanent Images/0.1_0.65_Population100.png  used on input line 321.
-(pdftex.def)             Requested size: 422.77664pt x 105.69307pt.
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 7 undefined on input line 326.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 7 undefined on input line 326.
-
-[7 <../figures/Permanent Images/0.1_0.65_Fitness.png>]
-
-LaTeX Warning: Citation `Earl_2005' on page 8 undefined on input line 337.
-
-
-LaTeX Warning: Citation `Earl_2005' on page 8 undefined on input line 349.
-
-
-LaTeX Warning: Reference `sec:PTtuning' on page 8 undefined on input line 349.
-
-[8 <../figures/Permanent Images/0.1_0.65_Population.png> <../figures/Permanent Images/0.1_0.65_Population100.png>]
-
-LaTeX Warning: Citation `parks2023geneticalgorithmsSA' on page 9 undefined on input line 351.
-
-
-LaTeX Warning: Citation `NT90-A34350' on page 9 undefined on input line 356.
-
-
-LaTeX Warning: Reference `sec:PT_update' on page 9 undefined on input line 356.
-
-
-LaTeX Warning: Citation `Earl_2005' on page 9 undefined on input line 364.
-
-
-LaTeX Warning: Citation `CALDERHEAD20094028' on page 9 undefined on input line 364.
-
-
-LaTeX Warning: Reference `fig:PTtemp' on page 9 undefined on input line 373.
-
-<../figures/Permanent Images/Power_Progression.png, id=92, 505.89pt x 361.35pt>
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+ [7 <../figures/Permanent Images/0.1_0.65_Fitness.png> <../figures/Permanent Images/0.1_0.65_Population.png> <../figures/Permanent Images/0.1_0.65_Population100.png>] [8]
+<../figures/Permanent Images/Power_Progression.png, id=251, 505.89pt x 361.35pt>
 File: ../figures/Permanent Images/Power_Progression.png Graphic file (type png)
 <use ../figures/Permanent Images/Power_Progression.png>
 Package pdftex.def Info: ../figures/Permanent Images/Power_Progression.png  used on input line 377.
-(pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-
-LaTeX Warning: Reference `eq:PTtemp' on page 9 undefined on input line 379.
-
-
-LaTeX Warning: Reference `eq:PTtemp' on page 9 undefined on input line 379.
-
-
-LaTeX Warning: Reference `sec:PTtuning' on page 9 undefined on input line 383.
-
-
-LaTeX Warning: Citation `Earl_2005' on page 9 undefined on input line 383.
-
-
-LaTeX Warning: Citation `Earl_2005' on page 9 undefined on input line 387.
-
-[9 <../figures/Permanent Images/Power_Progression.png>]
-
-LaTeX Warning: Reference `sec:PTtuning' on page 10 undefined on input line 391.
-
-
-LaTeX Warning: Reference `sec:PT_MA' on page 10 undefined on input line 393.
-
-
-LaTeX Warning: Citation `NT90-A34350' on page 10 undefined on input line 398.
-
-
-LaTeX Warning: Citation `NT90-A34350' on page 10 undefined on input line 409.
-
-
-LaTeX Warning: Reference `eq:PTupdate' on page 10 undefined on input line 414.
-
-
-LaTeX Warning: Citation `NT90-A34350' on page 10 undefined on input line 414.
-
-
-LaTeX Warning: Citation `Neal_1996' on page 10 undefined on input line 414.
-
-
-LaTeX Warning: Reference `eq:PTupdate' on page 10 undefined on input line 414.
-
-
-Overfull \hbox (26.18445pt too wide) detected at line 423
+(pdftex.def)             Requested size: 232.41867pt x 166.01349pt.
+ [9 <../figures/Permanent Images/Power_Progression.png>]
+Overfull \hbox (18.95702pt too wide) detected at line 423
 \OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = [] []
  []
 
-
-LaTeX Warning: Citation `Neal_1996' on page 10 undefined on input line 424.
-
-
-LaTeX Warning: Reference `sec:CGA_QEG_comparison' on page 10 undefined on input line 428.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 10 undefined on input line 435.
-
-
-LaTeX Warning: Reference `tab:CGAexploration' on page 10 undefined on input line 437.
-
-
-LaTeX Warning: Reference `tab:exchange_results' on page 10 undefined on input line 437.
-
-[10]
-<../figures/Permanent Images/PT_Avg_Fitness_Evolution.png, id=112, 722.7pt x 578.16pt>
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution.png, id=278, 722.7pt x 578.16pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution.png  used on input line 443.
-(pdftex.def)             Requested size: 225.4804pt x 180.38342pt.
-<../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png, id=113, 722.7pt x 578.16pt>
+(pdftex.def)             Requested size: 232.41867pt x 185.93246pt.
+<../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png, id=279, 722.7pt x 578.16pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Evolution_stoch.png  used on input line 449.
-(pdftex.def)             Requested size: 225.4804pt x 180.38342pt.
-
-
-LaTeX Warning: Reference `fig:fitness_PT' on page 11 undefined on input line 458.
-
-
-LaTeX Warning: Reference `fig:periodic_fitness' on page 11 undefined on input line 462.
-
-
-LaTeX Warning: Reference `fig:heatmap_periodic' on page 11 undefined on input line 464.
-
-
-LaTeX Warning: Reference `fig:heatmap_stochastic' on page 11 undefined on input line 464.
-
-
-LaTeX Warning: Reference `fig:min_stochastic_heatmap' on page 11 undefined on input line 464.
-
-
-LaTeX Warning: Reference `fig:min_periodic_heatmap' on page 11 undefined on input line 464.
-
-
-LaTeX Warning: Reference `fig:min_periodic_heatmap' on page 11 undefined on input line 466.
-
-
-LaTeX Warning: Reference `fig:PTtemp' on page 11 undefined on input line 466.
-
-
-LaTeX Warning: Reference `fig:min_periodic_heatmap' on page 11 undefined on input line 468.
-
-[11 <../figures/Permanent Images/PT_Avg_Fitness_Evolution.png> <../figures/Permanent Images/PT_Avg_Fitness_Evolution_Stoch.png>]
-<../figures/Permanent Images/0.01_1_Periodic_Fitness.png, id=122, 462.528pt x 346.896pt>
+(pdftex.def)             Requested size: 232.41867pt x 185.93246pt.
+[10 <../figures/Permanent Images/PT_Avg_Fitness_Evolution.png> <../figures/Permanent Images/PT_Avg_Fitness_Evolution_Stoch.png>]
+<../figures/Permanent Images/0.01_1_Periodic_Fitness.png, id=297, 462.528pt x 346.896pt>
 File: ../figures/Permanent Images/0.01_1_Periodic_Fitness.png Graphic file (type png)
 <use ../figures/Permanent Images/0.01_1_Periodic_Fitness.png>
 Package pdftex.def Info: ../figures/Permanent Images/0.01_1_Periodic_Fitness.png  used on input line 472.
-(pdftex.def)             Requested size: 225.4804pt x 169.11243pt.
-
-
-LaTeX Warning: Reference `fig:PToptimal_fitness' on page 12 undefined on input line 488.
-
-
-LaTeX Warning: Reference `fig:PToptimal_evo' on page 12 undefined on input line 490.
-
-
-LaTeX Warning: Reference `fig:PToptimal_evo' on page 12 undefined on input line 494.
-
-<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png, id=123, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
+ [11 <../figures/Permanent Images/0.01_1_Periodic_Fitness.png>]
+<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png, id=311, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png  used on input line 506.
-(pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png, id=124, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
+<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png, id=312, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png  used on input line 512.
-(pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-
-Overfull \vbox (319.57124pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (319.57124pt too high) has occurred while \output is active []
-
- [12 <../figures/Permanent Images/0.01_1_Periodic_Fitness.png> <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png>]
-<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png, id=134, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
+<../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png, id=313, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png  used on input line 525.
-(pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png, id=135, 1011.78pt x 722.7pt>
+(pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
+<../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png, id=314, 1011.78pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png  used on input line 531.
-(pdftex.def)             Requested size: 216.09045pt x 154.35191pt.
-<../figures/Permanent Images/PT_Optimal_Tuning.png, id=136, 1589.94pt x 722.7pt>
+(pdftex.def)             Requested size: 222.73979pt x 159.09373pt.
+<../figures/Permanent Images/PT_Optimal_Tuning.png, id=315, 1589.94pt x 722.7pt>
 File: ../figures/Permanent Images/PT_Optimal_Tuning.png Graphic file (type png)
 <use ../figures/Permanent Images/PT_Optimal_Tuning.png>
 Package pdftex.def Info: ../figures/Permanent Images/PT_Optimal_Tuning.png  used on input line 543.
-(pdftex.def)             Requested size: 516.73338pt x 234.88574pt.
+(pdftex.def)             Requested size: 532.63382pt x 242.10875pt.
 
-Overfull \hbox (46.97836pt too wide) in paragraph at lines 543--545
+Overfull \hbox (48.42393pt too wide) in paragraph at lines 543--545
  [][] 
  []
 
-[13 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>]
-Overfull \hbox (17.78828pt too wide) in paragraph at lines 554--555
-\OT1/bch/m/n/10 gen-er-ated us-ing ran-dom num-ber seeds within the \OT1/bch/m/it/10 gen-er-ate[]initial \OT1/bch/m/n/10 func-tion, which is part of the \OT1/bch/m/it/10 helper[]functions.py
+[12 <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Periodic.png> <../figures/Permanent Images/PT_Avg_Fitness_Heatmap_Stochastic.png> <../figures/Permanent Images/PT_Min_Fitness_Heatmap_Stochastic.png>]
+Overfull \hbox (341.5894pt too wide) in paragraph at lines 566--574
+ [][] 
  []
 
-/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex:557: Missing $ inserted.
-<inserted text> 
-                $
-l.557 \subsection
-                 {Trial}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-(./4M17_CW2_5730E.bbl [14 <../figures/Permanent Images/PT_Optimal_Tuning.png>]) [15]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=170, 1445.4pt x 361.35pt>
+<../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png, id=325, 462.528pt x 346.896pt>
+File: ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png Graphic file (type png)
+<use ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png>
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png  used on input line 581.
+(pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
+<../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png, id=326, 462.528pt x 346.896pt>
+File: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png Graphic file (type png)
+<use ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png  used on input line 586.
+(pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
+[13 <../figures/Permanent Images/PT_Optimal_Tuning.png>] (./4M17_CW2_5730E.bbl) [14 <../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>]
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=342, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 602.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=171, 1445.4pt x 361.35pt>
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 637.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=343, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 608.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 16 undefined on input line 613.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 16 undefined on input line 613.
-
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=172, 1445.4pt x 361.35pt>
+Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 643.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=346, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 640.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=173, 1445.4pt x 361.35pt>
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 675.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=347, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
-Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 646.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 16 undefined on input line 651.
-
-
-LaTeX Warning: Reference `sec:CGA_selection_mutation' on page 16 undefined on input line 651.
-
-[16 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=185, 1445.4pt x 361.35pt>
+Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 681.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+ [15 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=357, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 698.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
- [17 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=195, 1445.4pt x 361.35pt>
+Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 733.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+ [16 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=365, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>
-Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 706.
-(pdftex.def)             Requested size: 399.29463pt x 99.82092pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 712.
- [18 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 712.
+Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 741.
+(pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 747.
+ [17 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 747.
  (./4M17_CW2_5730E.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 712.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 712.
-
-
-Package rerunfilecheck Warning: File `4M17_CW2_5730E.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `4M17_CW2_5730E.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  0E16246D47A34DDE6F956A71D8DE906B;1731.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 712.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 747.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 747.
+Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
+(rerunfilecheck)             Checksum: 0E16246D47A34DDE6F956A71D8DE906B;1731.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 747.
  ) 
 Here is how much of TeX's memory you used:
- 11832 strings out of 481239
- 182458 string characters out of 5920377
- 459613 words of memory out of 5000000
- 26758 multiletter control sequences out of 15000+600000
+ 11884 strings out of 481239
+ 183943 string characters out of 5920377
+ 468285 words of memory out of 5000000
+ 26800 multiletter control sequences out of 15000+600000
  558194 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,15n,46p,1023b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,15n,46p,1023b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 4M17_CW2_5730E.pdf (18 pages, 2795721 bytes).
+Output written on 4M17_CW2_5730E.pdf (17 pages, 3054427 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 80 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 429 PDF objects out of 1000 (max. 8388607)
+ 335 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 
