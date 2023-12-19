@@ -93,14 +93,14 @@ The two-dimensional form of the function has been plotted in Figure \ref{fig:KBF
 \end{figure}
 
 \begin{itemize}
-    \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation \ref{eq:KBF_cost}. Otherwise, the function is continuous and differentiable everywhere.
+    \item The function is undefined at the origin, (0, 0). This is due to the division by zero in the denominator of Equation (\ref{eq:KBF_cost}). Otherwise, the function is continuous and differentiable everywhere.
     \item The function is highly multi-modal. Its global maximum is located on the constaint boundary $x_{n}=0$, where $x_n$ denotes the final variable in the n-dimensional space. However, there are many local maxima located inside the feasible region, all of which have quite similar amplitudes.
-    \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in \ref{eq:KBF_cost}, using the sums of squared, symmetric terms, $x_i^2$, $(\cos(x_i))^2$, and $(\cos(x_i))^4$. This results in some invariance regarding the order of the input variables. Overall, the peaks consistently manifest in pairs, yet there is a notable pattern wherein one peak always surpasses its counterpart in magnitude.
+    \item The function is nearly symmetric about the line $x_1=x_2$. This stems from its construction in (\ref{eq:KBF_cost}), using the sums of squared, symmetric terms, $x_i^2$, $(\cos(x_i))^2$, and $(\cos(x_i))^4$. This results in some invariance regarding the order of the input variables. Overall, the peaks consistently manifest in pairs, yet there is a notable pattern wherein one peak always surpasses its counterpart in magnitude.
 \end{itemize}
 
 Given the above properties, the KBF is a challenging function to optimise. The presence of multiple, similar-amplitude local maxima makes it difficult for an optimisation algorithm to converge to the global maximum. On the other hand, all control variables share the same nature, (continuous variables), and exhibit identical scales. Additionally, all constraints are of the inequality type, and the feasible space is non-disjoint.
 
-The problem becomes more complicated with the inclusion of the constraints outlined in \ref{eq:KBF_constraints}. Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
+The problem becomes more complicated with the inclusion of the constraints outlined in (\ref{eq:KBF_constraints}). Figure \ref{fig:KBF_Feasible} illustrates the resulting feasible region carved out of the original function space. Notably, the contstraint boundaries are non-linear. The problem complexity is additionally excaberated by the presence of multiple optima along the constraint boundaries, including the global maxima that we seek to identify.
 
 These properties make the KBF a suitable candidate for the comparative analysis of the two optimisation algorithms, as discussed in the previous work of \cite{ELBELTAGY1999639}.
 
@@ -115,7 +115,7 @@ These properties make the KBF a suitable candidate for the comparative analysis 
 \section{The Continuous Genetic Algorithm (CGA)}
 \label{sec:CGA}
 
-The discrete nature of the GA presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in \ref{eq:KBF_cost}-\ref{eq:KBF_constraints}.
+The discrete nature of the GA presented in \cite{parks2023geneticalgorithms} makes it unsuitable for the optimisation of the KBF. An implementation of a Continuous Genetic Algorithm, (CGA), is used instead, which lends itself better to the problems presented in (\ref{eq:KBF_cost})-(\ref{eq:KBF_constraints}).
 
 The CGA, a technique inspired by natural selection and genetics, presents itself as particularly well-suited to tackling challenges associated with multiple local optima. Furthermore, the algorithm lends itself well to parallelisation with low implementation effort, and offers ample opportunities for modifications and adaptations, supported by a rich body of literature on the subject.
 
@@ -212,7 +212,7 @@ Instead, a simpler approach was adopted, where genes within the population have 
 
 \subsubsection{Evaluation}
 
-The population is then evaluated, and the individuals are ranked in order of fitness. Here, the fitness is defined as the negative of the KBF cost function, outlined in \ref{eq:KBF_cost}. This is done to align the algorithm with the maximisation of the KBF.
+The population is then evaluated, and the individuals are ranked in order of fitness. Here, the fitness is defined as the negative of the KBF cost function, outlined in (\ref{eq:KBF_cost}). This is done to align the algorithm with the maximisation of the KBF.
 
 \subsubsection{Termination}
 
@@ -244,7 +244,7 @@ Supplementary results regarding this initial exploration of hyperparameter tunin
     \label{fig:CGA_fitness_evo}
 \end{figure}
 \vspace{-1mm}
-However, more insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
+However, more insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the rapid evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
 
 The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
 
@@ -378,7 +378,7 @@ Fig. \ref{fig:PTtemp} illustrates the influence of parameter $p$ on the temperat
     \centering
     \includegraphics[width=0.48\textwidth]{../figures/Permanent Images/Power_Progression.png}
     \captionsetup{justification=centering}
-    \caption{Temperature schedule \ref{eq:PTtemp} for the PT algorithm for different values of the \textit{POWER\_TERM} hyperparameter.}
+    \caption{Temperature schedule (\ref{eq:PTtemp}) for the PT algorithm for different values of the \textit{POWER\_TERM} hyperparameter.}
     \label{fig:PTtemp}
 \end{figure}
 
@@ -413,7 +413,7 @@ Here, the constants $\alpha$ and $\omega$ are set at 0.1 and 2.1 respectively, i
 \subsubsection{Metropolis-Hastings Acceptance Criterion}
 \label{sec:PT_MA}
 
-The probability of accepting a proposed solution is determined by the Metropolis-Hastings acceptance criterion. This has been specifically formulated to work alongside the "adapting" update step, \ref{eq:PTupdate}, with additional insights drawn from the works of \cite{NT90-A34350} and \cite{Neal_1996}. The probability of accepting a new solution generated by Eq. \ref{eq:PTupdate} is given by:
+The probability of accepting a proposed solution is determined by the Metropolis-Hastings acceptance criterion. This has been specifically formulated to work alongside the "adapting" update step, (\ref{eq:PTupdate}), with additional insights drawn from the works of \cite{NT90-A34350} and \cite{Neal_1996}. The probability of accepting a new solution generated by Eq. (\ref{eq:PTupdate}) is given by:
 \[
     P_{\text{accept}} = \min\left[1, \exp\left(\frac{f(\mathbf{x_{\text{new}}}) - f(\mathbf{x_{\text{old}}})}{k \cdot T_i \cdot \tilde{d}}\right)\right]
 \]
@@ -481,7 +481,7 @@ In summary and to reiterate, the PT algorithm is now constructed as follows:
     \item \textbf{Exchange Parameter:} N/A
 \end{itemize}
 
-Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once better solutions are identified and arrived at through the MCMC updating process.
+Fig. \ref{fig:PToptimal_fitness} depicts the evolution of the fitness values over 100 iterations using the optimal hyperparameters delineated above. The fitness of the best solution drops noticeably once better solutions are identified and arrived at through the MCMC updating process, however the progress is much slower than that of the CGA.
 
 \begin{figure}[H]
     \centering
@@ -571,6 +571,12 @@ The two algorithms yielded fairly divergent solutions, as described in the last 
 
 However, this advantage comes with a trade-off in terms of increased computational demands. Specifically, the PT algorithm required approximately double the time to finish the 15,000 iterations compared to the CGA. Additionally, the PT algorithm required an extra 2551 iterations to converge to its optimal solution, resulting in a greater time investment of approximately 335.9 seconds, with respect to the CGA.
 
+While the CGA required less implementation effort, it consistently exhibited swift convergence, quickly reaching solutions in close proximity to its optimal outcome. In contrast, the PT algorithm displayed a gradual descent, highlighting its greater exploratory nature. 
+
+Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
+
+Although the PT algorithm's final solutions were only marginally superior to those of the CGA, it demanded significantly more CPU time to attain this outcome. Depending on the application and the consistency of this result, the CGA might be a more preferable algorithm. This observation is a valuable insight from the trial run, and emphasises the importance of considering expectations and identifying standard deviations in the final comparison.
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -593,9 +599,6 @@ However, this advantage comes with a trade-off in terms of increased computation
     \label{tab:trial_comparison}
 \end{table}
 
-Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
-
-
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -616,6 +619,7 @@ Upon repeated trials, the PT algorithm was unable to consistently overtake the C
 \subsection{Final Comparison}
 Having validated the experiment with a trial run, the final comparison was conducted using 50 different intialisations, generated with the following random seeds:
 
+[588541, 776379, 146310, 178897, 630385, 455226, 75798, 763473, 295412, 733068, 521014, 926074, 667371, 58738, 543141, 263789, 572073, 46141, 360713, 247094, 379228, 395478, 102912, 110855, 602020, 673151, 903361, 138526, 750056, 969814, 998683, 433667, 885222, 414036, 401547, 862285, 671914, 26963, 764090, 99348, 794953, 642883, 292349, 168953, 736085, 528540, 558369, 41243, 168530, 285025]
 \end{multicols}
 \bibliographystyle{plain}
 \bibliography{refs} % Entries are in the refs.bib file
