@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  19 DEC 2023 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.5.31)  19 DEC 2023 14:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E
+**/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
 (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -456,7 +456,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count301
 \l__pdf_internal_box=\box101
-) (./4M17_CW2_5730E.aux
+) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux
 
 LaTeX Warning: Label `sec:CGA' multiply defined.
 
@@ -565,7 +565,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
- (./4M17_CW2_5730E.out) (./4M17_CW2_5730E.out)
+ (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out) (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.out)
 \@outlinefile=\write3
 \openout3 = `4M17_CW2_5730E.out'.
 
@@ -583,7 +583,7 @@ Package gensymb Warning: Not defining \micro.
 \c@lstlisting=\count309
 
 
-pdfTeX warning: pdflatex (file ./Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex (file /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Coursework Coversheet.pdf, id=156, 597.55246pt x 845.07724pt>
 File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf>
@@ -591,17 +591,17 @@ Package pdftex.def Info: Coursework Coversheet.pdf  used on input line 50.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
-pdfTeX warning: pdflatex (file ./Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex (file /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf>
 Package pdftex.def Info: Coursework Coversheet.pdf  used on input line 50.
 (pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
-pdfTeX warning: pdflatex (file ./Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex (file /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
 
-pdfTeX warning: pdflatex (file ./Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex (file /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Coursework Coversheet.pdf, id=159, page=1, 597.55246pt x 845.07724pt>
 File: Coursework Coversheet.pdf Graphic file (type pdf)
 <use Coursework Coversheet.pdf, page 1>
@@ -625,7 +625,7 @@ Package pdftex.def Info: Coursework Coversheet.pdf , page1 used on input line 50
 (pdftex.def)             Requested size: 562.1644pt x 795.03036pt.
 [1
 
- <./Coursework Coversheet.pdf>]
+ </home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/Coursework Coversheet.pdf>]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -764,72 +764,72 @@ File: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png Graphic fi
 <use ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>
 Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png  used on input line 614.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
- [15]
+ [15 <../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png>]
 Overfull \hbox (5.6448pt too wide) in paragraph at lines 631--650
  [] 
  []
 
-<../figures/Final Comparison/CGA vs PT Average Fitness.png, id=426, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Average Fitness.png, id=429, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Average Fitness.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Average Fitness.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness.png  used on input line 657.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Average Fitness.png  used on input line 663.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
-<../figures/Final Comparison/CGA vs PT Minimum Fitness.png, id=427, 462.528pt x 346.896pt>
+<../figures/Final Comparison/CGA vs PT Minimum Fitness.png, id=430, 462.528pt x 346.896pt>
 File: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png Graphic file (type png)
 <use ../figures/Final Comparison/CGA vs PT Minimum Fitness.png>
-Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png  used on input line 662.
+Package pdftex.def Info: ../figures/Final Comparison/CGA vs PT Minimum Fitness.png  used on input line 668.
 (pdftex.def)             Requested size: 232.41867pt x 174.31564pt.
-[16 <../figures/Final Comparison/CGA vs PT Average Fitness TRIAL.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness TRIAL.png> <../figures/Final Comparison/CGA vs PT Average Fitness.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness.png>]
+[16 <../figures/Final Comparison/CGA vs PT Average Fitness.png> <../figures/Final Comparison/CGA vs PT Minimum Fitness.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 686--687
 []\OT1/bch/b/n/10 Limited Ex-plo-ration of Hy-per-pa-ram-e-ter
  []
 
-[17] [18] (./4M17_CW2_5730E.bbl) [19]
-<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=454, 1445.4pt x 361.35pt>
+[17] (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.bbl) [18]
+<../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png, id=448, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png  used on input line 749.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=455, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png, id=449, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png  used on input line 755.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=458, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png, id=452, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png  used on input line 787.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
-<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=459, 1445.4pt x 361.35pt>
+<../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png, id=453, 1445.4pt x 361.35pt>
 File: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png Graphic file (type png)
 <use ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>
 Package pdftex.def Info: ../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png  used on input line 793.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
- [20 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=469, 1445.4pt x 361.35pt>
+ [19 <../figures/KBF/10_iters/Proportional/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/Proportional/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png, id=465, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png>
 Package pdftex.def Info: ../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png  used on input line 845.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
- [21 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
-<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=477, 1445.4pt x 361.35pt>
+ [20 <../figures/KBF/10_iters/SRS/Crossover/0.05_0.7_Population.png> <../figures/KBF/10_iters/SRS/Heuristic Crossover/0.05_0.7_Population.png>]
+<../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png, id=473, 1445.4pt x 361.35pt>
 File: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png Graphic file (type png)
 <use ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>
 Package pdftex.def Info: ../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png  used on input line 853.
 (pdftex.def)             Requested size: 411.58134pt x 102.89207pt.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
-) [22 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
+) [21 <../figures/KBF/100_iters/Periodic/Power/0.1_1_Solutions.png> <../figures/KBF/100_iters/Stochastic/Power/0.1_1_Solutions.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 899.
- [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
+ [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1809.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52]
+) [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2863.
- [53]
+ [52]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 2863.
- (./4M17_CW2_5730E.aux)
+ (/home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2863.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2863.
 Package rerunfilecheck Info: File `4M17_CW2_5730E.out' has not changed.
@@ -841,13 +841,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2863.
  ) 
 Here is how much of TeX's memory you used:
- 14796 strings out of 481239
- 225441 string characters out of 5920377
- 1020561 words of memory out of 5000000
+ 14795 strings out of 481239
+ 226144 string characters out of 5920377
+ 1020565 words of memory out of 5000000
  27692 multiletter control sequences out of 15000+600000
  562396 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,18n,46p,1023b,2047s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,18n,46p,1027b,2047s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{PT_TuningExperiments.py} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{CGA_TuningExperiments.py} has been referenced but does not exist, replaced by a fixed one
@@ -881,10 +881,10 @@ pdfTeX warning (dest): name{sec:CGA} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{sec:algorithms} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on 4M17_CW2_5730E.pdf (53 pages, 3769475 bytes).
+Output written on /home/pr478@ad.eng.cam.ac.uk/repos/4M17-Coursework-2/Report/4M17_CW2_5730E.pdf (52 pages, 3769331 bytes).
 PDF statistics:
- 3072 PDF objects out of 3580 (max. 8388607)
- 2904 compressed objects within 30 object streams
- 2085 named destinations out of 2487 (max. 500000)
+ 3068 PDF objects out of 3580 (max. 8388607)
+ 2901 compressed objects within 30 object streams
+ 2084 named destinations out of 2487 (max. 500000)
  475 words of extra memory for PDF output out of 10000 (max. 10000000)
 

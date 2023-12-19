@@ -245,7 +245,7 @@ Supplementary results regarding this initial exploration of hyperparameter tunin
     \caption{Evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. The results are presented for both mutation procedures: crossover and heuristic crossover. Here, the mutation rate was set to 0.05, and the crossover probability was set to 0.7.}
     \label{fig:CGA_fitness_evo}
 \end{figure}
-\vspace{-2mm}
+\vspace{-4mm}
 However, more insightful conclusions can be drawn from the figures presented in \ref{fig:CGA_fitness_evo}, which illustrate the rapid evolution of the average fitness values of the CGA population over 100 iterations for each of the selection methods. They illustrate that tournament selection seemed to outperform the other two selection methods when maximising the KBF, which is surprising given the favourable description in \cite{parks2023geneticalgorithms} regarding SRS. 
 
 The experiment was repeated several times, yielding results that were admittedly variable, attributed to the inherent stochastic nature of the CGA. At times, the superiority of SRS over tournament selection was evident, yet proportional selection generally did not prove to perform better. Despite this variability, the outcomes exhibited sufficient consistency to justify the designation of tournament selection as the primary method for the upcoming comparison.
@@ -577,10 +577,6 @@ While the CGA required less implementation effort, it consistently exhibited swi
 
 Upon repeated trials, the PT algorithm was unable to consistently overtake the CGA within 10,000 iterations. As a result, it is unlikely that this dynamic will be evident in the final comparison. Nevertheless, the trial run yields valuable insights into the relative performance of the two algorithms and sheds light on potential trade-offs. Additionally, it reinforces the appropriateness of the convergence criterion, which was subsequently employed in the final comparative analysis.
 
-Although the PT algorithm's final solutions were only marginally superior to those of the CGA, it demanded significantly more CPU time to attain this outcome. Depending on the application and the consistency of this result, the CGA might be a more preferable algorithm. This observation is a valuable insight from the trial run, and emphasises the importance of considering expectations and identifying standard deviations in the final comparison.
-
-An additional notable observation is the pronounced and turbulent trajectory in the average fitness values of the CGA after convergence, as depicted in Figure \ref{fig:trial_fitness}. This phenomenon can be ascribed to the inherent stochasticity of crossover, leading to a consistent dispersion of the population across regions of the function characterised by low values. In contrast, the average fitness of the PT algorithms exhibits a gradual descent, attributed to the greater determinism of its update procedure under the Metropolis-Hastings acceptance criterion.
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -602,6 +598,10 @@ An additional notable observation is the pronounced and turbulent trajectory in 
     \caption{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).}
     \label{tab:trial_comparison}
 \end{table}
+
+Although the PT algorithm's final solutions were only marginally superior to those of the CGA, it demanded significantly more CPU time to attain this outcome. Depending on the application and the consistency of this result, the CGA might be a more preferable algorithm. This observation is a valuable insight from the trial run, and emphasises the importance of considering expectations and identifying standard deviations in the final comparison.
+
+An additional notable observation is the pronounced and turbulent trajectory in the average fitness values of the CGA after convergence, as depicted in Figure \ref{fig:trial_fitness}. This phenomenon can be ascribed to the inherent stochasticity of crossover, leading to a consistent dispersion of the population across regions of the function characterised by low values. In contrast, the average fitness of the PT algorithms exhibits a gradual descent, attributed to the greater determinism of its update procedure under the Metropolis-Hastings acceptance criterion.
 
 \begin{figure}[H]
     \centering
@@ -651,6 +651,12 @@ The results are presented in Table \ref{tab:final_comparison} and Fig. \ref{fig:
     \label{tab:final_comparison}
 \end{table}
 
+The contrast in the mean final fitness values of the optimal solutions amounted to a mere 0.0186, corresponding to a marginal 2.65\% disparity. This slight difference implies that the CGA demonstrated only a modest advantage over the PT algorithm in terms of solution quality after 10,000 iterations. This outcome suggests that the 10,000 iterations was not sufficient for the PT algorithm to thoroughly explore the search space and converge to the global maxima. Although it is challenging to definitively assert that more iterations would have led to global convergence, the observed trend in Fig. \ref{fig:final_fitness} strongly suggests that such convergence was likely, and that the PT algorihtm would have eventually overtaken the CGA.
+
+However, the contrast in the standard deviations of their final minimum fitness values paints a different picture, showcasing a discrepancy of 0.00961, equivalent to 37.5\%. The PT algorithm demonstrated considerably greater stability in reaching its final optimal solution. Although its average fitness across the entire set of solutions displayed more variability than the CGA, this characteristic regarding its optimal solution could confer an advantage to the PT algorithm in specific applications where a slightly inferior optimal objective function evaluation is acceptable in exchange for consistently reliable performance.
+
+Furthermore, an additional noteworthy observation is that the PT algorithm demanded an additional 79.72 seconds to execute the entire 10,000 iterations, representing a substantial 61.2\% increase above the CGA. On average, it also necessitated 332 more iterations for convergence, translating to roughly 44.83 seconds more than the CGA, marking a noteworthy 67.0\% difference. This notable disparity can be ascribed to the inherently more parallel and exploratory approach of the PT algorithm, underscoring that the CGA is better suited for applications prioritising computational efficiency.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -667,12 +673,6 @@ The results are presented in Table \ref{tab:final_comparison} and Fig. \ref{fig:
 \caption{Evolution of fitness values over 10,000 iterations for the CGA and PT algorithms, using 50 shared initialisations.}
 \label{fig:final_fitness}
 \end{figure}
-
-The contrast in the mean final fitness values of the optimal solutions amounted to a mere 0.0186, corresponding to a marginal 2.65\% disparity. This slight difference implies that the CGA demonstrated only a modest advantage over the PT algorithm in terms of solution quality after 10,000 iterations. This outcome suggests that the 10,000 iterations was not sufficient for the PT algorithm to thoroughly explore the search space and converge to the global maxima. Although it is challenging to definitively assert that more iterations would have led to global convergence, the observed trend in Fig. \ref{fig:final_fitness} strongly suggests that such convergence was likely, and that the PT algorihtm would have eventually overtaken the CGA.
-
-However, the contrast in the standard deviations of their final minimum fitness values paints a different picture, showcasing a discrepancy of 0.00961, equivalent to 37.5\%. The PT algorithm demonstrated considerably greater stability in reaching its final optimal solution. Although its average fitness across the entire set of solutions displayed more variability than the CGA, this characteristic regarding its optimal solution could confer an advantage to the PT algorithm in specific applications where a slightly inferior optimal objective function evaluation is acceptable in exchange for consistently reliable performance.
-
-Furthermore, an additional noteworthy observation is that the PT algorithm demanded an additional 79.72 seconds to execute the entire 10,000 iterations, representing a substantial 61.2\% increase above the CGA. On average, it also necessitated 332 more iterations for convergence, translating to roughly 44.83 seconds more than the CGA, marking a noteworthy 67.0\% difference. This notable disparity can be ascribed to the inherently more parallel and exploratory approach of the PT algorithm, underscoring that the CGA is better suited for applications prioritising computational efficiency.
 
 Another salient aspect to consider is that the CGA was comparatively simpler to implement than the PT algorithm. However, it is important to acknowledge the potential influence of personal bias, as Genetic Algorithms were covered in the lecture materials, while the PT algorithm was not. Simlarly, accessing literature for inspiration and guidance was markedly easier for the CGA implementation and its adaptions than it was for the PT algorithm. This discrepancy in accessibility presents an additional practical advantage in favor of the CGA.
 
