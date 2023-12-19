@@ -1,3 +1,11 @@
+"""
+Candidate No : 5730E, Module: 4M17 
+
+Description :
+    This file serves as a platform to run multiple simulations of the PT algorithm.
+    Used to generate the results for the table and figures in Section 4.2 of the report.                     
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from multiprocessing import Pool
@@ -37,8 +45,9 @@ def PT_initial_tuning(params):
     # Parse parameters
     EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER, NUM_ITERS = params 
 
-    # Set schedule name
+    # Set schedule name for files and plots
     SCHEDULE_NAME = TEMP_TYPE + " " + str(PROGRESSION_POWER) if TEMP_TYPE == 'Power' else TEMP_TYPE
+
     # Instantiate PT object
     PT = ParallelTempering(
         objective_function=FUNCTION,
@@ -114,7 +123,7 @@ def PT_initial_tuning(params):
         'Avg. Fitness Progression': avg_fitness
     }
 
-### Used to generate heatmaps in 4.2 ###
+### Function used to generate heatmaps in Section 4.2/Appendix of the report ###
 def power_exchange_mesh(params):
     """
     Parallelisable function to create mesh grids for heat map plots to assess
@@ -125,6 +134,7 @@ def power_exchange_mesh(params):
     # Parse parameters
     i, j, EXCHANGE_PROCEDURE, EXCHANGE_PARAM, PROGRESSION_POWER = params
 
+    # Instantiate PT object
     PT = ParallelTempering(
         objective_function=FUNCTION,
         x_dim=X_DIM,
@@ -137,10 +147,12 @@ def power_exchange_mesh(params):
         power_term=PROGRESSION_POWER
     )
 
+    # Run algorithm for 100 iterations
     for iter in range(100):
         PT.update_chains()
         PT.replica_exchange(i)
 
+    # Get final fitness
     final_avg_fitness, final_min_fitness = PT.get_fitness()
 
     return i, j, final_avg_fitness, final_min_fitness
@@ -219,6 +231,7 @@ EXCHANGE_PROCEDURE = 'Stochastic'
 EXCHANGE_PARAM_LIST = [0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5]
 PROGRESSION_POWER_LIST = range(1, 10)
 
+# Create mesh grid for exchange parameters and power terms
 X, Y = np.meshgrid(EXCHANGE_PARAM_LIST, PROGRESSION_POWER_LIST)
 
 # Initialise arrays to store fitness values
@@ -308,6 +321,7 @@ for idx in range(num_plots):
     axs[1][idx].set_title(f'Temperature = {temps[idx]:.2f}')
     plt.colorbar(axs[1][idx].contourf(X1, X2, f_temp, 100, cmap='inferno'), ax=axs[1][idx])
 
+# Plot evolution for 100 iterations
 for iter in range(100):
     if iter % PLOT_EVERY == 0:
         plot_num = (iter // PLOT_EVERY)

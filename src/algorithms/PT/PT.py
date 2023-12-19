@@ -27,6 +27,7 @@ class ParallelTempering():
         - omega (float): Weighting for max. allowable step size update
         - num_replicas (int): Number of replicas
         - num_chains (int): Number of solutions per replica
+        - exchange_procedure (str): Procedure for exchanging solutions between replicas
         - exchange_param (float between 0 and 1): 
             if exchange_procedure = 'Periodic', this is the percentage of iterations after which to exchange solutions
             if exchange_procedure = 'Stochastic', this is the probability of exchanging solutions between replicas during each iteration
@@ -111,8 +112,8 @@ class ParallelTempering():
         """
         Return best solution out of all replicas and solutions.
 
-        Parameter, all_solutions, is optional. It is already at hand in the fitness function, 
-        so we can pass it in to reduce overhead. If not passed in, get_all_solutions() is called.
+        Parameter, all_solutions, is optional. All solutions are already at hand in the fitness function, 
+        so we can directly pass it into this to reduce overhead. If not passed in, get_all_solutions() is called.
         """
         if all_solutions is None:
             # Get a list of all solutions
@@ -135,7 +136,7 @@ class ParallelTempering():
 
     def metropolis_criterion(self, x, x_new, T, T_new=None):
         """
-        Metropolis Hastings criterion for accepting new solution.
+        Metropolis-Hastings criterion for accepting new solution.
         Acceptance probability as advised by Simulated Annealing lecture notes (Parks et al.)
 
         Despite efforts to avoid overflow, the small Boltzmann constant still causes problems.
@@ -209,7 +210,7 @@ class ParallelTempering():
             # Loop through each solution in replica
             for j in range(self.num_chains):
 
-                # Generate new solution, [ x_new = x + D * N(0, 1) ], where D is max. allowable step size
+                # Generate new solution, [ x_new = x + D * U(-1, 1) ], where D is max. allowable step size
                 x_new = self.current_solutions[i, j] + self.max_change[i][j] @ np.random.uniform(-1, 1, self.x_dim)
 
                 # Metropolis-Hastings criterion
@@ -218,7 +219,7 @@ class ParallelTempering():
                     # Update current solution if new solution is accepted
                     self.current_solutions[i, j] = x_new
 
-                    # Update max. allowable step size
+                    # Update max. allowable step size if new solution is accepted
                     self.update_max_change(self.current_solutions[i, j], x_new, i, j)
         
 

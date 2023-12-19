@@ -23,6 +23,7 @@ def geometric_progression(num_replicas, p=1):
     """
     Geometric progression for temperature scheduling. 
     Returns 2^i / 2^num_replicas for i in [0, num_replicas].
+    (Was not used, because power progression allows for more flexibility).
     
     Parameters:
     - num_replicas (int): Number of replicas

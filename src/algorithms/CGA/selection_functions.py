@@ -46,7 +46,7 @@ def tournament_selection(GCA):
     # Initialise list of selected individuals
     selected_individuals = []
 
-    # Select top two parents for each tournament, so need GCA.num_parents//2 tournaments
+    # Select top two parents for each tournament, so need 'GCA.num_parents // 2' tournaments
     for i in range(GCA.num_parents//2):
 
         # Take subset of population
@@ -104,12 +104,13 @@ def SRS_selection(GCA):
         if satisfy_constraints(GCA.population[i]):
             selected_individuals += [i] * int(num_copies[i]) # Add i to list num_copies[i] times
 
-    # Remainer must satisfy sum(remainder) = 1, since it serves as probability
+    # Remainer must satisfy sum(remainder) = 1, since it serves as the probabilities for further selection
     remainder = remainder / np.sum(remainder)
 
     # Calculate remaining number of individuals that need to be selected
     remaining_number = GCA.num_parents - len(selected_individuals)
-
+    
+    # Cannot be negative
     remaining_number = remaining_number if remaining_number > 0 else 0
 
     # Select individuals using remainder probabilities

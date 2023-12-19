@@ -8,7 +8,6 @@ Description :
 import numpy as np
 import sys; sys.path.append('..')
 
-# Import selection and mating functions from directory files
 from src.algorithms.CGA.selection_functions import proportional_selection, tournament_selection, SRS_selection
 from src.algorithms.CGA.mating_functions import crossover, heuristic_crossover
 from src.utils.helper_functions import satisfy_constraints
@@ -28,7 +27,6 @@ class ContinousGeneticAlgorithm():
         - objective_function (function): Objective function to optimise
         - tournament_size (int): Size of subset of population for tournament selection
         - range (tuple): Range of values for genes, determined by constraints of problem
-        - num_iters (int): Number of iterations
         - mutation_rate (float): Mutation rate
         - crossover_prob (float): Crossover rate
         - selection_method (str): Selection method used for parent selection
@@ -56,6 +54,7 @@ class ContinousGeneticAlgorithm():
                           'Heuristic Crossover': heuristic_crossover 
                           }
 
+        # Check if selection method and mating procedure are valid
         if selection_method not in ['Proportional', 'Tournament', 'SRS']:
             raise ValueError(f"Invalid selection method: {selection_method}")
         else:
@@ -66,7 +65,8 @@ class ContinousGeneticAlgorithm():
         else:
             self.mating_process = mating_mapping[mating_procedure]
 
-        self.initialise_population() # Initialise population
+        # Initialise population
+        self.initialise_population() 
         
     def initialise_population(self):
         """
@@ -124,7 +124,7 @@ class ContinousGeneticAlgorithm():
 
     def mutate(self):
         """
-        Mutate offspring.
+        Mutate offspring. Every gene has a mutation rate chance of being mutated.
         """
         for i in range(self.population_size):
             for j in range(self.chromosome_length):

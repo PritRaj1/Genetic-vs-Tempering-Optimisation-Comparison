@@ -71,7 +71,7 @@ def plot_population(population, plot, best=None, last=None):
     - population (np.ndarray): Population of individuals.
     - plot (matplotlib.pyplot): Plot to overlay on.
     - best (np.ndarray): Best individual.
-    - last (np.ndarray): Last individual, (for visualising MCMC moves).
+    - last (np.ndarray): Last individual in collection, (for highlighting to visualise MCMC moves).
     """
 
     # Plot population
@@ -141,19 +141,5 @@ def plot_fitness(avg_fitness, min_fitness, type, PT=False):
     
     plt.legend()
     plt.savefig(f'figures/{type[0]}/{str(type[1])}_iters/{type[2]}/{type[3]}/{type[4]}_{type[5]}_Fitness.png')
-
-def plot_temp_progressions():
-    num = 25
-    plt.figure(figsize=(7,5))
-    sns.set_style('darkgrid')
-
-    for i in range(1, 7):
-        plt.plot(power_progression(num, p=i), label=f'Power: {i}')
-    
-    plt.xlabel('Time in Temperature Schedule')
-    plt.ylabel('Temperature')
-    plt.title('Temperature Schedules for Different Powers')
-    plt.legend()
-    plt.savefig('figures/Permanent Images/Power_Progression.png')
 
 

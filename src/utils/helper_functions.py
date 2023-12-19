@@ -46,6 +46,7 @@ def evaluate_2D(func, x_range=(0,10), constraints=False):
         for j in range(X1.shape[1]):
             f[i, j] = func(np.array([X1[i, j], X2[i, j]]))
 
+            # If constraints are enabled, set f to nan if constraints are not satisfied
             if constraints == True:
                 if not satisfy_constraints(np.array([X1[i, j], X2[i, j]])):
                     f[i, j] = np.nan

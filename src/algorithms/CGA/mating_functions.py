@@ -13,7 +13,7 @@ def crossover(CGA):
     # Select parents
     selected_parents = CGA.select_parents()
 
-    # Reschape them into a set of potential parent pairs
+    # Reshape them into a set of potential parent pairs
     parent_pairs = np.array(selected_parents).reshape(-1, 2)
 
     # Initialise new offspring to replace population
