@@ -578,8 +578,8 @@ Upon repeated trials, the PT algorithm was unable to consistently overtake the C
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
-    \cline{2-6}\\
-    \multicolumn{1}{c}{} & \textbf{Final Avg. Fitness} & \textbf{Final Min. Fitness} & \textbf{Total Time Taken} & \textbf{Iters to Convergence} \\
+    \hline
+    & \textbf{Final Avg. Fitness} & \textbf{Final Min. Fitness} & \textbf{Total Time Taken} & \textbf{Iters to Convergence} \\
     \hline
     \textbf{CGA} & -0.4971 & -0.6901 & 299.2 & 9349 \\
     \textbf{PT} & -0.4646 & -0.7081 & 592.7 & 11990 \\
@@ -763,6 +763,85 @@ Having validated the experiment with a trial run, the final comparison was condu
     \caption{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%.  The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.}
     \label{fig:StochasticApp}
 \end{figure}
+
+\section{Code}
+\label{sec:code}
+
+To ease development, the codebase has been modularised in the manner presented below:
+
+\begin{itemize}
+    \footnotesize
+    \item[] \href{#sec:algorithms}{\textit{src/}}
+    \begin{itemize}
+        \item[] \href{#sec:CGA}{\textit{algorithms/}}
+        \begin{itemize}
+            \item[] \href{#sec:CGA}{\textit{CGA/}}
+            \begin{itemize}
+                \item[] \href{#CGApy}{\textit{CGA.py}}
+                \item[] \href{#mating_functionspy}{\textit{mating\_functions.py}}
+                \item[] \href{#selection_functionspy}{\textit{selection\_functions.py}}
+            \end{itemize}
+            \item[] \href{#sec:PT}{\textit{PT/}}
+            \begin{itemize}
+                \item[] \href{#PTpy}{\textit{PT.py}}
+                \item[] \href{#replica_exchange_functionspy}{\textit{replica\_exchange\_functions.py}}
+                \item[] \href{#temp_prog_functionspy}{\textit{temp\_prog\_functions.py}}
+            \end{itemize}
+        \end{itemize}
+        \item[] \href{#sec:utils}{\textit{utils/}}
+        \begin{itemize}
+            \item[] \href{#helper_functionspy}{\textit{helper\_functions.py}}
+            \item[] \href{#plotting_functionspy}{\textit{plotting\_functions.py}}
+        \end{itemize}
+        \item[] \href{#functions.py}{\textit{functions.py}}
+    \end{itemize}
+    \item[] \href{#FinalComparison.py}{\textit{FinalComparison.py}}
+    \item[] \href{#CGA_TuningExperiments.py}{\textit{CGA\_TuningExperiments.py}}
+    \item[] \href{#PT_TuningExperiments.py}{\textit{PT\_TuningExperiments.py}}
+\end{itemize}
+
+\subsection{algorithms}
+\label{sec:algorithms}
+\subsubsection{CGA}
+\label{sec:CGA}
+\begin{lstlisting}[language=Python, caption=CGA.py, label=CGApy]
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=mating\_functions.py, label=mating_functionspy]
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=selection\_functions.py, label=selection_functionspy]
+\end{lstlisting}
+\subsubsection{PT}
+\label{sec:PT}
+\begin{lstlisting}[language=Python, caption=PT.py, label=PTpy]
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=replica\_exchange\_functions.py, label=replica_exchange_functionspy]
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=temp\_prog\_functions.py, label=temp_prog_functionspy]
+\end{lstlisting}
+\subsection{utils}
+\label{sec:utils}
+\begin{lstlisting}[language=Python, caption=helper\_functions.py, label=helper_functionspy]
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=plotting\_functions.py, label=plotting_functionspy]
+\end{lstlisting}
+\subsection{functions}
+\label{sec:functions}
+\begin{lstlisting}[language=Python, caption=functions.py, label=functionspy]
+\end{lstlisting}
+\subsection{Experiments}
+\label{sec:experiments}
+\subsubsection{CGA\_TuningExperiments}
+\label{sec:CGA_TuningExperiments}
+\begin{lstlisting}[language=Python, caption=CGA\_TuningExperiments.py, label=CGA_TuningExperimentspy]
+\end{lstlisting}
+\subsubsection{PT\_TuningExperiments}
+\label{sec:PT_TuningExperiments}
+\begin{lstlisting}[language=Python, caption=PT\_TuningExperiments.py, label=PT_TuningExperimentspy]
+\end{lstlisting}
+\subsubsection{FinalComparison}
+\label{sec:FinalComparison}
+\begin{lstlisting}[language=Python, caption=FinalComparison.py, label=FinalComparisonpy]
+\end{lstlisting}
 
 \end{document}
 

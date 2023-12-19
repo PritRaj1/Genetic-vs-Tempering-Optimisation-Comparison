@@ -148,6 +148,7 @@
 \bibcite{CALDERHEAD20094028}{1}
 \bibcite{Earl_2005}{2}
 \bibcite{ELBELTAGY1999639}{3}
+\bibcite{PGA}{4}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }}{14}{table.caption.14}\protected@file@percent }
 \newlabel{tab:trial_comparison}{{1}{14}{Trial comparison between CGA and PT, after 15,000 iterations with one shared initialisation, (random seed = 538405).\relax }{table.caption.14}{}}
 \newlabel{fig:AVG_trial_fitness}{{14a}{14}{Average fitnesses.\relax }{figure.caption.15}{}}
@@ -157,7 +158,6 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405).  Best CGA individual: $[3.104, 3.027, 1.624, 0.5872, 0.5363, 0.6130, 0.5294, 0.4808]^T$  Best PT solution: $[3.111, 2.948, 3.071, 1.643, 0.3356, 0.4636, 0.4284, 0.2457]^T$\relax }}{14}{figure.caption.15}\protected@file@percent }
 \newlabel{fig:trial_fitness}{{14}{14}{Evolution of fitness values over 15,000 iterations for the CGA and PT algorithms, using a single initialisation as a trial run, (random seed = 538405). \\Best CGA individual: $[3.104, 3.027, 1.624, 0.5872, 0.5363, 0.6130, 0.5294, 0.4808]^T$\\ Best PT solution: $[3.111, 2.948, 3.071, 1.643, 0.3356, 0.4636, 0.4284, 0.2457]^T$\relax }{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Final Comparison}{14}{subsection.5.2}\protected@file@percent }
-\bibcite{PGA}{4}
 \bibcite{10.1007/BFb0029787}{5}
 \bibcite{Michalewicz_2011}{6}
 \bibcite{Miller1995GeneticAT}{7}
@@ -191,3 +191,47 @@
 \newlabel{fig:PeriodicApp}{{17}{18}{Evolution of the chain across all replicas over 100 iterations using periodic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs every 10\% of the time, (exchange parameter set to 0.1). The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.21}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }}{18}{figure.caption.22}\protected@file@percent }
 \newlabel{fig:StochasticApp}{{18}{18}{Evolution of the chain across all replicas over 100 iterations using stochastic replica exchange and a uniform temperature scheduling, (power term of 1). Here, replica exchange occurs with a probability of 10\%. The 'tracked' solution is distinct from the 'best' solution. It is a random solution within the final replica that is observed to verify the MCMC evolution.\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Code}{18}{section.7}\protected@file@percent }
+\newlabel{sec:code}{{7}{18}{Code}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}algorithms}{19}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:algorithms}{{7.1}{19}{algorithms}{subsection.7.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}CGA}{19}{subsubsection.7.1.1}\protected@file@percent }
+\newlabel{sec:CGA}{{7.1.1}{19}{CGA}{subsubsection.7.1.1}{}}
+\newlabel{CGApy}{{1}{19}{CGA.py}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}CGA.py}{19}{lstlisting.1}\protected@file@percent }
+\newlabel{mating_functionspy}{{2}{19}{mating\_functions.py}{lstlisting.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}mating\_functions.py}{19}{lstlisting.2}\protected@file@percent }
+\newlabel{selection_functionspy}{{3}{19}{selection\_functions.py}{lstlisting.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}selection\_functions.py}{19}{lstlisting.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}PT}{19}{subsubsection.7.1.2}\protected@file@percent }
+\newlabel{sec:PT}{{7.1.2}{19}{PT}{subsubsection.7.1.2}{}}
+\newlabel{PTpy}{{4}{19}{PT.py}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}PT.py}{19}{lstlisting.4}\protected@file@percent }
+\newlabel{replica_exchange_functionspy}{{5}{19}{replica\_exchange\_functions.py}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}replica\_exchange\_functions.py}{19}{lstlisting.5}\protected@file@percent }
+\newlabel{temp_prog_functionspy}{{6}{19}{temp\_prog\_functions.py}{lstlisting.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}temp\_prog\_functions.py}{19}{lstlisting.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}utils}{19}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:utils}{{7.2}{19}{utils}{subsection.7.2}{}}
+\newlabel{helper_functionspy}{{7}{19}{helper\_functions.py}{lstlisting.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}helper\_functions.py}{19}{lstlisting.7}\protected@file@percent }
+\newlabel{plotting_functionspy}{{8}{19}{plotting\_functions.py}{lstlisting.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}plotting\_functions.py}{19}{lstlisting.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}functions}{19}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:functions}{{7.3}{19}{functions}{subsection.7.3}{}}
+\newlabel{functionspy}{{9}{19}{functions.py}{lstlisting.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}functions.py}{19}{lstlisting.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Experiments}{19}{subsection.7.4}\protected@file@percent }
+\newlabel{sec:experiments}{{7.4}{19}{Experiments}{subsection.7.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}CGA\_TuningExperiments}{19}{subsubsection.7.4.1}\protected@file@percent }
+\newlabel{sec:CGA_TuningExperiments}{{7.4.1}{19}{CGA\_TuningExperiments}{subsubsection.7.4.1}{}}
+\newlabel{CGA_TuningExperimentspy}{{10}{19}{CGA\_TuningExperiments.py}{lstlisting.10}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}CGA\_TuningExperiments.py}{19}{lstlisting.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}PT\_TuningExperiments}{19}{subsubsection.7.4.2}\protected@file@percent }
+\newlabel{sec:PT_TuningExperiments}{{7.4.2}{19}{PT\_TuningExperiments}{subsubsection.7.4.2}{}}
+\newlabel{PT_TuningExperimentspy}{{11}{19}{PT\_TuningExperiments.py}{lstlisting.11}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}PT\_TuningExperiments.py}{19}{lstlisting.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.3}FinalComparison}{19}{subsubsection.7.4.3}\protected@file@percent }
+\newlabel{sec:FinalComparison}{{7.4.3}{19}{FinalComparison}{subsubsection.7.4.3}{}}
+\newlabel{FinalComparisonpy}{{12}{19}{FinalComparison.py}{lstlisting.12}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}FinalComparison.py}{19}{lstlisting.12}\protected@file@percent }
