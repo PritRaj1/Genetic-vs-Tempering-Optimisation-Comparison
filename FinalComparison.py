@@ -14,13 +14,18 @@ import pandas as pd
 # No solution has a function value > 0.3, (away from global optimum)
 initial_pop_list, seeds = generate_initial(x_dim=8, pop_size=250)
 
-MAX_NUM_ITERS = 15000
+MAX_NUM_ITERS = 10000
+
+# Convergence criteria
+eps = 0.00025
+conv_iters = 1300 
 
 ### CGA Gather Results ###
 CGA_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 CGA_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 CGA_times_ALL = np.zeros(50)
 CGA_best_Xs = np.zeros((50, 8))
+CGA_converg_iters = np.zeros(50)
 
 for run_iter, initialisation in enumerate(initial_pop_list):
     
@@ -45,6 +50,7 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     min_fitness = np.zeros(MAX_NUM_ITERS)
 
     # Max number of iterations = MAX_NUM_ITERS
+    conv_count = 0
     CGA_tic = time()
     for i in range(MAX_NUM_ITERS):
         
@@ -54,6 +60,15 @@ for run_iter, initialisation in enumerate(initial_pop_list):
         # Update fitness arrays
         avg_fitness[i] = np.mean(CGA.fitness)
         min_fitness[i] = CGA.min_fitness
+
+        # Check if the algorithm has converged
+        if i != 0 and np.linalg.norm(min_fitness[i] - min_fitness[i-1]) < eps:
+            conv_count += 1
+        else:
+            conv_count = 0
+
+        if conv_count == conv_iters:
+            CGA_converg_iters[run_iter] = i - conv_iters
 
     # Time taken to run algorithm
     CGA_toc = time()
@@ -69,6 +84,7 @@ PT_AvgFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 PT_MinFit_ALL = np.zeros((50, MAX_NUM_ITERS))
 PT_times_ALL = np.zeros(50)
 PT_best_Xs = np.zeros((50, 8))
+PT_converg_iters = np.zeros(50)
 
 for run_iter, initialisation in enumerate(initial_pop_list):
 
@@ -94,6 +110,7 @@ for run_iter, initialisation in enumerate(initial_pop_list):
     min_fitness = np.zeros(MAX_NUM_ITERS)
 
     # Max number of iterations = MAX_NUM_ITERS
+    conv_count = 0
     PT_tic = time()
     for i in range(MAX_NUM_ITERS):
         
@@ -103,6 +120,15 @@ for run_iter, initialisation in enumerate(initial_pop_list):
 
         # Update fitness arrays
         avg_fitness[i], min_fitness[i] = PT.get_fitness()
+
+        # Check if the algorithm has converged
+        if i != 0 and np.linalg.norm(min_fitness[i] - min_fitness[i-1]) < eps:
+            conv_count += 1
+        else:
+            conv_count = 0
+
+        if conv_count == conv_iters:
+            PT_converg_iters[run_iter] = i - conv_iters
 
     # Time taken to run algorithm
     PT_toc = time()
@@ -120,11 +146,8 @@ CGA_MinFit_mean = np.mean(CGA_MinFit_ALL, axis=0)
 PT_MinFit_mean = np.mean(PT_MinFit_ALL, axis=0)
 
 # Find the iteration at which CGA and PT converge (when the final min fitness is first reached by the min fitness)
-eps = 0.0005
-CGA_Avg_i = np.where(np.linalg.norm(CGA_AvgFit_mean - CGA_AvgFit_mean[-1]) < eps)[0][0]
-PT_Avg_i = np.where(np.linalg.norm(PT_AvgFit_mean - PT_AvgFit_mean[-1]) < eps)[0][0]
-# CGA_Avg_i = np.where(CGA_AvgFit_mean < np.min(CGA_AvgFit_mean) + eps)[0][0]
-# PT_Avg_i = np.where(PT_AvgFit_mean < np.min(PT_AvgFit_mean) + eps)[0][0]
+CGA_Avg_i = np.mean(CGA_converg_iters)
+PT_Avg_i = np.mean(PT_converg_iters)
 
 # Plot expected average fitness values for CGA and PT
 plt.figure()
@@ -144,8 +167,8 @@ plt.figure()
 sns.set_style('darkgrid')
 plt.plot(CGA_MinFit_mean, label='CGA', color='green')
 plt.plot(PT_MinFit_mean, label='PT', color='red')
-plt.axvline(CGA_Avg_i, color='green', linestyle='--', label=f'CGA Best Converges at {int(CGA_Avg_i)} Iterations')
-plt.axvline(PT_Avg_i, color='red', linestyle='--', label=f'PT Best Convergence at {int(PT_Avg_i)} Iterations')
+plt.axvline(CGA_Avg_i, color='green', linestyle='--', label=f'CGA Best Converges at {int(CGA_Avg_i)} Iterations on Avg.')
+plt.axvline(PT_Avg_i, color='red', linestyle='--', label=f'PT Best Convergence at {int(PT_Avg_i)} Iterations on Avg.')
 plt.xlabel('Iterations')
 plt.ylabel('Minimum Fitness')
 plt.title('Expected Minimum Fitness across 50 Different Initialisations')
