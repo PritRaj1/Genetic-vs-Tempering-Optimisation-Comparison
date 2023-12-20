@@ -3,6 +3,8 @@ Investigating the performance of Parallel Tempering (PT) vs Continuous Genetic A
 
 This project was completed as part of an undergraduate coursework submission at the University of Cambridge. The project was completed independently, and it ignited a keen interest in the subject matter, (hence the chunky report). 
 
+Give the report a read if you're interested.
+
 ## Introduction
 This project delves into the comparison between the performance of Parallel Tempering (PT) and Continuous Genetic Algorithms (CGA) when applied to Keane's Bump Function (KBF). The KBF, a multimodal function rich in local minima, is visually presented in two dimensions below:
 
