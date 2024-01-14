@@ -1,7 +1,7 @@
 # Continuous Genetic Algorithm and Parallel Tempering for Optimisation of Keane’s Bump Function
 Investigating the performance of Parallel Tempering (PT) vs Continuous Genetic Algorithms (CGA) on Keane’s Bump Function (KBF).
 
-This project was completed as part of an undergraduate coursework submission at the University of Cambridge. The project was completed independently, and it ignited a keen interest in the subject matter, (hence the chunky report). 
+This project was completed as part of an undergraduate coursework submission at the University of Cambridge. The project was very open-ended and fast-paced, and it ignited a keen interest in the subject matter, (hence the chunky report). In particular, the study was independently led, with investigations generally being directed towards theoretical concepts that I found compelling.
 
 Give the report a read if you're interested.
 
