@@ -21,7 +21,7 @@ In a nutshell, the `CGA_TuningExperiments.py` file generates the figures present
 In addition, the `src/algorithms/` directory hosts the classes implementing the CGA and PT algorithms, offering a closer look at the core functionalities. Meanwhile, the `src/utils/` directory provides a collection of utility functions crucial to the entire codebase. Each function is documented with a docstring, and the code itself is commented for clarity.
 
 ## Interesting Figures to Enjoy
-Please read the report for a explanation of these tasty figures:
+Please read the report for a explanation of these figures:
 
 ![Continuouse Genetic Algorithm Initial Iterations](<figures/Permanent Images/0.1_0.65_Population.png>)
 ![Parallel Tempering Optimisation Loop](<figures/Permanent Images/PT_Optimal_Tuning.png>)
